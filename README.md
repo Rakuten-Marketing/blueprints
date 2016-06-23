@@ -11,11 +11,11 @@ You have three options.
 
 #### Option 1
 
-> NOTE: we're getting this deployed to VA.
+http://10.133.178.21:3000/
 
 #### Option 2
 
-Presuming you have Docker and Docker Compose setup on your machine, the following command should get you up and running:
+Presuming you have Docker and Docker Compose setup on your machine, the following command will get you up and running:
 
 ```bash
 $ docker-compose up
