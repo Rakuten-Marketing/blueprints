@@ -53,6 +53,9 @@ Visit Blueprints documentation page for more details.
 ### Grunt tasks
 
 ```bash
+# Creates a distribution
+$ grunt dist
+
 # Cleans the `build/` directory
 $ grunt clean
 
@@ -66,4 +69,7 @@ $ grunt docs:build
 
 # Serves the documentation
 $ grunt docs:serve
+
+# Watches `src/` directory for changes and runs SASS compiler
+$ grunt watch
 ```
