@@ -48,6 +48,17 @@ module.exports = function(grunt) {
             dest: './build/'
           }
         ]
+      },
+
+      dist: {
+        files: [
+          {
+            cwd: './build',
+            expand: true,
+            src: ['blueprints.css', 'fonts/**'],
+            dest: './dist/'
+          }
+        ]
       }
     }
   });
@@ -83,12 +94,15 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['build']);
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('docs:build', [
+  grunt.registerTask('build', [
     'clean:build',
-    'build',
+    'sass',
     'gitclone:bootstrap',
-    'copy:bootstrap',
+    'copy:bootstrap'
+  ]);
+  grunt.registerTask('dist', ['build', 'copy:dist'])
+  grunt.registerTask('docs:build', [
+    'build',
     'docs:parse',
   ]);
   grunt.registerTask('docs', ['docs:build', 'docs:serve']);
