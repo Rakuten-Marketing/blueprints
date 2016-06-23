@@ -11,7 +11,7 @@ You have three options.
 
 #### Option 1
 
-[https://rm-blueprints.herokuapp.com](https://rm-blueprints.herokuapp.com)
+> NOTE: we're getting this deployed to VA.
 
 #### Option 2
 
