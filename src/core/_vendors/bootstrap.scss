@@ -1,0 +1,38 @@
+@import '../variables';
+
+// Colors
+$gray-base: $rm-gray-base;
+
+$brand-primary: $rm-primary;
+$brand-success: $rm-success;
+$brand-info: $rm-info;
+$brand-warning: $rm-warning;
+$brand-danger: $rm-danger;
+
+// Scaffolding
+$body-bg: $rm-body-bg;
+$text-color: $rm-text-color;
+$link-color: $rm-link-color;
+$link-hover-color: $rm-link-hover-color;
+$link-hover-decoration: $rm-link-hover-decoration;
+
+// Typography
+$font-family-base: $rm-font-family;
+$font-size-base: $rm-font-size-base;
+
+//-- Components
+$border-radius-base: $rm-border-radius-base;
+$border-radius-small: $rm-border-radius-base;
+$border-radius-large: $rm-border-radius-base;
+
+// Buttons
+$btn-primary-color: $rm-white;
+$btn-primary-bg: $rm-primary;
+$btn-primary-border: $rm-primary;
+
+$btn-border-radius-base: $rm-border-radius-base;
+$btn-border-radius-large: $rm-border-radius-base;
+$btn-border-radius-small: $rm-border-radius-base;
+
+// Bootstrap import
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';

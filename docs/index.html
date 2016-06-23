@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <title>Blueprints</title>
+
+  <link rel="stylesheet" href="//use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l" media="all">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+
+  <link rel="stylesheet" href="/build/blueprints.css">
+
+  <style>
+    body {
+      padding-top: 70px;
+    }
+
+    [hljs] {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bs-example {
+      position: relative;
+      padding: 45px 15px 15px;
+      border: 1px #ddd solid;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .bs-example:after {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #959595;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      content: 'Example';
+    }
+
+    .show-grid [class^=col-] {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: rgba(86,61,124,.15);
+      border: 1px solid rgba(86,61,124,.2);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Blueprints</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/css">CSS</a>
+        </li>
+
+        <li>
+          <a href="/components">Components</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" ng-view></div>
+
+  <!-- Vendors -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+  <script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="/app.module.js"></script>
+  <script type="text/javascript" src="/home.component.js"></script>
+  <script type="text/javascript" src="/css.component.js"></script>
+  <script type="text/javascript" src="/components.component.js"></script>
+</body>
+</html>

@@ -2,9 +2,5 @@ blueprints:
   container_name: blueprints
   build: .
   dockerfile: ./Dockerfile
-  volumes:
-    - /var/www/html/blueprints
   ports:
-    - "80:80"
-    - "2224:22"
-    -  "9001:9001"
+    - 3000:3000
