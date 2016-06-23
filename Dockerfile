@@ -2,6 +2,7 @@ FROM node:wheezy
 MAINTAINER patrick henry <patrick.henry@rakuten.com>
 
 RUN mkdir -p /blueprints
+RUN mkdir -p /blueprints/build
 ADD docs /blueprints/docs
 ADD src /blueprints/src
 ADD Gruntfile.js /blueprints/
@@ -10,6 +11,5 @@ ADD server.js /blueprints/
 
 WORKDIR /blueprints
 RUN npm install
-RUN ./node_modules/.bin/grunt docs:build
 
-CMD npm start
+CMD ./node_modules/.bin/grunt docs:build && npm start
