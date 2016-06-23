@@ -1,7 +1,7 @@
 Blueprints
 ---
 
-> NOTE: This is very much work in progress and is not ready for production use. But feel free to take a peak and explore.
+> NOTE: This is very much work in progress and is not ready for production use. But feel free to take a peak and explore 😎
 
 The purpose of this project is to define a branded styleguide for people to import and use in their projects.
 
