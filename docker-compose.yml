@@ -2,5 +2,8 @@ blueprints:
   container_name: blueprints
   build: .
   dockerfile: ./Dockerfile
+  volumes:
+    - ./docs:/blueprints/docs:rw
+    - ./src:/blueprints/src:rw
   ports:
     - 3000:3000
