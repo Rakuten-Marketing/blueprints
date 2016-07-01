@@ -16,7 +16,8 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          './build/blueprints.css': './src/blueprints.scss'
+          './build/blueprints.css': './src/blueprints.scss',
+          './build/docs.css': './docs/assets/docs.scss'
         }
       }
     },
