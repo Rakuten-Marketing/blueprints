@@ -1,7 +1,8 @@
 {
   "name": "blueprints",
   "version": "0.1.0",
-  "description": "",
+  "description": "Styleguide for RAN organisation",
+  "private": true,
   "main": "",
   "engines": {
     "node": ">=5.8.0"
@@ -12,7 +13,7 @@
     "start": "./node_modules/.bin/grunt docs:serve"
   },
   "author": "",
-  "license": "MIT",
+  "license": "",
   "dependencies": {
     "bootstrap-sass": "^3.3.6"
   },
