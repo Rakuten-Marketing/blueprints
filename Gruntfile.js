@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 
   // Parse SCSS variables
   grunt.registerTask('scss:json', 'parses scss variables to JSON', function() {
-    grunt.log.ok('Parsis SCSS variables to JSON');
+    grunt.log.ok('Parsing SCSS variables to JSON');
 
     var done = this.async();
     var variablesPath = './src/core/_variables/';
