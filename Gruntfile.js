@@ -1,3 +1,6 @@
+var scssToJson = require('scss-to-json')
+  , path = require('path');
+
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
@@ -99,6 +102,44 @@ module.exports = function(grunt) {
     require('./server.js')
       .listen(process.env.PORT || 3000)
       .on('close', done);
+  });
+
+  // Parse SCSS variables
+  grunt.registerTask('scss:json', 'parses scss variables to JSON', function() {
+    grunt.log.ok('Parsis SCSS variables to JSON');
+
+    var done = this.async();
+    var variablesPath = './src/core/_variables/';
+    var variables = grunt.file.expand({
+      cwd: variablesPath
+    }, [
+      '*.scss',
+      '!styles.scss',
+    ]);
+
+    var template = ''
+      + '(function() {\n'
+      + ' \'use strict\';\n'
+      + '  window.Blueprints = window.Blueprints || {};\n'
+      + '  window.Blueprints.variables = <%= variables %>;\n'
+      + '})();'
+
+    var data = { variables: null };
+
+    var mappedVariables = variables.reduce(function(acc, file) {
+      var contents = scssToJson(variablesPath + file);
+
+      acc[path.basename(file, '.scss')] = contents;
+
+      return acc;
+    }, {});
+
+    data.variables = JSON.stringify(mappedVariables);
+
+    grunt.file.write(
+      './build/variables.js',
+      grunt.template.process(template, { data: data })
+    );
   });
 
   grunt.registerTask('default', ['build']);
