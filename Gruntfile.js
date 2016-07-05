@@ -153,6 +153,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:build',
     'sass',
+    'sass:json',
     'gitclone:bootstrap',
     'copy:bootstrap'
   ]);
