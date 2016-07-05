@@ -10,11 +10,19 @@ angular.module('app', [
         template: '<home></home>'
       })
 
-      .when('/css', {
-        template: '<css></css>'
+      .when('/installation', {
+        template: '<installation></installation>'
       })
 
-      .when('/components', {
-        template: '<components></components>'
+      .when('/contributing', {
+        template: '<contributing></contributing>'
+      })
+
+      .when('/styleguide', {
+        template: '<styleguide></styleguide>'
+      })
+
+      .when('/bootstrap', {
+        template: '<bootstrap></bootstrap>'
       });
   });

@@ -68,8 +68,8 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['src/**/*.scss'],
-        tasks: ['sass']
+        files: ['src/**/*.scss', 'docs/assets/*.scss'],
+        tasks: ['sass', 'sass:json']
       }
     }
   });
@@ -95,17 +95,18 @@ module.exports = function(grunt) {
 
   // Serve the docs
   grunt.registerTask('docs:serve', 'serves the docs', function() {
-    grunt.log.ok('Serving docs');
-
     var done = this.async();
+    var port = process.env.PORT || 3000;
 
     require('./server.js')
-      .listen(process.env.PORT || 3000)
+      .listen(port)
       .on('close', done);
+
+    grunt.log.ok('Serving docs on http://localhost:%s', [port]);
   });
 
   // Parse SCSS variables
-  grunt.registerTask('scss:json', 'parses scss variables to JSON', function() {
+  grunt.registerTask('sass:json', 'parses scss variables to JSON', function() {
     grunt.log.ok('Parsing SCSS variables to JSON');
 
     var done = this.async();
@@ -128,8 +129,14 @@ module.exports = function(grunt) {
 
     var mappedVariables = variables.reduce(function(acc, file) {
       var contents = scssToJson(variablesPath + file);
+      var pairs = Object.keys(contents).map(function(key) {
+        return {
+          variable: key,
+          value: contents[key]
+        };
+      });
 
-      acc[path.basename(file, '.scss')] = contents;
+      acc[path.basename(file, '.scss')] = pairs;
 
       return acc;
     }, {});

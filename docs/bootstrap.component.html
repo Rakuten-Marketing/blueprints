@@ -1,0 +1,39 @@
+<h1 class="page-header">
+  Bootstrap
+</h1>
+
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <a href="#css">CSS</a>
+      </li>
+
+      <li>
+        <a href="#components">Components</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- CSS -->
+    <div id="css">
+      <div ng-include="'/partials/bootstrap/css/grid.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/type.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/code.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/tables.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/forms.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/buttons.html'"></div>
+      <div ng-include="'/partials/bootstrap/css/images.html'"></div>
+    </div>
+
+    <!-- Components -->
+    <div id="components">
+      <div ng-include="'/partials/bootstrap/components/glyphicons.html'"></div>
+      <div ng-include="'/partials/bootstrap/components/dropdowns.html'"></div>
+      <div ng-include="'/partials/bootstrap/components/button-groups.html'"></div>
+      <div ng-include="'/partials/bootstrap/components/button-dropdowns.html'"></div>
+      <div ng-include="'/partials/bootstrap/components/navs.html'"></div>
+    </div>
+  </div>
+</div>

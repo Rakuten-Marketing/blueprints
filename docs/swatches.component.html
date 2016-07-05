@@ -1,0 +1,9 @@
+<div class="swatches">
+  <div class="swatch" ng-repeat="item in $ctrl.colors">
+    <div class="swatch-fill" ng-style="{ 'background-color': item.value }"></div>
+
+    <div class="swatch-variable">
+      {{ item.variable }}
+    </div>
+  </div>
+</div>

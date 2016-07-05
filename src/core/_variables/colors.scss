@@ -10,3 +10,4 @@ $rm-warning: #F20001 !default;
 $rm-danger: #BF0001 !default;
 
 $rm-gray-base: #000000 !default;
+$rm-gray-light: lighten($rm-gray-base, 46.7%) !default;

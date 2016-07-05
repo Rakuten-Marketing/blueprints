@@ -1,16 +1,30 @@
+@import '../../src/core/variables';
+
+$default-margin-size: 30px;
+
 body {
   padding-top: 70px;
 }
 
+/**
+ * Syntax highlighter
+ */
 [hljs] {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+/**
+ * Bootstrap docs
+ */
+.bs-docs-section {
+  margin-bottom: $default-margin-size;
+}
+
 .bs-example {
   position: relative;
   padding: 45px 15px 15px;
-  border: 1px #ddd solid;
+  border: 1px $rm-gray-light solid;
   border-radius: 4px 4px 0 0;
 }
 
@@ -31,4 +45,42 @@ body {
   padding-bottom: 10px;
   background-color: rgba(86,61,124,.15);
   border: 1px solid rgba(86,61,124,.2);
+}
+
+/**
+ * Blueprints docs
+ */
+.docs-section {
+  margin-bottom: $default-margin-size;
+}
+
+.group-default {
+  margin-bottom: $default-margin-size / 2;
+}
+
+/**
+ * Swatches
+ */
+.swatches {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.swatches .swatch {
+  box-shadow: 0 0.5px 0 0 $rm-white inset, 0 1px 2px 0 $rm-gray-light;
+  padding: 10px;
+  width: 120px;
+  min-height: 130px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+
+  .swatch-fill {
+    height: 80%;
+  }
+
+  .swatch-variable {
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+  }
 }

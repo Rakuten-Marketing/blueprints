@@ -3,7 +3,13 @@ var express = require('express');
 var app = express();
 
 app.use('/', express.static(__dirname + '/docs/'));
-app.get(['/', '/css', '/components'], function(req, res) {
+app.get([
+  '/',
+  '/installation',
+  '/contributing',
+  '/styleguide',
+  '/bootstrap'
+], function(req, res) {
   return res.sendFile(__dirname + '/docs/index.html');
 });
 
