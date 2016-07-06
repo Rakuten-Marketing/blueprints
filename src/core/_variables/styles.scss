@@ -5,3 +5,32 @@ $rm-text-color: $rm-gray-dark !default;
 $rm-link-color: $rm-primary !default;
 $rm-link-hover-color: darken($rm-primary, 15%) !default;
 $rm-link-hover-decoration: underline !default;
+
+$rm-padding-base-vertical: 6px;
+$rm-padding-base-horizontal: 12px;
+
+$rm-padding-large-vertical: 10px;
+$rm-padding-large-horizontal: 16px;
+
+$rm-padding-small-vertical: 5px;
+$rm-padding-small-horizontal: 10px;
+
+$rm-padding-xs-vertical: 1px;
+$rm-padding-xs-horizontal: 5px;
+
+$rm-line-height-large: 1.3333333;
+$rm-line-height-small: 1.5;
+
+$rm-border-radius-base: 4px;
+$rm-border-radius-large: 6px;
+$rm-border-radius-small: 3px;
+
+/** Global color for active items
+(e.g., navs or dropdowns). */
+$rm-component-active-color: $rm-white !default;
+$rm-component-active-bg: $rm-primary !default;
+
+/* Width of the "border" for generating
+carets that indicate dropdowns. */
+$rm-caret-width-base: 4px;
+$rm-caret-width-large: 5px;
