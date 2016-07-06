@@ -1,7 +1,9 @@
 $rm-font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $rm-font-family-serif: Georgia, 'Times New Roman', Times, serif;
 $rm-font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
-$rm-font-family-base: $rm-font-family-sans-serif !default;
+
+
+$rm-font-family-base: "lft-etica",sans-serif !default;
 
 $rm-font-size-base: 14px !default;
 $rm-font-size-large: ceil($rm-font-size-base * 1.25);

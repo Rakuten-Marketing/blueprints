@@ -5,10 +5,10 @@ $rm-gray-base: $rm-black !default;
 $rm-gray-darker: lighten($rm-gray-base, 13.5%) !default;
 $rm-gray-dark: lighten($rm-gray-base, 20%) !default;
 $rm-gray: lighten($rm-gray-base, 33.5%) !default;
-$rm-gray-light: lighten($rm-gray-base, 46.7%) !default;
+$rm-gray-light: #dfdfdf !default;
 $rm-gray-lighter: lighten($rm-gray-base, 93.5%) !default;
 
-$rm-primary: darken(#428bca, 6.5%) !default;
+$rm-primary: #bf0001 !default;
 $rm-secondary: $rm-black !default;
 
 $rm-success: #5cb85c !default;
