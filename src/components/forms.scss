@@ -1,0 +1,27 @@
+/*
+Forms: Components
+All the colors, padding and margin values should come from
+global values
+*/
+
+$input-bg: $rm-white;
+$input-bg-disabled: $rm-gray-lighter;
+$input-color: $rm-gray;
+$input-border: $rm-border-color-base;
+
+$input-border-radius: $rm-btn-border-radius-base;
+$input-border-radius-large: $rm-btn-border-radius-large;
+$input-border-radius-small: $rm-btn-border-radius-small;
+$input-border-focus: $rm-border-color-active;
+$input-color-placeholder: $rm-placeholder-text-color;
+
+
+$input-height-base: ($rm-line-height-computed + ($rm-padding-base-vertical * 2) + 2);
+$input-height-large: (ceil($rm-font-size-large * $rm-line-height-large) + ($rm-padding-large-vertical * 2) + 2);
+$input-height-small: (floor($rm-font-size-small * $rm-line-height-small) + ($rm-padding-small-vertical * 2) + 2);
+$form-group-margin-bottom: $rm-padding-base-vertical * 2;
+$legend-color: $rm-gray-dark;
+$legend-border-color: $rm-legend-base-color;
+$input-group-addon-bg: $rm-gray-lighter;
+$input-group-addon-border-color: $input-border;
+$cursor-disabled: not-allowed;
