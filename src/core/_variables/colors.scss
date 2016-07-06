@@ -20,3 +20,23 @@ $rm-border-color-base: #cccccc;
 $rm-border-color-active: #66afe9;
 $rm-placeholder-text-color: #999999;
 $rm-legend-base-color: #e5e5e5;
+
+$components-base-bg-color: #f5f5f5;
+$components-base-text-color: $rm-gray;
+$components-active-bg-color: darken($components-base-bg-color, 5%);
+
+
+/* Code */
+$code-color: #c7254e;
+$code-bg: #f9f2f4;
+$kbd-color: $rm-white;
+$kbd-bg: #333333;
+$pre-bg: $components-base-bg-color;
+$pre-color: $rm-gray-dark;
+$pre-border-color: $rm-border-color-base;
+$pre-scrollable-max-height: 340px;
+
+/* Close button */
+$close-font-weight: bold;
+$close-color: $rm-black;
+$close-text-shadow: 0 1px 0 #ffffff;
