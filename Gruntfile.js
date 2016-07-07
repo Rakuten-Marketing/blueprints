@@ -109,7 +109,6 @@ module.exports = function(grunt) {
   grunt.registerTask('sass:json', 'parses scss variables to JSON', function() {
     grunt.log.ok('Parsing SCSS variables to JSON');
 
-    var done = this.async();
     var variablesPath = './src/core/_variables/';
     var variables = grunt.file.expand({
       cwd: variablesPath
@@ -157,7 +156,7 @@ module.exports = function(grunt) {
     'gitclone:bootstrap',
     'copy:bootstrap'
   ]);
-  grunt.registerTask('dist', ['build', 'copy:dist'])
+  grunt.registerTask('dist', ['build', 'copy:dist']);
   grunt.registerTask('docs:build', [
     'build',
     'docs:parse',
