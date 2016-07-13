@@ -1,0 +1,6 @@
+blueprints:
+  container_name: blueprints
+  build: .
+  dockerfile: ./Dockerfile
+  ports:
+    - 3000:3000
