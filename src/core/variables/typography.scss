@@ -1,0 +1,23 @@
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, 'Times New Roman', Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+$font-family-base: 'lft-etica', sans-serif !default;
+$font-size-base: 14px !default;
+$font-size-large: ceil($font-size-base * 1.25);
+$font-size-small: ceil($font-size-base * 0.85);
+
+$line-height-base: 1.428571429 !default;
+$line-height-computed: floor($font-size-base * $line-height-base);
+
+$font-size-h1: floor($font-size-base * 2.5) !default;
+$font-size-h2: floor($font-size-base * 2) !default;
+$font-size-h3: ceil($font-size-base * 1.7) !default;
+$font-size-h4: ceil($font-size-base * 1.25) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil($font-size-base * 0.85) !default;
+
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;

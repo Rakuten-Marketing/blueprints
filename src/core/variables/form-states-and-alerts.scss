@@ -1,0 +1,14 @@
+@import 'colors';
+
+$state-success-bg: $brand-success;
+$state-success-text: $rm-palette-white;
+$state-success-border: darken($state-success-bg, 5%);
+$state-info-bg: $brand-info;
+$state-info-text: $rm-palette-white;
+$state-info-border: darken($state-info-bg, 5%);
+$state-warning-bg: $brand-warning;
+$state-warning-text: $rm-palette-white;
+$state-warning-border: darken($state-warning-bg, 5%);
+$state-danger-bg: $brand-danger;
+$state-danger-text: $rm-palette-white;
+$state-danger-border: darken($state-danger-bg, 5%);

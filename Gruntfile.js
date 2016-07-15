@@ -1,6 +1,3 @@
-var scssToJson = require('scss-to-json')
-  , path = require('path');
-
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
@@ -22,6 +19,21 @@ module.exports = function(grunt) {
           './build/blueprints.css': './src/blueprints.scss',
           './build/docs.css': './docs/assets/docs.scss'
         }
+      }
+    },
+
+    sass_compile_imports: {
+      compile: {
+        options: {
+          quiet: true,
+          importPath: 'core/variables'
+        },
+        target: './src/_variables.scss',
+        files: [{
+          expand: true,
+          cwd   : './src/core/variables/',
+          src   : ['**/*.scss', '!**/common/**']
+        }]
       }
     },
 
@@ -68,11 +80,53 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['src/**/*.scss', 'docs/assets/*.scss'],
-        tasks: ['sass', 'sass:json']
-      }
+        files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/variables/**'],
+        tasks: ['sass']
+      },
+      variables: {}
     }
   });
+
+
+  // Creating a file with all the @imports, this task will read the content of variables/ folder
+  // No need to add the new entries manually
+  grunt.registerTask('sass:imports', 'adds all the required files as imports and compile', function() {
+    var done = this.async();
+    grunt.log.writeln('→ Reading all the variables/ files from project'['green'].bold);
+    grunt.task.run('sass_compile_imports');
+
+    done(true);
+    grunt.log.ok('Output: ./src/_variables.scss'['green'].bold);
+    grunt.task.run('sass');
+  });
+
+  // Parsing the common (globals) variables into a single JSON file
+  // The other variables (such border color for specific component) are not important for now
+  // Those will be retrieved via the documentation application (educational purposes: blueprints)
+  // For documentation (and understanding its limitations): https://www.npmjs.com/package/grunt-scss-to-json
+  grunt.registerTask('sass:json', 'parses scss variables to JSON', function() {
+    grunt.log.writeln('→ Parsing styleguide variables into a JSON'['green'].bold);
+
+    var data = {},
+        convertor = require('scss-to-json'),
+        directory = './src/core/variables/common/',
+        files = grunt.file.expand({
+          cwd: directory
+        }, ['*.scss']);
+
+    files.forEach(function(file) {
+      data[file] = convertor(directory + file);
+    });
+
+    grunt.file.write(
+      './build/docs/variables.json',
+      JSON.stringify(data)
+    );
+
+    grunt.log.ok('Output: ./build/docs/variables.json'['green'].bold);
+  });
+
+
 
   // Bootstrap doc partial parsing
   grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
@@ -83,7 +137,7 @@ module.exports = function(grunt) {
     var highlight = function(contents) {
       return contents
         .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
-        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>')
+        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>');
     };
 
     files.forEach(function(path) {
@@ -105,54 +159,12 @@ module.exports = function(grunt) {
     grunt.log.ok('Serving docs on http://localhost:%s', [port]);
   });
 
-  // Parse SCSS variables
-  grunt.registerTask('sass:json', 'parses scss variables to JSON', function() {
-    grunt.log.ok('Parsing SCSS variables to JSON');
-
-    var variablesPath = './src/core/_variables/';
-    var variables = grunt.file.expand({
-      cwd: variablesPath
-    }, [
-      '*.scss',
-      '!styles.scss',
-    ]);
-
-    var template = ''
-      + '(function() {\n'
-      + ' \'use strict\';\n'
-      + '  window.Blueprints = window.Blueprints || {};\n'
-      + '  window.Blueprints.variables = <%= variables %>;\n'
-      + '})();'
-
-    var data = { variables: null };
-
-    var mappedVariables = variables.reduce(function(acc, file) {
-      var contents = scssToJson(variablesPath + file);
-      var pairs = Object.keys(contents).map(function(key) {
-        return {
-          variable: key,
-          value: contents[key]
-        };
-      });
-
-      acc[path.basename(file, '.scss')] = pairs;
-
-      return acc;
-    }, {});
-
-    data.variables = JSON.stringify(mappedVariables);
-
-    grunt.file.write(
-      './build/variables.js',
-      grunt.template.process(template, { data: data })
-    );
-  });
 
   grunt.registerTask('default', ['build']);
   grunt.registerTask('build', [
     'clean:build',
-    'sass',
     'sass:json',
+    'sass:imports',
     'gitclone:bootstrap',
     'copy:bootstrap'
   ]);
