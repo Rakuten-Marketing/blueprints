@@ -5,8 +5,21 @@ angular.module('app')
     controller: ColorSwatchesController
   })
 
-  function ColorSwatchesController($scope, $window) {
+  function ColorSwatchesController($scope, $http) {
     var vm = this;
+    
+    vm.colors = {};
+		$http.get('build/docs/variables.json').success(function (response) {
+			var processed = [],
+					data = response['colors.scss'];
 
-    vm.colors = $window.Blueprints.variables.colors;
+			angular.forEach(data, function(value, key){
+				processed.push({
+					id: key,
+					value: value
+				});
+			});
+
+			vm.colors = processed;
+		});
   }

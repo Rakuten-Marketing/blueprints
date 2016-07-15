@@ -1,12 +1,6 @@
-@import 'core/vendors';
+@import 'variables';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-@import 'components/alerts';
-@import 'components/buttons';
-@import 'components/dropdowns';
-@import 'components/forms';
-@import 'components/labels';
-@import 'components/navigation';
-@import 'components/modals';
-@import 'components/pagination';
-@import 'components/popovers';
-@import 'components/type';
+/* The following includes all the bootstrap overrides */
+/* this file is a wrapper file including all the @imports for each component */
+@import 'components';

@@ -1,0 +1,17 @@
+@import './common/colors';
+
+$gray: $rm-gray-base;
+$gray-base: $rm-gray-base;
+$gray-darker: darken($rm-gray-base, 15%);
+$gray-dark: darken($rm-gray-base, 5%);
+$gray-light: $rm-gray-light;
+$gray-lighter: $rm-gray-lighter;
+
+$brand-primary: $rm-red-base;
+$brand-success: $rm-blue;
+$brand-info: $rm-yellow;
+$brand-warning: $rm-orange;
+$brand-danger: $rm-red-dark;
+
+$rm-palette-white: $rm-white;
+

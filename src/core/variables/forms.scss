@@ -1,0 +1,22 @@
+@import 'colors';
+@import 'components';
+@import 'typography';
+
+$input-bg: $rm-palette-white;
+$input-bg-disabled: $gray-lighter;
+$input-color: $gray-base;
+$input-border: $gray-light;
+$input-border-radius: $border-radius-base;
+$input-border-radius-large: $border-radius-large;
+$input-border-radius-small: $border-radius-small;
+$input-border-focus: darken($gray-light, 5%);
+$input-color-placeholder: $gray;
+$input-height-base: $line-height-computed + ($padding-base-vertical * 2) + 2;
+$input-height-large: ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2;
+$input-height-small: floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2;
+$form-group-margin-bottom: 15px;
+$legend-color: $gray-dark;
+$legend-border-color: $gray-dark;
+$input-group-addon-bg: $gray-lighter;
+$input-group-addon-border-color: $input-color;
+$cursor-disabled: not-allowed;
