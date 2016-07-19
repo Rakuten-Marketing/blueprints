@@ -1,5 +1,3 @@
-Test for Patrick...
-
 Blueprints
 ---
 
