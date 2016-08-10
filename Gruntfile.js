@@ -17,7 +17,7 @@ module.exports = function(grunt) {
       build: {
         files: {
           './build/blueprints.css': './src/blueprints.scss',
-          './build/docs.css': './docs/assets/docs.scss'
+          './build/docs/app.css': './docs/assets/app.scss'
         }
       }
     },
@@ -42,37 +42,26 @@ module.exports = function(grunt) {
         options: {
           repository: 'https://github.com/twbs/bootstrap.git',
           branch: 'v3.3.6',
-          directory: './build/bootstrap'
+          directory: './node_modules/bootstrap-partials'
         }
       }
     },
 
     copy: {
-      bootstrap: {
+      build: {
         files: [
           {
-            cwd: './build/bootstrap/docs/_includes/',
+            cwd: './node_modules/bootstrap-partials/bootstrap/docs/_includes',
             expand: true,
-            src: ['css/**', 'components/**'],
-            dest: './docs/partials/bootstrap/'
+            src: ['css/**.html', 'components/**.html'],
+            dest: './build/docs/partials/'
           },
 
           {
-            cwd: './build/bootstrap/',
+            cwd: './src/core/fonts/',
             expand: true,
-            src: ['fonts/**'],
-            dest: './build/'
-          }
-        ]
-      },
-
-      dist: {
-        files: [
-          {
-            cwd: './build',
-            expand: true,
-            src: ['blueprints.css', 'fonts/**'],
-            dest: './dist/'
+            src: ['**/*'],
+            dest: './build/fonts'
           }
         ]
       }
@@ -87,6 +76,24 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.config('concat', {
+    options: {
+      sourceMap: true
+    },
+
+    vendor: {
+      src: [
+        './node_modules/angular/angular.js',
+        './node_modules/angular-ui-router/release/angular-ui-router.js'
+      ],
+      dest: './build/docs/vendor.bundle.js'
+    },
+
+    app: {
+      src: ['./docs/app/**/*.js', '!./docs/app/bootstrap/**/*'],
+      dest: './build/docs/app.compiled.js'
+    }
+  });
 
   // Creating a file with all the @imports, this task will read the content of variables/ folder
   // No need to add the new entries manually
@@ -108,14 +115,15 @@ module.exports = function(grunt) {
     grunt.log.writeln('→ Parsing styleguide variables into a JSON'['green'].bold);
 
     var data = {},
-        convertor = require('scss-to-json'),
+        converter = require('scss-to-json'),
         directory = './src/core/variables/common/',
         files = grunt.file.expand({
           cwd: directory
         }, ['*.scss']);
 
     files.forEach(function(file) {
-      data[file] = convertor(directory + file);
+      var node = file.replace('.scss', '');
+      data[node] = converter(directory + file);
     });
 
     grunt.file.write(
@@ -126,52 +134,32 @@ module.exports = function(grunt) {
     grunt.log.ok('Output: ./build/docs/variables.json'['green'].bold);
   });
 
-
-
-  // Bootstrap doc partial parsing
-  grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
-    grunt.log.ok('Parsing Bootstrap doc partials');
-
-    var files = grunt.file.expand('./docs/partials/bootstrap/**/*.html');
-
-    var highlight = function(contents) {
-      return contents
-        .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
-        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>');
-    };
-
-    files.forEach(function(path) {
-      var contents = grunt.file.read(path);
-
-      grunt.file.write(path, highlight(contents));
-    });
-  });
-
-  // Serve the docs
-  grunt.registerTask('docs:serve', 'serves the docs', function() {
-    var done = this.async();
-    var port = process.env.PORT || 3000;
+  /* Initializes the server, hosting the application */
+  grunt.registerTask('server:restore', 'initializes the express server', function() {
+    var done = this.async(),
+        port = process.env.PORT || 3000;
 
     require('./server.js')
       .listen(port)
       .on('close', done);
 
-    grunt.log.ok('Serving docs on http://localhost:%s', [port]);
+    grunt.log.writeln('→ Application running on http://localhost:%s'['green'].bold, [port]);
   });
 
-
-  grunt.registerTask('default', ['build']);
+  /* Build the current application and update distribution files (blueprints) */
   grunt.registerTask('build', [
     'clean:build',
     'sass:json',
     'sass:imports',
-    'gitclone:bootstrap',
-    'copy:bootstrap'
+    'copy:build',
+    'concat'
   ]);
-  grunt.registerTask('dist', ['build', 'copy:dist']);
-  grunt.registerTask('docs:build', [
+
+  /* Initializes the server and first-run compiles the application */
+  grunt.registerTask('default', ['server']);
+  grunt.registerTask('server', [
     'build',
-    'docs:parse',
+    'gitclone:bootstrap',
+    'server:restore'
   ]);
-  grunt.registerTask('docs', ['docs:build', 'docs:serve']);
 };

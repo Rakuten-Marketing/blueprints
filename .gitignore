@@ -1,5 +1,3 @@
 /build
 /node_modules
 /npm-debug.log
-/src/_components.scss
-/src/_variables.scss
