@@ -53,22 +53,12 @@ Visit Blueprints documentation page for more details.
 ### Grunt tasks
 
 ```bash
-# Creates a distribution
-$ grunt dist
-
-# Cleans the `build/` directory
-$ grunt clean
-
-# Compiles SASS to CSS and creates a build in `build/` directory
-$ grunt sass
 
 # Builds the Bootstrap documentation
-# by cloning Bootstrap repository
-# copying Jekyll partials and parsing them
-$ grunt docs:build
+$ grunt build
 
 # Serves the documentation
-$ grunt docs:serve
+$ grunt server
 
 # Watches `src/` directory for changes and runs SASS compiler
 $ grunt watch
