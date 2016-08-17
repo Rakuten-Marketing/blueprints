@@ -11,7 +11,7 @@ angular.module('app')
     vm.colors = {};
 		$http.get('build/docs/variables.json').success(function (response) {
 			var processed = [],
-					data = response['colors.scss'];
+					data = response['colors'];
 
 			angular.forEach(data, function(value, key){
 				processed.push({
