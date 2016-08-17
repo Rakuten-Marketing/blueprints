@@ -1,61 +1,27 @@
-<!DOCTYPE html>
-<html ng-app="app">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="/">
-  <title>Blueprints</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="description" content="JS">
+    <meta name="keywords" content="styleguide framework wireframes themes development" />
+    <meta name="author" content="Rakuten Marketing. NY Office, USA" />
+    <meta name="copyright" content="© Rakuten Marketing 2015" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blueprints — Rakuten Marketing</title>
 
-  <link rel="stylesheet" href="//use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l" media="all">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+    <link rel="icon" href="http://www.rakuten.com/favicon.ico?v=2" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.rakuten.com/favicon.ico?v=2" type="image/x-icon">
 
-  <link rel="stylesheet" href="/build/blueprints.css">
-  <link rel="stylesheet" href="/build/docs.css">
-</head>
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Blueprints</a>
-      </div>
+    <link rel="stylesheet" href="../build/blueprints.css">
+    <link rel="stylesheet" href="../build/docs/app.css">
+  </head>
 
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/installation">Installation</a>
-        </li>
-
-        <li>
-          <a href="/styleguide">Styleguide</a>
-        </li>
-
-        <li>
-          <a href="/contributing">Contributing</a>
-        </li>
-
-        <li>
-          <a href="/bootstrap">Bootstrap</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container" ng-view></div>
-
-  <!-- Vendors -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-  <script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
-
-  <!-- Scripts -->
-  <script type="text/javascript" src="/app.module.js"></script>
-  <script type="text/javascript" src="/home.component.js"></script>
-  <script type="text/javascript" src="/installation.component.js"></script>
-  <script type="text/javascript" src="/contributing.component.js"></script>
-  <script type="text/javascript" src="/styleguide.component.js"></script>
-  <script type="text/javascript" src="/bootstrap.component.js"></script>
-
-  <script type="text/javascript" src="/swatches.component.js"></script>
-</body>
+  <body ng-app="app">
+    <div class="page-height left-sidebar" ui-view></div>
+    <script type="text/javascript" src="../build/docs/vendor.bundle.js"></script>
+    <script type="text/javascript" src="../build/docs/app.compiled.js"></script>
+  </body>
 </html>

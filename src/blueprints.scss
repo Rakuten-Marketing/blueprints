@@ -1,3 +1,9 @@
+/* Importing fonts */
+/* These files are not SASS but already compiled CSS files */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l);
+
+/* Applying the theme to our Twitter Bootstrap copy */
 @import 'variables';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 

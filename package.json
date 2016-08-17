@@ -17,11 +17,14 @@
     "bootstrap-sass": "^3.3.6"
   },
   "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
     "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-git": "^1.0.0",
     "grunt-sass": "^1.2.0",
