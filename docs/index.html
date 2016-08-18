@@ -20,8 +20,13 @@
   </head>
 
   <body ng-app="app">
-    <div class="page-height left-sidebar" ui-view></div>
+    <div class="containter" ui-view></div>
+
     <script type="text/javascript" src="../build/docs/vendor.bundle.js"></script>
     <script type="text/javascript" src="../build/docs/app.compiled.js"></script>
+
+    <!-- Temporal. These needs to be concatenated and uglified -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
   </body>
 </html>

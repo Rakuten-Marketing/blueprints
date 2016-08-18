@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3>What is Blueprints?</h3>
+
+    <p>You could think of Blueprints as an UI framework, primarily focused on look and feel. It's a long living styleguide that can evolve over time and empower developers to build application pages quickly whilst conforming with a consistent branding that is agreed and defined.</p>
+    <p>Essentially built on top of <em>Bootstrap 3.</em></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>How can I include Blueprints in my project?</h3>
+
+    <p>There are two recommended options:</p>
+    <h4>Using CDN or getting a copy of the distribution files into your project</h4>
+    <p>Make a copy of the compiled files contained in the <a href="https://github.private.linksynergy.com/SD/blueprints/tree/dev/dist">distribution</a> folder into your project</a><br>
+    <strong>NOTE:</strong> The following block shows the code you need to include in your index.html but don't forget to include a copy of the folder and all its content.</p>
+    <div hljs hljs-no-escape hljs-language="html">
+      &lt;link rel="stylesheet" type="text/css" href="dist/css/blueprints.css"&gt;
+      &lt;script type="text/javascript" src="dist/js/blueprints.js"&gt;&lt;/script&gt;
+    </div>
+
+    <h4>Installing Blueprints using NPM (You need a specific version of Blueprints)</h4>
+    <p>You will include the "compiled" files into your project, you may have a grunt/gulp task to handle those. Of course you use the HTML code above but with this approach you are aiming to have more control over those files, the following is an example of your <em>package.json</em> file</p>
+
+    <div hljs hljs-no-escape hljs-language="js">
+      {
+      //Your HTML code will looks similiar to:
+      //&lt;link rel="stylesheet" type="text/css" href="node_modules/dist/css/blueprints.css"&gt;
+      //&lt;script type="text/javascript" src="node_modules/dist/js/blueprints.js"&gt;&lt;/script&gt;
+      "dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#dev"
+      }
+    </div>
+    <p><strong>NOTE:</strong> You can specify the branch (#dev in this example), this is good for those scenarios you need a specific version of Blueprints</p>
+  </div>
+</div>
