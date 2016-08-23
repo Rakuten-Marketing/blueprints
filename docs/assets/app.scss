@@ -1,9 +1,12 @@
 @import '../../src/variables';
 @import 'includes/code';
+@import 'includes/swatches';
 
 body {
   padding-top: 70px;
 }
+
+.content-header { margin-top: 0px; }
 
 .section-header {
   color: #546168;
