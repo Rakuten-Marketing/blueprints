@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header navbar-brand">Blueprints</div>
+    <ul class="nav navbar-nav">
+      <li ng-class="{active: mainView.$state.includes('application.home')}">
+        <a ui-sref="application.home">Installation</a>
+      </li>
+      <li ng-class="{active: mainView.$state.includes('application.foundation')}">
+        <a ui-sref="application.foundation.colors">Foundation</a>
+      </li>
+      <li ng-class="{active: mainView.$state.includes('application.elements')}">
+        <a ui-sref="application.elements">Elements</a>
+      </li>
+      <li ng-class="{active: mainView.$state.includes('application.components')}">
+        <a ui-sref="application.components">Components</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container" ui-view="content"></div>

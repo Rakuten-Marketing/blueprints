@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var dependencies = ['ui.router'];
+  var dependencies = ['ui.router', 'hljs'];
 
   angular.module('app', dependencies)
   .config(function(
@@ -31,8 +31,11 @@
       }
     })
 
+    // "Foundation" main section
+    // Colors, Typography and Paddings sections are handled by this state
     .state('application.foundation', {
-      url: '/foundation/:section',
+      url: '/foundation/',
+      abstract: true,
       views: {
         content: {
           templateUrl: 'app/partials/foundation/foundation.template.html',
@@ -41,6 +44,37 @@
       }
     })
 
+    .state('application.foundation.colors', {
+      url: 'colors',
+      views: {
+        section: {
+          templateUrl: 'app/partials/foundation/colors/colors.template.html',
+          controller: 'ColorsController as colorsView'
+        }
+      }
+    })
+
+    .state('application.foundation.typography', {
+      url: 'typography',
+      views: {
+        section: {
+          templateUrl: 'app/partials/foundation/typography/typography.template.html',
+          controller: angular.noop
+        }
+      }
+    })
+
+    .state('application.foundation.paddings', {
+      url: 'paddings',
+      views: {
+        'section': {
+          templateUrl: 'app/partials/foundation/paddings/paddings.template.html',
+          controller: angular.noop
+        }
+      }
+    })
+
+    // TODO: Move away :params and explicitly add the states
     .state('application.elements', {
       url: '/elements/:section',
       views: {
@@ -51,6 +85,7 @@
       }
     })
 
+    // TODO: Move away :params and explicitly add the states
     .state('application.components', {
       url: '/components/:section',
       views: {
@@ -69,6 +104,9 @@
         }
       }
     });
-
-  });
+  })
+  .run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+  }]);
 })();
