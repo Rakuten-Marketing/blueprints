@@ -74,13 +74,105 @@
       }
     })
 
-    // TODO: Move away :params and explicitly add the states
+    // "Elements" main section
+    // Everything related to "Twitter Bootstrap" elements are handled by this state
     .state('application.elements', {
-      url: '/elements/:section',
+      url: '/elements/',
+      abstract: true,
       views: {
         content: {
           templateUrl: 'app/partials/elements/elements.template.html',
           controller: 'ElementsController as elementsView'
+        }
+      }
+    })
+
+    .state('application.elements.grid', {
+      url: 'grid',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/grid.html',
+          controller: angular.noop //'GridController as gridView'
+        }
+      }
+    })
+
+    .state('application.elements.typography', {
+      url: 'typography',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/type.html',
+          controller: angular.noop //'TypographyController as typographyView'
+        }
+      }
+    })
+
+    .state('application.elements.code', {
+      url: 'code',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/code.html',
+          controller: angular.noop //'CodeController as codeView'
+        }
+      }
+    })
+
+    .state('application.elements.tables', {
+      url: 'tables',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/tables.html',
+          controller: angular.noop //'TablesController as tablesView'
+        }
+      }
+    })
+
+    .state('application.elements.forms', {
+      url: 'forms',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/forms.html',
+          controller: angular.noop //'FormsController as formsView'
+        }
+      }
+    })
+
+    .state('application.elements.buttons', {
+      url: 'buttons',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/buttons.html',
+          controller: angular.noop //'ButtonsController as buttonsView'
+        }
+      }
+    })
+
+    .state('application.elements.images', {
+      url: 'images',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/images.html',
+          controller: angular.noop //'ImagesController as imagesView'
+        }
+      }
+    })
+
+    .state('application.elements.helpers', {
+      url: 'helpers',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/helpers.html',
+          controller: angular.noop //'HelpersController as helpersView'
+        }
+      }
+    })
+
+    .state('application.elements.utilities', {
+      url: 'utilities',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/responsive-utilities.html',
+          controller: angular.noop //'UtilitiesController as utilitiesView'
         }
       }
     })
