@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li ng-class="{active: componentsView.$state.includes('application.components.alerts')}">
+        <a ng-click="componentsView.switchState('alerts')">Alerts</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.badges')}">
+        <a ng-click="componentsView.switchState('badges')">Badges</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.breadcrumbs')}">
+        <a ng-click="componentsView.switchState('breadcrumbs')">Breadcrumbs</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.icons')}">
+        <a ng-click="componentsView.switchState('icons')">Icons</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.dropdowns')}">
+        <a ng-click="componentsView.switchState('dropdowns')">Dropdown</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.buttons')}">
+        <a ng-click="componentsView.switchState('buttons')">Buttons</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.navigation')}">
+        <a ng-click="componentsView.switchState('navigation')">Navigation</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.headers')}">
+        <a ng-click="componentsView.switchState('headers')">Headers</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.pagination')}">
+        <a ng-click="componentsView.switchState('pagination')">Pagination</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.panels')}">
+        <a ng-click="componentsView.switchState('panels')">Panels</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.progressbars')}">
+        <a ng-click="componentsView.switchState('progressbars')">Progress Bars</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.thumbnails')}">
+        <a ng-click="componentsView.switchState('thumbnails')">Thumbnails</a>
+      </li>
+      <li ng-class="{active: componentsView.$state.includes('application.components.wells')}">
+        <a ng-click="componentsView.switchState('wells')">Wells</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <div ui-view="section"></div>
+  </div>
+</div>

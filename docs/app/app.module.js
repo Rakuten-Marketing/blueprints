@@ -75,7 +75,7 @@
     })
 
     // "Elements" main section
-    // Everything related to "Twitter Bootstrap" elements are handled by this state
+    // Everything related to "Twitter Bootstrap" elements is handled by this state
     .state('application.elements', {
       url: '/elements/',
       abstract: true,
@@ -177,9 +177,12 @@
       }
     })
 
-    // TODO: Move away :params and explicitly add the states
+
+    // "Components" main section
+    // Everything related to "Twitter Bootstrap" components is handled by this state
     .state('application.components', {
-      url: '/components/:section',
+      url: '/components/',
+      abstract: true,
       views: {
         content: {
           templateUrl: 'app/partials/components/components.template.html',
@@ -187,6 +190,137 @@
         }
       }
     })
+
+    .state('application.components.alerts', {
+      url: 'alerts',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/alerts.html',
+          controller: angular.noop //'AlertsController as alertsView'
+        }
+      }
+    })
+
+    .state('application.components.badges', {
+      url: 'badges',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/badges.html',
+          controller: angular.noop //'BadgesController as badgesView'
+        }
+      }
+    })
+
+    .state('application.components.breadcrumbs', {
+      url: 'breadcrumbs',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/breadcrumbs.html',
+          controller: angular.noop //'BreadcrumbsController as breadcrumbsView'
+        }
+      }
+    })
+
+    .state('application.components.icons', {
+      url: 'icons',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/glyphicons.html',
+          controller: angular.noop //'IconsController as iconsView'
+        }
+      }
+    })
+
+    .state('application.components.dropdowns', {
+      url: 'dropdowns',
+        views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/dropdowns.html',
+          controller: angular.noop //'DropdownsController as dropdownsView'
+        }
+      }
+    })
+
+    // needs to combine /button-dropdowns.html here
+    .state('application.components.buttons', {
+      url: 'buttons',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/button-groups.html',
+          controller: angular.noop //'ButtonsController as buttonsView'
+        }
+      }
+    })
+
+    .state('application.components.navigation', {
+      url: 'navigation',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/navs.html',
+          controller: angular.noop //'NavigationController as navigationView'
+        }
+      }
+    })
+
+    .state('application.components.headers', {
+      url: 'headers',
+      views: {
+        section: {
+          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/page-header.html',
+          controller: angular.noop //'HeadersController as headersView'
+        }
+      }
+    })
+
+    .state('application.components.pagination', {
+      url: 'pagination',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/pagination.html',
+            controller: angular.noop //'PaginationController as paginationView'
+          }
+        }
+      })
+
+      .state('application.components.panels', {
+        url: 'panels',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/panels.html',
+            controller: angular.noop //'PanelsController as panelsView'
+          }
+        }
+      })
+
+      .state('application.components.progressbars', {
+        url: 'progressbars',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/progress-bars.html',
+            controller: angular.noop //'ProgressBarsController as progressbarsView'
+          }
+        }
+      })
+
+      .state('application.components.thumbnails', {
+        url: 'thumbnails',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/thumbnails.html',
+            controller: angular.noop //'ThumbnailsController as thumbnailsView'
+          }
+        }
+      })
+
+      .state('application.components.wells', {
+        url: 'wells',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/wells.html',
+            controller: angular.noop //'WellsController as wellsView'
+          }
+        }
+      })
 
     .state('missing', {
       views: {
