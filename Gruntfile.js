@@ -157,9 +157,16 @@ module.exports = function(grunt) {
 
   /* Initializes the server and first-run compiles the application */
   grunt.registerTask('default', ['server']);
-  grunt.registerTask('server', [
-    'build',
-    'gitclone:bootstrap',
-    'server:restore'
-  ]);
+  grunt.registerTask('server', function() {
+    grunt.task.run('build');
+
+    // clone partials if they don't exist
+    if(!grunt.file.isDir('./node_modules/bootstrap-partials')) {
+      grunt.log.writeln('No bootstrap partials detected. They will need to be cloned.');
+      grunt.task.run('gitclone:bootstrap');
+    }
+
+    grunt.task.run('server:restore');
+
+  });
 };

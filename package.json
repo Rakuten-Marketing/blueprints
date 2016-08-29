@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/grunt docs:serve"
+    "start": "./node_modules/.bin/grunt"
   },
   "author": "",
   "license": "",

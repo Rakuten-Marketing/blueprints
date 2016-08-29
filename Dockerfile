@@ -12,4 +12,4 @@ ADD server.js /blueprints/
 WORKDIR /blueprints
 RUN npm install
 
-CMD ./node_modules/.bin/grunt build && npm start
+CMD npm start
