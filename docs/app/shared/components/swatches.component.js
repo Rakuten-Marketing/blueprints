@@ -10,16 +10,13 @@
       var vm = this;
 
       vm.colors = {};
-      $http.get('build/docs/variables.json').success(function (response) {
-        var processed = [],
-        data = response['colors'];
+      //$http.get('build/docs/variables.json').success(function (response) {
+      $http.get('app/partials/foundation/colors/dictionary.json').success(function (response) {
+        var processed = response;
 
-        angular.forEach(data, function(value, key){
-          if (key.indexOf(vm.palette) !== -1 || !vm.palette) {
-            processed.push({
-              id: key,
-              value: value
-            });
+        angular.forEach(response, function(value, key){
+          if (key.indexOf(vm.palette) !== -1 && vm.palette) {
+            processed = response[key];
           }
         });
 

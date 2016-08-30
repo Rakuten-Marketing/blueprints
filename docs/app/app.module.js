@@ -7,7 +7,13 @@
     $locationProvider,
     $stateProvider,
     $urlRouterProvider,
-    $compileProvider) {
+    $compileProvider,
+    hljsServiceProvider) {
+
+    hljsServiceProvider.setOptions({
+      // replace tab with 2 spaces
+      tabReplace: '  '
+    });
 
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');

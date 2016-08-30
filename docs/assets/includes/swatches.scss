@@ -1,20 +1,28 @@
 .swatches {
   display: flex;
   flex-flow: wrap;
+  & .swatches-wrapper {
+    width: 140px;
+    margin: 0px 5px;
+  }
+
   & .swatch {
     box-shadow: 0 0.5px 0 0 #cccccc inset, 0 1px 1px 0 #bdbdbd;
-    padding: 5px;
-    width: 100px;
-    min-height: 100px;
     margin: 10px;
+    padding: 2px;
     display: flex;
+    height: 200px;
+    min-height: 120px;
     flex-direction: column;
 
-    & .swatch-fill { height: 80%; }
+    & .swatch-fill { height: 80px; }
     & .swatch-variable {
-      text-align: center;
-      padding: 5px 0px;
-      font-size: 11px;
+      padding: 5px;
+      font-size: 12px;
+      & .definition {
+        margin-top: 5px;
+        font-size: 0.95em;
+      }
     }
   }
 }

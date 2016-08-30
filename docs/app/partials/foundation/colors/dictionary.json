@@ -1,0 +1,145 @@
+{
+  "primary": [
+    {
+      "rgb": "#3db8be",
+      "alias": "Turquoise",
+      "variable": "$primary-active-elements-color",
+      "type": "Primary Color",
+      "usage": [
+        "Active Sections",
+        "Links",
+        "Buttons"
+      ]
+    },
+    {
+      "rgb": "#434343",
+      "alias": "Spacegrey",
+      "variable": "$primary-principal-body-color",
+      "type": "Body Text Color",
+      "usage": [
+        "Body Text",
+        "Headings",
+        "Section Labels"
+      ]
+    },
+    {
+      "rgb": "#e6e6e6",
+      "alias": "Smoke",
+      "variable": "$primary-border-color",
+      "type": "Color",
+      "usage": [
+        "Frames",
+        "Separators"
+      ]
+    },
+    {
+      "rgb": "#bf0000",
+      "alias": "Rakuten Red",
+      "variable": "$primary-brand-color"
+    }
+  ],
+  "secondary": [
+    {
+      "rgb": "#de1515",
+      "alias": "Firebrick",
+      "variable": "$secondary-brand-color-variation",
+      "type": "Color",
+      "usage": [
+        "Dynamic Gallery Button"
+      ]
+    },
+    {
+      "rgb": "#757575",
+      "alias": "Battleship",
+      "variable": "$secondary-tags-color",
+      "type": "Color",
+      "usage": [
+        "Product Search Tags"
+      ]
+    },
+    {
+      "rgb": "#27405e",
+      "alias": "Navy",
+      "variable": "$secondary-inactive-sidebar-sections",
+      "type": "Color",
+      "usage": [
+        "Inactive Sections in sidebar (accordion)"
+      ]
+    },
+    {
+      "rgb": "#cacdd0",
+      "alias": "Gray",
+      "variable": "$secondary-sliders-color",
+      "type": "Color",
+      "usage": [
+        "Inactive Tab 2",
+        "Sliders"
+      ]
+    },
+    {
+      "rgb": "#2b999f",
+      "alias": "Teal",
+      "variable": "$secondary-active-elements-hover",
+      "type": "Color",
+      "usage": [
+        "Primary Button Hover"
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "rgb": "#e08c01",
+      "alias": "Toffee",
+      "variable": "$notifications-info-marks",
+      "type": "Color",
+      "usage": [
+        "Info Marks (Icons)"
+      ]
+    },
+    {
+      "rgb": "#178c72",
+      "alias": "Firebrick",
+      "variable": "$notifications-confirmation",
+      "type": "Color",
+      "usage": [
+        "Confirmation"
+      ]
+    },
+    {
+      "rgb": "#27405e",
+      "alias": "Blue",
+      "variable": "$notifications-information",
+      "type": "Color",
+      "usage": [
+        "Information"
+      ]
+    },
+    {
+      "rgb": "#fed600",
+      "alias": "Yellow",
+      "variable": "$notifications-notice",
+      "type": "Color",
+      "usage": [
+        "Notice"
+      ]
+    },
+    {
+      "rgb": "#fcb43c",
+      "alias": "Brown",
+      "variable": "$notifications-badges",
+      "type": "Color",
+      "usage": [
+        "Publish Badge"
+      ]
+    },
+    {
+      "rgb": "#e84848",
+      "alias": "Firebrick",
+      "variable": "$notifications-notification-bubbles",
+      "type": "Color",
+      "usage": [
+        "Notification Bubble"
+      ]
+    }
+  ]
+}
