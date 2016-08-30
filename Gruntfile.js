@@ -95,6 +95,23 @@ module.exports = function(grunt) {
     }
   });
 
+  // Bootstrap doc partial parsing
+  grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
+    grunt.log.ok('Parsing Bootstrap doc partials');
+    
+    var files = grunt.file.expand('./node_modules/bootstrap-partials/docs/_includes/**/*.html'),
+        highlight = function(contents) {
+          return contents
+            .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
+            .replace(/\{\%\sendhighlight\s\%\}/g, '</div>');
+        };
+
+    files.forEach(function(path) {
+      var contents = grunt.file.read(path);
+      grunt.file.write(path, highlight(contents));
+    });
+  });
+
   // Creating a file with all the @imports, this task will read the content of variables/ folder
   // No need to add the new entries manually
   grunt.registerTask('sass:imports', 'adds all the required files as imports and compile', function() {
@@ -151,6 +168,7 @@ module.exports = function(grunt) {
     'clean:build',
     'sass:json',
     'sass:imports',
+    'docs:parse',
     'copy:build',
     'concat'
   ]);
