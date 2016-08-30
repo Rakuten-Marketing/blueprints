@@ -10,3 +10,8 @@
 /* The following includes all the bootstrap overrides */
 /* this file is a wrapper file including all the @imports for each component */
 @import 'components';
+
+// Overriding this since the font we use looks bad in the regular "bold" option
+b, strong {
+  font-weight: 600;
+}

@@ -1,5 +1,18 @@
 @import './common/colors';
 
+$rm-red-base: #bf0000 !default;
+$rm-black: #000000 !default;
+$rm-red-dark: #670000 !default;
+$rm-gray-base: #4d4d4d !default;
+$rm-gray-light: #546168 !default;
+$rm-gray-lighter: #d2d2d2 !default;
+$rm-teal: #48babe !default;
+$rm-blue: #0071bc !default;
+$rm-orange: #f7931e !default;
+$rm-yellow: #fcd821 !default;
+$rm-red-lighter: #ed1c24 !default;
+$rm-white: #ffffff !default;
+
 $gray: $rm-gray-base;
 $gray-base: $rm-gray-base;
 $gray-darker: darken($rm-gray-base, 15%);

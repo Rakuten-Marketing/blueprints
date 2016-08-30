@@ -1,16 +1,30 @@
-pre {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-.hljs {
+code {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   display: block;
   overflow-x: auto;
   padding: 0.65em;
-  background: #272822;
+  background: #ffffff;
 }
+
+pre {
+  margin: 0;
+  border: none;
+  padding: 10px 0px;
+  background-color: transparent;
+  & code {
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 0.95em;
+    white-space: pre-line;
+    border: 1px solid #f0f0f0;
+    background-color: #fefefe;
+  }
+}
+
+// -- "highlight.js" --
+// Rakuten Marketing "theme"
+.hljs, .hljs-subst { color: #333333; }
+.hljs-tag { color: #a83c98; }
 
 .hljs-keyword,
 .hljs-selector-tag,
@@ -18,11 +32,6 @@ pre {
 .hljs-section,
 .hljs-link {
   color: white;
-}
-
-.hljs,
-.hljs-subst {
-  color: #f8f8f2;
 }
 
 .hljs-string,
@@ -37,14 +46,14 @@ pre {
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #d88;
+  color: #48c704;
 }
 
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: #777;
+  color: #cdcdcd;
 }
 
 .hljs-keyword,
@@ -63,6 +72,6 @@ pre {
   font-style: italic;
 }
 
-.html .hljs-name { font-weight: normal; color: #f92672; }
-.hljs-attr { color: #a1e22e; }
-.hljs-string { color: #e6db74; }
+.html .hljs-name { font-weight: normal; color: #d409b6; }
+.html .hljs-attr { color: #da0808; }
+.html .hljs-string { color: #46c700; }
