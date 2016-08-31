@@ -137,7 +137,7 @@
       url: 'forms',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/forms.html',
+          templateUrl: 'app/partials/elements/forms/forms.template.html',
           controller: angular.noop //'FormsController as formsView'
         }
       }

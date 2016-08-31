@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     },
 
     sass_compile_imports: {
-      compile: {
+      variables: {
         options: {
           quiet: true,
           importPath: 'core/variables'
@@ -32,6 +32,18 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd   : './src/core/variables/',
+          src   : ['**/*.scss', '!**/common/**']
+        }]
+      },
+      components: {
+        options: {
+          quiet: true,
+          importPath: 'core/components'
+        },
+        target: './src/_components.scss',
+        files: [{
+          expand: true,
+          cwd   : './src/core/components/',
           src   : ['**/*.scss', '!**/common/**']
         }]
       }
@@ -135,11 +147,13 @@ module.exports = function(grunt) {
   // No need to add the new entries manually
   grunt.registerTask('sass:imports', 'adds all the required files as imports and compile', function() {
     var done = this.async();
-    grunt.log.writeln('→ Reading all the variables/ files from project'['green'].bold);
+    grunt.log.writeln('→ Reading all the import files from /variables and /components folders'['green'].bold);
     grunt.task.run('sass_compile_imports');
 
     done(true);
     grunt.log.ok('Output: ./src/_variables.scss'['green'].bold);
+    grunt.log.ok('Output: ./src/_components.scss'['green'].bold);
+    
     grunt.task.run('sass');
   });
 
