@@ -10,8 +10,7 @@
       var vm = this;
 
       vm.colors = {};
-      //$http.get('build/docs/variables.json').success(function (response) {
-      $http.get('app/partials/foundation/colors/dictionary.json').success(function (response) {
+      $http.get('build/docs/palettes.json').success(function (response) {
         var processed = response;
 
         angular.forEach(response, function(value, key){

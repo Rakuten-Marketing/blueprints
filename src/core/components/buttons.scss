@@ -1,0 +1,63 @@
+.btn {
+  font-size: $font-size-base;
+}
+
+.btn-primary {
+  @include button-variant($rm-white, $primary-active-elements-color, $primary-active-elements-color);
+}
+
+.btn-default {
+  @include button-variant($primary-active-elements-color, $rm-white, $primary-active-elements-color);
+
+  &:hover,
+  &:focus,
+  &.focus {
+    text-decoration: none;
+    color: $secondary-active-elements-hover;
+    border-color: $secondary-active-elements-hover;
+    background-color: $rm-white;
+  }
+}
+
+.btn-success {
+  @include button-variant($rm-white, $notifications-confirmation, $notifications-confirmation);
+}
+
+.btn-info {
+  @include button-variant($rm-white, $notifications-information, $notifications-information);
+}
+
+.btn-warning {
+  @include button-variant($rm-white, $notifications-notice, $notifications-notice);
+}
+
+.btn-danger {
+  @include button-variant($rm-white, $notifications-notification-bubbles, $notifications-notification-bubbles);
+}
+
+.btn-link {
+  color: $primary-active-elements-color;
+  font-weight: normal;
+  border-radius: 0;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: $secondary-active-elements-hover;
+    text-decoration: $secondary-active-elements-hover;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $secondary-sliders-color;
+      text-decoration: none;
+    }
+  }
+}
