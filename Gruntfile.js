@@ -58,6 +58,11 @@ module.exports = function(grunt) {
           },
 
           {
+            src: './src/core/palette.definition.json',
+            dest: './build/docs/palettes.json'
+          },
+
+          {
             cwd: './src/core/fonts/',
             expand: true,
             src: ['**/*'],
@@ -110,6 +115,20 @@ module.exports = function(grunt) {
       var contents = grunt.file.read(path);
       grunt.file.write(path, highlight(contents));
     });
+  });
+
+  // Creating a file with the colors defined in the JSON
+  grunt.registerTask('colors:variables', 'reading the palette definition object', function() {
+    var json = grunt.file.readJSON('./src/core/palette.definition.json'),
+        content = '';
+
+    Object.keys(json).forEach(function(key, index) {
+      json[key].map(function(item, index) {
+        content += item.variable + ': ' + item.rgb + ' !default;\n';
+      });
+    });
+
+    grunt.file.write('./src/core/variables/common/colors.scss', content);
   });
 
   // Creating a file with all the @imports, this task will read the content of variables/ folder
@@ -166,6 +185,7 @@ module.exports = function(grunt) {
   /* Build the current application and update distribution files (blueprints) */
   grunt.registerTask('build', [
     'clean:build',
+    'colors:variables',
     'sass:json',
     'sass:imports',
     'docs:parse',
