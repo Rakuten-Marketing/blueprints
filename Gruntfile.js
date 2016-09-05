@@ -22,33 +22,6 @@ module.exports = function(grunt) {
       }
     },
 
-    sass_compile_imports: {
-      variables: {
-        options: {
-          quiet: true,
-          importPath: 'core/variables'
-        },
-        target: './src/_variables.scss',
-        files: [{
-          expand: true,
-          cwd   : './src/core/variables/',
-          src   : ['**/*.scss', '!**/common/**']
-        }]
-      },
-      components: {
-        options: {
-          quiet: true,
-          importPath: 'core/components'
-        },
-        target: './src/_components.scss',
-        files: [{
-          expand: true,
-          cwd   : './src/core/components/',
-          src   : ['**/*.scss', '!**/common/**']
-        }]
-      }
-    },
-
     gitclone: {
       bootstrap: {
         options: {
@@ -115,7 +88,7 @@ module.exports = function(grunt) {
   // Bootstrap doc partial parsing
   grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
     grunt.log.ok('Parsing Bootstrap doc partials');
-    
+
     var files = grunt.file.expand('./node_modules/bootstrap-partials/docs/_includes/**/*.html'),
         highlight = function(contents) {
           return contents
@@ -153,7 +126,7 @@ module.exports = function(grunt) {
     done(true);
     grunt.log.ok('Output: ./src/_variables.scss'['green'].bold);
     grunt.log.ok('Output: ./src/_components.scss'['green'].bold);
-    
+
     grunt.task.run('sass');
   });
 
