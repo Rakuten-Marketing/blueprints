@@ -116,20 +116,6 @@ module.exports = function(grunt) {
     grunt.file.write('./src/core/variables/common/colors.scss', content);
   });
 
-  // Creating a file with all the @imports, this task will read the content of variables/ folder
-  // No need to add the new entries manually
-  grunt.registerTask('sass:imports', 'adds all the required files as imports and compile', function() {
-    var done = this.async();
-    grunt.log.writeln('→ Reading all the import files from /variables and /components folders'['green'].bold);
-    grunt.task.run('sass_compile_imports');
-
-    done(true);
-    grunt.log.ok('Output: ./src/_variables.scss'['green'].bold);
-    grunt.log.ok('Output: ./src/_components.scss'['green'].bold);
-
-    grunt.task.run('sass');
-  });
-
   // Parsing the common (globals) variables into a single JSON file
   // The other variables (such border color for specific component) are not important for now
   // Those will be retrieved via the documentation application (educational purposes: blueprints)
@@ -174,7 +160,6 @@ module.exports = function(grunt) {
     'clean:build',
     'colors:variables',
     'sass:json',
-    'sass:imports',
     'docs:parse',
     'copy:build',
     'concat'
