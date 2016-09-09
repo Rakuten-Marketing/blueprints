@@ -3,22 +3,26 @@
   "version": "0.1.0",
   "description": "Styleguide for RAN organisation",
   "private": true,
+  "author": "Blueprints Contributers (https://github.private.linksynergy.com/SD/blueprints/graphs/contributors)",
+  "homepage": "",
+  "license": "",
   "main": "",
   "engines": {
     "node": ">=5.8.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.private.linksynergy.com/SD/blueprints"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/grunt"
-  },
-  "author": "",
-  "license": "",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.6"
+    "start": "./node_modules/.bin/grunt serve",
+    "build": "./node_modules/.bin/grunt"
   },
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-ui-router": "^0.3.1",
+    "bootstrap-sass": "^3.3.6",
     "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",

@@ -1,11 +1,3 @@
-@import 'colors';
-
-$body-bg: $rm-palette-white !default;
-$text-color: $gray-base !default;
-$link-color: $brand-primary !default;
-$link-hover-color: darken($link-color, 10%);
-$link-hover-decoration: underline !default;
-
 $rm-size-base: 16px !default;
 $rm-size-xs: floor($rm-size-base / 4) !default;
 $rm-size-sm: floor($rm-size-base / 2) !default;

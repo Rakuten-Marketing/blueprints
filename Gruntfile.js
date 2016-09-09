@@ -16,6 +16,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
+          './dist/blueprints.css': './src/blueprints.scss',
           './build/blueprints.css': './src/blueprints.scss',
           './build/docs/app.css': './docs/assets/app.scss'
         }
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/variables/**'],
+        files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/_variables/**'],
         tasks: ['sass']
       },
       variables: {}
@@ -103,7 +104,7 @@ module.exports = function(grunt) {
   });
 
   // Creating a file with the colors defined in the JSON
-  grunt.registerTask('colors:variables', 'reading the palette definition object', function() {
+  grunt.registerTask('colors:_variables', 'reading the palette definition object', function() {
     var json = grunt.file.readJSON('./src/core/palette.definition.json'),
         content = '';
 
@@ -113,19 +114,19 @@ module.exports = function(grunt) {
       });
     });
 
-    grunt.file.write('./src/core/variables/common/colors.scss', content);
+    grunt.file.write('./src/core/_variables/common/colors.scss', content);
   });
 
-  // Parsing the common (globals) variables into a single JSON file
-  // The other variables (such border color for specific component) are not important for now
+  // Parsing the common (globals) _variables into a single JSON file
+  // The other _variables (such border color for specific component) are not important for now
   // Those will be retrieved via the documentation application (educational purposes: blueprints)
   // For documentation (and understanding its limitations): https://www.npmjs.com/package/grunt-scss-to-json
-  grunt.registerTask('sass:json', 'parses scss variables to JSON', function() {
-    grunt.log.writeln('→ Parsing styleguide variables into a JSON'['green'].bold);
+  grunt.registerTask('sass:json', 'parses scss _variables to JSON', function() {
+    grunt.log.writeln('→ Parsing styleguide _variables into a JSON'['green'].bold);
 
     var data = {},
         converter = require('scss-to-json'),
-        directory = './src/core/variables/common/',
+        directory = './src/core/_variables/common/',
         files = grunt.file.expand({
           cwd: directory
         }, ['*.scss']);
@@ -136,11 +137,11 @@ module.exports = function(grunt) {
     });
 
     grunt.file.write(
-      './build/docs/variables.json',
+      './build/docs/_variables.json',
       JSON.stringify(data)
     );
 
-    grunt.log.ok('Output: ./build/docs/variables.json'['green'].bold);
+    grunt.log.ok('Output: ./build/docs/_variables.json'['green'].bold);
   });
 
   /* Initializes the server, hosting the application */
@@ -158,7 +159,8 @@ module.exports = function(grunt) {
   /* Build the current application and update distribution files (blueprints) */
   grunt.registerTask('build', [
     'clean:build',
-    'colors:variables',
+    'colors:_variables',
+    'sass:build',
     'sass:json',
     'docs:parse',
     'copy:build',
@@ -166,7 +168,7 @@ module.exports = function(grunt) {
   ]);
 
   /* Initializes the server and first-run compiles the application */
-  grunt.registerTask('default', ['server']);
+  grunt.registerTask('default', ['build']);
   grunt.registerTask('server', function() {
     grunt.task.run('build');
 
