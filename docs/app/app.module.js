@@ -185,7 +185,7 @@
 
 
     // "Components" main section
-    // Everything related to "Twitter Bootstrap" components is handled by this state
+    // Everything related to "Twitter Bootstrap" _components is handled by this state
     .state('application.components', {
       url: '/components/',
       abstract: true,

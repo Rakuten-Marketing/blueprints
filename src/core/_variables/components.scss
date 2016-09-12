@@ -1,5 +1,3 @@
-@import 'colors';
-
 $padding-base-vertical: 6px;
 $padding-base-horizontal: 12px;
 $padding-large-vertical: 10px;
@@ -16,7 +14,7 @@ $border-radius-base: 0px;
 $border-radius-large: 0px;
 $border-radius-small: 0px;
 
-$component-active-color: $gray-base;
+$component-active-color: $rm-black;
 $component-active-bg: $brand-primary;
 $caret-width-base: 4px;
 $caret-width-large: 5px;
@@ -29,7 +27,7 @@ $components-padding-base-horizontal: $padding-base-horizontal;
 $components-border-radius-base: $border-radius-base;
 
 $components-color-default: $rm-palette-white;
-$components-color-active: $gray-base;
+$components-color-active: $rm-black;
 $components-color-hover: $rm-palette-white;
 
 $components-bg-default: $brand-primary;

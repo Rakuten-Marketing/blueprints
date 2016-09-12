@@ -3,13 +3,17 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l);
 
+/* Importing rakuten specific values */
+@import 'core/variables';
+
 /* Applying the theme to our Twitter Bootstrap copy */
-@import 'variables';
-@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'core/vendors';
+
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 /* The following includes all the bootstrap overrides */
 /* this file is a wrapper file including all the @imports for each component */
-@import 'components';
+@import 'core/components';
 
 // Overriding this since the font we use looks bad in the regular "bold" option
 b, strong {
