@@ -9,7 +9,7 @@
 /* Applying the theme to our Twitter Bootstrap copy */
 @import 'core/vendors';
 
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 /* The following includes all the bootstrap overrides */
 /* this file is a wrapper file including all the @imports for each component */
