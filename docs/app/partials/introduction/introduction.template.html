@@ -1,44 +1,48 @@
 <div class="row">
-  <div class="col-sm-12 article">
-    <div class="title">What is Blueprints?</div>
-    <div class="paragraph">
+  <div class="col-sm-12">
+    <h2>What is Blueprints?</h2>
+
+    <p>
       An UI framework using <em>Bootstrap 3</em> as its foundation. Created in that way primarily focusing on look and feel, described as a long living styleguide that can evolve over time and empower developers to build application pages quickly whilst conforming with a consistent branding that is agreed and defined.
-    </div>
+    </p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-12 article">
-    <div class="title">Start using this styleguide</div>
-    <div class="paragraph">
+  <div class="col-sm-12">
+    <h2>Start using this styleguide</h2>
+
+    <p>
       You have several options to include the distribution files into your project but the result should be the same: get a copy of the stylesheet file and the javascript into your main HTML document.</br></br>
       There are two recommended options:
-      <ul class="steps-list">
-        <li>
-          <strong>Option 1:</strong> Getting a copy of the distribution files<br>
-          Make a copy of the compiled files contained in the
-          <a target="_blank" href="https://github.private.linksynergy.com/SD/blueprints/tree/dev/dist">distribution</a> folder into your project</a>
-          <div class="muted">
-            (The following block shows the code you need to include in your index.html but don't forget to include to make acopy of the dist/ folder and all its content).
-          </div>
-           <div hljs hljs-no-escape hljs-language="html">
-            &lt;link rel="stylesheet" type="text/css" href="dist/css/blueprints.css"&gt;
-            &lt;script type="text/javascript" src="dist/js/blueprints.js"&gt;&lt;/script&gt;
-          </div>
-        </li>
-        <li>
-          <strong>Option 2:</strong> Adding Blueprints as a node module (can specify version)<br>
-          You will include the "compiled" files into your project, you may have a grunt/gulp task to handle those. Of course you use the HTML code above but with this approach you are aiming to have more control over those files, the following is an example of your <em>package.json</em> file
-          <div hljs hljs-no-escape hljs-language="js">
-          {
-            //Your HTML code will looks similiar to:
-            //&lt;link rel="stylesheet" type="text/css" href="node_modules/dist/css/blueprints.css"&gt;
-            //&lt;script type="text/javascript" src="node_modules/dist/js/blueprints.js"&gt;&lt;/script&gt;
-            "dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#dev"
-          }
-          </div>
-        </li>
-      </ul>
+    </p>
+
+    <h4>Option 1:</h4>
+
+    <p>
+      Include compiled CSS located in `dist/`
+    </p>
+
+    <div hljs hljs-language="html">
+<link rel="stylesheet" type="text/css" href="dist/css/blueprints.css">
+    </div>
+
+    <h4>Option 2:</h4>
+
+    <p>
+      Adding Blueprints as a node module (can specify version)<br>
+      You will include the "compiled" files into your project, you may have a grunt/gulp task to handle those. Of course you use the HTML code above but with this approach you are aiming to have more control over those files, the following is an example of your <em>package.json</em> file
+    </p>
+
+    <div hljs hljs-language="js">
+// Add these to your HTML
+<link rel="stylesheet" type="text/css" href="node_modules/dist/css/blueprints.css">
+<script type="text/javascript" src="node_modules/dist/js/blueprints.js"></script>
+
+// Add this dependency to package.json
+{
+"dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#dev"
+}
     </div>
   </div>
 </div>

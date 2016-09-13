@@ -1,0 +1,36 @@
+@mixin bp-button-variant($states) {
+  @include button-variant(
+    map_get($states, 'color'),
+    map_get($states, 'background'),
+    map_get($states, 'border')
+  );
+
+  &:focus,
+  &.focus {
+    color: map_get($states, 'color-active');
+    background-color: map_get($states, 'background-active');
+    border-color: map_get($states, 'border-active');
+  }
+
+  &:hover {
+    color: map_get($states, 'color-active');
+    background-color: map_get($states, 'background-active');
+    border-color: map_get($states, 'border-active');
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: map_get($states, 'color-active');
+    background-color: map_get($states, 'background-active');
+    border-color: map_get($states, 'border-active');
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: map_get($states, 'color-active');
+      background-color: map_get($states, 'background-active');
+      border-color: map_get($states, 'border-active');
+    }
+  }
+}

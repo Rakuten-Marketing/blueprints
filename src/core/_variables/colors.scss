@@ -1,32 +1,20 @@
-$rm-black: #000000 !default;
-$rm-gray-base: #4d4d4d !default;
-$rm-gray: #757575 !default;
-$rm-gray-light: #546168 !default;
-$rm-gray-lighter: #d2d2d2 !default;
-$rm-gray-white: #e6e6e6 !default;
-$rm-gray-white-darker: #cacdd0 !default;
-$rm-white: #ffffff !default;
-$rm-palette-white: $rm-white;
+$brand-black: #000000 !default;
+$brand-white: #ffffff !default;
 
-$rm-red-base: #bf0000 !default;
-$rm-red-light: #de1515 !default;
-$rm-red-lighter: #ed1c24 !default;
-$rm-red-dark: #670000 !default;
-$rm-blush: #e84848 !default;
+$brand-gray-darker: #434343 !default;
+$brand-gray: #757575 !default;
+$brand-gray-light: #D5D6DA !default;
+$brand-gray-lighter: #E6E6E6 !default;
 
-$rm-teal: #48babe !default;
-$rm-teal-lighter: #3db8be !default;
-$rm-teal-darker: #2b999f !default;
-$rm-blue: #0071bc !default;
-$rm-blue-dark: #27405e !default;
+$brand-primary-darker: #2B999F !default;
+$brand-primary: #3DB8BE !default;
+// $brand-primary-lighter: ... !default;
 
-$rm-aqua: #178c72 !default;
+// $brand-secondary-darker: ... !default;
+$brand-secondary: #27405E !default;
+$brand-secondary-lighter: #27405E !default;
 
-$rm-orange: #f7931e !default;
-$rm-orange-light: #fcb43c !default;
-$rm-orange-dark: #e08c01 !default;
-
-$rm-yellow: #fcd821 !default;
-$rm-yellow-lighter: #fed600 !default;
-
-
+$brand-info: $brand-secondary-lighter !default;
+$brand-success: #178C72 !default;
+$brand-warning: #FED600 !default;
+$brand-danger: #E84848 !default;

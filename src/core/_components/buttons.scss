@@ -1,63 +1,47 @@
 .btn {
   font-size: $font-size-base;
-}
 
-.btn-primary {
-  @include button-variant($rm-white, $primary-active-elements-color, $primary-active-elements-color);
+  &:active,
+  &.active {
+    box-shadow: none;
+  }
 }
 
 .btn-default {
-  @include button-variant($primary-active-elements-color, $rm-white, $primary-active-elements-color);
+  $states: (
+    'color': $brand-gray-lighter,
+    'background': $brand-white,
+    'border': $brand-gray-lighter,
+    'color-active': $brand-gray-light,
+    'background-active': $brand-white,
+    'border-active': $brand-gray-light,
+  );
 
-  &:hover,
-  &:focus,
-  &.focus {
-    text-decoration: none;
-    color: $secondary-active-elements-hover;
-    border-color: $secondary-active-elements-hover;
-    background-color: $rm-white;
-  }
+  @include bp-button-variant($states);
 }
 
-.btn-success {
-  @include button-variant($rm-white, $notifications-confirmation, $notifications-confirmation);
+.btn-primary {
+  $states: (
+    'color': $brand-white,
+    'background': $brand-primary,
+    'border': $brand-primary,
+    'color-active': $brand-white,
+    'background-active': $brand-primary-darker,
+    'border-active': $brand-primary-darker,
+  );
+
+  @include bp-button-variant($states);
 }
 
-.btn-info {
-  @include button-variant($rm-white, $notifications-information, $notifications-information);
-}
+.btn-secondary {
+  $states: (
+    'color': $brand-primary,
+    'background': $brand-white,
+    'border': $brand-primary,
+    'color-active': $brand-primary-darker,
+    'background-active': $brand-white,
+    'border-active': $brand-primary-darker,
+  );
 
-.btn-warning {
-  @include button-variant($rm-white, $notifications-notice, $notifications-notice);
-}
-
-.btn-danger {
-  @include button-variant($rm-white, $notifications-notification-bubbles, $notifications-notification-bubbles);
-}
-
-.btn-link {
-  color: $primary-active-elements-color;
-  font-weight: normal;
-  border-radius: 0;
-
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: transparent;
-  }
-  &:hover,
-  &:focus {
-    color: $secondary-active-elements-hover;
-    text-decoration: $secondary-active-elements-hover;
-    background-color: transparent;
-  }
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus {
-      color: $secondary-sliders-color;
-      text-decoration: none;
-    }
-  }
+  @include bp-button-variant($states);
 }

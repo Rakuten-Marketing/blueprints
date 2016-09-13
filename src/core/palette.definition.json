@@ -2,8 +2,8 @@
   "primary": [
     {
       "rgb": "#3db8be",
-      "alias": "Turquoise",
-      "variable": "$primary-active-elements-color",
+      "alias": "Brand primary",
+      "variable": "$brand-primary",
       "type": "Primary Color",
       "usage": [
         "Active Sections",
@@ -12,133 +12,127 @@
       ]
     },
     {
-      "rgb": "#434343",
-      "alias": "Spacegrey",
-      "variable": "$primary-principal-body-color",
-      "type": "Body Text Color",
+      "rgb": "#2B999F",
+      "alias": "Brand primary darker",
+      "variable": "$brand-primary-darker",
+      "type": "Primary darker",
       "usage": [
-        "Body Text",
-        "Headings",
-        "Section Labels"
+        "TODO..."
       ]
-    },
-    {
-      "rgb": "#e6e6e6",
-      "alias": "Smoke",
-      "variable": "$primary-border-color",
-      "type": "Color",
-      "usage": [
-        "Frames",
-        "Separators"
-      ]
-    },
-    {
-      "rgb": "#bf0000",
-      "alias": "Rakuten Red",
-      "variable": "$primary-brand-color"
     }
   ],
   "secondary": [
     {
-      "rgb": "#de1515",
-      "alias": "Firebrick",
-      "variable": "$secondary-brand-color-variation",
+      "rgb": "#27405E",
+      "alias": "Brand secondary",
+      "variable": "$brand-secondary",
       "type": "Color",
       "usage": [
-        "Dynamic Gallery Button"
+        "TODO..."
       ]
     },
     {
-      "rgb": "#757575",
-      "alias": "Battleship",
-      "variable": "$secondary-tags-color",
+      "rgb": "#27405E",
+      "alias": "Brand secondary",
+      "variable": "$brand-secondary-lighter",
       "type": "Color",
       "usage": [
-        "Product Search Tags"
-      ]
-    },
-    {
-      "rgb": "#27405e",
-      "alias": "Navy",
-      "variable": "$secondary-inactive-sidebar-sections",
-      "type": "Color",
-      "usage": [
-        "Inactive Sections in sidebar (accordion)"
-      ]
-    },
-    {
-      "rgb": "#cacdd0",
-      "alias": "Gray",
-      "variable": "$secondary-sliders-color",
-      "type": "Color",
-      "usage": [
-        "Inactive Tab 2",
-        "Sliders"
-      ]
-    },
-    {
-      "rgb": "#2b999f",
-      "alias": "Teal",
-      "variable": "$secondary-active-elements-hover",
-      "type": "Color",
-      "usage": [
-        "Primary Button Hover"
+        "TODO..."
       ]
     }
   ],
   "notifications": [
     {
-      "rgb": "#e08c01",
-      "alias": "Toffee",
-      "variable": "$notifications-info-marks",
+      "rgb": "#27405E",
+      "alias": "Brand info",
+      "variable": "$brand-info",
       "type": "Color",
       "usage": [
-        "Info Marks (Icons)"
+        "Info marks"
       ]
     },
     {
-      "rgb": "#178c72",
-      "alias": "Firebrick",
-      "variable": "$notifications-confirmation",
+      "rgb": "#178C72",
+      "alias": "Brand success",
+      "variable": "$brand-success",
       "type": "Color",
       "usage": [
-        "Confirmation"
+        "Confirmation",
+        "Successes"
       ]
     },
     {
-      "rgb": "#27405e",
-      "alias": "Blue",
-      "variable": "$notifications-information",
+      "rgb": "#FED600",
+      "alias": "Brand warning",
+      "variable": "$brand-warning",
       "type": "Color",
       "usage": [
-        "Information"
+        "Warning"
       ]
     },
     {
-      "rgb": "#fed600",
-      "alias": "Yellow",
-      "variable": "$notifications-notice",
+      "rgb": "#E84848",
+      "alias": "Brand danger",
+      "variable": "$brand-danger",
       "type": "Color",
       "usage": [
-        "Notice"
+        "Danger"
+      ]
+    }
+  ],
+  "grays": [
+    {
+      "rgb": "#000000",
+      "alias": "Brand black",
+      "variable": "$brand-black",
+      "type": "Color",
+      "usage": [
+        "TODO.."
       ]
     },
     {
-      "rgb": "#fcb43c",
-      "alias": "Brown",
-      "variable": "$notifications-badges",
+      "rgb": "#ffffff",
+      "alias": "Brand white",
+      "variable": "$brand-white",
       "type": "Color",
       "usage": [
-        "Publish Badge"
+        "TODO..."
       ]
     },
     {
-      "rgb": "#e84848",
-      "alias": "Firebrick",
-      "variable": "$notifications-notification-bubbles",
+      "rgb": "#434343",
+      "alias": "Brand gray darker",
+      "variable": "$brand-gray-darker",
       "type": "Color",
       "usage": [
-        "Notification Bubble"
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#757575",
+      "alias": "Brand gray",
+      "variable": "$brand-gray",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#D5D6DA",
+      "alias": "Brand gray light",
+      "variable": "$brand-gray-light",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#E6E6E6",
+      "alias": "Brand gray lighter",
+      "variable": "$brand-gray-lighter",
+      "type": "Color",
+      "usage": [
+        "TODO..."
       ]
     }
   ]
