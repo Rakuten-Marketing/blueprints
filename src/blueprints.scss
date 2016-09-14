@@ -5,6 +5,9 @@
 @import 'core/variables';
 
 // Importing Blueprints specific mixins
+@import 'core/utils';
+
+// Importing Blueprints specific mixins
 @import 'core/mixins';
 
 // Applying the theme to our Twitter Bootstrap copy

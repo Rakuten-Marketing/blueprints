@@ -1,6 +1,7 @@
 $brand-font-family: 'lft-etica', sans-serif !default;
 $brand-font-size: $size-base !default;
 $brand-line-height: 1.428571429 !default;
+$brand-font-weight-bold: 600;
 
 $brand-font-size-h1: $size-xxl !default;
 $brand-font-size-h2: $size-xl !default;
@@ -9,4 +10,4 @@ $brand-font-size-h4: $size-m !default;
 $brand-font-size-h5: $size-base !default;
 $brand-font-size-h6: $size-s !default;
 
-$headings-font-weight: 600;
+$headings-font-weight: $brand-font-weight-bold;

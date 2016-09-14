@@ -1,20 +1,67 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+<nav class="navbar navbar-with-icons navbar-fixed-top">
+  <div class="navbar-items-center container">
     <div class="navbar-header navbar-brand">Blueprints</div>
-    <ul class="nav navbar-nav">
-      <li ng-class="{active: mainView.$state.includes('application.home')}">
-        <a ui-sref="application.home">Installation</a>
-      </li>
-      <li ng-class="{active: mainView.$state.includes('application.foundation')}">
-        <a ui-sref="application.foundation.colors">Foundation</a>
-      </li>
-      <li ng-class="{active: mainView.$state.includes('application.elements')}">
-        <a ui-sref="application.elements.grid">Elements</a>
-      </li>
-      <li ng-class="{active: mainView.$state.includes('application.components')}">
-        <a ui-sref="application.components.alerts">Components</a>
-      </li>
-    </ul>
+
+    <div class="navbar-items">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: mainView.$state.includes('application.home')}">
+          <a ui-sref="application.home">
+            <i class="navbar-nav-icon glyphicon glyphicon-download"></i>
+
+            Installation
+          </a>
+        </li>
+        <li ng-class="{active: mainView.$state.includes('application.foundation')}">
+          <a ui-sref="application.foundation.colors">
+            <i class="navbar-nav-icon glyphicon glyphicon-book"></i>
+
+            Foundation
+          </a>
+        </li>
+        <li ng-class="{active: mainView.$state.includes('application.elements')}">
+          <a ui-sref="application.elements.grid">
+            <i class="navbar-nav-icon glyphicon glyphicon-list"></i>
+
+            Elements
+          </a>
+        </li>
+        <li ng-class="{active: mainView.$state.includes('application.components')}">
+          <a ui-sref="application.components.alerts">
+            <i class="navbar-nav-icon glyphicon glyphicon-object-align-left"></i>
+
+            Components
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-actions">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-off"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Profile</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+              <a href="#">Settings</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+              <a href="#">Billing & Payments</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 <div class="container" ui-view="content"></div>

@@ -9,10 +9,10 @@
 
 .btn-default {
   $states: (
-    'color': $brand-gray-lighter,
+    'color': $brand-gray,
     'background': $brand-white,
     'border': $brand-gray-lighter,
-    'color-active': $brand-gray-light,
+    'color-active': $brand-gray,
     'background-active': $brand-white,
     'border-active': $brand-gray-light,
   );
