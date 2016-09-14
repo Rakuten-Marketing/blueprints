@@ -1,74 +1,10 @@
 @import '../../src/blueprints';
+
 @import 'includes/code';
 @import 'includes/swatches';
 
 body {
-  background-color: #fcfcfc;
-  padding-top: 50px;
-  color: #434343;
-  height: 100%;
-
-  height: 100vh;
-}
-
-.root-container {
-  height: 100%;
-  padding-top: 20px;
-}
-
-.article {
-  margin-bottom: 10px;
-  & .title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    margin: 0;
-    margin-top: 10px;
-  }
-  & .paragraph { margin: 0; }
-}
-
-.steps-list > li {
-  margin-bottom: 10px;
-}
-
-.muted {
-  font-size: 0.90em;
-  color: #bababa;
-}
-
-.content-header { margin-top: 0px; }
-
-.section-header:first-of-type { margin-top: 0px; }
-.section-header {
-  font-size: 20px;
-}
-
-.styled-list {
-  font-size: 0.85em;
-  & .description {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  & ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: 2em;
-    & li { padding: 2px 0px; }
-    & li:before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background-color: $primary-brand-color;
-      position: absolute;
-      margin-left: -15px;
-      margin-top: 3px;
-      -moz-border-radius: 50px;
-      -webkit-border-radius: 50px;
-      border-radius: 50px;
-    }
-  }
+  padding: ($navbar-height + 20px) 0 50px 0;
 }
 
 

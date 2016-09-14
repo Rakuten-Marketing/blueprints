@@ -1,23 +1,12 @@
-$rm-font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$rm-font-family-serif: Georgia, 'Times New Roman', Times, serif;
-$rm-font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+$brand-font-family: 'lft-etica', sans-serif !default;
+$brand-font-size: $size-base !default;
+$brand-line-height: 1.428571429 !default;
 
-$rm-font-family-base: 'lft-etica', sans-serif !default;
-$rm-font-size-base: 13px !default;
-$rm-font-size-large: ceil($rm-font-size-base * 1.25);
-$rm-font-size-small: ceil($rm-font-size-base * 0.85);
+$brand-font-size-h1: $size-xxl !default;
+$brand-font-size-h2: $size-xl !default;
+$brand-font-size-h3: $size-l !default;
+$brand-font-size-h4: $size-m !default;
+$brand-font-size-h5: $size-base !default;
+$brand-font-size-h6: $size-s !default;
 
-$rm-line-height-base: 1.428571429 !default;
-$rm-line-height-computed: floor($rm-font-size-base * $rm-line-height-base);
-
-$rm-font-size-h1: floor($rm-font-size-base * 2.5) !default;
-$rm-font-size-h2: floor($rm-font-size-base * 2) !default;
-$rm-font-size-h3: ceil($rm-font-size-base * 1.7) !default;
-$rm-font-size-h4: ceil($rm-font-size-base * 1.25) !default;
-$rm-font-size-h5: $rm-font-size-base !default;
-$rm-font-size-h6: ceil($rm-font-size-base * 0.85) !default;
-
-$rm-headings-font-family: inherit !default;
-$rm-headings-font-weight: 500 !default;
-$rm-headings-line-height: 1.1 !default;
-$rm-headings-color: inherit !default;
+$headings-font-weight: 600;

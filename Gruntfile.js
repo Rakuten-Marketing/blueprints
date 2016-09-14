@@ -34,6 +34,15 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      palette: {
+        files: [
+          {
+            src: './src/core/palette.definition.json',
+            dest: './build/docs/palettes.json'
+          }
+        ]
+      },
+
       build: {
         files: [
           {
@@ -41,11 +50,6 @@ module.exports = function(grunt) {
             expand: true,
             src: ['css/**.html', 'components/**.html'],
             dest: './build/docs/partials/'
-          },
-
-          {
-            src: './src/core/palette.definition.json',
-            dest: './build/docs/palettes.json'
           },
 
           {
@@ -63,7 +67,11 @@ module.exports = function(grunt) {
         files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/_variables/**'],
         tasks: ['sass']
       },
-      variables: {}
+
+      palette: {
+        files: ['src/core/palette.definition.json'],
+        tasks: ['copy:palette']
+      }
     }
   });
 
@@ -90,31 +98,18 @@ module.exports = function(grunt) {
   grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
     grunt.log.ok('Parsing Bootstrap doc partials');
 
-    var files = grunt.file.expand('./node_modules/bootstrap-partials/docs/_includes/**/*.html'),
-        highlight = function(contents) {
-          return contents
-            .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
-            .replace(/\{\%\sendhighlight\s\%\}/g, '</div>');
-        };
+    var files = grunt.file.expand('./node_modules/bootstrap-partials/docs/_includes/**/*.html');
+
+    var highlight = function(contents) {
+      return contents
+        .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
+        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>')
+    };
 
     files.forEach(function(path) {
       var contents = grunt.file.read(path);
       grunt.file.write(path, highlight(contents));
     });
-  });
-
-  // Creating a file with the colors defined in the JSON
-  grunt.registerTask('colors:_variables', 'reading the palette definition object', function() {
-    var json = grunt.file.readJSON('./src/core/palette.definition.json'),
-        content = '';
-
-    Object.keys(json).forEach(function(key, index) {
-      json[key].map(function(item, index) {
-        content += item.variable + ': ' + item.rgb + ' !default;\n';
-      });
-    });
-
-    grunt.file.write('./src/core/_variables/common/colors.scss', content);
   });
 
   // Parsing the common (globals) _variables into a single JSON file
@@ -159,11 +154,11 @@ module.exports = function(grunt) {
   /* Build the current application and update distribution files (blueprints) */
   grunt.registerTask('build', [
     'clean:build',
-    'colors:_variables',
     'sass:build',
     'sass:json',
     'docs:parse',
     'copy:build',
+    'copy:palette',
     'concat'
   ]);
 

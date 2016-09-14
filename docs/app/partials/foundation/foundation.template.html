@@ -2,13 +2,13 @@
   <div class="col-sm-3">
     <ul class="nav nav-pills nav-stacked">
       <li ng-class="{active: foundationView.$state.includes('application.foundation.colors')}">
-        <a ng-click="foundationView.switchState('colors')">Colors</a>
+        <a href ng-click="foundationView.switchState('colors')">Colors</a>
       </li>
       <li ng-class="{active: foundationView.$state.includes('application.foundation.typography')}">
-        <a ng-click="foundationView.switchState('typography')">Typography</a>
+        <a href ng-click="foundationView.switchState('typography')">Typography</a>
       </li>
-      <li ng-class="{active: foundationView.$state.includes('application.foundation.paddings')}">
-        <a ng-click="foundationView.switchState('paddings')">Paddings</a>
+      <li ng-class="{active: foundationView.$state.includes('application.foundation.sizes')}">
+        <a href ng-click="foundationView.switchState('sizes')">Sizes</a>
       </li>
     </ul>
   </div>

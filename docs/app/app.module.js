@@ -38,7 +38,6 @@
     })
 
     // "Foundation" main section
-    // Colors, Typography and Paddings sections are handled by this state
     .state('application.foundation', {
       url: '/foundation/',
       abstract: true,
@@ -70,11 +69,11 @@
       }
     })
 
-    .state('application.foundation.paddings', {
-      url: 'paddings',
+    .state('application.foundation.sizes', {
+      url: 'sizes',
       views: {
         'section': {
-          templateUrl: 'app/partials/foundation/paddings/paddings.template.html',
+          templateUrl: 'app/partials/foundation/sizes/sizes.template.html',
           controller: angular.noop
         }
       }
