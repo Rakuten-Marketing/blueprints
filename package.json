@@ -34,5 +34,8 @@
     "grunt-sass": "^1.2.0",
     "load-grunt-tasks": "^3.5.0",
     "scss-to-json": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
   }
 }

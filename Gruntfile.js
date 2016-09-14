@@ -53,7 +53,7 @@ module.exports = function(grunt) {
           },
 
           {
-            cwd: './src/core/fonts/',
+            cwd: './node_modules/bootstrap-sass/assets/fonts',
             expand: true,
             src: ['**/*'],
             dest: './build/fonts'
@@ -82,6 +82,8 @@ module.exports = function(grunt) {
 
     vendor: {
       src: [
+        './node_modules/jquery/dist/jquery.js',
+        './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
         './node_modules/angular/angular.js',
         './node_modules/angular-ui-router/release/angular-ui-router.js'
       ],

@@ -40,8 +40,8 @@ $table-bg-hover: $brand-gray-light;
 $table-border-color: $brand-gray-lighter;
 
 // Buttons
-$btn-default-color: $brand-gray-lighter;
-$btn-default-bg: $brand-gray-lighter;
+$btn-default-color: $brand-gray;
+$btn-default-bg: $brand-white;
 $btn-default-border: $brand-gray-lighter;
 
 $btn-primary-color: $brand-white;
@@ -113,7 +113,7 @@ $navbar-height: 90px;
 $navbar-border-radius: 0;
 $navbar-default-color: $brand-gray-darker;
 $navbar-default-bg: $brand-white;
-$navbar-default-border: $brand-gray-lighter;
+$navbar-default-border: transparent;
 
 $navbar-default-link-color: $brand-gray-darker;
 $navbar-default-link-hover-color: $brand-primary;

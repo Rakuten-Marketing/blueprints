@@ -1,0 +1,126 @@
+$navbar-with-icons-bg: $brand-white;
+$navbar-with-icons-link-color: $brand-gray-darker;
+$navbar-with-icons-link-hover-color: $brand-primary;
+$navbar-with-icons-link-hover-bg: $brand-gray-lighter;
+$navbar-with-icons-link-active-color: $brand-primary;
+$navbar-with-icons-link-active-bg: $brand-gray-lighter;
+
+$navbar-actions-link-color: $brand-gray-darker;
+$navbar-actions-link-hover-color: $brand-primary;
+$navbar-actions-link-hover-bg: $brand-white;
+$navbar-actions-link-active-color: $brand-primary;
+$navbar-actions-link-active-bg: $brand-white;
+
+.navbar {
+  box-shadow: 0px 5px 10px 0px rgba(230, 230, 230, 1);
+}
+
+.navbar-nav {
+  > li > a {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: $size-xxs;
+      background-color: transparent;
+      content: '';
+    }
+
+    &:hover::before {
+      background-color: $brand-primary-darker;
+    }
+  }
+
+  > li.active > a {
+    &::before {
+      background-color: $brand-primary-darker
+    }
+  }
+}
+
+.navbar-nav-icon {
+  margin-bottom: $size-xxs;
+  text-align: center;
+  font-size: $size-m;
+  display: block;
+}
+
+.navbar-with-icons {
+  background-color: $navbar-with-icons-bg;
+
+  .navbar-nav {
+    > li > a {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      text-align: center;
+      color: $navbar-with-icons-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-with-icons-link-hover-color;
+        background-color: $navbar-with-icons-link-hover-bg;
+      }
+    }
+
+    > li.active > a {
+      color: $navbar-with-icons-link-active-color;
+      background-color: $navbar-with-icons-link-active-bg;
+    }
+  }
+}
+
+.navbar-items-center {
+  display: flex;
+
+  .navbar-header,
+  .navbar-items,
+  .navbar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-header {
+    flex: 0 0 20%;
+  }
+
+  .navbar-items {
+    flex: 1;
+  }
+
+  .navbar-actions {
+    flex: 0 0 20%;
+    justify-content: flex-end;
+  }
+}
+
+.navbar-actions {
+  .navbar-nav {
+    > li > a {
+      padding: 0;
+
+      &:focus,
+      &:hover {
+        background-color: $navbar-actions-link-hover-bg;
+        color: $navbar-actions-link-hover-color;
+      }
+
+      &::before {
+        content: normal;
+      }
+    }
+  }
+
+  .nav .open > a {
+    &,
+    &:focus,
+    &:hover {
+      background-color: $navbar-actions-link-hover-bg;
+      color: $navbar-actions-link-hover-color;
+    }
+  }
+}
