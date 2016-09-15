@@ -327,6 +327,16 @@
         }
       })
 
+      .state('application.components.listgroup', {
+        url: 'listgroup',
+        views: {
+          section: {
+            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/list-group.html',
+            controller: angular.noop
+          }
+        }
+      })
+
     .state('missing', {
       views: {
         content: {
