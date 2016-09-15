@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/_variables/**'],
-        tasks: ['sass']
+        tasks: ['sass:build']
       },
 
       palette: {
@@ -121,17 +121,18 @@ module.exports = function(grunt) {
   grunt.registerTask('sass:json', 'parses scss _variables to JSON', function() {
     grunt.log.writeln('→ Parsing styleguide _variables into a JSON'['green'].bold);
 
-    var data = {},
-        converter = require('scss-to-json'),
-        directory = './src/core/_variables/common/',
-        files = grunt.file.expand({
-          cwd: directory
-        }, ['*.scss']);
+    var converter = require('scss-to-json'),
+      directory = './src/core/_variables/common/';
 
-    files.forEach(function(file) {
+    var files = grunt.file.expand({ cwd: directory }, ['*.scss']);
+
+    var data = files.reduce(function(acc, file) {
       var node = file.replace('.scss', '');
-      data[node] = converter(directory + file);
-    });
+
+      acc[node] = converter(directory + file);
+
+      return acc;
+    }, {});
 
     grunt.file.write(
       './build/docs/_variables.json',
@@ -144,7 +145,7 @@ module.exports = function(grunt) {
   /* Initializes the server, hosting the application */
   grunt.registerTask('server:restore', 'initializes the express server', function() {
     var done = this.async(),
-        port = process.env.PORT || 3000;
+      port = process.env.PORT || 3000;
 
     require('./server.js')
       .listen(port)
@@ -167,15 +168,14 @@ module.exports = function(grunt) {
   /* Initializes the server and first-run compiles the application */
   grunt.registerTask('default', ['build']);
   grunt.registerTask('server', function() {
-    grunt.task.run('build');
-
-    // clone partials if they don't exist
-    if(!grunt.file.isDir('./node_modules/bootstrap-partials')) {
+    // Clone partials if they don't exist
+    if (!grunt.file.isDir('./node_modules/bootstrap-partials')) {
       grunt.log.writeln('No bootstrap partials detected. They will need to be cloned.');
       grunt.task.run('gitclone:bootstrap');
     }
 
-    grunt.task.run('server:restore');
+    grunt.task.run('build');
 
+    grunt.task.run('server:restore');
   });
 };

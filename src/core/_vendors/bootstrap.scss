@@ -36,7 +36,7 @@ $border-radius-small: 0;
 
 // Tables
 $table-bg-accent: $brand-gray-lighter;
-$table-bg-hover: $brand-gray-light;
+$table-bg-hover: $brand-primary-lighter;
 $table-border-color: $brand-gray-lighter;
 
 // Buttons
@@ -147,10 +147,41 @@ $nav-pills-active-link-hover-bg: $brand-primary-darker;
 $nav-pills-active-link-hover-color: $brand-white;
 
 // Pagination
+$pagination-color: $brand-gray-darker;
+$pagination-bg: transparent;
+$pagination-border: transparent;
 
-// ...
+$pagination-hover-color: $brand-primary;
+$pagination-hover-bg: transparent;
+$pagination-hover-border: transparent;
 
-// Pager
+$pagination-active-color: $brand-primary;
+$pagination-active-bg: transparent;
+$pagination-active-border: transparent;
 
-// ...
+$pagination-disabled-color: $brand-gray;
+$pagination-disabled-bg: transparent;
+$pagination-disabled-border: transparent;
 
+// Labels
+$label-default-bg: $brand-gray-light;
+$label-color: $brand-gray-darker;
+$label-link-hover-color: $brand-gray-darker;
+
+// Alerts
+$alert-padding: $size-xl $size-xxl;
+
+// List Group
+$list-group-bg: $brand-white;
+$list-group-border: $brand-white;
+$list-group-hover-bg: $brand-primary-lighter;
+$list-group-active-color: $brand-primary;
+$list-group-active-bg: $brand-primary-lighter;
+$list-group-active-text-color: $brand-primary;
+$list-group-link-color: $brand-gray-darker;
+$list-group-link-hover-color: $brand-primary;
+$list-group-link-heading-color: $brand-gray-darker;
+
+// Close
+$close-font-weight: normal;
+$close-color: $brand-white;

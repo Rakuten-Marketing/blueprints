@@ -1,6 +1,15 @@
 {
   "primary": [
     {
+      "rgb": "#e6f1f1",
+      "alias": "Brand primary lighter",
+      "variable": "$brand-primary-lighter",
+      "type": "Primary lighter",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
       "rgb": "#3db8be",
       "alias": "Brand primary",
       "variable": "$brand-primary",
@@ -62,7 +71,7 @@
       ]
     },
     {
-      "rgb": "#FED600",
+      "rgb": "#FCB43C",
       "alias": "Brand warning",
       "variable": "$brand-warning",
       "type": "Color",
@@ -118,7 +127,7 @@
       ]
     },
     {
-      "rgb": "#D5D6DA",
+      "rgb": "#D4D6D9",
       "alias": "Brand gray light",
       "variable": "$brand-gray-light",
       "type": "Color",
