@@ -6020,21 +6020,23 @@ button.close {
 .navbar {
   box-shadow: 0px 5px 10px 0px #e6e6e6; }
 
-.navbar-nav > li > a {
-  position: relative; }
-  .navbar-nav > li > a::before {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 4px;
-    background-color: transparent;
-    content: ''; }
-  .navbar-nav > li > a:hover::before {
+.navbar-nav {
+  width: 100%;
+  margin: 0; }
+  .navbar-nav > li > a {
+    position: relative; }
+    .navbar-nav > li > a::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background-color: transparent;
+      content: ''; }
+    .navbar-nav > li > a:hover::before {
+      background-color: #2B999F; }
+  .navbar-nav > li.active > a::before {
     background-color: #2B999F; }
-
-.navbar-nav > li.active > a::before {
-  background-color: #2B999F; }
 
 .navbar-nav-icon {
   margin-bottom: 4px;
@@ -6057,7 +6059,8 @@ button.close {
     background-color: #E6E6E6; }
 
 .navbar-items-center {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .navbar-items-center .navbar-header,
   .navbar-items-center .navbar-items,
   .navbar-items-center .navbar-actions {
@@ -6066,23 +6069,36 @@ button.close {
     align-items: center;
     justify-content: center; }
   .navbar-items-center .navbar-header {
-    flex: 0 0 20%; }
+    flex-basis: 100%; }
   .navbar-items-center .navbar-items {
-    flex: 1; }
+    flex: 0 0 100%; }
+    .navbar-items-center .navbar-items .navbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
   .navbar-items-center .navbar-actions {
-    flex: 0 0 20%;
-    justify-content: flex-end; }
+    padding: 12px 0;
+    flex: 100%; }
+  @media (min-width: 768px) {
+    .navbar-items-center .navbar-header {
+      flex: 0 0 20%; }
+    .navbar-items-center .navbar-items {
+      flex: 1; }
+    .navbar-items-center .navbar-actions {
+      flex: 0 0 20%; } }
 
-.navbar-actions .navbar-nav > li > a {
-  padding: 0; }
-  .navbar-actions .navbar-nav > li > a:focus, .navbar-actions .navbar-nav > li > a:hover {
-    background-color: #ffffff;
-    color: #3DB8BE; }
-  .navbar-actions .navbar-nav > li > a::before {
-    content: normal; }
-
-.navbar-actions .nav .open > a, .navbar-actions .nav .open > a:focus, .navbar-actions .nav .open > a:hover {
-  background-color: #ffffff;
-  color: #3DB8BE; }
+.navbar-actions .navbar-nav {
+  display: flex;
+  justify-content: center; }
+  .navbar-actions .navbar-nav > li > a {
+    padding: 0; }
+    .navbar-actions .navbar-nav > li > a:focus, .navbar-actions .navbar-nav > li > a:hover {
+      background-color: #ffffff;
+      color: #3DB8BE; }
+    .navbar-actions .navbar-nav > li > a::before {
+      content: normal; }
+  @media (min-width: 768px) {
+    .navbar-actions .navbar-nav {
+      justify-content: flex-end; } }
 
 /*# sourceMappingURL=blueprints.css.map */

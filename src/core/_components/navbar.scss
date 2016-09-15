@@ -16,6 +16,9 @@ $navbar-actions-link-active-bg: $brand-white;
 }
 
 .navbar-nav {
+  width: 100%;
+  margin: 0;
+
   > li > a {
     position: relative;
 
@@ -74,6 +77,7 @@ $navbar-actions-link-active-bg: $brand-white;
 
 .navbar-items-center {
   display: flex;
+  flex-wrap: wrap;
 
   .navbar-header,
   .navbar-items,
@@ -85,21 +89,44 @@ $navbar-actions-link-active-bg: $brand-white;
   }
 
   .navbar-header {
-    flex: 0 0 20%;
+    flex-basis: 100%;
   }
 
   .navbar-items {
-    flex: 1;
+    flex: 0 0 100%;
+
+    .navbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   .navbar-actions {
-    flex: 0 0 20%;
-    justify-content: flex-end;
+    padding: $size-s 0;
+    flex: 100%;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    .navbar-header {
+      flex: 0 0 20%;
+    }
+
+    .navbar-items {
+      flex: 1;
+    }
+
+    .navbar-actions {
+      flex: 0 0 20%;
+    }
   }
 }
 
 .navbar-actions {
   .navbar-nav {
+    display: flex;
+    justify-content: center;
+
     > li > a {
       padding: 0;
 
@@ -113,14 +140,9 @@ $navbar-actions-link-active-bg: $brand-white;
         content: normal;
       }
     }
-  }
 
-  .nav .open > a {
-    &,
-    &:focus,
-    &:hover {
-      background-color: $navbar-actions-link-hover-bg;
-      color: $navbar-actions-link-hover-color;
+    @media (min-width: $grid-float-breakpoint) {
+      justify-content: flex-end;
     }
   }
 }
