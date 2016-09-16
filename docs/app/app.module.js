@@ -337,6 +337,16 @@
         }
       })
 
+      .state('application.components.tabscondensed', {
+        url: 'tabscondensed',
+        views: {
+          section: {
+            templateUrl: 'app/partials/components/tabscondensed.template.html',
+            controller: angular.noop
+          }
+        }
+      })
+
     .state('missing', {
       views: {
         content: {

@@ -19,3 +19,9 @@
 // The following includes all the bootstrap overrides
 // this file is a wrapper file including all the @imports for each component
 @import 'core/components';
+
+// Global styles
+:focus {
+  // Forcing to not display the default focus ring
+  outline: none !important;
+}

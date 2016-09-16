@@ -32,7 +32,8 @@ $navbar-actions-link-active-bg: $brand-white;
       content: '';
     }
 
-    &:hover::before {
+    &:hover::before,
+    &:focus::before {
       background-color: $brand-primary-darker;
     }
   }
@@ -143,6 +144,14 @@ $navbar-actions-link-active-bg: $brand-white;
 
     @media (min-width: $grid-float-breakpoint) {
       justify-content: flex-end;
+    }
+  }
+
+  .nav .open > a {
+    &,
+    &:hover,
+    &:focus {
+     background-color: transparent;
     }
   }
 }
