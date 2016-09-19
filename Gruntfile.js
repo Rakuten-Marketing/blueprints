@@ -23,6 +23,38 @@ module.exports = function(grunt) {
       }
     },
 
+    postcss: {
+      build: {
+        map: {
+          inline: false,
+          prev: './build/blueprints.css.map',
+          annotation: './build/'
+        },
+
+        processors: [
+          require('autoprefixer')({ browsers: 'last 2 versions'})
+        ],
+
+        src: './build/blueprints.css'
+      },
+
+      dist: {
+        options: {
+          map: {
+            inline: false,
+            prev: './dist/blueprints.css.map',
+            annotation: './dist/'
+          },
+
+          processors: [
+            require('cssnano')()
+          ]
+        },
+        src: './dist/blueprints.css',
+        dest: './dist/blueprints.min.css'
+      }
+    },
+
     gitclone: {
       bootstrap: {
         options: {
@@ -154,15 +186,21 @@ module.exports = function(grunt) {
     grunt.log.writeln('→ Application running on http://localhost:%s'['green'].bold, [port]);
   });
 
-  /* Build the current application and update distribution files (blueprints) */
+  /* Build the current application */
   grunt.registerTask('build', [
     'clean:build',
     'sass:build',
+    'postcss:build',
     'sass:json',
     'docs:parse',
-    'copy:build',
     'copy:palette',
     'concat'
+  ]);
+
+  /* Prepare dist */
+  grunt.registerTask('dist', [
+    'build',
+    'postcss:dist'
   ]);
 
   /* Initializes the server and first-run compiles the application */
