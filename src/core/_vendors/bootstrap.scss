@@ -182,6 +182,20 @@ $list-group-link-color: $brand-gray-darker;
 $list-group-link-hover-color: $brand-primary;
 $list-group-link-heading-color: $brand-gray-darker;
 
+// Panels
+$panel-bg: $brand-white;
+$panel-body-padding: $size-m;
+$panel-heading-padding: $size-xs $size-m;
+
+$panel-inner-border: $brand-gray-lighter;
+$panel-footer-bg: $brand-white;
+
+$panel-default-text: $brand-gray-darker;
+$panel-default-border: $brand-gray-lighter;
+$panel-default-heading-bg: $brand-white;
+
+$panel-primary-text: $brand-white;
+
 // Close
 $close-font-weight: normal;
 $close-color: $brand-white;
