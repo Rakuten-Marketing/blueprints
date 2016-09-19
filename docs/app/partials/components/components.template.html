@@ -1,5 +1,7 @@
 <div class="row">
   <div class="col-sm-3">
+    <h4>Bootstrap components</h4>
+
     <ul class="nav nav-pills nav-stacked">
       <li ng-class="{active: componentsView.$state.includes('application.components.alerts')}">
         <a href ng-click="componentsView.switchState('alerts')">Alerts</a>
@@ -42,6 +44,14 @@
       </li>
       <li ng-class="{active: componentsView.$state.includes('application.components.wells')}">
         <a href ng-click="componentsView.switchState('wells')">Wells</a>
+      </li>
+    </ul>
+
+    <h4>Custom components</h4>
+
+    <ul class="nav nav-pills nav-stacked">
+      <li ng-class="{active: componentsView.$state.includes('application.components.tabscondensed')}">
+        <a href ng-click="componentsView.switchState('tabscondensed')">Tabs (condensed)</a>
       </li>
     </ul>
   </div>
