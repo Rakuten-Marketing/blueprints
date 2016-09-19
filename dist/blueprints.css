@@ -5,8 +5,8 @@
   justify-content: center; }
 
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1081,6 +1081,7 @@ a {
     color: #3DB8BE;
     text-decoration: underline; }
   a:focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -1198,13 +1199,13 @@ h6, .h6 {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 28px; }
+  font-size: 26px; }
 
 h2, .h2 {
   font-size: 24px; }
 
 h3, .h3 {
-  font-size: 20px; }
+  font-size: 18px; }
 
 h4, .h4 {
   font-size: 16px; }
@@ -2027,8 +2028,8 @@ table {
   background-color: transparent; }
 
 caption {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 16px 18px;
+  padding-bottom: 16px 18px;
   color: #777777;
   text-align: left; }
 
@@ -2045,7 +2046,7 @@ th {
   .table > tbody > tr > td,
   .table > tfoot > tr > th,
   .table > tfoot > tr > td {
-    padding: 8px;
+    padding: 16px 18px;
     line-height: 1.428571429;
     vertical-align: top;
     border-top: 1px solid #E6E6E6; }
@@ -2296,6 +2297,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -2809,6 +2811,7 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -4347,7 +4350,7 @@ a.thumbnail.active {
   border-color: #3DB8BE; }
 
 .alert {
-  padding: 24px 28px;
+  padding: 24px 26px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 0; }
@@ -4364,7 +4367,7 @@ a.thumbnail.active {
 
 .alert-dismissable,
 .alert-dismissible {
-  padding-right: 24px 28px20; }
+  padding-right: 24px 26px20; }
   .alert-dismissable .close,
   .alert-dismissible .close {
     position: relative;
@@ -6020,7 +6023,7 @@ button.close {
 
 .nav-tabs > li > a {
   margin-right: 0;
-  padding: 32px 24px 28px 24px;
+  padding: 32px 24px 26px 24px;
   border: none;
   border-top: 1px #E6E6E6 solid;
   border-right: 1px #E6E6E6 solid;
@@ -6163,6 +6166,21 @@ button.close {
 
 .navbar-actions .nav .open > a, .navbar-actions .nav .open > a:hover, .navbar-actions .nav .open > a:focus {
   background-color: transparent; }
+
+.table {
+  border: 1px #E6E6E6 solid; }
+  .table > thead {
+    background-color: #E6E6E6; }
+    .table > thead > tr th {
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 12px; }
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: transparent; }
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #E6E6E6; }
 
 :focus {
   outline: none !important; }
