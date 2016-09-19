@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     clean: {
       build: {
         src: [
-          'build/**'
+          'build/*',
+          '!build/bootstrap-partials'
         ]
       }
     },
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
         options: {
           repository: 'https://github.com/twbs/bootstrap.git',
           branch: 'v3.3.6',
-          directory: './node_modules/bootstrap-partials'
+          directory: './build/bootstrap-partials'
         }
       }
     },
@@ -46,7 +47,7 @@ module.exports = function(grunt) {
       build: {
         files: [
           {
-            cwd: './node_modules/bootstrap-partials/bootstrap/docs/_includes',
+            cwd: './build/bootstrap-partials/bootstrap/docs/_includes',
             expand: true,
             src: ['css/**.html', 'components/**.html'],
             dest: './build/docs/partials/'
@@ -100,7 +101,7 @@ module.exports = function(grunt) {
   grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
     grunt.log.ok('Parsing Bootstrap doc partials');
 
-    var files = grunt.file.expand('./node_modules/bootstrap-partials/docs/_includes/**/*.html');
+    var files = grunt.file.expand('./build/bootstrap-partials/docs/_includes/**/*.html');
 
     var highlight = function(contents) {
       return contents
@@ -169,7 +170,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['build']);
   grunt.registerTask('server', function() {
     // Clone partials if they don't exist
-    if (!grunt.file.isDir('./node_modules/bootstrap-partials')) {
+    if (!grunt.file.isDir('./build/bootstrap-partials')) {
       grunt.log.writeln('No bootstrap partials detected. They will need to be cloned.');
       grunt.task.run('gitclone:bootstrap');
     }

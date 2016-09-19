@@ -96,7 +96,7 @@
       url: 'grid',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/grid.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/grid.html',
           controller: angular.noop //'GridController as gridView'
         }
       }
@@ -106,7 +106,7 @@
       url: 'typography',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/type.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/type.html',
           controller: angular.noop //'TypographyController as typographyView'
         }
       }
@@ -116,7 +116,7 @@
       url: 'code',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/code.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/code.html',
           controller: angular.noop //'CodeController as codeView'
         }
       }
@@ -126,7 +126,7 @@
       url: 'tables',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/tables.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/tables.html',
           controller: angular.noop //'TablesController as tablesView'
         }
       }
@@ -146,7 +146,7 @@
       url: 'buttons',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/buttons.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/buttons.html',
           controller: angular.noop //'ButtonsController as buttonsView'
         }
       }
@@ -156,7 +156,7 @@
       url: 'images',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/images.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/images.html',
           controller: angular.noop //'ImagesController as imagesView'
         }
       }
@@ -166,7 +166,7 @@
       url: 'helpers',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/helpers.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/helpers.html',
           controller: angular.noop //'HelpersController as helpersView'
         }
       }
@@ -176,7 +176,7 @@
       url: 'utilities',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/css/responsive-utilities.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/css/responsive-utilities.html',
           controller: angular.noop //'UtilitiesController as utilitiesView'
         }
       }
@@ -200,7 +200,7 @@
       url: 'alerts',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/alerts.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/alerts.html',
           controller: angular.noop //'AlertsController as alertsView'
         }
       }
@@ -210,7 +210,7 @@
       url: 'badges',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/badges.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/badges.html',
           controller: angular.noop //'BadgesController as badgesView'
         }
       }
@@ -220,7 +220,7 @@
       url: 'breadcrumbs',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/breadcrumbs.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/breadcrumbs.html',
           controller: angular.noop //'BreadcrumbsController as breadcrumbsView'
         }
       }
@@ -230,7 +230,7 @@
       url: 'icons',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/glyphicons.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/glyphicons.html',
           controller: angular.noop //'IconsController as iconsView'
         }
       }
@@ -240,7 +240,7 @@
       url: 'dropdowns',
         views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/dropdowns.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/dropdowns.html',
           controller: angular.noop //'DropdownsController as dropdownsView'
         }
       }
@@ -251,7 +251,7 @@
       url: 'buttons',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/button-groups.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/button-groups.html',
           controller: angular.noop //'ButtonsController as buttonsView'
         }
       }
@@ -261,7 +261,7 @@
       url: 'navigation',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/navs.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/navs.html',
           controller: angular.noop //'NavigationController as navigationView'
         }
       }
@@ -271,7 +271,7 @@
       url: 'headers',
       views: {
         section: {
-          templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/page-header.html',
+          templateUrl: '../build/bootstrap-partials/docs/_includes/components/page-header.html',
           controller: angular.noop //'HeadersController as headersView'
         }
       }
@@ -281,7 +281,7 @@
       url: 'pagination',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/pagination.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/pagination.html',
             controller: angular.noop //'PaginationController as paginationView'
           }
         }
@@ -291,7 +291,7 @@
         url: 'panels',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/panels.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/panels.html',
             controller: angular.noop //'PanelsController as panelsView'
           }
         }
@@ -301,7 +301,7 @@
         url: 'progressbars',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/progress-bars.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/progress-bars.html',
             controller: angular.noop //'ProgressBarsController as progressbarsView'
           }
         }
@@ -311,7 +311,7 @@
         url: 'thumbnails',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/thumbnails.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/thumbnails.html',
             controller: angular.noop //'ThumbnailsController as thumbnailsView'
           }
         }
@@ -321,7 +321,7 @@
         url: 'wells',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/wells.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/wells.html',
             controller: angular.noop //'WellsController as wellsView'
           }
         }
@@ -331,7 +331,7 @@
         url: 'listgroup',
         views: {
           section: {
-            templateUrl: '../node_modules/bootstrap-partials/docs/_includes/components/list-group.html',
+            templateUrl: '../build/bootstrap-partials/docs/_includes/components/list-group.html',
             controller: angular.noop
           }
         }
