@@ -195,6 +195,7 @@ module.exports = function(grunt) {
     'sass:json',
     'docs:parse',
     'copy:palette',
+    'copy:build',
     'concat'
   ]);
 
