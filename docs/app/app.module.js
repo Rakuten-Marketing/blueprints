@@ -347,6 +347,16 @@
         }
       })
 
+      .state('application.components.formscustom', {
+        url: 'formscustom',
+        views: {
+          section: {
+            templateUrl: 'app/partials/components/formscustom.template.html',
+            controller: angular.noop
+          }
+        }
+      })
+
     .state('missing', {
       views: {
         content: {
