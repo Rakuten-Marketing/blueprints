@@ -5,8 +5,8 @@
   justify-content: center; }
 
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1081,7 +1081,6 @@ a {
     color: #3DB8BE;
     text-decoration: underline; }
   a:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -2297,7 +2296,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -2811,7 +2809,6 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -6017,6 +6014,81 @@ button.close {
 .has-success .form-control:focus {
   box-shadow: none; }
 
+.custom-control {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  font-weight: normal;
+  padding-left: 22px; }
+  .custom-control + .custom-control {
+    margin-left: 12px; }
+
+.custom-controls-stacked {
+  display: inline-block; }
+  .custom-controls-stacked .custom-control {
+    float: left;
+    clear: left; }
+    .custom-controls-stacked .custom-control + .custom-control {
+      margin-left: 0; }
+
+.custom-control-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0; }
+  .custom-control-input:checked ~ .custom-control-label:before,
+  .custom-control-input:active ~ .custom-control-label:before {
+    background-color: #3DB8BE;
+    -webkit-box-shadow: transparent;
+    box-shadow: transparent; }
+  .custom-control-input:focus ~ .custom-control-label:before {
+    box-shadow: #D4D6D9; }
+  .custom-control-input:disabled ~ .custom-control-label:before {
+    background-color: #E6E6E6; }
+  .custom-control-input:disabled ~ .custom-control-label:before,
+  .custom-control-input:disabled ~ .custom-control-label {
+    pointer-events: none;
+    color: #757575; }
+
+.custom-control-label:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  pointer-events: none;
+  user-select: none; }
+
+.custom-checkbox .custom-control-label:before {
+  background-color: #ffffff;
+  border: 1px solid #E6E6E6;
+  border-radius: 10%; }
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before,
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label:before {
+  border: none; }
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#ffffff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"); }
+
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label:before {
+  background-color: #3DB8BE;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='#ffffff' d='M0 2h4'/%3E%3C/svg%3E"); }
+
+.custom-radio .custom-control-label:before {
+  background-color: #ffffff;
+  border: 1px solid #E6E6E6;
+  border-radius: 50%; }
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label:before {
+  background-color: #ffffff;
+  background-size: 8px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='4' fill='#3DB8BE'/%3E%3C/svg%3E"); }
+
 .nav > li > a:hover,
 .nav > li > a:focus {
   color: #ffffff; }
@@ -6082,6 +6154,12 @@ button.close {
 
 .navbar {
   box-shadow: 0px 5px 10px 0px #e6e6e6; }
+
+.navbar-brand {
+  padding: 16px; }
+  .navbar-brand > img {
+    max-width: 100%;
+    max-height: 100%; }
 
 .navbar-nav {
   width: 100%;
