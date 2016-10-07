@@ -15,6 +15,15 @@ $navbar-actions-link-active-bg: $brand-white;
   box-shadow: 0px 5px 10px 0px rgba(230, 230, 230, 1);
 }
 
+.navbar-brand {
+  padding: $size-m;
+
+  > img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
 .navbar-nav {
   width: 100%;
   margin: 0;
