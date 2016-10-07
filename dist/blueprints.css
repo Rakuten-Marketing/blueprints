@@ -6156,7 +6156,7 @@ button.close {
   box-shadow: 0px 5px 10px 0px #e6e6e6; }
 
 .navbar-brand {
-  padding: 16px; }
+  padding: 8px 16px; }
   .navbar-brand > img {
     max-width: 100%;
     max-height: 100%; }
@@ -6188,6 +6188,7 @@ button.close {
 .navbar-with-icons {
   background-color: #ffffff; }
   .navbar-with-icons .navbar-nav > li > a {
+    min-width: 110px;
     padding-top: 25px;
     padding-bottom: 25px;
     text-align: center;
@@ -6232,6 +6233,7 @@ button.close {
   display: flex;
   justify-content: center; }
   .navbar-actions .navbar-nav > li > a {
+    min-width: auto;
     padding: 0; }
     .navbar-actions .navbar-nav > li > a:focus, .navbar-actions .navbar-nav > li > a:hover {
       background-color: #ffffff;
