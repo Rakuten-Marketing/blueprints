@@ -357,6 +357,16 @@
         }
       })
 
+      .state('application.components.dropdownsCustom', {
+        url: 'dropdownsCustom',
+        views: {
+          section: {
+            templateUrl: 'app/partials/components/dropdownsCustom.template.html',
+            controller: angular.noop
+          }
+        }
+      })
+
     .state('missing', {
       views: {
         content: {

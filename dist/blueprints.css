@@ -6262,6 +6262,66 @@ button.close {
 .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #E6E6E6; }
 
+bp-dropdown {
+  display: inline-block; }
+  bp-dropdown > a {
+    text-decoration: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    color: #434343;
+    cursor: pointer; }
+    bp-dropdown > a:hover, bp-dropdown > a:focus {
+      color: #3DB8BE;
+      text-decoration: none; }
+  bp-dropdown > button > span {
+    margin-left: 4px; }
+  bp-dropdown .dropdown-menu {
+    padding: 0;
+    height: 0px;
+    transition: height 200ms cubic-bezier(0.5, 0, 0.5, 1); }
+    bp-dropdown .dropdown-menu > *:first-child {
+      margin-top: 8px; }
+    bp-dropdown .dropdown-menu > *:last-child {
+      margin-bottom: 0px;
+      padding-bottom: 8px; }
+    bp-dropdown .dropdown-menu ul {
+      list-style-type: none;
+      padding-left: 0px; }
+    bp-dropdown .dropdown-menu input {
+      margin: 0 12px; }
+    bp-dropdown .dropdown-menu li > a {
+      display: block;
+      padding: 4px 16px;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.428571429;
+      color: #757575;
+      white-space: nowrap; }
+      bp-dropdown .dropdown-menu li > a:hover, bp-dropdown .dropdown-menu li > a:focus {
+        text-decoration: none;
+        color: #434343;
+        background-color: #ffffff; }
+    bp-dropdown .dropdown-menu .divider {
+      margin: 8px 0; }
+    bp-dropdown .dropdown-menu .active > a, bp-dropdown .dropdown-menu .active > a:hover, bp-dropdown .dropdown-menu .active > a:focus {
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
+      background-color: #434343; }
+    bp-dropdown .dropdown-menu .disabled > a, bp-dropdown .dropdown-menu .disabled > a:hover, bp-dropdown .dropdown-menu .disabled > a:focus {
+      color: #E6E6E6; }
+    bp-dropdown .dropdown-menu .disabled > a:hover, bp-dropdown .dropdown-menu .disabled > a:focus {
+      text-decoration: none;
+      background-color: transparent;
+      background-image: none;
+      filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+      cursor: normal; }
+  bp-dropdown.open .dropdown-menu {
+    display: block;
+    overflow: hidden;
+    height: auto; }
+
 :focus {
   outline: none !important; }
 
