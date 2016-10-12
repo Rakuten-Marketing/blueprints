@@ -1,0 +1,170 @@
+$state-indicator-padding: $size-xs;
+$state-indicator-main-color: $brand-primary-darker;
+
+$state-indicator-animated-element-size: $size-xl;
+$state-indicator-initial-animation-border: 2px solid $brand-primary-lighter;
+$state-indicator-initial-animation-width: 100px;
+
+.state-indicator {
+  @include centered-content(block);
+  padding: $state-indicator-padding;
+  background-color: $brand-white;
+
+  & .state-indicator-content {
+    width: 100%;
+  }
+
+  & .state-indicator-message {
+    color: $brand-gray;
+    padding-top: $state-indicator-padding;
+    animation: fadein 1.0s ease-in-out;
+  }
+
+  // The following classname is used when the preloader component is attached to an existing
+  // element; wee need to assign it to the parent element to get its measurements to properly
+  // cover it and disable its interactive elements.
+  &-container {
+    position: relative;
+    & .state-indicator {
+      @include full-overlay;
+      @include centered-content(flex);
+      background-color: rgba($brand-white, 0.90);
+    }
+  }
+
+  // Sometimes we will need the preloader component to be attached to an already existing element
+  // The following takes care of the required layout changes
+  &-attached {
+    @at-root .state-indicator-container {
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    & .state-indicator-content { 
+      @include centered-content(flex);
+    }
+
+    & .state-indicator-message {
+      padding: 0;
+      padding-left: $state-indicator-padding;
+      @include text-overflow;
+    }
+  }
+
+  // This animated element can also be used as a simple icon
+  // This "helper" classname is good for inline loading elements
+  &-icon {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+
+    & .state-indicator-content {
+      width: initial;
+      padding-right: $state-indicator-padding;
+    }
+  }
+
+  // All of the variations could be transformed to their full-screen version
+  // The element will cover 100% of the screen
+  &-full-screen {
+    @include centered-content(flex);
+    @include full-overlay($fullscreen: true);
+  }
+
+  &:not(.state-indicator-preloader) .state-indicator-animation {
+    height: $state-indicator-animated-element-size;
+    width: $state-indicator-animated-element-size;
+
+    border-radius: 100%;
+    border: $state-indicator-initial-animation-border;
+    border-top-color: $state-indicator-main-color;
+    animation: rotate .5s infinite linear;
+  }
+
+  &.state-indicator-preloader .state-indicator-animation {
+    display: table-cell;
+    vertical-align: middle;
+    animation: increasing-size 1.0s 4.0s;
+    animation-fill-mode: forwards;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      background-color: $state-indicator-main-color;
+    }
+
+    &::before {
+      height: $state-indicator-padding / 2;
+      animation: pulling-from-bottom 0.5s, 
+                 bouncing-line-width 2.0s 0.5s ease-in-out,
+                 turn-line-into-circle 2.0s 2.0s,
+                 from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+
+      animation-fill-mode: forwards;
+    }
+
+    &:not(.animating) {
+      opacity: 0;
+      &::before,
+      &::after {
+        animation: none;
+      }
+    }
+
+    &.animating {
+      &::after {
+        opacity: 0;
+        height: $state-indicator-padding;
+        width: $state-indicator-animated-element-size;
+
+        border-radius: 50%;
+        margin-bottom: $state-indicator-padding;
+        bottom: -$state-indicator-padding;
+        animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+// The following animations are used by the preloader sequence, 
+// in some areas we use hardcoded values (sizes)
+// Animation with a fade in and a little bounce from the bottom to its default position
+@keyframes pulling-from-bottom {
+  0%, 100% { width: $state-indicator-initial-animation-width; }
+  0% { 
+    opacity: 0.25; 
+    margin-bottom: -$state-indicator-padding;
+  }
+}
+
+// Animation for the "preloader" option, animates a line that later turns into a circle
+@keyframes bouncing-line-width {
+         0% { width: $state-indicator-initial-animation-width; }
+         6% { width: $state-indicator-initial-animation-width * 0.40; }
+         8% { width: $state-indicator-initial-animation-width * 0.10; }
+        15% { width: $state-indicator-initial-animation-width * 0.15; }
+  20%, 100% { width: $state-indicator-initial-animation-width * 0.10; }
+}
+
+// Converts a line into a rounded square, in preparation for its transformation to a circle
+@keyframes turn-line-into-circle {
+          0% { width: 10px; height: 10px; border-radius: 10%; }
+   25%, 100% { width: 25px; height: 25px; border-radius: 10%; }
+}
+
+@keyframes increasing-size {
+  25%, 100% { 
+    width: $state-indicator-animated-element-size;
+    height: $state-indicator-animated-element-size;
+  }
+}
+
+// Animates the transformation from a square element to its circled shape
+@keyframes from-square-to-circle-loop {
+   50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
+  100% { transform: scale(1) rotate(720deg); }
+}
