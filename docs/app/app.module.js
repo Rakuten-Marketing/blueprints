@@ -367,6 +367,16 @@
         }
       })
 
+      .state('application.components.preloaders', {
+        url: 'preloaders',
+        views: {
+          section: {
+            templateUrl: 'app/partials/components/preloaders/preloaders.template.html',
+            controller: angular.noop
+          }
+        }
+      })
+
     .state('missing', {
       views: {
         content: {
