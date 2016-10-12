@@ -39,6 +39,7 @@
     "scss-to-json": "^1.1.0"
   },
   "dependencies": {
+    "webcomponentsjs": "1.0.2",
     "jquery": "^3.1.0"
   }
 }

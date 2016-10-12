@@ -123,6 +123,11 @@ module.exports = function(grunt) {
       dest: './build/docs/vendor.bundle.js'
     },
 
+    blueprints: {
+      src: ['./node_modules/webcomponentsjs/micro.js', './src/core/_components/*.js'],
+      dest: './build/blueprints.js'
+    },
+
     app: {
       src: ['./docs/app/**/*.js', '!./docs/app/bootstrap/**/*'],
       dest: './build/docs/app.compiled.js'

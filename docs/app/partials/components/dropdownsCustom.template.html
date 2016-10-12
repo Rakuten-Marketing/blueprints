@@ -1,0 +1,138 @@
+<h1 class="page-header">Dropdowns (custom)</h1>
+
+<p>
+  Our custom dropdown uses the Web Component api to build out boilerplate
+  HTML and provide standalone javascript functionality for custom animations.
+</p>
+
+<bp-dropdown id="some-id" title="Basic Dropdown">
+  <ul>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</bp-dropdown>
+
+<div hljs>
+<bp-dropdown example=true id="some-id" title="Basic Dropdown">
+  <ul>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</bp-dropdown>
+</div>
+
+<p>
+  The text of the button is determined by the title attribute on the 
+  bp-dropdown element. The content is determined by the HTML content
+  inside of the bp-dropdown element. The content can be either a ul
+  as in the above example or whatever you like wrapped in a div. As in
+  default Bootstrap dropdowns, the "dropup" class also works.
+</p>
+
+<bp-dropdown id="some-other-id"
+             class="dropup" 
+             title="Any title text will do" 
+             icon="glyphicon glyphicon-thumbs-up">
+  <div>
+    <h3>Arbitrary stuff</h3>
+    <img src="http://66.media.tumblr.com/avatar_506a1860569c_128.png">
+    <p>Anything you like can go here</p>
+  </div>
+</bp-dropdown>
+
+<div hljs>
+<bp-dropdown example=true id="some-other-id"
+             class="dropup" 
+             title="Any title text will do" 
+             icon="glyphicon glyphicon-thumbs-up">
+  <div>
+    <h3>Arbitrary stuff</h3>
+    <img src="http://66.media.tumblr.com/avatar_506a1860569c_128.png">
+    <p>Anything you like can go here</p>
+  </div>
+</bp-dropdown>
+</div>
+
+<p>
+  If the bp-element is assigned a title attribute, it will wrap that
+  text in a button. If not, it will provide a borderless icon. The icon
+  attribute accepts class names for the the icon, which is a caret by default.
+  Both the title and icon attributes can be changed post-render in any way and
+  the component will update itself approoriately
+</p>
+
+<bp-dropdown id="icon-example" icon="glyphicon glyphicon-thumbs-up">
+  <ul>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</bp-dropdown>
+
+<div hljs>
+<bp-dropdown example=true id="icon-example" icon="glyphicon glyphicon-thumbs-up">
+  <ul>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</bp-dropdown>
+</div>
+
+<p>
+  Here is an example of a dropdown that contains an input element
+  which could be used to search or filter the list items
+</p>
+
+<bp-dropdown id="a-filtered-list" title="List with filter">
+  <ul>
+    <li><input type="text" placeholder="this could be a filter"/>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li><a href="#">This silly link</a></li>
+  </ul>
+</bp-dropdown>
+
+<div hljs>
+<bp-dropdown example=true id="a-filtered-list" title="List with filter">
+  <ul>
+    <li><input type="text" placeholder="this could be a filter"/>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li><a href="#">This silly link</a></li>
+  </ul>
+</bp-dropdown>
+</div>
+
+<p>
+  As a proper Web Component, we've given the bp-dropdown element native
+  javascript methods that can be called on instances of the element
+  to control the dropdown state of that element.
+</p>
+
+<div hljs>
+document.getElementsByTagName("bp-dropdown")[0].dropdown();      //toggles dropdown state
+document.getElementsByTagName("bp-dropdown")[0].openDropdown();  //opens dropdown if closed
+document.getElementsByTagName("bp-dropdown")[0].closeDropdown(); //closes dropdown if opened
+</div>
+
+<p>
+  These examples target the first bp-dropdown element on page, but you
+  can substitute 'document' with any instance of any element that
+  contains a bp-dropdown element. This is particularly useful for
+  components/controllers in single page app frameworks. 
+</p>
