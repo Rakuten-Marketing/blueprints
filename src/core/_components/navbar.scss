@@ -38,20 +38,21 @@ $navbar-actions-link-active-bg: $brand-white;
       left: 0;
       right: 0;
       bottom: 0;
-      height: $size-xxs;
-      background-color: transparent;
+      height: 0;
+      background-color: $brand-primary-darker;
       content: '';
+      @include brand-transition(height);
     }
 
     &:hover::before,
     &:focus::before {
-      background-color: $brand-primary-darker;
+      height: $size-xxs;
     }
   }
 
   > li.active > a {
     &::before {
-      background-color: $brand-primary-darker
+      height: $size-xxs;
     }
   }
 }

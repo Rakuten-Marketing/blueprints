@@ -1,5 +1,5 @@
-@mixin brand-transition($scope) {
-  transition: $scope 200ms cubic-bezier(0.5, 0, 0.5, 1);
+@mixin brand-transition($property, $time: 100ms) {
+  transition: $property $time cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 @keyframes accelerated-fadein {
