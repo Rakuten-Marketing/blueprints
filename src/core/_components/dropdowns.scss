@@ -23,7 +23,7 @@ bp-dropdown {
   .dropdown-menu {
     padding: 0;
     height: 0px;
-    @include brand-transition(height);
+    @include brand-transition(height, 200ms);
 
     & > *:first-child {
       margin-top: $size-xs;
