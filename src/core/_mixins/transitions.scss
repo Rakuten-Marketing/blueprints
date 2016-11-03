@@ -30,3 +30,13 @@
     transform: rotate(359deg);
   }
 }
+
+@keyframes increasing-height {
+   0% { height: 0px; }
+  50% { height: $size-xs; }
+}
+
+@keyframes increasing-width {
+   0% { width: 0px; }
+  50% { width: $size-xs; }
+}

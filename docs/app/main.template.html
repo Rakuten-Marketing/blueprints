@@ -1,65 +1,70 @@
-<nav class="navbar navbar-with-icons navbar-fixed-top">
-  <div class="navbar-items-center container">
-    <div class="navbar-header navbar-brand">Blueprints</div>
+<header class="app-header">
+  <nav class="navbar navbar-fixed-top">
+    <div class="navbar-container">
+      <div class="navbar-side navbar-collapsible">
+        <button type="button" role="button" class="navbar-icon dashboard-hamburger">
+          <span class="hamburger right-arrow"></span>
+        </button>
+      </div>
 
-    <div class="navbar-items">
-      <ul class="nav navbar-nav">
-        <li ng-class="{active: mainView.$state.includes('application.home')}">
-          <a ui-sref="application.home">
-            <i class="navbar-nav-icon glyphicon glyphicon-download"></i>
+      <div class="navbar-side navbar-brand">
+        <img src="assets/logo.gif">
+        <span>Blueprints</span>
+      </div>
 
-            Installation
-          </a>
-        </li>
-        <li ng-class="{active: mainView.$state.includes('application.foundation')}">
-          <a ui-sref="application.foundation.colors">
-            <i class="navbar-nav-icon glyphicon glyphicon-book"></i>
+      <div class="navbar-items">
+        <ul class="nav navbar-nav">
+          <li ng-class="{active: mainView.$state.includes('application.home')}">
+            <a ui-sref="application.home">
+              <i class="navbar-icon glyphicon glyphicon glyphicon-cloud-download"></i>
+              <p class="navbar-items-label">Installation</p>
+            </a>
+          </li>
 
-            Foundation
-          </a>
-        </li>
-        <li ng-class="{active: mainView.$state.includes('application.elements')}">
-          <a ui-sref="application.elements.grid">
-            <i class="navbar-nav-icon glyphicon glyphicon-list"></i>
+          <li ng-class="{active: mainView.$state.includes('application.foundation')}">
+            <a ui-sref="application.foundation.colors">
+              <i class="navbar-icon glyphicon glyphicon glyphicon-info-sign"></i>
+              <p class="navbar-items-label">Foundation</p>
+            </a>
+          </li>
 
-            Elements
-          </a>
-        </li>
-        <li ng-class="{active: mainView.$state.includes('application.components')}">
-          <a ui-sref="application.components.alerts">
-            <i class="navbar-nav-icon glyphicon glyphicon-object-align-left"></i>
+          <li ng-class="{active: mainView.$state.includes('application.elements')}">
+            <a ui-sref="application.elements.grid">
+              <i class="navbar-icon glyphicon glyphicon glyphicon-th"></i>
+              <p class="navbar-items-label">Elements</p>
+            </a>
+          </li>
 
-            Components
-          </a>
-        </li>
-      </ul>
+          <li ng-class="{active: mainView.$state.includes('application.components')}">
+            <a ui-sref="application.components.alerts">
+              <i class="navbar-icon glyphicon glyphicon glyphicon-qrcode"></i>
+              <p class="navbar-items-label">Components</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-side navbar-actions">
+        <ul class="nav navbar-nav">
+          <li class="navbar-icon">
+            <bp-dropdown icon="glyphicon glyphicon glyphicon glyphicon-user">
+              <ul class="dropdown-menu-right custom">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Billing & Payments</a></li>
+              </ul>
+            </bp-dropdown>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+</header>
 
-    <div class="navbar-actions">
-      <ul class="nav navbar-nav">
-        <li>
-          <bp-dropdown icon="navbar-nav-icon glyphicon glyphicon-off">
-            <ul class="dropdown-menu-right">
-              <li>
-                <a href="#">Profile</a>
-              </li>
+<main class="app-content">
+  <div class="container" ui-view="content"></div>
+</main>
 
-              <li class="divider"></li>
-
-              <li>
-                <a href="#">Settings</a>
-              </li>
-
-              <li class="divider"></li>
-
-              <li>
-                <a href="#">Billing & Payments</a>
-              </li>
-            </ul>
-          </bp-dropdown>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container" ui-view="content"></div>
+<footer class="app-footer">
+  <p class="footer-content">2016 © Rakuten Marketing | Blueprints Squad</p>
+</footer>

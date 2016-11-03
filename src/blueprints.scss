@@ -21,6 +21,12 @@
 @import 'core/components';
 
 // Global styles
+html,
+body {
+  height: 100%;
+  height: 100vh;
+}
+
 :focus {
   // Forcing to not display the default focus ring
   outline: none !important;
@@ -28,4 +34,13 @@
 
 * {
   @include brand-transition(all);
+}
+
+// We don't own LFT-Etica font 400/800.
+// 600 should be the value for bold
+b, strong { font-weight: 600; }
+
+.page-header {
+  margin: $size-xs 0px $size-xl;
+  padding-bottom: $size-s;
 }
