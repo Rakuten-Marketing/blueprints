@@ -2,7 +2,7 @@
   <nav class="navbar navbar-fixed-top">
     <div class="navbar-container">
       <div class="navbar-side navbar-collapsible">
-        <button type="button" role="button" class="navbar-icon dashboard-hamburger">
+        <button type="button" role="button" ng-click="mainView.toggleMenu()" class="navbar-icon dashboard-hamburger">
           <span class="hamburger right-arrow"></span>
         </button>
       </div>
@@ -15,28 +15,28 @@
       <div class="navbar-items">
         <ul class="nav navbar-nav">
           <li ng-class="{active: mainView.$state.includes('application.home')}">
-            <a ui-sref="application.home">
+            <a ui-sref="application.home" ng-click="mainView.toggleMenu()">
               <i class="navbar-icon glyphicon glyphicon glyphicon-cloud-download"></i>
               <p class="navbar-items-label">Installation</p>
             </a>
           </li>
 
           <li ng-class="{active: mainView.$state.includes('application.foundation')}">
-            <a ui-sref="application.foundation.colors">
+            <a ui-sref="application.foundation.colors" ng-click="mainView.toggleMenu()">
               <i class="navbar-icon glyphicon glyphicon glyphicon-info-sign"></i>
               <p class="navbar-items-label">Foundation</p>
             </a>
           </li>
 
           <li ng-class="{active: mainView.$state.includes('application.elements')}">
-            <a ui-sref="application.elements.grid">
+            <a ui-sref="application.elements.grid" ng-click="mainView.toggleMenu()">
               <i class="navbar-icon glyphicon glyphicon glyphicon-th"></i>
               <p class="navbar-items-label">Elements</p>
             </a>
           </li>
 
           <li ng-class="{active: mainView.$state.includes('application.components')}">
-            <a ui-sref="application.components.alerts">
+            <a ui-sref="application.components.alerts" ng-click="mainView.toggleMenu()">
               <i class="navbar-icon glyphicon glyphicon glyphicon-qrcode"></i>
               <p class="navbar-items-label">Components</p>
             </a>
