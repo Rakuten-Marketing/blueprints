@@ -182,6 +182,16 @@
       }
     })
 
+    .state('application.elements.dashboard', {
+      url: 'dashboard',
+      views: {
+        section: {
+          templateUrl: 'app/partials/elements/dashboard/dashboard.template.html',
+          controller: angular.noop //'DashboardController as dashboardView'
+        }
+      }
+    })
+
 
     // "Components" main section
     // Everything related to "Twitter Bootstrap" _components is handled by this state

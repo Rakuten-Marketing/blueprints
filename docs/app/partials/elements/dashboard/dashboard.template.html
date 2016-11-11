@@ -1,0 +1,31 @@
+<h2 class="page-header">Dashboard | HTML Layout</h2>
+
+<p>
+  Described as a HTML markup component<br>
+  Use this if you are required to create a dashboard for your application. 
+</p>
+
+<h3 class="page-section-title">Restrictive scrolling</h3>
+
+<p>
+  Using this markup will take out the header and the footer from the scrolling area,
+  this will restrict the scrolling area to the main content of the dashboard. Some
+  considerations here will be: the header and the footer will be always visible and
+  the size of each of them is irrelevant
+</p>
+
+<div hljs hljs-language="html">
+<div class="bp-dashboard bp-dashboard-restricted">
+  <header class="app-header">
+    {Content here}
+  </header>
+
+  <main class="app-content">
+    {Content here}
+  </main>
+
+  <footer class="app-footer">
+    <p class="footer-content">{Content here}</p>
+  </footer>
+</div>
+</div>
