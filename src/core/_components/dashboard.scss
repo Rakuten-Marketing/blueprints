@@ -1,15 +1,12 @@
-$dashboard-offset-default-width: 200px;
-
 .bp-dashboard {
   display: flex;
   flex-direction: column;
   background-color: $brand-passive-elements;
   transition: 0.4s transform ease-out;
   min-height: 100vh;
-  
-  @at-root body {
-    overflow: hidden;
-    background-color: $brand-gray-dark;
+
+  & .app-header {
+    height: $navbar-base;
   }
 
   & .app-header,
@@ -20,7 +17,12 @@ $dashboard-offset-default-width: 200px;
   }
 
   & .app-content {
-    // Adding a separation between the header (if any, will be removed later if none)
+    flex: 1 0 auto;
+    position: relative;
+    width: 100%;
+
+    // Adding padding between the header and the next child
+    // (if any, will be removed later if none)
     &::before {
       content: '';
       display: block;
@@ -28,114 +30,91 @@ $dashboard-offset-default-width: 200px;
       width: 100%;
     }
 
-    flex: 1 1 auto;
-    position: relative;
-    overflow-y: auto;
-    width: 100%;
-
-    & .row {
-      margin: 0 auto;
-    }
+    & .row { margin: 0 auto; }
   }
 
   // Covering the scenario where the dashboard does not include a header (navigation bar),
-  // we don't need an extra padding if so. 
+  // we don't need an extra padding if so. This is not a hack but a flexible condition
+  // applied by default but removed if not required
   & >:first-child::before {
     display: none;
   }
 
-  &.open {
-    width: 100vw;
-    box-shadow: -8px 0 4px -4px $dashboard-shadow;
-    transform: translateX(200px);
-
-    & .navbar-items-label {
-      display: inherit;
-      align-items: center;
-      padding-left: $size-xs;
-    }
-
-    & .navbar .navbar-actions { display: none; }
-    & .app-content { pointer-events: none; }
-
-    & .navbar-fixed-top .navbar-container .navbar-items {
-      display: flex;
-      justify-content: flex-start;
-      width: $dashboard-offset-default-width;
-      transform: translateX(-$dashboard-offset-default-width);
-      margin-top: $size-xl;
-
-      & li {
-        width: 200px;
-        max-width: initial;
-
-        & a {
-          display: flex;
-          transition: all 0.4s;
-          color: $brand-gray-light;
-          padding: $size-s $size-xs;
-          padding-left: $size-xl;
-          text-align: left;
-          opacity: 0;
-          animation: drawmenu 1s ease-out;
-          animation-fill-mode: forwards;
-        }
-
-        &.active a,
-        & > a:hover,
-        & > a:focus {
-          &::before {
-            height: 100%;
-            width: $size-xs;
-            animation: increasing-width 0.5s;
-            animation-fill-mode: forwards;
-          }
-
-          color: $brand-primary;
-          background-color: $dashboard-light;
-        }
-      }
-    }
-  }
-
   .app-footer {
     display: inherit;
-    width: 100%;
-
     color: $brand-gray;
     background-color: $brand-gray-lighter;
     border-top: 1px solid $brand-gray-light;
+    width: 100%;
 
-    .footer-content {
+    &-content {
       display: block;
       width: 100%;
       max-width: $container-large-desktop;
-      margin: 0 auto;
       padding: $size-xs $size-xl;
+      margin: 0 auto;
     }
   }
+}
 
+// The dashboard component is open (mobile devices layout).
+// Uses the off-canvas view model
+.bp-dashboard.open {
+  width: 100vw;
+  transform: translateX($navbar-base * 2);
+  box-shadow: -8px 0 4px -4px $dashboard-shadow;
 
-
-
-  &.non-restrictive {
-    @at-root body {
-      overflow-y: auto;
-    }
-
-    .app-content {
-      flex: 1 0 auto;
-      margin-top: 110px;
-    }
-
-    .navbar-fixed-top { 
-      position: fixed;
-    }
-
+  // Handling the dependency with the navbar (header friendly element)
+  // These classnames belong to this element but affects an external element
+  & .navbar-items-label {
+    display: inherit;
+    align-items: center;
+    padding-left: $size-xs;
+    margin: 0;
   }
 
+  & .navbar .navbar-actions { display: none; }
+  & .app-content { pointer-events: none; }
 
+  & .navbar-fixed-top .navbar-container .navbar-items {
+    display: flex;
+    justify-content: flex-start;
+    transform: translateX(-#{$navbar-base * 2});
+    width: $navbar-base * 2;
+    margin-top: $size-xl;
 
+    & li {
+      width: 100%;
+      max-width: initial;
+
+      & a {
+        display: flex;
+        transition: all 0.4s;
+        color: $brand-gray-light;
+        padding: $size-s $size-xs $size-s $size-xl;
+        text-align: left;
+        opacity: 0;
+
+        animation: drawmenu 1s ease-out;
+        animation-fill-mode: forwards;
+      }
+
+      &.active a,
+      & > a:hover,
+      & > a:focus {
+        &::before {
+          height: 100%;
+          width: $size-xs;
+
+          animation: increasing-width 0.5s;
+          animation-fill-mode: forwards;
+        }
+
+        color: $brand-primary;
+        background-color: $dashboard-light;
+      }
+    }
+  }
 }
 
 // Animated hamburguer menu in charge of collapsing/expanding the menu for our dashboard

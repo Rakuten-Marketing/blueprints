@@ -1,5 +1,3 @@
-$navbar-height: 100px;
-
 .navbar {
   display: flex;
   align-items: center;
@@ -73,8 +71,8 @@ $navbar-height: 100px;
         float: none;
         display: flex;
         overflow: hidden;
-        min-width: $navbar-height;
-        max-width: $navbar-height + $size-m;
+        min-width: $navbar-base;
+        max-width: $navbar-base + $size-m;
 
         & > a {
           flex-basis: 100%;
@@ -168,16 +166,16 @@ $navbar-height: 100px;
 // Variation of our navbar where the element has sticky properties to the top
 // This is also know as the main navigation bar in web applications
 .navbar-fixed-top {
-  height: $navbar-height;
+  height:$navbar-base;
   flex: 0 0 auto;
   flex-flow: row nowrap;
   justify-content: space-around;
-  position: initial;
+  position: fixed;
 
   &.navbar-regular {
     position: fixed;
     & + * {
-      padding-top: $navbar-height;
+      padding-top: $navbar-base;
     }
   }
   
@@ -210,7 +208,7 @@ $navbar-height: 100px;
         display: none;
         position: absolute;
         height: 100vh;
-        width: $navbar-height;
+        width: $navbar-base;
         z-index: 3;
         left: 0;
 
@@ -218,6 +216,7 @@ $navbar-height: 100px;
           display: flex;
           align-content: stretch;
           flex-flow: column wrap;
+          width: inherit;
         }
       }
     }
