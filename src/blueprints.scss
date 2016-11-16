@@ -1,46 +1,20 @@
 // Importing fonts
 @import url(https://use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l);
 
-// Importing Blueprints specific variables
+// Importing Blueprints specific variables, mixins and utilities
 @import 'core/variables';
-
-// Importing Blueprints specific mixins
-@import 'core/utils';
-
-// Importing Blueprints specific mixins
 @import 'core/mixins';
+@import 'core/utils'; //TODO: Needs review
 
 // Applying the theme to our Twitter Bootstrap copy
 @import 'core/vendors';
-
-// Bootstrap import
 @import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 // The following includes all the bootstrap overrides
-// this file is a wrapper file including all the @imports for each component
 @import 'core/components';
+@import 'core/general';
 
-// Global styles
-html,
-body {
-  height: 100%;
-  height: 100vh;
-}
-
+// Forcing to not display the default focus ring
 :focus {
-  // Forcing to not display the default focus ring
-  outline: none !important;
-}
-
-* {
-  @include brand-transition(all);
-}
-
-// We don't own LFT-Etica font 400/800.
-// 600 should be the value for bold
-b, strong { font-weight: 600; }
-
-.page-header {
-  margin: $size-xs 0px $size-xl;
-  padding-bottom: $size-s;
+  outline: none;
 }
