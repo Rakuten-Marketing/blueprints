@@ -6170,11 +6170,15 @@ button.close {
     border-top: 1px solid #dedede;
     width: 100%; }
     .bp-dashboard .app-footer-content {
-      display: block;
+      display: flex;
       width: 100%;
       max-width: 1170px;
       padding: 8px 24px;
       margin: 0 auto; }
+      .bp-dashboard .app-footer-content > * {
+        align-self: center; }
+      .bp-dashboard .app-footer-content .app-footer-info {
+        flex: 1; }
 
 .bp-dashboard.open {
   width: 100vw;
