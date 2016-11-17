@@ -105,6 +105,19 @@ module.exports = function(grunt) {
         files: ['src/core/palette.definition.json'],
         tasks: ['copy:palette']
       }
+    },
+
+    uglify: { 
+      options : {
+        sourceMap : true,
+        sourceMapIncludeSources : true,
+        sourceMapIn : '<%= concat.dist.dest %>.map'
+      },
+      blueprints: {
+        files : {
+          '<%= concat.dist.dest %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
     }
   });
 
@@ -206,13 +219,17 @@ module.exports = function(grunt) {
     'docs:parse',
     'copy:palette',
     'copy:build',
-    'concat'
+    'concat:vendor',
+    'concat:blueprints',
+    'concat:app'
   ]);
 
   /* Prepare dist */
   grunt.registerTask('dist', [
     'build',
-    'postcss:dist'
+    'postcss:dist',
+    'concat:dist',
+    'uglify'
   ]);
 
   /* Initializes the server and first-run compiles the application */
