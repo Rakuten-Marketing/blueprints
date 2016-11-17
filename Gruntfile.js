@@ -131,6 +131,11 @@ module.exports = function(grunt) {
     app: {
       src: ['./docs/app/**/*.js', '!./docs/app/bootstrap/**/*'],
       dest: './build/docs/app.compiled.js'
+    },
+
+    dist: {
+      src: './build/blueprints.js',
+      dest: './dist/blueprints.js',
     }
   });
 
