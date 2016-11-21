@@ -10,6 +10,12 @@ $state-indicator-initial-animation-width: 100px;
   padding: $state-indicator-padding;
   background-color: $brand-white;
 
+  opacity: 0;
+  &::before,
+  &::after {
+    animation: none;
+  }
+
   & .state-indicator-content {
     width: 100%;
   }
@@ -25,21 +31,29 @@ $state-indicator-initial-animation-width: 100px;
   // cover it and disable its interactive elements.
   &-container {
     position: relative;
+
     & .state-indicator {
       @include full-overlay;
       @include centered-content(flex);
       background-color: rgba($brand-white, 0.90);
+    }
+
+    &.state-loading {
+      overflow: hidden;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &:not(.state-loading) {
+      & .state-indicator {
+        display: none;
+      }
     }
   }
 
   // Sometimes we will need the preloader component to be attached to an already existing element
   // The following takes care of the required layout changes
   &-attached {
-    @at-root .state-indicator-container {
-      overflow: hidden;
-      pointer-events: none;
-    }
-
     & .state-indicator-content { 
       @include centered-content(flex);
     }
@@ -65,14 +79,7 @@ $state-indicator-initial-animation-width: 100px;
     }
   }
 
-  // All of the variations could be transformed to their full-screen version
-  // The element will cover 100% of the screen
-  &-full-screen {
-    @include centered-content(flex);
-    @include full-overlay($fullscreen: true);
-  }
-
-  &:not(.state-indicator-preloader) .state-indicator-animation {
+  & .state-indicator-animation:not(.preloaders-blob)  {
     height: $state-indicator-animated-element-size;
     width: $state-indicator-animated-element-size;
 
@@ -81,54 +88,62 @@ $state-indicator-initial-animation-width: 100px;
     border-top-color: $state-indicator-main-color;
     animation: rotate .5s infinite linear;
   }
+}
 
-  &.state-indicator-preloader .state-indicator-animation {
-    display: table-cell;
-    vertical-align: middle;
-    animation: increasing-size 1.0s 4.0s;
+
+// All of the variations could be transformed to their full-screen version
+// The element will cover 100% of the screen
+.full-screen {
+  @include centered-content(flex);
+  @include full-overlay($fullscreen: true);
+}
+
+
+// TODO: This will be a reusable component, we will handle animated assets as
+// reusable elements.
+.preloaders-blob {
+  display: table-cell;
+  vertical-align: middle;
+  animation: increasing-size 1.0s 4.0s;
+  animation-fill-mode: forwards;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: relative;
+    background-color: $state-indicator-main-color;
+  }
+
+  &::before {
+    height: $state-indicator-padding / 2;
+    animation: pulling-from-bottom 0.5s, 
+               bouncing-line-width 2.0s 0.5s ease-in-out,
+               turn-line-into-circle 2.0s 2.0s,
+               from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+
     animation-fill-mode: forwards;
+  }
+}
 
-    &::before,
+.state-indicator.awaiting {
+  opacity: 1;
+  & .preloaders-blob {
+
     &::after {
-      content: '';
-      display: block;
-      position: relative;
-      background-color: $state-indicator-main-color;
-    }
-
-    &::before {
-      height: $state-indicator-padding / 2;
-      animation: pulling-from-bottom 0.5s, 
-                 bouncing-line-width 2.0s 0.5s ease-in-out,
-                 turn-line-into-circle 2.0s 2.0s,
-                 from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-
-      animation-fill-mode: forwards;
-    }
-
-    &:not(.animating) {
       opacity: 0;
-      &::before,
-      &::after {
-        animation: none;
-      }
-    }
+      height: $state-indicator-padding;
+      width: $state-indicator-animated-element-size;
 
-    &.animating {
-      &::after {
-        opacity: 0;
-        height: $state-indicator-padding;
-        width: $state-indicator-animated-element-size;
-
-        border-radius: 50%;
-        margin-bottom: $state-indicator-padding;
-        bottom: -$state-indicator-padding;
-        animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-        animation-fill-mode: forwards;
-      }
+      border-radius: 50%;
+      margin-bottom: $state-indicator-padding;
+      bottom: -$state-indicator-padding;
+      animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+      animation-fill-mode: forwards;
     }
   }
 }
+
 
 // The following animations are used by the preloader sequence, 
 // in some areas we use hardcoded values (sizes)
