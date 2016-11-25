@@ -11,7 +11,7 @@ body {
   overflow: hidden;
   overflow-y: auto;
   background-color: $brand-gray-dark;
-  color: $brand-gray-base;
+  color: $brand-gray;
 
   &.off-canvas { overflow: hidden; }
 }
@@ -29,13 +29,26 @@ p {
   margin-bottom: $size-s;
 }
 
+// TODO: Move all the "typography" related stuff to its own
+.section-header {
+  border-bottom: 1px solid $brand-separator-color;
+  margin-bottom: $size-m;
+  padding-bottom: $size-xs; 
+}
+
 .page-header {
   font-weight: 400;
   font-size: $size-l;
-  margin: $size-xs 0px;
+  margin: $size-xs 0px 0px;
   padding: 0;
 
   border: none;
+}
+
+.page-description {
+  font-size: $size-s;
+  text-transform: uppercase;
+  color: $brand-muted-text-color;
 }
 
 // TODO: Adding animations to all HTMLElements interfere with custom made transitions
