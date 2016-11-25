@@ -1,0 +1,55 @@
+<div class="section-header">
+  <div class="page-header">Cards</div>
+  <div class="page-description">Layout markup with a webcomponent</div>
+</div>
+
+<p class="page-body">
+  A card is a flexible and extensible content container. It includes options for
+  headers and footers, a wide variety of content, contextual background colors,
+  and powerful display options.<br>
+  If you’re familiar with Bootstrap 3, this type of card will looks similar to
+  the panels, wells, and thumbnails.
+</p>
+
+<div class="card card-rounded">
+  <div class="card-header">Card used as a descriptive block without actions</div>
+  <div class="card-content">
+    You can use this HTML component to display
+    useful information, wrap elements into a card and/or prompt user decisions. In this
+    example, you are reading how to use it as a "block" of text
+
+<div hljs hljs-language="html">
+  <div class="card card-rounded">
+    <div class="card-header">Card used as a descriptive block without actions</div>
+    <div class="card-content">
+      You can use this HTML component to display useful information, wrap elements into a card and/or prompt user decisions. In this example, you are reading how to use it as a "block" of text
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<bp-card class="card card-rounded open">
+  <button class="card-header" type="button" role="button">
+    <span class="card-indicator"></span>
+    Card used as an interactive block (collapsable)
+  </button>
+
+  <div class="card-content">
+    Inheriting properties from the previous block; this component has a default <kbd>.open</kbd> classname,
+    which needs to be added/removed to achieve its functionality; in this documentation we are using a webcomponent
+    file that you will need to include in your project, or if you decide to do it by yourself:<br><br>
+    You must toggle that classname to the parent element, i.e <kbd>class="card card-interactive open"</kbd>
+  </div>
+</bp-card>
+
+<div class="card card-rounded">
+  <div class="card-showroom">
+    <img class="card-image borderless" src="assets/showcase-image.png" alt="Provide an alt value if not eye candy">
+    This example shows how to display an image, an interactive element (i.e: a photo, a chart or even an iframe) and if required its description.
+  </div>
+
+  <div class="card-content">
+    This variation of cards does not include a <kbd>.card-header</kbd> due its nature
+  </div>
+</div>

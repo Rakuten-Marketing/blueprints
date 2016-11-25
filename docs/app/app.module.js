@@ -7,13 +7,7 @@
     $locationProvider,
     $stateProvider,
     $urlRouterProvider,
-    $compileProvider,
-    hljsServiceProvider) {
-
-    hljsServiceProvider.setOptions({
-      // replace tab with 2 spaces
-      tabReplace: '  '
-    });
+    $compileProvider) {
 
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
@@ -188,6 +182,16 @@
         section: {
           templateUrl: 'app/partials/elements/dashboard/dashboard.template.html',
           controller: angular.noop //'DashboardController as dashboardView'
+        }
+      }
+    })
+
+    .state('application.elements.cards', {
+      url: 'cards',
+      views: {
+        section: {
+          templateUrl: 'app/partials/elements/cards/cards.template.html',
+          controller: angular.noop //'CardsController as cardsView'
         }
       }
     })

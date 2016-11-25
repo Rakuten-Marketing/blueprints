@@ -29,6 +29,7 @@
     & img {
       max-height: 100%;
       width: auto;
+      max-width: 100%;
       @extend %image-rendering;
     }
 

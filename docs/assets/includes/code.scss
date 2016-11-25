@@ -1,3 +1,24 @@
 [hljs] pre {
-  margin: 10px 0;
+  font-size: $size-s;
+  color: $brand-gray-base;
+  margin: $size-base 0px 0px;
+  padding: $size-s;
+
+  background-color: $brand-passive-elements;
+  border: 1px solid $brand-separator-color;
+  border-radius: $size-xxs;
+
+  & code {
+    color: inherit;
+    background: transparent;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+kbd {
+  background-color: $brand-gray-dark;
+  border-radius: $size-xxs;
 }
