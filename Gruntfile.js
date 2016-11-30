@@ -127,6 +127,7 @@ module.exports = function(grunt) {
     },
 
     vendor: {
+      // TODO: Lines #132 and #133 should go out soon.
       src: [
         './node_modules/jquery/dist/jquery.js',
         './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
@@ -137,7 +138,7 @@ module.exports = function(grunt) {
     },
 
     blueprints: {
-      src: ['./node_modules/webcomponentsjs/micro.js', './src/core/_components/*.js'],
+      src: ['./node_modules/webcomponentsjs/micro.js', './src/core/webcomponents/*.js'],
       dest: './build/blueprints.js'
     },
 
