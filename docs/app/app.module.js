@@ -196,6 +196,16 @@
       }
     })
 
+    .state('application.elements.spacers', {
+      url: 'spacers',
+      views: {
+        section: {
+          templateUrl: 'app/partials/elements/spacers/spacers.template.html',
+          controller: angular.noop //'SpacersController as spacersView'
+        }
+      }
+    })
+
 
     // "Components" main section
     // Everything related to "Twitter Bootstrap" _components is handled by this state
