@@ -3,11 +3,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     clean: {
-      build: {
-        src: [
-          'build/*',
-          '!build/bootstrap-partials'
-        ]
+      src: [
+        'build/*',
+        '!build/bootstrap-partials'
+      ]
+    },
+
+    portPickIndie: {
+      options: {
+        port: 3000,
+        extra: 1
       }
     },
 
@@ -138,7 +143,11 @@ module.exports = function(grunt) {
     },
 
     blueprints: {
-      src: ['./node_modules/webcomponentsjs/micro.js', './src/core/webcomponents/*.js'],
+      src: [
+        './node_modules/webcomponentsjs/micro.js',
+        './src/core/webcomponents/**/*.js'
+      ],
+
       dest: './build/blueprints.js'
     },
 
@@ -176,44 +185,38 @@ module.exports = function(grunt) {
   // Those will be retrieved via the documentation application (educational purposes: blueprints)
   // For documentation (and understanding its limitations): https://www.npmjs.com/package/grunt-scss-to-json
   grunt.registerTask('sass:json', 'parses scss _variables to JSON', function() {
-    grunt.log.writeln('→ Parsing styleguide _variables into a JSON'['green'].bold);
+    grunt.log.writeln('Parsing styleguide\'s variables into a JSON file'['green']);
 
     var converter = require('scss-to-json'),
-      directory = './src/core/_variables/common/';
+        directory = './src/core/_variables/common/',
+        files = grunt.file.expand({ cwd: directory }, ['*.scss']),
+        data = files.reduce(function(acc, file) {
+          var node = file.replace('.scss', '');
+          acc[node] = converter(directory + file);
 
-    var files = grunt.file.expand({ cwd: directory }, ['*.scss']);
+          return acc;
+        }, {});
 
-    var data = files.reduce(function(acc, file) {
-      var node = file.replace('.scss', '');
-
-      acc[node] = converter(directory + file);
-
-      return acc;
-    }, {});
-
-    grunt.file.write(
-      './build/docs/_variables.json',
-      JSON.stringify(data)
-    );
-
-    grunt.log.ok('Output: ./build/docs/_variables.json'['green'].bold);
+    grunt.file.write('./build/docs/_variables.json', JSON.stringify(data));
+    grunt.log.ok('Output: ./build/docs/_variables.json'['green']);
   });
 
   /* Initializes the server, hosting the application */
   grunt.registerTask('server:restore', 'initializes the express server', function() {
     var done = this.async(),
-      port = process.env.PORT || 3000;
+        port = process.env.PORT || grunt.config.get('port-pick-1');
 
     require('./server.js')
       .listen(port)
       .on('close', done);
 
-    grunt.log.writeln('→ Application running on http://localhost:%s'['green'].bold, [port]);
+    grunt.log.writeln('Application running on http://localhost:%s'['green'], [port]);
   });
 
   /* Build the current application */
   grunt.registerTask('build', [
-    'clean:build',
+    'clean',
+
     'sass:build',
     'postcss:build',
     'sass:json',
@@ -243,7 +246,7 @@ module.exports = function(grunt) {
     }
 
     grunt.task.run('build');
-
+    grunt.task.run('portPickIndie');
     grunt.task.run('server:restore');
   });
 };
