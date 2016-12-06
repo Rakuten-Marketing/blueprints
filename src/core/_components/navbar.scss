@@ -1,224 +1,222 @@
 .navbar {
   display: flex;
+  height: inherit;
+  min-height: initial;
+  background-color: $brand-white;
+  @extend %drop-shadow;
+
   align-items: center;
   justify-content: center;
-  min-height: initial;
   border: none;
   margin: 0;
 
-  background-color: transparent;
-  @extend %drop-shadow;
+  /* Contains two or more elements inside its markup,
+  i.e: submenu is present; */
+  &.navbar-layered {
+    flex-direction: column;
+    align-items: initial;
+  }
 
-  // Unless the "navbar" element contains the "navbar-transparent" classname
-  // this element will have a solid color as its background-color.
-  // Detaching this property to allow users to have "inline" navbars
-  &:not(.navbar-transparent) {
-    background-color: $brand-white;
+  /* Has sticky properties to the top,
+  this element must keep its position at the top */
+  &.navbar-fixed-top {
+    position: fixed;
+    z-index: 1;
+  }
+
+  /* Placeholder for custom behavior for disabled
+  elements inside the navbar */
+  .disabled {}
+
+  .navbar-container {
+    display: flex;
+    width: 100%;
+    max-width: $container-large-desktop;
+    padding: 0px $size-xl;
+    margin: 0 auto;
   }
 
   .navbar-side {
-    @include centered-content;
-    padding: $size-xs;
-
     flex-basis: 20%;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    padding: $size-xs;
+    @include centered-content;
 
-    // Forcing the image tags to use the 100% height as its maximum allowed.
-    // We can include image tags everywhere inside this element
-    & img {
-      max-height: 100%;
-      width: auto;
-      max-width: 100%;
-      @extend %image-rendering;
-    }
-
-    &.navbar-collapsible { display: none; }
-    
+    &:first-of-type,
     &.navbar-brand {
-      float: none;
-      font-size: inherit;
-      line-height: normal;
+      padding-left: 0;
     }
 
-    &.navbar-brand,
-    &.navbar-collapsible {
-      height: inherit;
-      justify-content: flex-start;
-    }
-
-    & a  {
-      color: inherit;
-      cursor: pointer;
-      padding: $size-xs;
+    &:last-of-type {
+      padding-right: 0;
     }
   }
 
-  &-items {
+  .navbar-collapsible {
+    display: none;
+  }
+
+  .navbar-brand {
+    float: none;
+    font-size: inherit;
+    line-height: normal;
+    overflow: hidden;
+
+    .navbar-actionable {
+      display: flex;
+      align-items: center;
+
+      background-color: transparent;
+      border: none;
+      height: 100%;
+      padding: 0;
+    }
+
+    .navbar-brand-text {
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+      user-select: none;
+
+      &::before {
+        content: '';
+        display: block;
+        height: $size-xl;
+        margin: 0px $size-xxs;
+        border-left: 1px solid $brand-gray-light;
+      }
+    }
+  }
+
+  .navbar-brand,
+  .navbar-collapsible {
+    height: inherit;
+    justify-content: flex-start;
+  }
+
+  /* Container for the main menu inside the navbar */
+  .navbar-center {
     display: flex;
     flex-basis: 100%;
     justify-content: center;
 
-    &-label {
-      display: block;
-      min-height: 50%;
-    }
-
-    & .navbar-nav {
+    .navbar-items {
       display: flex;
+      overflow: hidden;
       float: none;
 
-      & li {
-        float: none;
-        display: flex;
-        overflow: hidden;
-        min-width: $navbar-base;
+      .navbar-item {
+        display: inherit;
+        float: initial;
+        width: $navbar-base;
         max-width: $navbar-base + $size-m;
 
-        & > a {
-          flex-basis: 100%;
-          color: $brand-gray-darker;
-          text-align: center;
-          line-height: normal;
-          padding: $size-xl $size-xs;
+        &.active button,
+        & > button:hover,
+        & > button:focus {
+          color: $brand-primary;
+          background-color: $brand-gray-lighter;
 
-          &::before {
-            content: '';
-            background-color: $brand-primary-darker;  
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0;
-          }
-        }
-
-        &.active a,
-        & > a:hover,
-        & > a:focus {
-          &::before {
+          &::after {
             height: $size-xxs;
             animation: increasing-height 0.5s;
             animation-fill-mode: forwards;
           }
+        }
 
-          color: $brand-primary;
-          background-color: $brand-gray-lighter;
+        button {
+          background-color: transparent;
+          padding: $size-xxs;
+          border: none;
+          width: 100%;
+
+          &::after {
+            content: '';
+
+            display: block;
+            height: 0px;
+            width: 100%;
+
+            background-color: $brand-primary-darker;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
         }
       }
     }
   }
 
-  &-actions {
-    // Hack for the "bp-dropdown", we should address a fix for this later
-    // TODO: Normalize HTML markup for "bp-dropdown" components
-    & .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-      background-color: transparent;
-    }
+  /* Images inside the navbar element must be forced to the
+  100% height as their max-height. Images can be present anywhere */
+  & img {
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 
-    & .navbar-nav > li {
-      float: none;
-      display: inline-flex;
-
-      &.active a,
-      & > a:hover,
-      & > a:focus {
-        color: $brand-primary;
-        background-color: inherit;
-      }
-    }
+    @extend %image-rendering;
   }
-}
 
-// Since we are using the "flex" box model, we need to be this specific
-// to override the default Bootstrap's behavior (grid system). We don't need
-// those negatives margin values to "align" the content here
-.navbar-nav,
-.navbar > .container .navbar-brand,
-.navbar > .container-fluid .navbar-brand {
-  margin: 0;
-}
+  & .navbar-nav {
+    margin: 0;
+  }
 
-.navbar-icon {
-  font-size: $size-l;
-  display: block;
-
-  &::before {
+  & .navbar-icon {
+    font-size: $size-l;
     display: block;
-    margin-bottom: $size-xxs;
-  }
-}
 
-.navbar-brand > span {
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  user-select: none;
-  
-  &::before {
-    content: '';
-    display: block;
-    height: $size-xl;
-    margin: 0px $size-xxs;
-    border-left: 1px solid $brand-gray-light;
-  }
-}
-
-// Variation of our navbar where the element has sticky properties to the top
-// This is also know as the main navigation bar in web applications
-.navbar-fixed-top {
-  height:$navbar-base;
-  flex: 0 0 auto;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  position: fixed;
-
-  &.navbar-regular {
-    position: fixed;
-    & + * {
-      padding-top: $navbar-base;
+    &::before {
+      display: block;
+      margin-bottom: $size-xxs;
     }
   }
-  
-  .navbar-container {
-    display: inherit;
+
+  .navbar-primary {
     height: 100%;
-    width: 100%;
-    max-width: $container-large-desktop;
-    padding: 0px $size-m;
-    margin: 0 auto;
   }
 
-  @media (max-width: $container-sm) {
-    .navbar-container {
-      & .navbar-brand {
-        height: inherit;
-        justify-content: center;
-        flex-basis: 100%;
-      }
+  .navbar-secondary {
+    display: block;
+    padding-top: $size-xxs;
+    padding-bottom: $size-xxs;
+  }
+}
 
-      & .navbar-collapsible,
-      & .navbar-actions { 
+@media (max-width: $container-sm) {
+  .navbar {
+    .navbar-brand {
+      height: inherit;
+      justify-content: center;
+      flex-basis: 100%;
+    }
+
+    .navbar-collapsible,
+    .navbar-actions {
+      display: flex;
+      position: absolute;
+      align-self: center;
+    }
+
+    .navbar-actions {
+      right: $size-xl;
+    }
+
+    .navbar-center {
+      display: none;
+      width: $navbar-base;
+      
+      position: absolute;
+      height: 100vh;
+      z-index: 3;
+      left: 0;
+
+      .navbar-nav {
         display: flex;
-        position: absolute;
-        align-self: center;
-      }
-
-      & .navbar-actions { right: $size-s; }
-      & .navbar-items {
-        display: none;
-        position: absolute;
-        height: 100vh;
-        width: $navbar-base;
-        z-index: 3;
-        left: 0;
-
-        & .navbar-nav {
-          display: flex;
-          align-content: stretch;
-          flex-flow: column wrap;
-          width: inherit;
-        }
+        align-content: stretch;
+        flex-flow: column wrap;
+        width: inherit;
       }
     }
   }

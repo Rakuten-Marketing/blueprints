@@ -1,45 +1,44 @@
 <header class="app-header" role="banner">
-  <nav class="navbar navbar-fixed-top" role="navigation">
-    <div class="navbar-container">
+  <nav class="navbar navbar-layered navbar-fixed-top" role="navigation">
+    <div class="navbar-container navbar-primary">
       <div class="navbar-side navbar-collapsible">
-        <button type="button" role="button" ng-click="mainView.toggleMenu()" class="navbar-icon dashboard-hamburger">
+        <button type="button" role="button" ng-click="" class="navbar-icon dashboard-hamburger">
           <span class="hamburger right-arrow"></span>
         </button>
       </div>
 
       <div class="navbar-side navbar-brand">
-        <img src="assets/logo.gif">
-        <span>Blueprints</span>
+        <button type="button" role="button" ng-click="" class="navbar-actionable">
+          <img class="navbar-brand-logo" src="assets/logo.gif" />
+          <span class="navbar-brand-text">Blueprints</span>
+        </button>
       </div>
 
-      <div class="navbar-items">
-        <ul class="nav navbar-nav">
-          <li ng-class="{active: mainView.$state.includes('application.home')}">
-            <a ui-sref="application.home" ng-click="mainView.toggleMenu()">
-              <i class="navbar-icon glyphicon glyphicon glyphicon-cloud-download"></i>
-              <p class="navbar-items-label">Installation</p>
-            </a>
+      <div class="navbar-center">
+        <ul class="nav navbar-nav navbar-items">
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.home')}">
+            <button ui-sref="application.home">
+              <span class="navbar-icon glyphicon glyphicon glyphicon-cloud-download"></span>
+              <span>Installation</span>
+            </button>
           </li>
-
-          <li ng-class="{active: mainView.$state.includes('application.foundation')}">
-            <a ui-sref="application.foundation.colors" ng-click="mainView.toggleMenu()">
-              <i class="navbar-icon glyphicon glyphicon glyphicon-info-sign"></i>
-              <p class="navbar-items-label">Foundation</p>
-            </a>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.foundation')}">
+            <button ui-sref="application.foundation.colors">
+              <span class="navbar-icon glyphicon glyphicon glyphicon-info-sign"></span>
+              <span>Foundation</span>
+            </button>
           </li>
-
-          <li ng-class="{active: mainView.$state.includes('application.elements')}">
-            <a ui-sref="application.elements.grid" ng-click="mainView.toggleMenu()">
-              <i class="navbar-icon glyphicon glyphicon glyphicon-th"></i>
-              <p class="navbar-items-label">Elements</p>
-            </a>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.elements')}">
+            <button ui-sref="application.elements.grid">
+              <span class="navbar-icon glyphicon glyphicon glyphicon-th"></span>
+              <span>Elements</span>
+            </button>
           </li>
-
-          <li ng-class="{active: mainView.$state.includes('application.components')}">
-            <a ui-sref="application.components.alerts" ng-click="mainView.toggleMenu()">
-              <i class="navbar-icon glyphicon glyphicon glyphicon-qrcode"></i>
-              <p class="navbar-items-label">Components</p>
-            </a>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.components')}">
+            <button ui-sref="application.components.alerts">
+              <span class="navbar-icon glyphicon glyphicon glyphicon-qrcode"></span>
+              <span>Components</span>
+            </button>
           </li>
         </ul>
       </div>
@@ -48,7 +47,7 @@
         <ul class="nav navbar-nav">
           <li class="navbar-icon">
             <bp-dropdown icon="glyphicon glyphicon glyphicon glyphicon-user">
-              <ul class="dropdown-menu-right custom">
+              <ul class="dropdown-menu-right">
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Billing & Payments</a></li>
