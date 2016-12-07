@@ -29,6 +29,11 @@ p {
   margin-bottom: $size-s;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 // TODO: Move all the "typography" related stuff to its own
 .section-header {
   border-bottom: 1px solid $brand-separator-color;
@@ -39,7 +44,7 @@ p {
 .page-header {
   font-weight: 400;
   font-size: $size-l;
-  margin: $size-xs 0px 0px;
+  margin: $size-xs 0px;
   padding: 0;
 
   border: none;

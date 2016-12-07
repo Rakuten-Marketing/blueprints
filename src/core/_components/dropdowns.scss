@@ -1,12 +1,10 @@
 bp-dropdown {
   display: inline-block;
-  
+
   > a {
     text-decoration: none;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    text-align: center;
-    color: $brand-gray-darker;
+    background-color: transparent;
+    color: inherit;
     cursor: pointer;
 
     &:hover,
@@ -69,10 +67,10 @@ bp-dropdown {
       &,
       &:hover,
       &:focus {
+        background-color: inherit;
         color: $dropdown-link-active-color;
         text-decoration: none;
         outline: 0;
-        background-color: $dropdown-link-active-bg;
       }
     }
 
