@@ -30,14 +30,28 @@
     line-height: normal;
     width: 100%;
     margin: 0px;
-    border: none;
     padding: 0px 0px $size-xxs;
     background-color: transparent;
+
+    &.is-bordered {
+      flex-wrap: wrap;
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        margin-top: $size-xxs;
+        margin-bottom: $size-xs;
+        background-color: $brand-separator-color;
+      }
+    }
   }
 
   .card-content {
     overflow: hidden;
-    transition: height 0.5s 0.1s ease-in, opacity 0.5s 0.15s ease-in;
+    transition:
+      height 0.5s 0.1s ease-in,
+      opacity 0.5s 0.15s ease-in;
   }
 
   .card-image {
@@ -70,12 +84,12 @@
       transition: 0.3s;
     }
 
-    &::before {  
+    &::before {
       top: -3px;
       transform: rotate(35deg);
     }
 
-    &::after { 
+    &::after {
       top: 3px;
       transform: rotate(-35deg);
     }
@@ -89,7 +103,7 @@
       }
 
       &::before {
-        transform: rotate(45deg);         
+        transform: rotate(45deg);
         left: 0px;
       }
 

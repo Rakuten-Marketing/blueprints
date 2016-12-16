@@ -1,3 +1,9 @@
+.form-group > label {
+  font-weight: $brand-font-weight-bold;
+  font-size: $size-s;
+  text-transform: uppercase;
+}
+
 .form-control {
   box-shadow: none;
 
@@ -5,6 +11,11 @@
     outline: none;
     box-shadow: none;
   }
+}
+
+.radio,
+.checkbox {
+  margin: 0;
 }
 
 .has-error,
