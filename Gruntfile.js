@@ -95,6 +95,13 @@ module.exports = function(grunt) {
             expand: true,
             src: ['**/*'],
             dest: './build/fonts'
+          },
+
+          {
+            cwd: './node_modules/glyphicons_pro/fonts',
+            expand: true,
+            src: ['**/*'],
+            dest: './build/fonts'
           }
         ]
       }
@@ -112,7 +119,7 @@ module.exports = function(grunt) {
       }
     },
 
-    uglify: { 
+    uglify: {
       options : {
         sourceMap : true,
         sourceMapIncludeSources : true,

@@ -10,17 +10,12 @@
       var vm = this;
 
       vm.colors = {};
-      $http.get('build/docs/palettes.json').success(function (response) {
-        var processed = response;
 
-        angular.forEach(response, function(value, key){
-          if (key.indexOf(vm.palette) !== -1 && vm.palette) {
-            processed = response[key];
-          }
-        });
-
-        vm.colors = processed;
-      });
+      $http.get('build/docs/palettes.json')
+        .then(function(res) {
+          vm.colors = res.data[vm.palette];
+        })
+        .catch(console.error);
     }
   });
 })();
