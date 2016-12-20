@@ -8,7 +8,10 @@ $state-indicator-initial-animation-width: 100px;
 .state-indicator {
   @include centered-content(block);
   padding: $state-indicator-padding;
-  background-color: $brand-white;
+
+  &:not(.transparent) {
+    background-color: $brand-white;
+  }
 
   opacity: 0;
   &::before,
@@ -54,7 +57,7 @@ $state-indicator-initial-animation-width: 100px;
   // Sometimes we will need the preloader component to be attached to an already existing element
   // The following takes care of the required layout changes
   &-attached {
-    & .state-indicator-content { 
+    & .state-indicator-content {
       @include centered-content(flex);
     }
 
@@ -117,7 +120,7 @@ $state-indicator-initial-animation-width: 100px;
 
   &::before {
     height: $state-indicator-padding / 2;
-    animation: pulling-from-bottom 0.5s, 
+    animation: pulling-from-bottom 0.5s,
                bouncing-line-width 2.0s 0.5s ease-in-out,
                turn-line-into-circle 2.0s 2.0s,
                from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
@@ -145,13 +148,13 @@ $state-indicator-initial-animation-width: 100px;
 }
 
 
-// The following animations are used by the preloader sequence, 
+// The following animations are used by the preloader sequence,
 // in some areas we use hardcoded values (sizes)
 // Animation with a fade in and a little bounce from the bottom to its default position
 @keyframes pulling-from-bottom {
   0%, 100% { width: $state-indicator-initial-animation-width; }
-  0% { 
-    opacity: 0.25; 
+  0% {
+    opacity: 0.25;
     margin-bottom: -$state-indicator-padding;
   }
 }
@@ -172,7 +175,7 @@ $state-indicator-initial-animation-width: 100px;
 }
 
 @keyframes increasing-size {
-  25%, 100% { 
+  25%, 100% {
     width: $state-indicator-animated-element-size;
     height: $state-indicator-animated-element-size;
   }

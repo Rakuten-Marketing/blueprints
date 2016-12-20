@@ -9009,8 +9009,9 @@ bp-dropdown {
   display: block;
   text-align: -webkit-center;
   padding: 8px;
-  background-color: #ffffff;
   opacity: 0; }
+  .state-indicator:not(.transparent) {
+    background-color: #ffffff; }
   .state-indicator::before, .state-indicator::after {
     animation: none; }
   .state-indicator .state-indicator-content {
