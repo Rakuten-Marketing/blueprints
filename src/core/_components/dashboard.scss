@@ -1,13 +1,10 @@
 .bp-dashboard {
   display: flex;
   flex-direction: column;
-  background-color: $brand-passive-elements;
-  transition: 0.4s transform ease-out;
   min-height: 100vh;
 
-  & .app-header {
-    height: $navbar-base;
-  }
+  background-color: $brand-passive-elements;
+  transition: 0.4s transform ease-out;
 
   & .app-header,
   & .app-footer {
@@ -16,46 +13,68 @@
     position: initial;
   }
 
+  & .app-header {
+    // In order to force the content to its required position,
+    // we need to define the height of the element. This because
+    // the "fixed" position of the header
+    height: $size-xs * 10;
+
+    &.has-submenu {
+      height: ($size-xs * 10) + ($size-xs * 2) + $size-base;
+    }
+  }
+
   & .app-content {
+    display: flex;
     flex: 1 0 auto;
-    position: relative;
+    flex-direction: column;
     width: 100%;
 
-    // Adding padding between the header and the next child
-    // (if any, will be removed later if none)
-    &::before {
+    // Adding padding between the header and the next child (will be removed later if missing)
+    &::before,
+    &::after {
       content: '';
       display: block;
-      height: $size-m;
+      height: $size-xs;
       width: 100%;
     }
-
-    & .row { margin: 0 auto; }
   }
 
   // Covering the scenario where the dashboard does not include a header (navigation bar),
   // we don't need an extra padding if so. This is not a hack but a flexible condition
   // applied by default but removed if not required
-  & >:first-child::before {
+  & >:first-child::before,
+  & >:first-child::after {
     display: none;
   }
 
   .app-footer {
     display: inherit;
     color: $brand-gray;
-    background-color: $brand-gray-lighter;
-    border-top: 1px solid $brand-gray-light;
+    border-top: 1px solid $brand-shadow-color;
+    background-color: $brand-white;
     width: 100%;
 
     &-content {
       display: flex;
-      width: 100%;
-      max-width: $container-large-desktop;
-      padding: $size-xs $size-xl;
+      padding: $size-s $size-xl;
       margin: 0 auto;
 
-      & > * { align-self: center; }
-      & .app-footer-info { flex: 1 }
+      width: 100%;
+      max-width: $container-large-desktop;
+      
+      & > * {
+        align-self: center;
+      }
+
+      & .app-footer-left {
+        flex: 1
+      }
+
+      & .app-footer-right {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
@@ -225,7 +244,7 @@
       transform-origin: 50% 50%;
       top: 0px;
     }
-	}
+  }
 }
 
 @keyframes drawmenu {

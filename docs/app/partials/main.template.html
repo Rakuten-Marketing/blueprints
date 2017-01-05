@@ -1,14 +1,14 @@
-<header class="app-header" role="banner">
-  <nav class="navbar navbar-layered navbar-fixed-top" role="navigation">
-    <div class="navbar-container navbar-primary">
+<header class="app-header has-submenu" role="banner">
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="navbar-container navbar-dashboard">
       <div class="navbar-side navbar-collapsible">
-        <button type="button" role="button" ng-click="" class="navbar-icon dashboard-hamburger">
+        <button type="button" role="button" class="navbar-icon dashboard-hamburger">
           <span class="hamburger right-arrow"></span>
         </button>
       </div>
 
       <div class="navbar-side navbar-brand">
-        <button type="button" role="button" ng-click="" class="navbar-actionable">
+        <button type="button" role="button">
           <img class="navbar-brand-logo" src="assets/logo.gif" />
           <span class="navbar-brand-text">Blueprints</span>
         </button>
@@ -46,7 +46,7 @@
       <div class="navbar-side navbar-actions">
         <ul class="nav navbar-nav">
           <li class="navbar-icon">
-            <bp-dropdown icon="glyphicons glyphicons-user">
+            <bp-dropdown icon="glyphicon glyphicon glyphicon glyphicon-user">
               <ul class="dropdown-menu-right">
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Settings</a></li>
@@ -61,16 +61,18 @@
 </header>
 
 <main class="app-content">
-  <div class="container" ui-view="content"></div>
+  <div class="container" ui-view="content">
+  </div>
 </main>
 
-<footer class="app-footer" role="contentinfo">
+<footer role="contentinfo" class="app-footer">
   <div class="app-footer-content">
-    <div class="app-footer-info">
-      Copyright © 2016 Rakuten Marketing, LLC.<br>
-      All Rights Reserved
-    </div>
-
-    <div class="app-footer-social hidden-xs"></div>
+  <div class="app-footer-left">
+    © 2017 Rakuten Marketing LLC.<br>
+    All Rights Reserved
   </div>
+
+  <div class="app-footer-right hidden-xs">
+  </div>
+</div>
 </footer>

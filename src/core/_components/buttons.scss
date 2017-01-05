@@ -45,3 +45,9 @@
 
   @include bp-button-variant($states);
 }
+
+.btn-flat {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}

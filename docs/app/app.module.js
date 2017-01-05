@@ -17,7 +17,7 @@
     $stateProvider
     .state('application', {
       abstract: true,
-      templateUrl: 'app/main.template.html',
+      templateUrl: 'app/partials/main.template.html',
       controller: 'MainController as mainView'
     })
 
@@ -205,7 +205,6 @@
         }
       }
     })
-
 
     // "Components" main section
     // Everything related to "Twitter Bootstrap" _components is handled by this state

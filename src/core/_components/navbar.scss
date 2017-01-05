@@ -1,20 +1,16 @@
 .navbar {
   display: flex;
+  flex-direction: column;
+
   height: inherit;
   min-height: initial;
-  background-color: $brand-white;
-  @extend %drop-shadow;
 
-  align-items: center;
-  justify-content: center;
-  border: none;
   margin: 0;
+  border: none;
+  border-bottom: 1px solid $brand-shadow-color;
 
-  /* Contains two or more elements inside its markup,
-  i.e: submenu is present; */
-  &.navbar-layered {
-    flex-direction: column;
-    align-items: initial;
+  &:not(.transparent) {
+    background-color: $brand-white;
   }
 
   /* Has sticky properties to the top,
@@ -24,13 +20,10 @@
     z-index: 1;
   }
 
-  /* Placeholder for custom behavior for disabled
-  elements inside the navbar */
-  .disabled {}
-
   .navbar-container {
     display: flex;
     width: 100%;
+    height: 100%;
     max-width: $container-large-desktop;
     padding: 0px $size-xl;
     margin: 0 auto;
@@ -63,29 +56,27 @@
     line-height: normal;
     overflow: hidden;
 
-    .navbar-actionable {
+    button {
+      @extend .btn-flat;
+
       display: flex;
       align-items: center;
-
-      background-color: transparent;
-      border: none;
       height: 100%;
-      padding: 0;
     }
+  }
 
-    .navbar-brand-text {
-      display: flex;
-      align-items: center;
-      pointer-events: none;
-      user-select: none;
+  .navbar-brand-text {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    user-select: none;
 
-      &::before {
-        content: '';
-        display: block;
-        height: $size-xl;
-        margin: 0px $size-xxs;
-        border-left: 1px solid $brand-gray-light;
-      }
+    &::before {
+      content: '';
+      display: block;
+      height: $size-xl;
+      margin: 0px $size-xxs;
+      border-left: 1px solid $brand-gray-light;
     }
   }
 
@@ -103,8 +94,9 @@
 
     .navbar-items {
       display: flex;
-      overflow: hidden;
       float: none;
+      overflow: hidden;
+      color: $brand-gray-base;
 
       .navbar-item {
         display: inherit;
@@ -112,36 +104,36 @@
         width: $navbar-base;
         max-width: $navbar-base + $size-m;
 
+        button {
+          @extend .btn-flat;
+          padding: $size-xxs;
+          width: 100%;
+        }
+
         &.active button,
         & > button:hover,
         & > button:focus {
           color: $brand-primary;
           background-color: $brand-gray-lighter;
-
-          &::after {
-            height: $size-xxs;
-            animation: increasing-height 0.5s;
-            animation-fill-mode: forwards;
-          }
         }
 
-        button {
-          background-color: transparent;
-          padding: $size-xxs;
-          border: none;
-          width: 100%;
+        &:not(.has-submenu) {
+          &.active button,
+          & > button:hover,
+          & > button:focus {
+            &::after {
+              content: '';
+              display: block;
 
-          &::after {
-            content: '';
-
-            display: block;
-            height: 0px;
-            width: 100%;
-
-            background-color: $brand-primary-darker;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+              height: $size-xxs;
+              width: 100%;
+              animation: increasing-height 0.5s;
+              animation-fill-mode: forwards;
+              background-color: $brand-primary-darker;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
           }
         }
       }
@@ -173,14 +165,12 @@
     }
   }
 
-  .navbar-primary {
-    height: 100%;
-  }
-
-  .navbar-secondary {
-    display: block;
-    padding-top: $size-xxs;
-    padding-bottom: $size-xxs;
+  .navbar-condensed {
+    height: auto;
+    padding: 0;
+    max-width: none;
+    justify-content: flex-start;
+    background-color: $brand-passive-elements;
   }
 }
 
