@@ -11,8 +11,8 @@ bp-dropdown {
     &:focus {
       color: $brand-primary;
       text-decoration: none;
-    }   
-  }  
+    }
+  }
 
   > button > span {
     margin-left: $size-xxs;
@@ -32,12 +32,11 @@ bp-dropdown {
       padding-bottom: $size-xs;
     }
 
-
     ul {
       list-style-type: none;
       padding-left: 0px;
     }
-  
+
     input {
       margin: 0 $size-s;
     }

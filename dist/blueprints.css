@@ -8718,6 +8718,10 @@ button.close {
 .nav > li > a:focus {
   color: #ffffff; }
 
+.nav .open.dropdown > a {
+  background-color: transparent;
+  color: #3DB8BE; }
+
 .nav-tabs > li > a {
   margin-right: 0;
   padding: 32px 24px 26px 24px;

@@ -14,6 +14,13 @@ $nav-tabs-condensed-link-bg: $brand-white;
   > li > a:focus {
     color: $brand-white;
   }
+
+  .open {
+    &.dropdown > a {
+      background-color: transparent;
+      color: $nav-tabs-active-link-color;
+    }
+  }
 }
 
 .nav-tabs {
@@ -124,4 +131,3 @@ $nav-tabs-condensed-link-bg: $brand-white;
     }
   }
 }
-
