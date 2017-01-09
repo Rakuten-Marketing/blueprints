@@ -12,14 +12,17 @@ ADD server.js /blueprints/
 RUN mkdir -p /root/.ssh
 RUN chmod 700 /root/.ssh
 
+#bot-ws Expected key
+RUN mkdir -p /root/.ssh
+RUN chmod 700 /root/.ssh
 ADD deploy.key /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
-RUN eval $(ssh-agent)
-RUN echo "Host github.private.linksynergy.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+RUN echo -e "Host github.private.linksynergy.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 WORKDIR /blueprints
 RUN npm install
 
+#remove git key.
 RUN rm /root/.ssh/id_rsa
 
 CMD npm start

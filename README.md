@@ -15,7 +15,16 @@ http://10.133.192.166:3000/
 
 #### Option 2
 
-Presuming you have Docker and Docker Compose setup on your machine, the following command will get you up and running:
+Before you proceed with this option, you'll need to make sure that you have a valid SSH key in the project root directory.
+This is to ensure, that Docker can install private dependencies from our Github Enterprise.
+
+```bash
+ ssh-keygen -t rsa -b 4096 -C "`whoami`@rakuten.com" -f deploy.key -N ''
+```
+
+You also need to add `deploy.key.pub` to your Github SSH keys list.
+
+Assuming you have Docker and Docker Compose setup on your machine, the following command will get you up and running:
 
 ```bash
 $ docker-compose up

@@ -1,6 +1,6 @@
 blueprints:
   container_name: blueprints
   build: .
-  dockerfile: ./Dockerfile
+  dockerfile: ./Dockerfile-BOT
   ports:
     - 3000:3000

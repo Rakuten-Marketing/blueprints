@@ -2,3 +2,5 @@
 /node_modules
 /npm-debug.log
 .idea
+deploy.key
+deploy.key.pub
