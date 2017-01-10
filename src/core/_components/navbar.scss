@@ -171,6 +171,34 @@
     max-width: none;
     justify-content: flex-start;
     background-color: $brand-passive-elements;
+
+    & ul {
+      margin: 0 auto;
+    }
+
+    .nav-tabs-condensed > li > a {
+      padding: $size-xs $size-m;
+      text-transform: none;
+    }
+
+    .nav-tabs-condensed > li > a:hover,
+    .nav-tabs-condensed > li > a:focus {
+      background-color: transparent;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+      background-color: transparent;
+    }
+
+    .nav-tabs-condensed > li:not(.active) > a::before {
+      content: initial;
+    }
+
+    .nav-tabs-condensed > li.active > a::before {
+      height: $size-xxs;
+    }
   }
 }
 
