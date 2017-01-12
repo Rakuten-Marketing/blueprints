@@ -117,7 +117,7 @@
           background-color: $brand-gray-lighter;
         }
 
-        &.active:not(.has-submenu) button,
+        &.active button,
         & > button:hover,
         & > button:focus {
           &::after {
@@ -136,6 +136,7 @@
         }
 
         &.has-submenu.active {
+          & button,
           & > button:hover,
           & > button:focus {
             &::after {
@@ -172,25 +173,43 @@
     }
   }
 
+  .navbar-dashboard {
+    // In order to force the content to its required position,
+    // we need to define the height of the element. This because
+    // the "fixed" position of the header
+    height: $size-xs * 10;
+    min-height: $size-xs * 10;
+
+    & ~ * {
+      overflow: hidden;
+    }
+  }
+
   .navbar-condensed {
-    height: auto;
     padding: 0;
     max-width: none;
     justify-content: flex-start;
-    background-color: $brand-passive-elements;
+    height: ($size-xs * 2) + $size-base;
+    background-color: $brand-gray-lighter;
 
     & ul {
       margin: 0 auto;
     }
 
-    .nav-tabs-condensed > li > a {
-      padding: $size-xs $size-m;
-      text-transform: none;
-    }
+    .nav-tabs-condensed > li {
+      display: flex;
+      height: 100%;
+      padding: 0px $size-s;
+      & a {
+        padding: $size-xxs 0px;
+        align-self: center;
+        text-transform: none;
 
-    .nav-tabs-condensed > li > a:hover,
-    .nav-tabs-condensed > li > a:focus {
-      background-color: transparent;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
     }
 
     .nav-tabs > li.active > a,

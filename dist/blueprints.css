@@ -8492,7 +8492,8 @@ button.close {
     width: 100%;
     position: initial; }
   .bp-dashboard .app-header {
-    height: 80px; }
+    height: 80px;
+    transition: height 0.18s ease-in; }
     .bp-dashboard .app-header.has-submenu {
       height: 110px; }
   .bp-dashboard .app-content {
@@ -8873,7 +8874,7 @@ button.close {
         .navbar .navbar-center .navbar-items .navbar-item > button:focus {
           color: #3DB8BE;
           background-color: #FAFAFA; }
-        .navbar .navbar-center .navbar-items .navbar-item.active:not(.has-submenu) button::after,
+        .navbar .navbar-center .navbar-items .navbar-item.active button::after,
         .navbar .navbar-center .navbar-items .navbar-item > button:hover::after,
         .navbar .navbar-center .navbar-items .navbar-item > button:focus::after {
           content: '';
@@ -8886,6 +8887,7 @@ button.close {
           position: absolute;
           bottom: 0;
           left: 0; }
+        .navbar .navbar-center .navbar-items .navbar-item.has-submenu.active button::after,
         .navbar .navbar-center .navbar-items .navbar-item.has-submenu.active > button:hover::after,
         .navbar .navbar-center .navbar-items .navbar-item.has-submenu.active > button:focus::after {
           height: initial; }
@@ -8902,20 +8904,29 @@ button.close {
     .navbar .navbar-icon::before {
       display: block;
       margin-bottom: 4px; }
+  .navbar .navbar-dashboard {
+    height: 80px;
+    min-height: 80px; }
+    .navbar .navbar-dashboard ~ * {
+      overflow: hidden; }
   .navbar .navbar-condensed {
-    height: auto;
     padding: 0;
     max-width: none;
     justify-content: flex-start;
-    background-color: #F9F9F9; }
+    height: 30px;
+    background-color: #FAFAFA; }
     .navbar .navbar-condensed ul {
       margin: 0 auto; }
-    .navbar .navbar-condensed .nav-tabs-condensed > li > a {
-      padding: 8px 16px;
-      text-transform: none; }
-    .navbar .navbar-condensed .nav-tabs-condensed > li > a:hover,
-    .navbar .navbar-condensed .nav-tabs-condensed > li > a:focus {
-      background-color: transparent; }
+    .navbar .navbar-condensed .nav-tabs-condensed > li {
+      display: flex;
+      height: 100%;
+      padding: 0px 12px; }
+      .navbar .navbar-condensed .nav-tabs-condensed > li a {
+        padding: 4px 0px;
+        align-self: center;
+        text-transform: none; }
+        .navbar .navbar-condensed .nav-tabs-condensed > li a:hover, .navbar .navbar-condensed .nav-tabs-condensed > li a:focus {
+          background-color: transparent; }
     .navbar .navbar-condensed .nav-tabs > li.active > a,
     .navbar .navbar-condensed .nav-tabs > li.active > a:hover,
     .navbar .navbar-condensed .nav-tabs > li.active > a:focus {

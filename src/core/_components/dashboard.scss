@@ -18,6 +18,7 @@
     // we need to define the height of the element. This because
     // the "fixed" position of the header
     height: $size-xs * 10;
+    transition: height 0.18s ease-in;
 
     &.has-submenu {
       height: ($size-xs * 10) + ($size-xs * 2) + $size-base;
