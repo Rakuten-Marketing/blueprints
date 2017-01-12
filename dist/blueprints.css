@@ -8873,9 +8873,9 @@ button.close {
         .navbar .navbar-center .navbar-items .navbar-item > button:focus {
           color: #3DB8BE;
           background-color: #FAFAFA; }
-        .navbar .navbar-center .navbar-items .navbar-item:not(.has-submenu).active button::after,
-        .navbar .navbar-center .navbar-items .navbar-item:not(.has-submenu) > button:hover::after,
-        .navbar .navbar-center .navbar-items .navbar-item:not(.has-submenu) > button:focus::after {
+        .navbar .navbar-center .navbar-items .navbar-item.active:not(.has-submenu) button::after,
+        .navbar .navbar-center .navbar-items .navbar-item > button:hover::after,
+        .navbar .navbar-center .navbar-items .navbar-item > button:focus::after {
           content: '';
           display: block;
           height: 4px;
@@ -8886,6 +8886,9 @@ button.close {
           position: absolute;
           bottom: 0;
           left: 0; }
+        .navbar .navbar-center .navbar-items .navbar-item.has-submenu.active > button:hover::after,
+        .navbar .navbar-center .navbar-items .navbar-item.has-submenu.active > button:focus::after {
+          height: initial; }
   .navbar img {
     width: auto;
     max-height: 100%;

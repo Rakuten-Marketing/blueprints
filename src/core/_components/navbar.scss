@@ -117,22 +117,29 @@
           background-color: $brand-gray-lighter;
         }
 
-        &:not(.has-submenu) {
-          &.active button,
+        &.active:not(.has-submenu) button,
+        & > button:hover,
+        & > button:focus {
+          &::after {
+            content: '';
+            display: block;
+
+            height: $size-xxs;
+            width: 100%;
+            animation: increasing-height 0.5s;
+            animation-fill-mode: forwards;
+            background-color: $brand-primary-darker;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+
+        &.has-submenu.active {
           & > button:hover,
           & > button:focus {
             &::after {
-              content: '';
-              display: block;
-
-              height: $size-xxs;
-              width: 100%;
-              animation: increasing-height 0.5s;
-              animation-fill-mode: forwards;
-              background-color: $brand-primary-darker;
-              position: absolute;
-              bottom: 0;
-              left: 0;
+              height: initial;
             }
           }
         }
