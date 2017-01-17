@@ -228,7 +228,7 @@
   }
 }
 
-@media (max-width: $container-sm) {
+@media (max-width: $screen-sm) {
   .navbar {
     .navbar-brand {
       height: inherit;
@@ -250,7 +250,7 @@
     .navbar-center {
       display: none;
       width: $navbar-base;
-      
+
       position: absolute;
       height: 100vh;
       z-index: 3;
@@ -262,6 +262,18 @@
         flex-flow: column wrap;
         width: inherit;
       }
+    }
+  }
+
+  // This is to force override Bootstrap
+  // styles that are applied on smaller screen
+  // sizes.
+  .navbar-nav .open {
+    .dropdown-menu {
+      position: absolute;
+      background-color: $brand-white;
+      border: 1px solid $brand-gray-lighter;
+      box-shadow: 0 6px $size-xs rgba(0, 0, 0, 0.175);
     }
   }
 }

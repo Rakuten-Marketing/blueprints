@@ -8936,7 +8936,7 @@ button.close {
     .navbar .navbar-condensed .nav-tabs-condensed > li.active > a::before {
       height: 4px; }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .navbar .navbar-brand {
     height: inherit;
     justify-content: center;
@@ -8959,7 +8959,12 @@ button.close {
       display: flex;
       align-content: stretch;
       flex-flow: column wrap;
-      width: inherit; } }
+      width: inherit; }
+  .navbar-nav .open .dropdown-menu {
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #FAFAFA;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.175); } }
 
 .table {
   border: 1px #FAFAFA solid; }
