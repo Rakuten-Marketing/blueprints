@@ -1258,6 +1258,18 @@ window.CustomElements.addModule(function(scope) {
       this.removeAttribute("example");
       return;
     }
+    this.prepContent();
+    this.classList.add('dropdown');
+    this.animating = false;
+    this.open = false;
+  };
+
+  dropdownProto.prepContent = function () {
+    if (this.getElementsByClassName('dropdown-toggle').length) {
+      this.button = this.getElementsByClassName('dropdown-toggle')[0];
+      this.list = this.children[0];
+      return;
+    }
     var temp = document.createElement('DIV');
     this.list = this.children[0];
     this.list.classList.add('dropdown-menu');
@@ -1277,10 +1289,7 @@ window.CustomElements.addModule(function(scope) {
       this.button.setAttribute('id', id);
       this.list.setAttribute('aria-labelledby', id);
     }
-    this.insertBefore(this.button, this.list);
-    this.classList.add('dropdown');
-    this.animating = false;
-    this.open = false;
+    this.appendChild(this.button);
   };
     
   dropdownProto.attachedCallback = function () {
