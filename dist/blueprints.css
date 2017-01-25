@@ -8380,6 +8380,10 @@ button.close {
   border: none;
   background-color: transparent; }
 
+.btn-sm, .btn-group-sm > .btn {
+  padding: 4px;
+  font-size: 12px; }
+
 .btn-group.open .dropdown-toggle {
   box-shadow: none; }
   .btn-group.open .dropdown-toggle.btn-link {
@@ -8650,7 +8654,6 @@ button.close {
 
 .card {
   display: block;
-  overflow: hidden;
   box-shadow: 0px 1px 1px 0px #E2E2E2;
   padding: 12px 14px;
   margin-bottom: 12px; }
@@ -8663,6 +8666,9 @@ button.close {
     text-align: left;
     line-height: normal;
     margin-bottom: 8px; }
+  .card.card-collapsable,
+  .card.card-collapsable .card-content {
+    overflow: hidden; }
   .card .card-header {
     display: flex;
     align-items: center;
@@ -8684,7 +8690,6 @@ button.close {
         margin-bottom: 8px;
         background-color: #EAEAEA; }
   .card .card-content {
-    overflow: hidden;
     transition: height 0.5s 0.1s ease-in, opacity 0.5s 0.15s ease-in; }
   .card .card-image {
     height: auto;
@@ -9006,8 +9011,6 @@ bp-dropdown {
     bp-dropdown .dropdown-menu ul {
       list-style-type: none;
       padding-left: 0px; }
-    bp-dropdown .dropdown-menu input {
-      margin: 0 12px; }
     bp-dropdown .dropdown-menu li > a {
       display: block;
       padding: 4px 16px;
