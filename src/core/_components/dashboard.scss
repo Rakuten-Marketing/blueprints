@@ -63,7 +63,7 @@
 
       width: 100%;
       max-width: $container-large-desktop;
-      
+
       & > * {
         align-self: center;
       }
@@ -99,42 +99,56 @@
   & .navbar .navbar-actions { display: none; }
   & .app-content { pointer-events: none; }
 
-  & .navbar-fixed-top .navbar-container .navbar-items {
+  & .navbar-fixed-top .navbar-dashboard .navbar-center {
     display: flex;
     justify-content: flex-start;
+    position: absolute;
     transform: translateX(-#{$navbar-base * 2});
     width: $navbar-base * 2;
     margin-top: $size-xl;
+    left: 0px;
 
-    & li {
-      width: 100%;
-      max-width: initial;
+    & .navbar-items {
+      display: initial;
+      width: $navbar-base * 2;
 
-      & a {
-        display: flex;
-        transition: all 0.4s;
-        color: $brand-gray-light;
-        padding: $size-s $size-xs $size-s $size-xl;
-        text-align: left;
-        opacity: 0;
+      & li {
+        width: 100%;
+        max-width: initial;
 
-        animation: drawmenu 1s ease-out;
-        animation-fill-mode: forwards;
-      }
+        & button {
+          display: flex;
+          transition: all 0.4s;
+          color: $brand-gray-light;
+          padding: $size-s $size-xs $size-s $size-xl;
+          text-align: left;
+          opacity: 0;
 
-      &.active a,
-      & > a:hover,
-      & > a:focus {
-        &::before {
-          height: 100%;
-          width: $size-xs;
-
-          animation: increasing-width 0.5s;
+          animation: drawmenu 1s ease-out;
           animation-fill-mode: forwards;
+
+          & .navbar-icon {
+            padding-right: $size-s;
+          }
         }
 
-        color: $brand-primary;
-        background-color: $dashboard-light;
+        &.active button,
+        & > button:hover,
+        & > button:focus {
+          &::after {
+            height: 100%;
+            width: $size-xs;
+
+            right: 0px;
+            left: inherit;
+
+            animation: increasing-width 0.5s;
+            animation-fill-mode: forwards;
+          }
+
+          color: $brand-primary;
+          background-color: transparent;
+        }
       }
     }
   }
@@ -249,6 +263,6 @@
 }
 
 @keyframes drawmenu {
-    0% { opacity: 0; }
+  0% { opacity: 0; }
   100% { opacity: 1; }
 }

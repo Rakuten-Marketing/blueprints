@@ -8546,36 +8546,45 @@ button.close {
     display: none; }
   .bp-dashboard.open .app-content {
     pointer-events: none; }
-  .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items {
+  .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center {
     display: flex;
     justify-content: flex-start;
+    position: absolute;
     transform: translateX(-200px);
     width: 200px;
-    margin-top: 24px; }
-    .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li {
-      width: 100%;
-      max-width: initial; }
-      .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li a {
-        display: flex;
-        transition: all 0.4s;
-        color: #DEDEDE;
-        padding: 12px 8px 12px 24px;
-        text-align: left;
-        opacity: 0;
-        animation: drawmenu 1s ease-out;
-        animation-fill-mode: forwards; }
-      .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li.active a,
-      .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li > a:hover,
-      .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li > a:focus {
-        color: #3DB8BE;
-        background-color: #3B3B3B; }
-        .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li.active a::before,
-        .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li > a:hover::before,
-        .bp-dashboard.open .navbar-fixed-top .navbar-container .navbar-items li > a:focus::before {
-          height: 100%;
-          width: 8px;
-          animation: increasing-width 0.5s;
+    margin-top: 24px;
+    left: 0px; }
+    .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items {
+      display: initial;
+      width: 200px; }
+      .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li {
+        width: 100%;
+        max-width: initial; }
+        .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li button {
+          display: flex;
+          transition: all 0.4s;
+          color: #DEDEDE;
+          padding: 12px 8px 12px 24px;
+          text-align: left;
+          opacity: 0;
+          animation: drawmenu 1s ease-out;
           animation-fill-mode: forwards; }
+          .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li button .navbar-icon {
+            padding-right: 12px; }
+        .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li.active button,
+        .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li > button:hover,
+        .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li > button:focus {
+          color: #3DB8BE;
+          background-color: transparent; }
+          .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li.active button::after,
+          .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li > button:hover::after,
+          .bp-dashboard.open .navbar-fixed-top .navbar-dashboard .navbar-center .navbar-items li > button:focus::after {
+            height: 100%;
+            width: 8px;
+            right: 0px;
+            left: inherit;
+            animation: increasing-width 0.5s;
+            animation-fill-mode: forwards; }
 
 .dashboard-hamburger {
   background-color: transparent;
