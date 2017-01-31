@@ -1,0 +1,279 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+
+  height: inherit;
+  min-height: initial;
+
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid $brand-shadow-color;
+
+  &:not(.transparent) {
+    background-color: $brand-white;
+  }
+
+  /* Has sticky properties to the top,
+  this element must keep its position at the top */
+  &.navbar-fixed-top {
+    position: fixed;
+    z-index: 1;
+  }
+
+  .navbar-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: $container-large-desktop;
+    padding: 0px $size-xl;
+    margin: 0 auto;
+  }
+
+  .navbar-side {
+    flex-basis: 20%;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding: $size-xs;
+    @include centered-content;
+
+    &:first-of-type,
+    &.navbar-brand {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  .navbar-collapsible {
+    display: none;
+  }
+
+  .navbar-brand {
+    float: none;
+    font-size: inherit;
+    line-height: normal;
+    overflow: hidden;
+
+    button {
+      @extend .btn-flat;
+
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  .navbar-brand-text {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: block;
+      height: $size-xl;
+      margin: 0px $size-xxs;
+      border-left: 1px solid $brand-gray-light;
+    }
+  }
+
+  .navbar-brand,
+  .navbar-collapsible {
+    height: inherit;
+    justify-content: flex-start;
+  }
+
+  /* Container for the main menu inside the navbar */
+  .navbar-center {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+
+    .navbar-items {
+      display: flex;
+      float: none;
+      overflow: hidden;
+      color: $brand-gray-base;
+
+      .navbar-item {
+        display: inherit;
+        float: initial;
+        width: $navbar-base;
+        max-width: $navbar-base + $size-m;
+
+        button {
+          @extend .btn-flat;
+          padding: $size-xxs;
+          width: 100%;
+        }
+
+        &.active button,
+        & > button:hover,
+        & > button:focus {
+          color: $brand-primary;
+          background-color: $brand-gray-lighter;
+        }
+
+        &.active button,
+        & > button:hover,
+        & > button:focus {
+          &::after {
+            content: '';
+            display: block;
+
+            height: $size-xxs;
+            width: 100%;
+            animation: increasing-height 0.5s;
+            animation-fill-mode: forwards;
+            background-color: $brand-primary-darker;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+
+        &.has-submenu.active {
+          & button,
+          & > button:hover,
+          & > button:focus {
+            &::after {
+              height: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Images inside the navbar element must be forced to the
+  100% height as their max-height. Images can be present anywhere */
+  & img {
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+
+    @extend %image-rendering;
+  }
+
+  & .navbar-nav {
+    margin: 0;
+  }
+
+  & .navbar-icon {
+    font-size: $size-l;
+    display: block;
+
+    &::before {
+      display: block;
+      margin-bottom: $size-xxs;
+    }
+  }
+
+  .navbar-dashboard {
+    // In order to force the content to its required position,
+    // we need to define the height of the element. This because
+    // the "fixed" position of the header
+    height: $size-xs * 10;
+    min-height: $size-xs * 10;
+
+    & ~ * {
+      overflow: hidden;
+    }
+  }
+
+  .navbar-condensed {
+    padding: 0;
+    max-width: none;
+    justify-content: flex-start;
+    height: ($size-xs * 2) + $size-base;
+    background-color: $brand-gray-lighter;
+
+    & ul {
+      margin: 0 auto;
+    }
+
+    .nav-tabs-condensed > li {
+      display: flex;
+      height: 100%;
+      padding: 0px $size-s;
+      & a {
+        padding: $size-xxs 0px;
+        align-self: center;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+      background-color: transparent;
+    }
+
+    .nav-tabs-condensed > li:not(.active) > a::before {
+      content: initial;
+    }
+
+    .nav-tabs-condensed > li.active > a::before {
+      height: $size-xxs;
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .navbar {
+    .navbar-brand {
+      height: inherit;
+      justify-content: center;
+      flex-basis: 100%;
+    }
+
+    .navbar-collapsible,
+    .navbar-actions {
+      display: flex;
+      position: absolute;
+      align-self: center;
+    }
+
+    .navbar-actions {
+      right: $size-xl;
+    }
+
+    .navbar-center {
+      display: none;
+      width: $navbar-base;
+
+      position: absolute;
+      height: 100vh;
+      z-index: 3;
+      left: 0;
+
+      .navbar-nav {
+        display: flex;
+        align-content: stretch;
+        flex-flow: column wrap;
+        width: inherit;
+      }
+    }
+  }
+
+  // This is to force override Bootstrap
+  // styles that are applied on smaller screen
+  // sizes.
+  .navbar-nav .open {
+    .dropdown-menu {
+      position: absolute;
+      background-color: $brand-white;
+      border: 1px solid $brand-gray-lighter;
+      box-shadow: 0 6px $size-xs rgba(0, 0, 0, 0.175);
+    }
+  }
+}

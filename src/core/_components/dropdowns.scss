@@ -1,0 +1,100 @@
+bp-dropdown {
+  display: inline-block;
+
+  > a {
+    text-decoration: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $brand-primary;
+      text-decoration: none;
+    }
+  }
+
+  > button > span {
+    margin-left: $size-xxs;
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    height: 0px;
+    @include brand-transition(height, 200ms);
+
+    & > *:first-child {
+      margin-top: $size-xs;
+    }
+
+    & > *:last-child {
+      margin-bottom: 0px;
+      padding-bottom: $size-xs;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0px;
+    }
+
+    li > a {
+      display: block;
+      padding: $size-xxs $size-m;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.428571429;
+      color: $dropdown-link-color;
+      white-space: nowrap;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $dropdown-link-hover-color;
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+
+    .divider {
+      margin: $size-xs 0;
+    }
+
+    // Active state
+    .active > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: inherit;
+        color: $dropdown-link-active-color;
+        text-decoration: none;
+        outline: 0;
+      }
+    }
+
+    // Disabled state
+    //
+    // Gray out text and ensure the hover/focus state remains gray
+
+    .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $dropdown-link-disabled-color;
+      }
+
+      // Nuke hover/focus effects
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: transparent;
+        background-image: none; // Remove CSS gradient
+        @include reset-filter;
+        cursor: $cursor-disabled;
+      }
+    }
+  }
+
+  &.open .dropdown-menu {
+    display: block;
+    overflow: hidden;
+    height: auto;
+  }
+}

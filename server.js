@@ -1,13 +1,20 @@
-var express = require('express');
+var express = require('express'),
+    path = require('path'),
+    app = express();
 
-var app = express();
+app.use('/build', express.static(__dirname + '/build/'));
+app.use('/dist', express.static(__dirname + '/dist/'));
+app.use('/node_modules', express.static(__dirname + '/node_modules/'));
+app.use(express.static(__dirname + '/docs/'));
 
-app.use('/', express.static(__dirname + '/docs/'));
-app.get(['/', '/css', '/components'], function(req, res) {
-  return res.sendFile(__dirname + '/docs/index.html');
+app.get([
+  '/',
+  '/foundation/*',
+  '/elements/*',
+  '/components/*'
+], function(request, response) {
+  response.sendFile(path.join(__dirname + '/docs/index.html'));
 });
 
-app.use('/build', express.static(__dirname + '/build'));
-app.use('/fonts/bootstrap', express.static(__dirname + '/build/fonts'));
 
 module.exports = app;

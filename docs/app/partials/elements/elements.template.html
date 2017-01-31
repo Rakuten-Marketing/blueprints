@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li ng-class="{active: elementsView.$state.includes('application.elements.grid')}">
+        <a href ng-click="elementsView.switchState('grid')">Grid System</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.typography')}">
+        <a href ng-click="elementsView.switchState('typography')">Typography</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.code')}">
+        <a href ng-click="elementsView.switchState('code')">Code</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.tables')}">
+        <a href ng-click="elementsView.switchState('tables')">Tables</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.forms')}">
+        <a href ng-click="elementsView.switchState('forms')">Forms</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.buttons')}">
+        <a href ng-click="elementsView.switchState('buttons')">Buttons</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.images')}">
+        <a href ng-click="elementsView.switchState('images')">Images</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.helpers')}">
+        <a href ng-click="elementsView.switchState('helpers')">Helpers</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.utilities')}">
+        <a href ng-click="elementsView.switchState('utilities')">Responsive Utilities</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.dashboard')}">
+        <a href ng-click="elementsView.switchState('dashboard')">Dashboard Model</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.cards')}">
+        <a href ng-click="elementsView.switchState('cards')">Cards</a>
+      </li>
+      <li ng-class="{active: elementsView.$state.includes('application.elements.spacers')}">
+        <a href ng-click="elementsView.switchState('spacers')">Spacers</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <div ui-view="section"></div>
+  </div>
+</div>

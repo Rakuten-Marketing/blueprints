@@ -1,0 +1,142 @@
+<h1 class="page-header">Forms (custom)</h1>
+<p>
+  By default both, checkboxes and radio buttons are handled as inline elements<br>
+  Checkboxes will be rendered as inline elements
+</p>
+
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-label">First checkbox, rendered on the left</span>
+</label>
+
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-label">This one should be next on the right</span>
+</label>
+
+<div hljs hljs-language="html">
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-label">First checkbox, rendered on the left</span>
+</label>
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-label">This one should be next on the right</span>
+</label>
+</div>
+
+<p>
+  Initializing elements as selected or disabling them is as easy as doing it using 
+  regular HTML attributes, proper of regular checkboxes elements, 
+  after all these elements are just customized regular inputs.
+</p>
+
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" checked>
+  <span class="custom-control-label">Checked element</span>
+</label>
+
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" disabled>
+  <span class="custom-control-label">Disabled element</span>
+</label>
+
+<div hljs hljs-language="html">
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" checked>
+  <span class="custom-control-label">Checked element</span>
+</label>
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" disabled>
+  <span class="custom-control-label">Disabled element</span>
+</label>
+</div>
+
+<p>
+  Custom checkboxes can also utilize the :indeterminate pseudo class when manually 
+  set via JavaScript (there is no available HTML attribute for specifying it).
+</p>
+
+<div hljs hljs-language="js">
+//If you’re using jQuery, something like this should suffice:
+$('.your-checkbox').prop('indeterminate', true)
+</div>
+
+<p>
+  If you want to avoid the inline nature of the inputs elements (checkboxes and radio buttons) 
+  you can use the "custom-controls-stacked" wrapper
+</p>
+
+<div class="custom-controls-stacked">
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input">
+    <span class="custom-control-label">Check this custom checkbox</span>
+  </label>
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input">
+    <span class="custom-control-label">Check this custom checkbox</span>
+  </label>
+</div>
+
+<div hljs hljs-language="html">
+<div class="custom-controls-stacked">
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input">
+    <span class="custom-control-label">Check this custom checkbox</span>
+  </label>
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input">
+    <span class="custom-control-label">Check this custom checkbox</span>
+  </label>
+</div>
+</div>
+
+<p>Radio buttons have the same behavior as checkboxes, therefore similar behavior and properties</p>
+
+<label class="custom-control custom-radio">
+  <input id="" name="first-radio" type="radio" class="custom-control-input">
+  <span class="custom-control-label">First radio button, rendered on the left</span>
+</label>
+
+<label class="custom-control custom-radio">
+  <input id="" name="first-radio" type="radio" class="custom-control-input">
+  <span class="custom-control-label">This one should be next on the right</span>
+</label>
+
+<div hljs hljs-language="html">
+<label class="custom-control custom-radio">
+  <input id="" name="first-radio" type="radio" class="custom-control-input">
+  <span class="custom-control-label">First radio button, rendered on the left</span>
+</label>
+<label class="custom-control custom-radio">
+  <input id="" name="first-radio" type="radio" class="custom-control-input">
+  <span class="custom-control-label">This one should be next on the right</span>
+</label>
+</div>
+
+<p>
+  Initializing elements as selected or disabling them is as easy as doing it using 
+  regular HTML attributes, proper of regular checkboxes elements, after all these elements 
+  are just customized regular inputs.
+</p>
+
+<label class="custom-control custom-radio">
+  <input id="" name="second-radio" type="radio" class="custom-control-input" checked>
+  <span class="custom-control-label">Selected radio button</span>
+</label>
+
+<label class="custom-control custom-radio">
+  <input id="" name="second-radio" type="radio" class="custom-control-input" disabled>
+  <span class="custom-control-label">Disabled radio button</span>
+</label>
+
+<div hljs hljs-language="html">
+<label class="custom-control custom-radio">
+  <input id="" name="example" type="radio" class="custom-control-input" checked>
+  <span class="custom-control-label">Selected radio button</span>
+</label>
+<label class="custom-control custom-radio">
+  <input id="" name="example" type="radio" class="custom-control-input" disabled>
+  <span class="custom-control-label">Disabled radio button</span>
+</label>
+</div>

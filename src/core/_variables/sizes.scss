@@ -1,8 +1,9 @@
-$rm-size-base: 16px !default;
-$rm-size-xs: floor($rm-size-base / 4) !default;
-$rm-size-sm: floor($rm-size-base / 2) !default;
-$rm-size-lg: floor($rm-size-base * 2) !default;
-$rm-size-xl: floor($rm-size-base * 3) !default;
-$rm-size-xxl: floor($rm-size-base * 4) !default;
-
-$rm-border-radius-base: 0 !default;
+$size-xxxl: 32px;
+$size-xxl: 26px;
+$size-xl: 24px;
+$size-l: 18px;
+$size-m: 16px;
+$size-base: 14px;
+$size-s: 12px;
+$size-xs: 8px;
+$size-xxs: 4px;

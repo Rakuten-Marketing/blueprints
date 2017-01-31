@@ -1,0 +1,23 @@
+<div class="swatches">
+  <div class="swatches-wrapper" ng-repeat="color in $ctrl.colors">
+    <div class="swatch">
+      <div class="swatch-fill" ng-style="{ 'background-color': color.rgb }"></div>
+      <div class="swatch-variable">
+      	<strong>{{ color.alias }}</strong><br>
+        {{ color.rgb }}<br>
+        <div class="definition">
+          SASS:<br>
+          {{ color.variable }}
+        </div>
+      </div>
+    </div>
+    <div class="styled-list" ng-if="color.usage">
+      <div class="description">
+      	<strong>{{ color.type }}</strong> used for:
+      </div>
+      <ul ng-repeat="option in color.usage">
+        <li>{{ option }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

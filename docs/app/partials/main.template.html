@@ -1,0 +1,78 @@
+<header class="app-header has-submenu" role="banner">
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="navbar-container navbar-dashboard">
+      <div class="navbar-side navbar-collapsible">
+        <button type="button" role="button" class="navbar-icon dashboard-hamburger">
+          <span class="hamburger right-arrow"></span>
+        </button>
+      </div>
+
+      <div class="navbar-side navbar-brand">
+        <button type="button" role="button">
+          <img class="navbar-brand-logo" src="assets/logo.gif" />
+          <span class="navbar-brand-text">Blueprints</span>
+        </button>
+      </div>
+
+      <div class="navbar-center">
+        <ul class="nav navbar-nav navbar-items">
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.home')}">
+            <button ui-sref="application.home">
+              <span class="navbar-icon glyphicons glyphicons-cloud-download"></span>
+              <span>Installation</span>
+            </button>
+          </li>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.foundation')}">
+            <button ui-sref="application.foundation.colors">
+              <span class="navbar-icon glyphicons glyphicons-wifi-alt"></span>
+              <span>Foundation</span>
+            </button>
+          </li>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.elements')}">
+            <button ui-sref="application.elements.grid">
+              <span class="navbar-icon glyphicons glyphicons-show-big-thumbnails"></span>
+              <span>Elements</span>
+            </button>
+          </li>
+          <li class="navbar-item" ng-class="{active: mainView.$state.includes('application.components')}">
+            <button ui-sref="application.components.alerts">
+              <span class="navbar-icon glyphicons glyphicons-qrcode"></span>
+              <span>Components</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-side navbar-actions">
+        <ul class="nav navbar-nav">
+          <li class="navbar-icon">
+            <bp-dropdown icon="glyphicon glyphicon glyphicon glyphicon-user">
+              <ul class="dropdown-menu-right">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Billing & Payments</a></li>
+              </ul>
+            </bp-dropdown>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="app-content">
+  <div class="container" ui-view="content">
+  </div>
+</main>
+
+<footer role="contentinfo" class="app-footer">
+  <div class="app-footer-content">
+  <div class="app-footer-left">
+    © 2017 Rakuten Marketing LLC.<br>
+    All Rights Reserved
+  </div>
+
+  <div class="app-footer-right hidden-xs">
+  </div>
+</div>
+</footer>

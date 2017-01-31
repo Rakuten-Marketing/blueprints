@@ -1,12 +1,31 @@
-$rm-white: #FFFFFF !default;
-$rm-black: #000000 !default;
+$brand-black: #000000 !default;
+$brand-white: #FFFFFF !default;
 
-$rm-primary: #BF0001 !default;
-$rm-secondary: $rm-black !default;
+$brand-gray-darker: #434343 !default;
+$brand-gray-dark: #343434 !default;
+$brand-gray: #757575 !default;
+$brand-gray-light: #DEDEDE !default;
+$brand-gray-lighter: #FAFAFA !default;
 
-$rm-success: #00BF5F !default;
-$rm-info: #0061BF !default;
-$rm-warning: #F20001 !default;
-$rm-danger: #BF0001 !default;
+$brand-primary-darker: #2B999F !default;
+$brand-primary: #3DB8BE !default;
+$brand-primary-lighter: #E6F1F1 !default;
 
-$rm-gray-base: #000000 !default;
+// $brand-secondary-darker: ... !default;
+$brand-secondary: #2B486D !default;
+$brand-secondary-lighter: #3D669A !default;
+
+$brand-info: $brand-secondary-lighter !default;
+$brand-success: #166151 !default;
+$brand-warning: #E58A10 !default;
+$brand-danger: #E84848 !default;
+
+// TODO: Temporal fix, adding new grey variations
+// Needs to be addressed before the end of November
+$brand-muted-text-color: #9BADB6;
+$brand-passive-elements: #F9F9F9;
+$brand-separator-color: #EAEAEA;
+$brand-shadow-color: #E2E2E2;
+$brand-gray-base: #606060;
+$dashboard-shadow: #242424;
+$dashboard-light: #3B3B3B;

@@ -1,0 +1,58 @@
+.btn {
+  font-size: $font-size-base;
+
+  &:active,
+  &.active {
+    box-shadow: none;
+  }
+}
+
+.btn-default {
+  $states: (
+    'color': $brand-gray,
+    'background': $brand-white,
+    'border': $brand-gray-lighter,
+    'color-active': $brand-gray,
+    'background-active': $brand-white,
+    'border-active': $brand-gray-light,
+  );
+
+  @include bp-button-variant($states);
+}
+
+.btn-primary {
+  $states: (
+    'color': $brand-white,
+    'background': $brand-primary,
+    'border': $brand-primary,
+    'color-active': $brand-white,
+    'background-active': $brand-primary-darker,
+    'border-active': $brand-primary-darker,
+  );
+
+  @include bp-button-variant($states);
+}
+
+.btn-secondary {
+  $states: (
+    'color': $brand-primary,
+    'background': $brand-white,
+    'border': $brand-primary,
+    'color-active': $brand-primary-darker,
+    'background-active': $brand-white,
+    'border-active': $brand-primary-darker,
+  );
+
+  @include bp-button-variant($states);
+}
+
+.btn-flat {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-sm {
+  padding: $size-xxs;
+  font-size: $size-s;
+}

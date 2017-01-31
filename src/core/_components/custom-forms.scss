@@ -1,0 +1,121 @@
+$custom-checkbox-radius: 10%;
+$custom-radio-radius: 50%;
+
+@mixin custom-control-icon($icon, $color) {
+  $icons: (
+    custom-checkbox-checked-icon: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E",
+    custom-checkbox-indeterminate-icon: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='#{$color}' d='M0 2h4'/%3E%3C/svg%3E",
+    custom-radio-checked-icon: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='4' fill='#{$color}'/%3E%3C/svg%3E"
+  );
+
+  background-image: url("#{map-get($icons, $icon)}");
+}
+
+.custom-control {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  font-weight: normal;
+  padding-left: $size-xl - 2px; //The -2px is not a random number, is taking care of border pixels
+
+  // Adding a marging to the inputs if inline behavior
+  + .custom-control {
+    margin-left: $size-s;
+  }
+}
+
+.custom-controls-stacked {
+  display: inline-block;
+  .custom-control {
+    float: left;
+    clear: left;
+
+    //Removing the margins from each elements since stacked mode
+    + .custom-control {
+      margin-left: 0;
+    }
+  }
+}
+
+.custom-control-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  &:checked ~ .custom-control-label:before,
+  &:active ~ .custom-control-label:before {
+    background-color: $brand-primary;
+    @include box-shadow(transparent);
+  }
+
+  &:focus ~ .custom-control-label:before {
+    // the mixin is not used here to make sure there is feedback
+    box-shadow: $brand-gray-light;
+  }
+
+  &:disabled {
+    ~ .custom-control-label:before {
+      background-color: $brand-gray-lighter;
+    }
+
+    ~ .custom-control-label:before,
+    ~ .custom-control-label {
+      pointer-events: none;
+      color: $brand-gray;
+    }
+  }
+}
+
+.custom-control-label:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1px; //Pixel fix for old browsers
+
+  width: $size-m;
+  height: $size-m;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.custom-checkbox {
+  .custom-control-label:before {
+    background-color: $brand-white;
+    border: 1px solid $input-border;
+    border-radius: $custom-checkbox-radius;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label:before,
+  .custom-control-input:indeterminate ~ .custom-control-label:before {
+    border: none;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label:before {
+    @include custom-control-icon('custom-checkbox-checked-icon', $brand-white);
+  }
+
+  .custom-control-input:indeterminate ~ .custom-control-label:before {
+    background-color: $brand-primary;
+    @include custom-control-icon('custom-checkbox-indeterminate-icon', $brand-white);
+  }
+}
+
+.custom-radio {
+  .custom-control-label:before {
+    background-color: $brand-white;
+    border: 1px solid $input-border;
+    border-radius: $custom-radio-radius;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label:before {
+    background-color: $brand-white;
+
+    //We are talking about the icon size, not about a "size" of element. This need to be the half of whatever assigned
+    background-size: $size-m / 2;
+    @include custom-control-icon('custom-radio-checked-icon', $brand-primary);
+  }
+}
