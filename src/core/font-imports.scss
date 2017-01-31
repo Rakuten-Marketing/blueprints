@@ -1,0 +1,34 @@
+// Importing fonts
+
+@font-face {
+  font-family: 'lft-etica';
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.otf) format('truetype');
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.woff) format('woff');
+}
+@font-face {
+  font-family: 'lft-etica-semibold';
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.otf) format('truetype');
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.woff) format('woff');
+}
+
+// Glyphicons Pro
+@import 'node_modules/glyphicons_pro/sass/glyphicons';
+@font-face {
+  font-family: 'Glyphicons Regular';
+  src: url(#{$fonts-path}glyphicons-regular.eot);
+  src: url(#{$fonts-path}glyphicons-regular.eot?#iefix) format('embedded-opentype'),
+       url(#{$fonts-path}glyphicons-regular.woff2) format('woff2'),
+       url(#{$fonts-path}glyphicons-regular.woff) format('woff'),
+       url(#{$fonts-path}glyphicons-regular.ttf) format('truetype'),
+       url(#{$fonts-path}glyphicons-regular.svg#glyphiconsregular) format('svg');
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
+  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
+       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
+       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
+       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
+       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
+}

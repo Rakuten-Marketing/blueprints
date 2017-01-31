@@ -1,6 +1,3 @@
-// Importing fonts
-@import url(https://use.typekit.net/c/a77f22/1w;lft-etica,2,ZRg:P:i4,ZRj:P:i6,ZRl:P:i7,ZRn:P:i8,ZRf:P:n4,ZRh:P:n6,ZRk:P:n7,ZRm:P:n8/l);
-
 // Importing Blueprints specific variables, mixins and utilities
 @import 'core/variables';
 @import 'core/mixins';
@@ -9,9 +6,8 @@
 // Applying the theme to our Twitter Bootstrap copy
 @import 'core/vendors';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'core/font-imports';
 
-// Glyphicons Pro
-@import 'node_modules/glyphicons_pro/sass/glyphicons';
 
 // The following includes all the bootstrap overrides
 @import 'core/components';

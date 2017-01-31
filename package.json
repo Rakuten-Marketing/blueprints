@@ -43,6 +43,7 @@
   "dependencies": {
     "webcomponentsjs": "1.0.2",
     "jquery": "^3.1.0",
+    "etica-font-pack": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
     "glyphicons_pro": "git+ssh://git@github.private.linksynergy.com:SD/glyphicons_pro.git#large_icons"
   }
 }

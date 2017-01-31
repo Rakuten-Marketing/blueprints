@@ -3,6 +3,7 @@ var express = require('express'),
     app = express();
 
 app.use('/build', express.static(__dirname + '/build/'));
+app.use('/dist', express.static(__dirname + '/dist/'));
 app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 app.use(express.static(__dirname + '/docs/'));
 

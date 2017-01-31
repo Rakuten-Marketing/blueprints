@@ -19,7 +19,7 @@ body {
 // We don't own LFT-Etica font 400/800.
 // 600 should be the value for bold
 b, strong {
-  font-weight: 600;
+  font-family: $brand-font-semibold;
 }
 
 // Bootstrap is applying the following "margin: 0 0 10px;"

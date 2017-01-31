@@ -22,9 +22,8 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          './dist/blueprints.css': './src/blueprints.scss',
           './build/blueprints.css': './src/blueprints.scss',
-          './build/docs/app.css': './docs/assets/app.scss'
+          './build/app.css': './docs/assets/app.scss'
         }
       }
     },
@@ -48,7 +47,7 @@ module.exports = function(grunt) {
         options: {
           map: {
             inline: false,
-            prev: './dist/blueprints.css.map',
+            prev: './build/blueprints.css.map',
             annotation: './dist/'
           },
 
@@ -56,7 +55,7 @@ module.exports = function(grunt) {
             require('cssnano')()
           ]
         },
-        src: './dist/blueprints.css',
+        src: './build/blueprints.css',
         dest: './dist/blueprints.min.css'
       }
     },
@@ -98,10 +97,34 @@ module.exports = function(grunt) {
           },
 
           {
+            cwd: './node_modules/etica-font-pack',
+            expand: true,
+            src: ['*.otf', '*.woff'],
+            dest: './build/fonts/etica-font-pack'
+          },
+
+          {
             cwd: './node_modules/glyphicons_pro/fonts',
             expand: true,
             src: ['**/*'],
             dest: './build/fonts'
+          }
+        ]
+      },
+
+      fonts: {
+        files: [
+          {
+            cwd: './build/fonts',
+            expand: true,
+            src: ['*.otf', '*.woff'],
+            dest: './dist/fonts'
+          },
+          {
+            cwd: './build/fonts/etica-font-pack',
+            expand: true,
+            src: ['*.otf', '*.woff'],
+            dest: './dist/fonts/etica-font-pack'
           }
         ]
       }
@@ -123,11 +146,11 @@ module.exports = function(grunt) {
       options : {
         sourceMap : true,
         sourceMapIncludeSources : true,
-        sourceMapIn : '<%= concat.dist.dest %>.map'
+        sourceMapIn : '<%= concat.blueprints.dest %>.map'
       },
       blueprints: {
         files : {
-          '<%= concat.dist.dest %>.min.js': ['<%= concat.dist.dest %>']
+          './dist/blueprints.min.js': ['<%= concat.blueprints.dest %>']
         }
       }
     }
@@ -154,18 +177,12 @@ module.exports = function(grunt) {
         './node_modules/webcomponentsjs/micro.js',
         './src/core/webcomponents/**/*.js'
       ],
-
       dest: './build/blueprints.js'
     },
 
     app: {
       src: ['./docs/app/**/*.js', '!./docs/app/bootstrap/**/*'],
       dest: './build/docs/app.compiled.js'
-    },
-
-    dist: {
-      src: './build/blueprints.js',
-      dest: './dist/blueprints.js',
     }
   });
 
@@ -239,7 +256,8 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', [
     'build',
     'postcss:dist',
-    'concat:dist',
+    'concat:blueprints',
+    'copy:fonts',
     'uglify'
   ]);
 
