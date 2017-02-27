@@ -1,0 +1,143 @@
+<h2 class="page-header">Reusable loading animations</h2>
+
+<p>
+  Having in mind the fact that single page applications can get quite bulky very 
+  quickly even when you optimize everything, pushes us to the need of having light 
+  and "nice" loading animations or preloaders. Bear in mind there is no way to avoid 
+  the waiting times, if you are waiting for response from an API but one option to 
+  reduce the frustration of your users is to add a nice custom preloader screen.
+</p>
+
+<h3 class="page-section-title">Full screen preloaders</h3>
+<div class="state-indicator state-indicator-preloader">
+  <div class="state-indicator-content">
+    <div class="state-indicator-animation animating"></div>
+    <div class="state-indicator-message">Loading, please wait</div>
+  </div>
+</div>
+
+<div hljs hljs-language="html">
+<div class="state-indicator state-indicator-preloader state-indicator-full-screen">
+  <div class="state-indicator-content">
+    <div class="state-indicator-animation animating"></div>
+    <div class="state-indicator-message">Loading, please wait</div>
+  </div>
+</div>
+</div>
+
+<p>
+  NOTE: for the HTML code above, the classname "state-indicator-full-screen" was removed 
+  from the actual animated element, you can add it back using the developer tools.
+</p>
+
+<h3 class="page-section-title">Overlapping elements preloaders</h3>
+<div class="state-indicator-container">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum ornare nunc, 
+  et ultrices sapien varius vitae. Maecenas id ligula at justo malesuada euismod id ut 
+  lectus. Vivamus euismod velit sapien, ut sagittis nisi volutpat sed. Praesent quis 
+  augue a odio lobortis gravida. Nam pharetra turpis tortor, nec pulvinar diam pretium id. 
+  Nam libero enim, feugiat a vehicula et, mollis vel neque. Morbi rutrum eleifend neque, 
+  at suscipit tellus iaculis et.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum ornare nunc, 
+  et ultrices sapien varius vitae. Maecenas id ligula at justo malesuada euismod id ut 
+  lectus. Vivamus euismod velit sapien, ut sagittis nisi volutpat sed. Praesent quis 
+  augue a odio lobortis gravida. Nam pharetra turpis tortor, nec pulvinar diam pretium id. 
+  Nam libero enim, feugiat a vehicula et, mollis vel neque. Morbi rutrum eleifend neque, 
+  at suscipit tellus iaculis et.
+  <div class="state-indicator">
+    <div class="state-indicator-content">
+      <div class="state-indicator-animation"></div>
+      <div class="state-indicator-message">Loading, please wait</div>
+    </div>
+  </div>
+</div>
+
+<div hljs hljs-language="html">
+<div class="state-indicator-container">
+  { all your desired content here, could be one or more elements }
+  <div class="state-indicator">
+    <div class="state-indicator-content">
+      <div class="state-indicator-animation"></div>
+      <div class="state-indicator-message">Loading, please wait</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<h3 class="page-section-title">Preloaders attached to interactive elements</h3>
+<p>
+  <button type="button" class="btn btn-primary btn-lg state-indicator-container state-indicator-attached">
+    Button with loading state
+    <div class="state-indicator">
+      <div class="state-indicator-content">
+        <div class="state-indicator-animation"></div>
+        <div class="state-indicator-message">Loading, please wait</div>
+      </div>
+   </div>
+  </button>
+</p>
+
+<p>
+  <ul class="nav nav-tabs nav-tabs state-indicator-container state-indicator-attached">
+    <li role="presentation" class="active">
+      <a href="#">Results</a>
+    </li>
+    <li role="presentation"><a href="#">HTML</a></li>
+    <li role="presentation"><a href="#">CSS</a></li>
+    <div class="state-indicator">
+      <div class="state-indicator-content">
+        <div class="state-indicator-animation"></div>
+        <div class="state-indicator-message">Loading, please wait</div>
+      </div>
+    </div>
+  </ul>
+</p>
+
+<p>
+  <ul class="nav nav-tabs nav-tabs-minimized nav-tabs state-indicator-container state-indicator-attached">
+    <li role="presentation" class="active">
+      <a href="#">Results</a>
+      <div class="state-indicator">
+        <div class="state-indicator-content">
+          <div class="state-indicator-animation"></div>
+        </div>
+      </div>
+    </li>
+    <li role="presentation"><a href="#">HTML</a></li>
+    <li role="presentation"><a href="#">CSS</a></li>
+  </ul>
+</p>
+
+<div hljs hljs-language="html">
+<element class="{already added classes} state-indicator-container state-indicator-attached">
+  Content of that element (the following div can be wherever you want
+  <div class="state-indicator">
+    <div class="state-indicator-content">
+      <div class="state-indicator-animation"></div>
+      <div class="state-indicator-message">Loading, please wait</div>
+    </div>
+  </div>
+</element>
+</div>
+
+<p>
+  NOTE: the "element" tag above is not a custom tag but a generic representation
+</p>
+
+<h3 class="page-section-title">Preloaders as an icon</h3>
+<div class="state-indicator state-indicator-icon">
+  <div class="state-indicator-content">
+    <div class="state-indicator-animation"></div>
+  </div>
+  Maybe a description or something here, could be a text node or a HTML element
+</div>
+
+<div hljs hljs-language="html">
+<div class="state-indicator state-indicator-icon">
+  <div class="state-indicator-content">
+    <div class="state-indicator-animation"></div>
+  </div>
+  Maybe a description or something here, could be a text node or a HTML element
+</div>
+</div>

@@ -1,0 +1,28 @@
+.swatches {
+  display: flex;
+  flex-flow: wrap;
+  & .swatches-wrapper {
+    width: 140px;
+    margin: 5px 10px;
+  }
+
+  & .swatch {
+    box-shadow: 0 0.5px 0 0 #cccccc inset, 0 1px 1px 0 #bdbdbd;
+    margin: 10px 0px;
+    padding: 2px;
+    display: flex;
+    min-height: 120px;
+    flex-direction: column;
+
+    & .swatch-fill { height: 80px; }
+    & .swatch-variable {
+      padding: 5px;
+      font-size: 12px;
+      & .definition {
+        margin-top: 5px;
+        font-size: 0.95em;
+        height: 50px;
+      }
+    }
+  }
+}

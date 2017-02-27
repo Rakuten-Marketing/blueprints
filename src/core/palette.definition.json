@@ -1,0 +1,148 @@
+{
+  "primary": [
+    {
+      "rgb": "#E6F1F1",
+      "alias": "Brand primary lighter",
+      "variable": "$brand-primary-lighter",
+      "type": "Primary lighter",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#3DB8BE",
+      "alias": "Brand primary",
+      "variable": "$brand-primary",
+      "type": "Primary Color",
+      "usage": [
+        "Active Sections",
+        "Links",
+        "Buttons"
+      ]
+    },
+    {
+      "rgb": "#2B999F",
+      "alias": "Brand primary darker",
+      "variable": "$brand-primary-darker",
+      "type": "Primary darker",
+      "usage": [
+        "TODO..."
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "rgb": "#2B486D",
+      "alias": "Brand secondary",
+      "variable": "$brand-secondary",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#3D669A",
+      "alias": "secondary lighter",
+      "variable": "$brand-secondary-lighter",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "rgb": "#3D669A",
+      "alias": "Brand info",
+      "variable": "$brand-info",
+      "type": "Color",
+      "usage": [
+        "Info marks"
+      ]
+    },
+    {
+      "rgb": "#166151",
+      "alias": "Brand success",
+      "variable": "$brand-success",
+      "type": "Color",
+      "usage": [
+        "Confirmation",
+        "Successes"
+      ]
+    },
+    {
+      "rgb": "#E58A10",
+      "alias": "Brand warning",
+      "variable": "$brand-warning",
+      "type": "Color",
+      "usage": [
+        "Warning"
+      ]
+    },
+    {
+      "rgb": "#E84848",
+      "alias": "Brand danger",
+      "variable": "$brand-danger",
+      "type": "Color",
+      "usage": [
+        "Danger"
+      ]
+    }
+  ],
+  "grays": [
+    {
+      "rgb": "#000000",
+      "alias": "Brand black",
+      "variable": "$brand-black",
+      "type": "Color",
+      "usage": [
+        "TODO.."
+      ]
+    },
+    {
+      "rgb": "#FFFFFF",
+      "alias": "Brand white",
+      "variable": "$brand-white",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#434343",
+      "alias": "Brand gray darker",
+      "variable": "$brand-gray-darker",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#757575",
+      "alias": "Brand gray",
+      "variable": "$brand-gray",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#D4D6D9",
+      "alias": "Brand gray light",
+      "variable": "$brand-gray-light",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#E6E6E6",
+      "alias": "Brand gray lighter",
+      "variable": "$brand-gray-lighter",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    }
+  ]
+}

@@ -1,38 +1,202 @@
-@import '../variables';
-
-// Colors
-$gray-base: $rm-gray-base;
-
-$brand-primary: $rm-primary;
-$brand-success: $rm-success;
-$brand-info: $rm-info;
-$brand-warning: $rm-warning;
-$brand-danger: $rm-danger;
-
 // Scaffolding
-$body-bg: $rm-body-bg;
-$text-color: $rm-text-color;
-$link-color: $rm-link-color;
-$link-hover-color: $rm-link-hover-color;
-$link-hover-decoration: $rm-link-hover-decoration;
+$body-bg: $brand-white;
+$text-color: $brand-gray-darker;
+
+$link-color: $brand-primary;
+$link-hover-color: $brand-primary;
+$link-hover-decoration: underline;
 
 // Typography
-$font-family-base: $rm-font-family;
-$font-size-base: $rm-font-size-base;
+$font-family-base: $brand-font-family;
+$font-size-base: $brand-font-size;
 
-//-- Components
-$border-radius-base: $rm-border-radius-base;
-$border-radius-small: $rm-border-radius-base;
-$border-radius-large: $rm-border-radius-base;
+$font-size-h1: $brand-font-size-h1;
+$font-size-h2: $brand-font-size-h2;
+$font-size-h3: $brand-font-size-h3;
+$font-size-h4: $brand-font-size-h4;
+$font-size-h5: $brand-font-size-h5;
+$font-size-h6: $brand-font-size-h6;
+
+// Components
+$padding-base-vertical: $size-xs;
+$padding-base-horizontal: $size-xs;
+
+$padding-large-vertical: $size-xs;
+$padding-large-horizontal: $size-xs;
+
+$padding-small-vertical: $size-xs;
+$padding-small-horizontal: $size-xs;
+
+$padding-xs-vertical: $size-xs;
+$padding-xs-horizontal: $size-xs;
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+// Tables
+$table-bg-accent: $brand-gray-lighter;
+$table-bg-hover: $brand-primary-lighter;
+$table-border-color: $brand-gray-lighter;
+$table-cell-padding: $size-m $size-l;
 
 // Buttons
-$btn-primary-color: $rm-white;
-$btn-primary-bg: $rm-primary;
-$btn-primary-border: $rm-primary;
+$btn-default-color: $brand-gray;
+$btn-default-bg: $brand-white;
+$btn-default-border: $brand-gray-lighter;
 
-$btn-border-radius-base: $rm-border-radius-base;
-$btn-border-radius-large: $rm-border-radius-base;
-$btn-border-radius-small: $rm-border-radius-base;
+$btn-primary-color: $brand-white;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: $brand-primary;
 
-// Bootstrap import
-@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+$btn-success-color: $brand-white;
+$btn-success-bg: $brand-success;
+$btn-success-border: $brand-success;
+
+$btn-info-color: $brand-white;
+$btn-info-bg: $brand-info;
+$btn-info-border: $brand-info;
+
+$btn-warning-color: $brand-white;
+$btn-warning-bg: $brand-warning;
+$btn-warning-border: $brand-warning;
+
+$btn-danger-color: $brand-white;
+$btn-danger-bg: $brand-danger;
+$btn-danger-border: $brand-danger;
+
+$btn-link-disabled-color: $brand-gray-lighter;
+
+// Forms
+$input-bg: $brand-white;
+$input-bg-disabled: $brand-gray-lighter;
+$input-color: $brand-gray-darker;
+$input-border: $brand-gray-lighter;
+$input-border-focus: $brand-gray-light;
+$input-color-placeholder: $brand-gray;
+
+$legend-color: $brand-gray-lighter;
+$input-group-addon-bg: $brand-gray-lighter;
+$cursor-disabled: normal;
+
+$state-success-text: $brand-success;
+$state-success-bg: $brand-success;
+$state-success-border: $brand-success;
+
+$state-info-text: $brand-info;
+$state-info-bg: $brand-info;
+$state-info-border: $brand-info;
+
+$state-warning-text: $brand-warning;
+$state-warning-bg: $brand-warning;
+$state-warning-border: $brand-warning;
+
+$state-danger-text: $brand-danger;
+$state-danger-bg: $brand-danger;
+$state-danger-border: $brand-danger;
+
+// Dropdowns
+$dropdown-bg: $brand-white;
+$dropdown-border: $brand-gray-lighter;
+$dropdown-fallback-border: $brand-gray;
+$dropdown-divider-bg: $brand-gray-lighter;
+$dropdown-link-color: $brand-gray;
+$dropdown-link-hover-color: $brand-gray-darker;
+$dropdown-link-hover-bg: $brand-white;
+$dropdown-link-active-color: $brand-white;
+$dropdown-link-active-bg: $brand-gray-darker;
+$dropdown-link-disabled-color: $brand-gray-lighter;
+$dropdown-header-color: $brand-gray-lighter;
+$dropdown-caret-color: $brand-gray-lighter;
+
+// Navbar
+$navbar-height: 90px;
+$navbar-border-radius: 0;
+$navbar-default-color: $brand-gray-darker;
+$navbar-default-bg: $brand-white;
+$navbar-default-border: transparent;
+
+$navbar-default-link-color: $brand-gray-darker;
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-hover-bg: $brand-gray-lighter;
+$navbar-default-link-active-color: $brand-primary;
+$navbar-default-link-active-bg: $brand-gray-lighter;
+$navbar-default-link-disabled-color: $brand-gray;
+$navbar-default-link-disabled-bg: transparent;
+
+$navbar-default-toggle-hover-bg: $brand-gray-lighter;
+$navbar-default-toggle-hover-bg: $brand-gray;
+$navbar-default-toggle-hover-bg: $brand-gray-lighter;
+
+// Navs
+$nav-link-hover-bg: $brand-primary-darker;
+
+$nav-disabled-link-color: $brand-gray-lighter;
+$nav-disabled-link-hover-color: $brand-gray-lighter;
+
+// Tabs
+$nav-tabs-border-color: $brand-gray-lighter;
+$nav-tabs-link-hover-border-color: $brand-gray-lighter;
+$nav-tabs-active-link-hover-bg: $brand-gray-lighter;
+$nav-tabs-active-link-hover-color: $brand-primary;
+$nav-tabs-active-link-hover-border-color: $brand-gray-lighter;
+
+$nav-tabs-justified-link-border-color: $brand-gray-lighter;
+
+// Pills
+$nav-pills-active-link-hover-bg: $brand-primary-darker;
+$nav-pills-active-link-hover-color: $brand-white;
+
+// Pagination
+$pagination-color: $brand-gray-darker;
+$pagination-bg: transparent;
+$pagination-border: transparent;
+
+$pagination-hover-color: $brand-primary;
+$pagination-hover-bg: transparent;
+$pagination-hover-border: transparent;
+
+$pagination-active-color: $brand-primary;
+$pagination-active-bg: transparent;
+$pagination-active-border: transparent;
+
+$pagination-disabled-color: $brand-gray;
+$pagination-disabled-bg: transparent;
+$pagination-disabled-border: transparent;
+
+// Labels
+$label-default-bg: $brand-gray-light;
+$label-color: $brand-gray-darker;
+$label-link-hover-color: $brand-gray-darker;
+
+// Alerts
+$alert-padding: $size-xl $size-xxl;
+
+// List Group
+$list-group-bg: $brand-white;
+$list-group-border: $brand-white;
+$list-group-hover-bg: $brand-primary-lighter;
+$list-group-active-color: $brand-primary;
+$list-group-active-bg: $brand-primary-lighter;
+$list-group-active-text-color: $brand-primary;
+$list-group-link-color: $brand-gray-darker;
+$list-group-link-hover-color: $brand-primary;
+$list-group-link-heading-color: $brand-gray-darker;
+
+// Panels
+$panel-bg: $brand-white;
+$panel-body-padding: $size-m;
+$panel-heading-padding: $size-xs $size-m;
+
+$panel-inner-border: $brand-gray-lighter;
+$panel-footer-bg: $brand-white;
+
+$panel-default-text: $brand-gray-darker;
+$panel-default-border: $brand-gray-lighter;
+$panel-default-heading-bg: $brand-white;
+
+$panel-primary-text: $brand-white;
+
+// Close
+$close-font-weight: normal;
+$close-color: $brand-white;

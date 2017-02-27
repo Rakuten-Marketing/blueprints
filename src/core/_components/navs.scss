@@ -1,0 +1,133 @@
+$nav-tabs-link-color: $brand-gray-darker;
+$nav-tabs-link-hover-color: $brand-gray-darker;
+$nav-tabs-link-hover-bg: $brand-gray-lighter;
+$nav-tabs-active-link-color: $brand-primary;
+$nav-tabs-active-link-bg: $brand-white;
+$nav-tabs-link-border-color: $nav-tabs-border-color;
+$nav-tabs-active-link-border-color: $brand-primary;
+
+$nav-tabs-condensed-link-hover-color: $brand-primary;
+$nav-tabs-condensed-link-bg: $brand-white;
+
+.nav {
+  > li > a:hover,
+  > li > a:focus {
+    color: $brand-white;
+  }
+
+  .open {
+    &.dropdown > a {
+      background-color: transparent;
+      color: $nav-tabs-active-link-color;
+    }
+  }
+}
+
+.nav-tabs {
+  > li {
+    > a {
+      margin-right: 0;
+      padding: $size-xxxl $size-xl $size-xxl $size-xl;
+      border: none;
+      border-top: 1px $nav-tabs-border-color solid;
+      border-right: 1px $nav-tabs-border-color solid;
+      color: $nav-tabs-link-color;
+
+      &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: $size-xxs;
+        background-color: $nav-tabs-link-border-color;
+        content: '';
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $nav-tabs-link-hover-bg;
+        color: $nav-tabs-link-hover-color;
+      }
+    }
+
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-top: 1px $nav-tabs-active-link-border-color solid;
+        background-color: $nav-tabs-active-link-bg;
+        color: $nav-tabs-active-link-color;
+
+        &::before {
+          background-color: $nav-tabs-active-link-border-color;
+          margin-left: -1px;
+          margin-right: -1px;
+        }
+      }
+    }
+
+    &.open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $nav-tabs-link-hover-bg;
+        border-color: $nav-tabs-link-border-color;
+      }
+    }
+  }
+}
+
+.nav-tabs-justified {
+  > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      border-top: 1px $nav-tabs-active-link-border-color solid;
+    }
+  }
+}
+
+.nav-tabs-condensed {
+  border: none;
+
+  > li {
+    > a {
+      padding: $size-m;
+      margin-right: 0;
+      border: none;
+      color: $nav-tabs-link-color;
+      text-transform: uppercase;
+
+      &::before {
+        top: auto;
+        bottom: 0;
+        height: 1px;
+        background-color: $nav-tabs-link-border-color;
+        margin: 0;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $nav-tabs-condensed-link-bg;
+        color: $nav-tabs-condensed-link-hover-color;
+      }
+
+      &:hover::before,
+      &:focus::before {
+        background-color: $nav-tabs-active-link-border-color;
+      }
+    }
+
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border: none;
+
+        &::before {
+          background-color: $brand-primary-darker;
+        }
+      }
+    }
+  }
+}
