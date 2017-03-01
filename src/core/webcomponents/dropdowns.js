@@ -17,9 +17,11 @@
     this.classList.add('dropdown');
     this.animating = false;
     this.open = false;
+    this.maxRetries = 10; //will check this many times to see if it can work if DOM rendering slowly
   };
 
   dropdownProto.prepContent = function () {
+    if (!this.children.length) return;
     if (this.getElementsByClassName('dropdown-toggle').length) {
       this.button = this.getElementsByClassName('dropdown-toggle')[0];
       this.list = this.children[0];
@@ -48,7 +50,10 @@
   };
     
   dropdownProto.attachedCallback = function () {
-    if (!this.list) return;
+    if (!this.list) {
+      this.addEventListener('DOMNodeInserted', prepAll.bind(this));
+      return;
+    }
     this.addEventListener('click', handleClick.bind(this));
     document.addEventListener('click', this.closeDropdown.bind(this));
     this.list.addEventListener("transitionend", this.listAnimated.bind(this));
@@ -56,6 +61,13 @@
     this.list.addEventListener("MSTransitionEnd", this.listAnimated.bind(this), false);
     this.list.addEventListener("otransitionend", this.listAnimated.bind(this), false);
   };
+
+  function prepAll() {
+    this.removeEventListener('DOMNodeInserted', prepAll);
+    this.prepContent();
+    this.attachedCallback();
+  };
+
 
   dropdownProto.removedCallback = function () {
     this.removeEventListener('click', handleClick);
@@ -67,6 +79,7 @@
   };
 
   dropdownProto.attributeChangedCallback = function (name, oldVal, newVal) {
+    if (!this.children.length) return;
     switch (name) {
       case "title":
         var icon = this.button.getElementsByTagName("span")[0];

@@ -117,7 +117,7 @@ module.exports = function(grunt) {
           {
             cwd: './build/fonts',
             expand: true,
-            src: ['*.otf', '*.woff'],
+            src: ['*.otf', '*.woff', '*.woff2', '*.eot', '*.ttf', '*.svg'],
             dest: './dist/fonts'
           },
           {
@@ -240,7 +240,6 @@ module.exports = function(grunt) {
   /* Build the current application */
   grunt.registerTask('build', [
     'clean',
-
     'sass:build',
     'postcss:build',
     'sass:json',
