@@ -143,6 +143,33 @@
       "usage": [
         "TODO..."
       ]
+    },
+    {
+      "rgb": "#E2E6E8",
+      "alias": "Brand passive border color",
+      "variable": "$brand-passive-border-color",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#f7f7f7",
+      "alias": "Brand passive gray light",
+      "variable": "$brand-passive-gray-light",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
+    },
+    {
+      "rgb": "#f4f5f6",
+      "alias": "Brand passive gray lighter",
+      "variable": "$brand-passive-gray-lighter",
+      "type": "Color",
+      "usage": [
+        "TODO..."
+      ]
     }
   ]
 }

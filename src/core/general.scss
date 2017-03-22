@@ -10,54 +10,23 @@ body {
 body {
   overflow: hidden;
   overflow-y: auto;
-  background-color: $brand-gray-dark;
-  color: $brand-gray;
-
-  &.off-canvas { overflow: hidden; }
-}
-
-// We don't own LFT-Etica font 400/800.
-// 600 should be the value for bold
-b, strong {
-  font-family: $brand-font-semibold;
-}
-
-// Bootstrap is applying the following "margin: 0 0 10px;"
-// there is not such value in our sizes.file
-p {
-  margin: 0;
-  margin-bottom: $size-s;
-}
-
-.disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-// TODO: Move all the "typography" related stuff to its own
-.section-header {
-  border-bottom: 1px solid $brand-separator-color;
-  margin-bottom: $size-m;
-  padding-bottom: $size-xs; 
-}
-
-.page-header {
-  font-weight: 400;
-  font-size: $size-l;
-  margin: $size-xs 0px;
-  padding: 0;
-
-  border: none;
-}
-
-.page-description {
-  font-size: $size-s;
-  text-transform: uppercase;
-  color: $brand-muted-text-color;
 }
 
 // TODO: Adding animations to all HTMLElements interfere with custom made transitions
 // We will handle this in the next releases
 * {
   @include brand-transition(all);
+}
+
+.disabled {
+  opacity: $disabled-element-opacity;
+  pointer-events: none;
+}
+
+.opacity-reset {
+  opacity: 1;
+}
+
+:focus {
+  outline: none;
 }

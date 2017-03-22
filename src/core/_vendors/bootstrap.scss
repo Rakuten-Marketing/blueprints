@@ -6,6 +6,9 @@ $link-color: $brand-primary;
 $link-hover-color: $brand-primary;
 $link-hover-decoration: underline;
 
+$disabled-element-opacity: 0.5;
+$caption-default-font-size: $size-s;
+
 // Typography
 $font-family-base: $brand-font-family;
 $font-size-base: $brand-font-size;
@@ -35,10 +38,18 @@ $border-radius-large: 0;
 $border-radius-small: 0;
 
 // Tables
-$table-bg-accent: $brand-gray-lighter;
-$table-bg-hover: $brand-primary-lighter;
-$table-border-color: $brand-gray-lighter;
-$table-cell-padding: $size-m $size-l;
+$table-default-padding: $size-s;
+$table-condensed-padding: $size-xs;
+$table-default-border-color: $brand-passive-border-color;
+$table-deafult-background-color: $brand-white;
+$table-default-text-color: $brand-gray-dark;
+$table-header-text-color: $brand-gray-darker;
+$table-header-font-size: $size-s;
+$table-header-background-color: $brand-passive-gray-lighter;
+$table-accent-color: $brand-gray-lighter;
+$table-hover-color: $brand-passive-gray-light;
+$table-secondary-border-color: $brand-gray-lighter;
+$table-caption-color: $brand-gray;
 
 // Buttons
 $btn-default-color: $brand-gray;
@@ -71,8 +82,8 @@ $btn-link-disabled-color: $brand-gray-lighter;
 $input-bg: $brand-white;
 $input-bg-disabled: $brand-gray-lighter;
 $input-color: $brand-gray-darker;
-$input-border: $brand-gray-lighter;
-$input-border-focus: $brand-gray-light;
+$input-border: $brand-passive-border-color;
+$input-border-focus: $brand-passive-gray-light;
 $input-color-placeholder: $brand-gray;
 
 $legend-color: $brand-gray-lighter;

@@ -1,19 +1,17 @@
-// Importing Blueprints specific variables, mixins and utilities
+/* Blueprints related overrides (Bootstrap) */
 @import 'core/variables';
-@import 'core/mixins';
-@import 'core/utils'; //TODO: Needs review
-
-// Applying the theme to our Twitter Bootstrap copy
 @import 'core/vendors';
-@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'core/mixins';
+@import 'core/utils';
+
+
+/* Importing the actual Bootstrap framework styles */
+/* Previously included 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap' */
+/* Changed to this way to allow us to exclude core functionality and apply our own */
+@import 'core/bootstrap';
+
+/* ---------------------------------------------------------------- */
+/* Include all your custom components and overrides after this line */
 @import 'core/font-imports';
-
-
-// The following includes all the bootstrap overrides
 @import 'core/components';
 @import 'core/general';
-
-// Forcing to not display the default focus ring
-:focus {
-  outline: none;
-}
