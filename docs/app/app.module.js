@@ -120,7 +120,7 @@
       url: 'tables',
       views: {
         section: {
-          templateUrl: '../build/bootstrap-partials/docs/_includes/css/tables.html',
+          templateUrl: 'app/partials/elements/tables/tables.template.html',
           controller: angular.noop //'TablesController as tablesView'
         }
       }

@@ -1,0 +1,250 @@
+<div class="section-header">
+  <div class="page-header">Tables</div>
+  <div class="page-description">Responsive element/layout markup with a webcomponent</div>
+</div>
+
+<p>
+  If you want to have the <kbd>zebra-striping</kbd> and <kbd>responsive</kbd> behavior
+  you can simply use the <code>.table-default</code> classname; which represents the default
+  style for all our tables accross applications. Yet you can ignore that classname and assemble
+  something ad hoc your needs.
+</p>
+
+<div class="card card-rounded">
+  <div class="card-header">Before we get started, bear in mind the following</div>
+  <div class="card-content">
+    The responsive behavior (<code>.table-responsive</code>) will require you to add an extra
+    attribute to your <code>td</code> (tbody).</br></br>
+    <code>&lt;td <kbd class="empatized-code">data-header="Header here"</kbd>&gt;&lt;/td&gt;</code>
+  </div>
+</div>
+
+<h4>—  How to use it?</h4>
+<p>
+  Use this version for basic styling of your tables.</br>
+  Regarding the caption: this element is optional but if you decide to include it,
+  bear in mind this element is using the <code>display: table-caption</code>.
+  This means, the caption will be always forced to be at the top (first child) of the table,
+  because its nature. If you rather having something after the table and not before,
+  don't include the caption element inside <code>&lt;table class="table <kbd class="empatized-code">
+  {classnames}</kbd>&gt;&lt;/table&gt;"</code> but after it.
+</p>
+
+<table class="table table-default">
+  <caption class="table-caption">
+    W3Counter (January 2016 to April 2016).
+    </br>This site counts the last 15,000 page views from each of approximately 80,000 websites.
+    This limits the influence of sites with more than 15,000 monthly visitors on the usage statistics.
+  </caption>
+  <thead>
+    <tr>
+      <th class="preferred text-left">Date</th>
+      <th class="number text-center">IE</th>
+      <th class="number text-center">Firefox</th>
+      <th class="number text-center">Chrome</th>
+      <th class="number text-center">Safari</th>
+      <th class="number text-center">Opera</th>
+      <th class="number text-center">Mozilla</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Date" class="preferred text-left">April 2016</td>
+      <td data-header="IE" class="number text-center">9.6%</td>
+      <td data-header="Firefox" class="number text-center">9.7%</td>
+      <td data-header="Chrome" class="number text-center">57.2%</td>
+      <td data-header="Safari" class="number text-center">13.4%</td>
+      <td data-header="Opera" class="number text-center">4.1%</td>
+      <td data-header="Mozilla" class="number text-center"></td>
+    </tr>
+    <tr>
+      <td data-header="Date" class="preferred text-left">March 2016</td>
+      <td data-header="IE" class="number">14.3%</td>
+      <td data-header="Firefox" class="number">10.0%</td>
+      <td data-header="Chrome" class="number">51.9%</td>
+      <td data-header="Safari" class="number">16.2%</td>
+      <td data-header="Opera" class="number">2.7%</td>
+      <td data-header="Mozilla" class="number"></td>
+    </tr>
+    <tr>
+      <td data-header="Date" class="preferred text-left">February 2016</td>
+      <td data-header="IE" class="number">12.4%</td>
+      <td data-header="Firefox" class="number">12.0%</td>
+      <td data-header="Chrome" class="number">47.5%</td>
+      <td data-header="Safari" class="number">20.1%</td>
+      <td data-header="Opera" class="number">3.1%</td>
+      <td data-header="Mozilla" class="number"></td>
+    </tr>
+    <tr>
+      <td data-header="Date" class="preferred text-left">January 2016</td>
+      <td data-header="IE" class="number">12.3%</td>
+      <td data-header="Firefox" class="number">11.4%</td>
+      <td data-header="Chrome" class="number">47.3%</td>
+      <td data-header="Safari" class="number">20.7%</td>
+      <td data-header="Opera" class="number">3.2%</td>
+      <td data-header="Mozilla" class="number"></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">
+  <b>This table has the <code>.table-default</code> behavior</b>
+  (it is responsive and uses the zebra-striping)
+</div>
+
+<div hljs hljs-language="html">
+<table class="table |...|">
+  <caption class="table-caption">{Your desired caption here}</caption>
+  <thead>
+    <tr>
+      <th class="|...|"></th>    
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="|...|">
+      <td data-header="" class="|...|"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>—  Table variations</h3>
+<p>Use the following adding the classnames to the table</br>
+  <code>&lt;table class="table <kbd class="empatized-code">desired
+  classnames</kbd>&gt;&lt;/table&gt;</code>
+</p>
+
+<table class="table table-simple">
+  <thead>
+    <tr>
+      <th class="text text-left">Classname</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text text-left"data-header="Classname"><code>table-default</code></td>
+      <td class="text text-left" data-header="Description">
+        Rakuten Marketing's default look and feel for all the tables.
+        </br>Bear in mind: includes <code>.table-responsive</code> and
+        <code>.table-striped</code> behaviors.
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-responsive</code></td>
+      <td class="text text-left" data-header="Description">
+        Not including this classname (doesn't apply if you are using <code>.table-default</code>)
+        will affect responsiveness for all the elements in the active document. This because the
+        table content has a limit regarding its horizontall compression. That width will be the
+        new document's width forcing the scrolling functionality/need</br></br>
+
+        This classname has also a subclassname <code>.table-responsive-columns</code>, this will
+        allow you to show the tables as rows for mobile devices.
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-bordered</code></td>
+      <td class="text text-left" data-header="Description">
+        This will add borders to all the rows in your table, by default you will see a very
+        light-colored border but adding this classname will highlight them even more.
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-striped</code></td>
+      <td class="text text-left" data-header="Description">
+        Adding the zebra-striping behavior to the rows. It is nice to have some kind of visual rest
+        to denote boundaries between each row, for that reason the <code>.table-default</code>
+        includes this. Striped tables are styled via the <code>:nth-child</code>
+        CSS selector, which is not available in Internet Explorer 8.
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-hoverable</code></td>
+      <td class="text text-left" data-header="Description">
+        You need to add this classname (not included in the <code>.table-default</code>
+        behavior or anywhere really) to add hoverable actions to the table rows (body).
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-condensed</code></td>
+      <td class="text text-left" data-header="Description">
+        This classnames will make you table thinner, playing with its padding values 
+      </td>
+    </tr>
+    <tr>
+      <td class="text text-left" data-header="Classname"><code>table-simple</code></td>
+      <td class="text text-left" data-header="Code needed">
+        Alternative look and feel for your tables. See this table explaining the classname usage?
+        You got an example
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>—  Classes you can add to the <code>tr</code></h3>
+<p>You can only hide or disable these elements for now</p>
+
+<h3>—  Classes you can add to the <code>th</code> and <code>td</code></h3>
+<p>
+  If you need to add new ones, please follow this pattern
+  <code>th.classname,td.classname {}</code></br>
+  <span class="caption">
+    — Don't use text-align properties, inside your custom classnames</br>
+    — Maybe you want to play with the <kbd>width</kbd> of your columns
+  </span>
+</p>
+
+<table class="table table-simple">
+  <thead>
+    <tr>
+      <th class="text text-left">Classname</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Classname"><code>preferred</code></td>
+      <td data-header="Description">
+        Will try to use the 100% available of the current table
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>restricted</code></td>
+      <td data-header="Description">
+        Deactivate the cell, blocking user interaction
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>number</code></td>
+      <td data-header="Description">
+        Formatting cells containing numbers
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>text</code></td>
+      <td data-header="Description">
+        Formatting cells containing text
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>date</code></td>
+      <td data-header="Description">
+        Formatting cells containing a date
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>actions</code></td>
+      <td data-header="Description">
+        Formatting cells containing interactive elements (buttons)
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname">How to handle text alignment?</td>
+      <td data-header="Description">
+        Just add the helper classnames <code>text-left</code>,
+        <code>text-center</code>, <code>text-right</code>,
+        <code>text-justify</code> or <code>text-nowrap</code>
+      </td>
+    </tr>
+  </tbody>
+</table>

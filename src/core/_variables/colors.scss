@@ -11,7 +11,6 @@ $brand-primary-darker: #2B999F !default;
 $brand-primary: #3DB8BE !default;
 $brand-primary-lighter: #E6F1F1 !default;
 
-// $brand-secondary-darker: ... !default;
 $brand-secondary: #2B486D !default;
 $brand-secondary-lighter: #3D669A !default;
 
@@ -20,12 +19,14 @@ $brand-success: #166151 !default;
 $brand-warning: #E58A10 !default;
 $brand-danger: #E84848 !default;
 
-// TODO: Temporal fix, adding new grey variations
-// Needs to be addressed before the end of November
+$brand-passive-border-color: #e2e6e8 !default;
+$brand-passive-gray-light: #f7f7f7 !default;
+$brand-passive-gray-lighter: #f4f5f6 !default;
+
+// TODO: We will remove this after we remove the dashboard model from BP
 $brand-muted-text-color: #9BADB6;
 $brand-passive-elements: #F9F9F9;
 $brand-separator-color: #EAEAEA;
 $brand-shadow-color: #E2E2E2;
 $brand-gray-base: #606060;
 $dashboard-shadow: #242424;
-$dashboard-light: #3B3B3B;
