@@ -242,6 +242,7 @@ module.exports = function(grunt) {
     'clean',
     'sass:build',
     'postcss:build',
+    'postcss:dist',
     'sass:json',
     'docs:parse',
     'copy:palette',
