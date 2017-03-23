@@ -54,7 +54,7 @@ $table-caption-color: $brand-gray;
 // Buttons
 $btn-default-color: $brand-gray;
 $btn-default-bg: $brand-white;
-$btn-default-border: $brand-gray-lighter;
+$btn-default-border: $brand-passive-border-color;
 
 $btn-primary-color: $brand-white;
 $btn-primary-bg: $brand-primary;
@@ -83,7 +83,7 @@ $input-bg: $brand-white;
 $input-bg-disabled: $brand-gray-lighter;
 $input-color: $brand-gray-darker;
 $input-border: $brand-passive-border-color;
-$input-border-focus: $brand-passive-gray-light;
+$input-border-focus: $brand-passive-border-focus-color;
 $input-color-placeholder: $brand-gray;
 
 $legend-color: $brand-gray-lighter;
