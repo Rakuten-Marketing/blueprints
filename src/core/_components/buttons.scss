@@ -9,12 +9,12 @@
 
 .btn-default {
   $states: (
-    'color': $brand-gray,
-    'background': $brand-white,
-    'border': $brand-gray-lighter,
+    'color': $btn-default-color,
+    'background': $btn-default-bg,
+    'border': $btn-default-border,
     'color-active': $brand-gray,
-    'background-active': $brand-white,
-    'border-active': $brand-gray-light,
+    'background-active': $brand-gray-lighter,
+    'border-active': $brand-passive-border-focus-color
   );
 
   @include bp-button-variant($states);
