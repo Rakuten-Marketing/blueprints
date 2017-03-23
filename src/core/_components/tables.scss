@@ -18,8 +18,10 @@
   }
 
   & caption {
-    color: $table-caption-color;
     @extend .caption;
+
+    color: $table-caption-color;
+    display: table-caption;
   }
 
   & thead {
@@ -33,7 +35,7 @@
     font-family: $brand-font-semibold;
     -webkit-font-smoothing: antialiased;
 
-    & tr > th {
+    & th {
       border: none;
       border-right: 1px solid $table-secondary-border-color;
 
@@ -44,10 +46,10 @@
   }
 
   & tbody {
-    & > tr {
+    & tr {
       transition: background-color 0.25s ease-in;
       
-      &:last-child() > td {
+      &:last-child() td {
         border-bottom: none;
       }
     }
@@ -80,7 +82,7 @@
 }
 
 .table-striped {
-  & tbody > tr:nth-of-type(even) {
+  & tbody tr:nth-of-type(even) {
     background-color: $table-accent-color;
   }  
 }
@@ -88,7 +90,7 @@
 /* NOTE: This classname should be after the '.table-striped' */
 /* Bear in mind overrides the alternated background color (if present) */
 .table-hoverable {
-  & tbody > tr:hover {
+  & tbody tr:hover {
     background-color: $table-hover-color;
   }
 }
@@ -136,19 +138,21 @@
 
         &::before {
           display: block;
-          border: none;
-          margin: 0;
-          padding: 0;
+          content: attr(data-header);
+          color: $table-header-text-color;
+          white-space: initial;
+          width: 100%;     
+        }
 
-          min-width: initial;
-          max-width: initial;
+        &::after {
+          display: none;
         }
       }
     }
 
     &.table-hoverable {
-      & tbody > tr:hover {
-            box-shadow: inset 0px 0px 8px $table-default-border-color;
+      & tbody tr:hover {
+        box-shadow: inset 0px 0px 8px $table-default-border-color;
       }
     }
 
@@ -156,7 +160,7 @@
       border-bottom: none;
 
       /* Hide table headers (but not display: none;, for accessibility) */
-      & > tr {
+      & tr {
         position: absolute;
         top: -9999px;
         left: -9999px;
@@ -164,7 +168,7 @@
     }
 
     & tbody {
-      & > tr:not(:last-child()) td:last-child() {
+      & tr:not(:last-child()) td:last-child() {
         border-bottom: 2px solid $table-default-border-color;
       }
 
@@ -172,35 +176,51 @@
         display: flex;
         flex-direction: row;
         text-align: initial;
+        width: initial;
         
         border: none;
         border-bottom: 1px solid $table-secondary-border-color;
+        position: relative;
 
-        &::before {
-          text-align: initial;
-          font-size: $table-header-font-size; 
+        &::before,
+        &::after {
           font-weight: normal;
           font-family: $brand-font-semibold;
+          font-size: $table-header-font-size;
 
           text-transform: uppercase;
+          text-align: initial;
           -webkit-font-smoothing: antialiased;
 
-          color: $table-header-text-color;
-          content: attr(data-header) + '';
-          padding-right: $size-s;
+          width: 35%;
+        }
+
+        &::before {
+          content: '\a';
+          white-space: pre;
           margin-right: $size-xs;
+        }
+
+        &::after {
+          content: attr(data-header);
+          display: flex;
+          align-items: center;
+          position: absolute;
+          overflow: hidden;
+          height: 100%;
+          left: 0;
+          top: 0;
 
           border-right: 1px solid $table-secondary-border-color;
-          white-space: nowrap;
-          min-width: 25%;
-          max-width: 45%; 
+          padding: $table-default-padding;
+          padding-right: $size-xs;
         }
       }
     }
 
     &:not(.table-bordered) {
       & tbody {
-        & tr td {
+        & td {
           border-bottom: 1px solid $table-secondary-border-color;
         }
 
@@ -208,7 +228,7 @@
           border-bottom: none;
         }
 
-        & > tr:not(:last-child()) td:last-child() {
+        & tr:not(:last-child()) td:last-child() {
           border-bottom-width: 1px;
         }
       }
