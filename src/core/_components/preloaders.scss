@@ -1,171 +1,273 @@
-$state-indicator-padding: $size-xs;
-$state-indicator-main-color: $brand-primary-darker;
-
-$state-indicator-animated-element-size: $size-xl;
-$state-indicator-initial-animation-border: 2px solid $brand-primary-lighter;
-$state-indicator-initial-animation-width: 100px;
-
-.state-indicator {
-  @include centered-content(block);
-  padding: $state-indicator-padding;
-
-  &:not(.transparent) {
-    background-color: $brand-white;
-  }
-
-  opacity: 0;
-  &::before,
-  &::after {
-    animation: none;
-  }
-
-  & .state-indicator-content {
-    width: 100%;
-  }
-
-  & .state-indicator-message {
-    color: $brand-gray;
-    padding-top: $state-indicator-padding;
-    animation: fadein 1.0s ease-in-out;
-  }
-
-  // The following classname is used when the preloader component is attached to an existing
-  // element; wee need to assign it to the parent element to get its measurements to properly
-  // cover it and disable its interactive elements.
-  &-container {
-    position: relative;
-
-    & .state-indicator {
-      @include full-overlay;
-      @include centered-content(flex);
-      background-color: rgba($brand-white, 0.90);
-    }
-
-    &.state-loading {
-      overflow: hidden;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    &:not(.state-loading) {
-      & .state-indicator {
-        display: none;
-      }
-    }
-  }
-
-  // Sometimes we will need the preloader component to be attached to an already existing element
-  // The following takes care of the required layout changes
-  &-attached {
-    & .state-indicator-content {
-      @include centered-content(flex);
-    }
-
-    & .state-indicator-message {
-      padding: 0;
-      padding-left: $state-indicator-padding;
-      @include text-overflow;
-    }
-  }
-
-  // This animated element can also be used as a simple icon
-  // This "helper" classname is good for inline loading elements
-  &-icon {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    padding: 0;
-
-    & .state-indicator-content {
-      width: initial;
-      padding-right: $state-indicator-padding;
-    }
-  }
-
-  & .state-indicator-animation:not(.preloaders-blob)  {
-    height: $state-indicator-animated-element-size;
-    width: $state-indicator-animated-element-size;
-
-    border-radius: 100%;
-    border: $state-indicator-initial-animation-border;
-    border-top-color: $state-indicator-main-color;
-    animation: rotate .5s infinite linear;
-  }
-}
-
-
-// All of the variations could be transformed to their full-screen version
-// The element will cover 100% of the screen
-.full-screen {
-  @include centered-content(flex);
-  @include full-overlay($fullscreen: true);
-}
-
-
-// TODO: This will be a reusable component, we will handle animated assets as
-// reusable elements.
-.preloaders-blob {
-  display: table-cell;
-  vertical-align: middle;
-  animation: increasing-size 1.0s 4.0s;
+/* Using placeholders to handle the states */
+/* Doing this we DRY these behavior, we actually don't want the following code */
+/* to be a classname but a placeholder we can include where needed */
+%show-spinning-circle-animation {
+  animation: fadein 0.25s 0.90s linear;
   animation-fill-mode: forwards;
+  
+  &::before {
+    animation-play-state: running;
+ } 
+}
 
-  &::before,
-  &::after {
+%hide-spinning-circle-animation {
+  opacity: 1;
+  animation: fadeout 0.25s 0.40s linear;
+  animation-fill-mode: forwards;
+  
+  &::before {
+    /* Using an animation to fadeout the animated element without stopping its spinning */
+    /* until its get faded out. Providing a smooth experience to the user (visually) */
+    //Add a timed function here
+    animation-play-state: running;
+
+    animation: rotate 0.5s 1.15s infinite linear, stop-rotation 0.5s 5.0s infinite linear;
+    animation-fill-mode: forwards;
+ } 
+}
+
+%show-decision-state-animation {}
+%hide-decision-state-animation {}
+
+/* Handling the states directly in a single code block. DRY */
+[class^="state-indicator"],
+[class*=" state-indicator"] {
+  &.loading, 
+  &[data-state="loading"] {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* Wrapper when the preloader is used in an already existing element. */
+/* Please notice we have special cases, like buttons */
+.state-indicator-container {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
     content: '';
+    opacity: 0;
     display: block;
-    position: relative;
-    background-color: $state-indicator-main-color;
+    background-color: $state-indicator-default-background-color;
+
+    @include full-overlay($position: absolute, $fullscreen: false);
+    @include brand-transition(opacity, 0.5s);
+  }
+
+  &.transparent::before {
+    background-color: transparent;
+  }
+
+  & .state-indicator {
+    @include element-location(top-left);
+  }
+}
+
+/* We don't want this classname nested in the "state-indicator-container" */
+/* since the preloaders can be used as a standalone element */
+//transition: background-color 0.15s ease-in, opacity 0.10s 0.5s ease-in;
+.state-indicator {
+  display: flex;
+  flex-direction: initial;
+  align-items: center;
+
+  position: relative;
+  height: initial;
+  width: 100%;
+  opacity: 0;
+
+  &.centered {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &::before {
+      margin: 0;
+      margin-bottom: $state-indicator-default-padding;
+    }
+  }
+
+  &.right-top,
+  &.right-center,
+  &.right-bottom {
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &::before {
+      margin: 0;
+      margin-left: $state-indicator-default-padding;
+    }
+  }
+
+  &.left-center,
+  &.right-center {
+    height: 100%;
+  }
+
+  &.left-bottom,
+  &.right-bottom {
+    top: initial;
+    bottom: 0;
   }
 
   &::before {
-    height: $state-indicator-padding / 2;
-    animation: pulling-from-bottom 0.5s,
-               bouncing-line-width 2.0s 0.5s ease-in-out,
-               turn-line-into-circle 2.0s 2.0s,
-               from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+    content: '';
+    display: inline-block;
+    margin-right: $state-indicator-default-padding;
+    height: $state-indicator-default-spinning-circle-size;
+    width: $state-indicator-default-spinning-circle-size;
 
+    border-radius: 100%;
+    border: 2px solid $state-indicator-default-spinning-circle-background-color;
+    border-top-color: $state-indicator-default-spinning-circle-color;
+
+    animation: rotate 0.5s 1.15s infinite linear;
     animation-fill-mode: forwards;
+    animation-play-state: paused;
+  }
+
+  &.loading,
+  &[data-state="loading"] {
+    @extend %show-spinning-circle-animation;
+  }
+
+  &.done,
+  &[data-state="done"] {
+    @extend %hide-spinning-circle-animation;  
   }
 }
 
-.state-indicator.awaiting {
-  opacity: 1;
-  & .preloaders-blob {
+.state-indicator-container.loading,
+.state-indicator-container[data-state="loading"] {
+  &::before {
+    opacity: 0;
+    @include simple-property-animation(state-indicator-container-fadein,
+             opacity, 0, $state-indicator-default-background-opacity);
 
-    &::after {
-      opacity: 0;
-      height: $state-indicator-padding;
-      width: $state-indicator-animated-element-size;
+    animation-timing-function: linear;
+    animation-duration: 0.50s;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+  }
 
-      border-radius: 50%;
-      margin-bottom: $state-indicator-padding;
-      bottom: -$state-indicator-padding;
-      animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-      animation-fill-mode: forwards;
+  & .state-indicator {
+    @extend %show-spinning-circle-animation;
+  }
+}
+
+.state-indicator-container.done,
+.state-indicator-container[data-state="done"] {
+  &::before {
+    opacity: $state-indicator-default-background-opacity;
+    @include simple-property-animation(state-indicator-container-fadeout,
+             opacity, $state-indicator-default-background-opacity, 0);
+
+    animation-timing-function: linear;
+    animation-duration: 0.50s;
+    animation-delay: 0.35s;
+    animation-fill-mode: forwards;
+  }
+
+  & .state-indicator {
+    @extend %hide-spinning-circle-animation;
+  }
+}
+
+/* State indicator optimization for button elements */
+.btn.state-indicator-container {
+  & .state-indicator {
+    top: 0;
+    bottom: 0;
+    padding: inherit;
+
+    &.centered {
+      flex-direction: initial;
+
+      &::before {
+        margin: 0;
+        height: $state-indicator-condensed-circle-size;
+        width: $state-indicator-condensed-circle-size;
+      }
     }
   }
 }
 
+.state-indicator-fullscreen {
+  text-align: -webkit-center;
+  position: relative;
+
+  &.full-screen {
+    @include centered-content(flex);
+    @include full-overlay($fullscreen: true);
+  }
+
+  & .state-indicator {
+    display: table-cell;
+    vertical-align: middle;
+    animation: increasing-size 1.0s 4.0s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+
+    &::before {
+      display: none;
+    }
+
+    & .state-indicator-animation {
+      margin-bottom: $state-indicator-default-padding * 1.5;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: relative;
+        background-color: $state-indicator-default-spinning-circle-color;
+      }
+
+      &::before {
+        height: $state-indicator-default-padding / 2;
+        animation: pulling-from-bottom 0.5s,
+                   bouncing-line-width 2.0s 0.5s ease-in-out,
+                   turn-line-into-circle 2.0s 2.0s,
+                   from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+
+        animation-fill-mode: forwards;
+      }
+
+      &::after {
+        opacity: 0;
+        height: $state-indicator-default-padding;
+        width: $state-indicator-default-spinning-circle-size;
+
+        border-radius: 50%;
+        margin-bottom: $state-indicator-default-padding;
+        bottom: -$state-indicator-default-padding;
+        animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
 
 // The following animations are used by the preloader sequence,
 // in some areas we use hardcoded values (sizes)
 // Animation with a fade in and a little bounce from the bottom to its default position
 @keyframes pulling-from-bottom {
-  0%, 100% { width: $state-indicator-initial-animation-width; }
+  0%, 100% { width: $state-indicator-fullscreen-initial-animation-width; }
   0% {
     opacity: 0.25;
-    margin-bottom: -$state-indicator-padding;
+    margin-bottom: -$state-indicator-default-padding;
   }
 }
 
 // Animation for the "preloader" option, animates a line that later turns into a circle
 @keyframes bouncing-line-width {
-         0% { width: $state-indicator-initial-animation-width; }
-         6% { width: $state-indicator-initial-animation-width * 0.40; }
-         8% { width: $state-indicator-initial-animation-width * 0.10; }
-        15% { width: $state-indicator-initial-animation-width * 0.15; }
-  20%, 100% { width: $state-indicator-initial-animation-width * 0.10; }
+         0% { width: $state-indicator-fullscreen-initial-animation-width; }
+         6% { width: $state-indicator-fullscreen-initial-animation-width * 0.40; }
+         8% { width: $state-indicator-fullscreen-initial-animation-width * 0.10; }
+        15% { width: $state-indicator-fullscreen-initial-animation-width * 0.15; }
+  20%, 100% { width: $state-indicator-fullscreen-initial-animation-width * 0.10; }
 }
 
 // Converts a line into a rounded square, in preparation for its transformation to a circle
@@ -176,8 +278,8 @@ $state-indicator-initial-animation-width: 100px;
 
 @keyframes increasing-size {
   25%, 100% {
-    width: $state-indicator-animated-element-size;
-    height: $state-indicator-animated-element-size;
+    width: $state-indicator-default-spinning-circle-size;
+    height: $state-indicator-default-spinning-circle-size;
   }
 }
 
@@ -185,4 +287,30 @@ $state-indicator-initial-animation-width: 100px;
 @keyframes from-square-to-circle-loop {
    50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
   100% { transform: scale(1) rotate(720deg); }
+}
+
+
+
+/* Being this specific since bootstrap rules are doing this */
+/* This code is not related to preloaders, maybe not the best place to leave it (?) */
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-left-radius: $size-xxs;
+  border-bottom-left-radius: $size-xxs;
+}
+
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-right-radius: $size-xxs;
+  border-bottom-right-radius: $size-xxs;
+}
+
+.btn-group > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group > .btn:active,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn:hover,
+.btn-group-vertical > .btn:focus,
+.btn-group-vertical > .btn:active,
+.btn-group-vertical > .btn.active {
+  z-index: initial;
 }

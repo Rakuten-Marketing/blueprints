@@ -1,143 +1,267 @@
-<h2 class="page-header">Reusable loading animations</h2>
-
-<p>
-  Having in mind the fact that single page applications can get quite bulky very 
-  quickly even when you optimize everything, pushes us to the need of having light 
-  and "nice" loading animations or preloaders. Bear in mind there is no way to avoid 
-  the waiting times, if you are waiting for response from an API but one option to 
-  reduce the frustration of your users is to add a nice custom preloader screen.
-</p>
-
-<h3 class="page-section-title">Full screen preloaders</h3>
-<div class="state-indicator state-indicator-preloader">
-  <div class="state-indicator-content">
-    <div class="state-indicator-animation animating"></div>
-    <div class="state-indicator-message">Loading, please wait</div>
-  </div>
-</div>
-
-<div hljs hljs-language="html">
-<div class="state-indicator state-indicator-preloader state-indicator-full-screen">
-  <div class="state-indicator-content">
-    <div class="state-indicator-animation animating"></div>
-    <div class="state-indicator-message">Loading, please wait</div>
-  </div>
-</div>
+<div class="section-header">
+  <div class="page-header">Loading animations</div>
+  <div class="page-description">Responsive element/layout markup with a webcomponent option</div>
 </div>
 
 <p>
-  NOTE: for the HTML code above, the classname "state-indicator-full-screen" was removed 
-  from the actual animated element, you can add it back using the developer tools.
+  Single page applications can get quite bulky very quickly even when you optimize everything,
+  therefore we need to be prepare with some lightweight and "nice" looking loading animations
+  or preloaders. We can't avoid the waiting times (if you are waiting for response from an API)
+  but we can take advantage of a couple of things to reduce the frustration of our users.
 </p>
 
-<h3 class="page-section-title">Overlapping elements preloaders</h3>
-<div class="state-indicator-container">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum ornare nunc, 
-  et ultrices sapien varius vitae. Maecenas id ligula at justo malesuada euismod id ut 
-  lectus. Vivamus euismod velit sapien, ut sagittis nisi volutpat sed. Praesent quis 
-  augue a odio lobortis gravida. Nam pharetra turpis tortor, nec pulvinar diam pretium id. 
-  Nam libero enim, feugiat a vehicula et, mollis vel neque. Morbi rutrum eleifend neque, 
-  at suscipit tellus iaculis et.
+<h3>—  Preloaders you can add to containers</h3>
+<p>
+  Consider as a <kbd>container</kbd> all block elements: <code>div</code>, <code>span</code>,
+  <code>cards</code> etc.</br>If you need to add a preloader to a <code>button</code> or an
+  <strong>interactive element</strong> please scroll down, you will get a better understanding of the workaround
+  required for that purpose.
+</p>
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum ornare nunc, 
-  et ultrices sapien varius vitae. Maecenas id ligula at justo malesuada euismod id ut 
-  lectus. Vivamus euismod velit sapien, ut sagittis nisi volutpat sed. Praesent quis 
-  augue a odio lobortis gravida. Nam pharetra turpis tortor, nec pulvinar diam pretium id. 
-  Nam libero enim, feugiat a vehicula et, mollis vel neque. Morbi rutrum eleifend neque, 
-  at suscipit tellus iaculis et.
-  <div class="state-indicator">
-    <div class="state-indicator-content">
-      <div class="state-indicator-animation"></div>
-      <div class="state-indicator-message">Loading, please wait</div>
+<div class="card card-rounded mb-1">
+  <div class="card-content state-indicator-container" data-state="loading">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae sodales lectus.Donec nec malesuada
+    massa, ac mattis nulla. Vivamus tempor tempor lectus, sed feugiat ipsum euismod tristique. Mauris nec
+    maximus velit. Nulla auctor eros vel erat consequat dignissim. Sed ut sodales dolor. Maecenas mattis
+    lectus nec dolor feugiat viverra. Nullam interdum dui odio, eu commodo velit ultricies eget. Nullam volutpat,
+    mi ac dignissim elementum, tellus magna venenatis orci, sed mollis nibh augue eu arcu. Donec egestas quam augue,
+    vel tincidunt augue faucibus sed. Sed nec interdum neque. Etiam sit amet luctus felis, ac consectetur dolor.
+    Nulla facilisi. Morbi id ante at nunc ultricies hendrerit nec vitae nibh.
+
+    <div class="state-indicator" ng-class="preloadersView.position">
+      <div class="state-indicator-message">Loading, please wait.</div>
     </div>
   </div>
 </div>
 
-<div hljs hljs-language="html">
-<div class="state-indicator-container">
-  { all your desired content here, could be one or more elements }
-  <div class="state-indicator">
-    <div class="state-indicator-content">
-      <div class="state-indicator-animation"></div>
-      <div class="state-indicator-message">Loading, please wait</div>
-    </div>
-  </div>
-</div>
+<div class="caption">
+  You can change the position of the indicator, simply adding any of the following classnames to the
+  <kbd>state-indicator</kbd> element.</br><strong>NOTE:</strong> Be aware if you don't include any of these,
+  your element will inherit <code>.left-top</code> behavior.
 </div>
 
-<h3 class="page-section-title">Preloaders attached to interactive elements</h3>
-<p>
-  <button type="button" class="btn btn-primary btn-lg state-indicator-container state-indicator-attached">
-    Button with loading state
-    <div class="state-indicator">
-      <div class="state-indicator-content">
-        <div class="state-indicator-animation"></div>
-        <div class="state-indicator-message">Loading, please wait</div>
-      </div>
-   </div>
+<div class="btn-group btn-group-xs" role="group">
+  <button type="submit" ng-click="preloadersView.changePosition('left-top')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'left-top'}">
+    .left-top
   </button>
-</p>
 
-<p>
-  <ul class="nav nav-tabs nav-tabs state-indicator-container state-indicator-attached">
-    <li role="presentation" class="active">
-      <a href="#">Results</a>
-    </li>
-    <li role="presentation"><a href="#">HTML</a></li>
-    <li role="presentation"><a href="#">CSS</a></li>
-    <div class="state-indicator">
-      <div class="state-indicator-content">
-        <div class="state-indicator-animation"></div>
-        <div class="state-indicator-message">Loading, please wait</div>
-      </div>
-    </div>
-  </ul>
-</p>
+  <button type="submit" ng-click="preloadersView.changePosition('right-top')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'right-top'}">
+    .right-top
+  </button>
 
-<p>
-  <ul class="nav nav-tabs nav-tabs-minimized nav-tabs state-indicator-container state-indicator-attached">
-    <li role="presentation" class="active">
-      <a href="#">Results</a>
-      <div class="state-indicator">
-        <div class="state-indicator-content">
-          <div class="state-indicator-animation"></div>
-        </div>
-      </div>
-    </li>
-    <li role="presentation"><a href="#">HTML</a></li>
-    <li role="presentation"><a href="#">CSS</a></li>
-  </ul>
-</p>
+  <button type="submit" ng-click="preloadersView.changePosition('right-center')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'right-center'}">
+    .right-center
+  </button>
+
+  <button type="submit" ng-click="preloadersView.changePosition('right-bottom')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'right-bottom'}">
+    .right-bottom
+  </button>
+
+  <button type="submit" ng-click="preloadersView.changePosition('left-bottom')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'left-bottom'}">
+    .left-bottom
+  </button>
+
+  <button type="submit" ng-click="preloadersView.changePosition('left-center')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'left-center'}">
+    .left-center
+  </button>
+
+  <button type="submit" ng-click="preloadersView.changePosition('centered')"
+    class="btn btn-default" ng-class="{active: preloadersView.position == 'centered'}">
+    .centered
+  </button>
+</div>
 
 <div hljs hljs-language="html">
-<element class="{already added classes} state-indicator-container state-indicator-attached">
-  Content of that element (the following div can be wherever you want
-  <div class="state-indicator">
-    <div class="state-indicator-content">
-      <div class="state-indicator-animation"></div>
-      <div class="state-indicator-message">Loading, please wait</div>
-    </div>
+<element class="{...} state-indicator-container" data-state="loading">
+  {content here}
+  <div class="state-indicator {classname}">
+    <div class="state-indicator-message">Loading, please wait.</div>
   </div>
 </element>
 </div>
 
+<div class="caption">
+  The <kbd>element</kbd> tag represents any container you want to use (you will get an overlay covering
+  the content). That element may or may not have already attached classnames <code>{...}</code>,
+  yet you only need to add the <code>state-indicator-container</code> class to that list.</br></br>
+  <strong>Considerations:</strong> notice the <kbd>data-state=""</kbd> attribute is located at the
+  container level.</br>If you don't want a background, just add the <code>.transparent</code> classname.
+  </br>Please don't try to hide the element using classnames, use the "done" state instead, see below:
+</div>
+
+<table class="table table-simple">
+  <thead>
+    <tr>
+      <th class="text text-left">Attribute value</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Classname"><code>loading</code></td>
+      <td data-header="Description">
+        The preloader is visible, the animation is running.</br>
+        The interaction for all its children gets disabled.
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>decision</code></td>
+      <td data-header="Description">
+        The preloader is visible but the animation changed to a decision making state.</br>
+        This will change the animation assets/shapes.
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>done</code></td>
+      <td data-header="Description">
+        The preloader is hidden, the animation stops.</br>
+        The interaction for all its children gets restored.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">
+  <strong>Classname vs data-attribute</strong></br>
+  If you don't like the idea of using <kbd>data-state=""</kbd> attrobibutes, you can remove it
+  and use classnames with the same values described above in the table.
+</div>
+
+<h3>—  Using the preloader as a standalone element</h3>
 <p>
-  NOTE: the "element" tag above is not a custom tag but a generic representation
+  Using this approach means you don't need the overlay nor the "absolute" position of the element,
+  making the <kbd>state-indicator-container</kbd> element unnecessary to achieve your goals.
 </p>
 
-<h3 class="page-section-title">Preloaders as an icon</h3>
-<div class="state-indicator state-indicator-icon">
-  <div class="state-indicator-content">
-    <div class="state-indicator-animation"></div>
-  </div>
-  Maybe a description or something here, could be a text node or a HTML element
+<div class="state-indicator" data-state="loading">
+  <div class="state-indicator-message">Loading, please wait.</div>
 </div>
 
 <div hljs hljs-language="html">
-<div class="state-indicator state-indicator-icon">
-  <div class="state-indicator-content">
-    <div class="state-indicator-animation"></div>
+<div class="state-indicator {classname}" data-state="loading">
+  <div class="state-indicator-message">Loading, please wait.</div>
+</div>
+</div>
+
+<div class="caption mb-1">
+  <strong>Considerations:</strong> notice the <kbd>data-state=""</kbd> attribute is transferred to the
+  element itself (default). The values for that attribute are described above, those doesn't change.
+  Same fashion for the <code>{classname}</code> values to change the position of the preloader, however
+  there are some considerations for the <code>.centered</code> classname, see below:</br></br>
+
+  <code>left-top</code>, <code>right-top</code>, <code>right-center</code>, <code>right-bottom</code>,
+  <code>left-bottom</code>, <code>left-center</code> and <code>centered</code></br>
+  The centered classname is not recommended when not using a container, unless you specify a height|min-height
+  for your element. Also when the container is not present nor the height|min-height is defined, you will get
+  only two behavior actually: "left" and "right" alignation. You can scroll up ↑ and play with the container
+  version of this.
+</div>
+
+<h3>—  Preloaders you can add to interactive elements</h3>
+<p>
+  <kbd>Buttons</kbd></br>
+  There is not much to say besides your parent element needs to be an instance of the <code>.btn</code> classname.</br>
+  All behavior and properties described above apply for this element
+</p>
+
+<button type="submit" class="btn btn-default state-indicator-container mr-5"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-primary state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-success state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-info state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-warning state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-danger state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<button type="submit" class="btn btn-link state-indicator-container"
+  ng-attr-data-state="{{ preloadersView.dataState }}">
+  Loading
+  <div class="state-indicator centered"></div>
+</button>
+
+<div hljs hljs-language="html">
+<element class="btn {...} state-indicator-container" data-state="loading">
+  {Button's text here}
+  <div class="state-indicator {classname}"></div>
+</element>
+</div>
+
+<div class="caption">
+  The <kbd>element</kbd> tag represents any container you want to use (you will get an overlay covering
+  the content). That element may or may not have already attached classnames <code>{...}</code>,
+  yet you only need to add the <code>state-indicator-container</code> class to that list.</br></br>
+  Press here to switch the state of the buttons above</br>
+
+  <div class="btn-group btn-group-xs mt-1" role="group">
+    <button type="submit" ng-click="preloadersView.changeState('loading')"
+      class="btn btn-default" ng-class="{active: preloadersView.dataState == 'loading'}">
+      loading
+    </button>
+
+    <button type="submit" ng-click="preloadersView.changeState('decision')"
+      class="btn btn-default" ng-class="{active: preloadersView.dataState == 'decision'}">
+      decision
+    </button>
+
+    <button type="submit" ng-click="preloadersView.changeState('done')"
+      class="btn btn-default" ng-class="{active: preloadersView.dataState == 'done'}">
+      done
+    </button>
   </div>
-  Maybe a description or something here, could be a text node or a HTML element
+</div>
+
+<h3>—  Special cases preloading animations</h3>
+<p>
+  There is a last type of animation however due its nature, this can be only used for its special
+  purpose: full-screen preloading. For the example purposes the <code>.fullscreen</code> classname was
+  removed from the block below.
+</p>
+
+<div class="state-indicator-fullscreen mt-2" data-state="loading">
+  <div class="state-indicator centered">
+    <div class="state-indicator-animation"></div>
+    <div class="state-indicator-message">Loading</div>
+  </div>
+</div>
+
+<div hljs hljs-language="html">
+<div class="state-indicator-fullscreen" data-state="loading">
+  {content here}
+  <div class="state-indicator {classname}">
+    <div class="state-indicator-message">Loading</div>
+  </div>
 </div>
 </div>

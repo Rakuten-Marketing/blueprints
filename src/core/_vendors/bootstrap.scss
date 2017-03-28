@@ -6,7 +6,7 @@ $link-color: $brand-primary;
 $link-hover-color: $brand-primary;
 $link-hover-decoration: underline;
 
-$disabled-element-opacity: 0.5;
+$disabled-element-opacity: 0.85;
 $caption-default-font-size: $size-s;
 
 // Typography
@@ -36,6 +36,19 @@ $padding-xs-horizontal: $size-xs;
 $border-radius-base: 0;
 $border-radius-large: 0;
 $border-radius-small: 0;
+
+/* Preloaders (state-indicator) */
+$state-indicator-fullscreen-initial-animation-width: 100px;
+
+$state-indicator-default-spinning-circle-size: $size-xl;
+$state-indicator-default-spinning-circle-color: $brand-primary-darker;
+$state-indicator-default-spinning-circle-background-color: $brand-primary-lighter;
+
+$state-indicator-condensed-circle-size: $size-l;
+
+$state-indicator-default-padding: $size-xs;
+$state-indicator-default-background-color: $brand-white;
+$state-indicator-default-background-opacity: $disabled-element-opacity;
 
 // Tables
 $table-default-padding: $size-s;
