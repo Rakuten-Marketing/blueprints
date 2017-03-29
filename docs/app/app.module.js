@@ -395,7 +395,7 @@
         views: {
           section: {
             templateUrl: 'app/partials/components/preloaders/preloaders.template.html',
-            controller: angular.noop
+            controller: 'PreloadersController as preloadersView'
           }
         }
       })

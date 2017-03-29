@@ -20,3 +20,11 @@
     position: fixed;
   }
 }
+
+@mixin element-location($position: top-left) {
+  position: absolute;
+  @if($position == top-left) {
+    top: 0;
+    left: 0;
+  }
+}
