@@ -18,6 +18,15 @@
   }
 }
 
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes scale-down {
   50% { transform: scale(0.5); }
 }
@@ -28,6 +37,25 @@
   }
   to {
     transform: rotate(359deg);
+  }
+}
+
+@mixin simple-property-animation($name, $property, $from, $to) {
+  @keyframes #{$name} {
+    from {
+      #{$property}: $from;
+    }
+    to {
+      #{$property}: $to;
+    }
+  }
+
+  animation: $name;
+}
+
+@keyframes stop-rotation {
+  100% {
+    transform: none;
   }
 }
 
