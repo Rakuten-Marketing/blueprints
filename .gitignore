@@ -4,3 +4,5 @@
 .idea
 deploy.key
 deploy.key.pub
+*.swp
+*.swo

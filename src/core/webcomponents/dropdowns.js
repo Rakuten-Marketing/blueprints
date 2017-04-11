@@ -1,7 +1,7 @@
 (function () {
   var dropdownProto = Object.create(HTMLElement.prototype);
 
-  var dropdownButtonTemplate = '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>';
+  var dropdownButtonTemplate = '<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>';
   var dropdownAnchorTemplate = '<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>';
   var iconTemplate = '<span class="caret"></span>';
 
@@ -17,6 +17,7 @@
     this.classList.add('dropdown');
     this.animating = false;
     this.open = false;
+    this.buttonClass = 'btn-default';
     this.maxRetries = 10; //will check this many times to see if it can work if DOM rendering slowly
   };
 
@@ -30,9 +31,13 @@
     var temp = document.createElement('DIV');
     this.list = this.children[0];
     this.list.classList.add('dropdown-menu');
+    if (this.hasAttribute("button-class")) {
+      this.buttonClass = this.getAttribute("button-class");
+    }
     if (this.hasAttribute("title")) {
       temp.innerHTML = dropdownButtonTemplate;
       temp.children[0].innerHTML = this.getAttribute("title");
+      temp.children[0].classList.add(this.buttonClass);
     } else {
       temp.innerHTML = dropdownAnchorTemplate;
     }
@@ -51,8 +56,11 @@
     
   dropdownProto.attachedCallback = function () {
     if (!this.list) {
-      this.addEventListener('DOMNodeInserted', prepAll.bind(this));
-      return;
+      if (!this.children.length) {
+        this.addEventListener('DOMNodeInserted', prepAll.bind(this));
+        return;
+      }
+      this.prepContent();
     }
     this.addEventListener('click', handleClick.bind(this));
     document.addEventListener('click', this.closeDropdown.bind(this));
@@ -66,7 +74,7 @@
     this.removeEventListener('DOMNodeInserted', prepAll);
     this.prepContent();
     this.attachedCallback();
-  };
+  }
 
 
   dropdownProto.removedCallback = function () {
@@ -88,6 +96,12 @@
         break;
       case "icon":
         this.button.getElementsByTagName("span")[0].setAttribute("class", newVal);
+        break;
+      case "button-class":
+        this.button.classList.remove(this.buttonClass);
+        this.buttonClass = newVal;
+        this.button.classList.add(this.buttonClass);
+        break;
     }
   };
 
