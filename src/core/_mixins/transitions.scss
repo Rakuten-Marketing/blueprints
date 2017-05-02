@@ -1,3 +1,23 @@
+// TODO: after audit we will review a model where we can specify
+// reusable/shared values for animation' duration 
+@mixin interactions-bouncing-bottom-line($height: $size-xxs, $color: $brand-primary, $duration: 0.5s) {
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: $height;
+    background-color: $color;
+
+    // TODO: Dynamically creating the keyframe animation
+    // User case: We would like to specify that height/size increase dynamically
+    animation: increasing-height $duration;
+    animation-fill-mode: forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 @mixin brand-transition($property, $time: 100ms) {
   transition: $property $time cubic-bezier(0.5, 0, 0.5, 1);
 }

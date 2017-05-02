@@ -1,3 +1,17 @@
+// Use '$overflow: null' to avoid overriding this property
+// By default overflow will be disabled, for visual purposes this is optimal
+@mixin object-fit($mode: contain, $overflow: hidden) {
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: $overflow;
+  object-fit: $mode; 
+}
+
+/* Helper classnames */
+/* CSS code we don't want as a classname but as a block of code we can add to our blocks */
+// This helper classname applies a crisp mode rendering for images
+// Use this one if the images you are handling are being stretched
 %image-rendering {
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: -moz-crisp-edges;
@@ -6,6 +20,27 @@
   image-rendering: crisp-edges;
 }
 
+/* --- Layout helpers --- */
+%flex-columns {
+  display: flex;
+  flex-direction: column;
+}
+
+// TODO: Needs attention
+// We would like to have multilevel shadows (floating elements and elements with shadow)
 %drop-shadow {
   box-shadow: 0px 1px 1px 0px $brand-shadow-color;
+}
+
+// Eye-candy values.
+// Not using {sizes} since we would like to lock down those values
+.caret-down {
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.transform-centering {
+  top: 50%;
+  transform: translateY(-50%);
 }
