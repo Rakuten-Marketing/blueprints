@@ -1,13 +1,5 @@
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/*
- * The below generates spacer classes.
- * Most of this has been extracted from Bootstrap 4.
- */
+// The below generates spacer classes.
+// Most of this has been extracted from Bootstrap 4.
 @each $prop, $abbrev in (margin: m, padding: p) {
   @each $size, $lengths in $spacers {
     $length-x: map-get($lengths, x);

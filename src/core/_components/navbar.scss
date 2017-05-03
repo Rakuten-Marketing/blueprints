@@ -1,48 +1,101 @@
+/* Navbar.component variables */
+$navbar-background-color: $brand-white !default;
+$navbar-fixed-height: 80px !default;
+$navbar-padding: $size-xxs !default;
+$navbar-condensed-padding: $size-xs !default;
+
+$navbar-border-color: $brand-shadow-color !default;
+$navbar-text-color-default: inherit !default;
+$navbar-text-color-focused: $brand-primary !default;
+
+$navbar-item-background-color-default: transparent !default;
+$navbar-item-background-color-focused: $brand-gray-lighter !default;
+$navbar-item-width: 100px !default;
+
+// - Opportunity area -:
+// Bootstrap{source} not following the OCSS pattern
+// There is no reason for Bootstrap to play with the margin of this element
+// The following 4 lines of code are because the _navbar.scss file modifies them,
+// this should not be the case. We will move away that file in next iterations.
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin: 0;
+}
+
 .navbar {
-  display: flex;
-  flex-direction: column;
-
-  height: inherit;
+  // - Opportunity area -:
+  // Bootstrap{source} not following the OCSS pattern
+  // The following 4 lines of code are because the _navbar.scss file modifies them,
+  // this should not be the case. We will move away that file in next iterations.
+  height: initial;
   min-height: initial;
-
   margin: 0;
   border: none;
-  border-bottom: 1px solid $brand-shadow-color;
+
+  @extend %flex-columns;
+  color: $navbar-text-color-default;
 
   &:not(.transparent) {
-    background-color: $brand-white;
+    background-color: $navbar-background-color;
   }
 
-  /* Has sticky properties to the top,
-  this element must keep its position at the top */
-  &.navbar-fixed-top {
-    position: fixed;
-    z-index: 1;
+  // Images inside the navbar element must be forced to the
+  // 100% height as their max-height. Images can be present anywhere inside this element
+  img {
+    @include object-fit();
+    @extend %image-rendering;
   }
 
-  .navbar-container {
+  a,
+  button,
+  .navbar-button {
+    @extend .btn-flat;
+
     display: flex;
-    width: 100%;
+    color: inherit;
     height: 100%;
-    max-width: $container-large-desktop;
-    padding: 0px $size-xl;
-    margin: 0 auto;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
   }
 
-  .navbar-side {
-    flex-basis: 20%;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    padding: $size-xs;
-    @include centered-content;
+  // Aiming the direct children here.
+  // In the "perfect world" we would have only one container
+  & > .navbar-container {
+    display: flex;
+    white-space: nowrap;
+    justify-content: flex-start;
 
-    &:first-of-type,
-    &.navbar-brand {
+    &.center {
+      justify-content: center;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+  }
+
+  .navbar-section {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: inherit;
+    padding: $navbar-padding;
+
+    &:first-of-type {
       padding-left: 0;
+      justify-content: flex-start;
     }
 
     &:last-of-type {
       padding-right: 0;
+      justify-content: flex-end;
     }
   }
 
@@ -50,230 +103,278 @@
     display: none;
   }
 
-  .navbar-brand {
+  // Aiming the classname variations, doing this we can select "navbar-brand", "navbar-brand-text"
+  // "navbar-brand-img" and "navbar-brand-custom" without actually declaring.
+  // For more information please refer to "CSS class prefix/suffix"
+  [class^="navbar-brand"],
+  [class*=" navbar-brand"] {
+    // - Opportunity area -:
+    // Bootstrap{source} not following the OCSS pattern
+    // There is no reason for Bootstrap to play with the following properties of this element
+    // The following 3 lines of code are because the _navbar.scss file modifies them,
+    // this should not be the case. We will move away that file in next iterations.
     float: none;
     font-size: inherit;
     line-height: normal;
-    overflow: hidden;
 
-    button {
-      @extend .btn-flat;
-
-      display: flex;
-      align-items: center;
-      height: 100%;
+    // This should be a value coming from $navbar-padding, using a sizes.scss value 
+    // won't have the eye-candy behavior we are looking for
+    &:first-child:nth-last-child(2) {
+      margin-right: $navbar-padding * 2;
     }
   }
 
   .navbar-brand-text {
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-    user-select: none;
+    text-align: initial;
+    position: relative;
 
     &::before {
       content: '';
+      height: 100%;
       display: block;
-      height: $size-xl;
-      margin: 0px $size-xxs;
-      border-left: 1px solid $brand-gray-light;
+      position: absolute;
+      top: 0;
+
+      margin-left: -#{$navbar-padding};
+      border-left: 1px solid $navbar-border-color;
     }
   }
 
-  .navbar-brand,
-  .navbar-collapsible {
-    height: inherit;
-    justify-content: flex-start;
+  .navbar-side {
+    flex-basis: 20%;
   }
 
-  /* Container for the main menu inside the navbar */
   .navbar-center {
-    display: flex;
     flex-basis: 100%;
     justify-content: center;
+  }
 
-    .navbar-items {
-      display: flex;
-      float: none;
-      overflow: hidden;
-      color: $brand-gray-base;
+  .navbar-list {
+    display: flex;
 
-      .navbar-item {
-        display: inherit;
-        float: initial;
-        width: $navbar-base;
-        max-width: $navbar-base + $size-m;
+    // - Opportunity area -:
+    // Bootstrap{source} not following the OCSS pattern
+    // There is no reason for Bootstrap to play with the following properties of this element
+    // The following 2 lines of code are because the _navs.scss file modifies them,
+    // this should not be the case. We will move away that file in next iterations.
+    padding: 0;
+    margin: 0;
 
-        button {
-          @extend .btn-flat;
-          padding: $size-xxs;
-          width: 100%;
+    & .navbar-list-item {
+      display: block;
+      position: relative;
+      background-color: $navbar-item-background-color-default;
+
+      &:not(.disabled-animation) {
+        &:hover,
+        &:focus,
+        &.active {
+          color: $navbar-text-color-focused;
+          background-color: $navbar-item-background-color-focused;
+
+          @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
         }
+      }
 
-        &.active button,
-        & > button:hover,
-        & > button:focus {
-          color: $brand-primary;
-          background-color: $brand-gray-lighter;
-        }
-
-        &.active button,
-        & > button:hover,
-        & > button:focus {
+      &.multilevel {
+        a,
+        button,
+        .navbar-button {
           &::after {
             content: '';
-            display: block;
-
-            height: $size-xxs;
-            width: 100%;
-            animation: increasing-height 0.5s;
-            animation-fill-mode: forwards;
-            background-color: $brand-primary-darker;
+            display: flex;
             position: absolute;
-            bottom: 0;
-            left: 0;
-          }
-        }
+            right: $size-xs;
 
-        &.has-submenu.active {
-          & button,
-          & > button:hover,
-          & > button:focus {
-            &::after {
-              height: initial;
-            }
+            @extend .caret-down;
+            @extend .transform-centering;
           }
         }
+      }
+
+      &.active.multilevel {
+        @include interactions-bouncing-bottom-line($height: 0);
+      }
+
+      &:not(.variable-width) {
+        width: $navbar-item-width;
+        max-width: $navbar-item-width + ($navbar-padding * 2);
+      }
+
+      a,
+      button,
+      .navbar-button {
+        @extend .btn-flat;
+        display: block;
+        padding: $navbar-padding;
+        width: 100%;
       }
     }
   }
 
-  /* Images inside the navbar element must be forced to the
-  100% height as their max-height. Images can be present anywhere */
-  & img {
-    width: auto;
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
+  .navbar-toolbar {
+    // Aiming the classname variations, doing this we can select all variations having this as
+    // prefix or suffix without actually declaring.
+    // For more information please refer to "CSS class prefix/suffix"
+    & > [class^="navbar-list-"],
+    & > [class*=" navbar-list-"] {
+      margin-right: $navbar-padding;
 
-    @extend %image-rendering;
+      &:only-child,
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    & .navbar-list-separator {
+      border-right: 1px solid $navbar-border-color;
+    }
   }
 
-  & .navbar-nav {
-    margin: 0;
-  }
-
-  & .navbar-icon {
-    font-size: $size-l;
+  .navbar-icon {
     display: block;
+    font-size: 120%;
 
-    &::before {
-      display: block;
-      margin-bottom: $size-xxs;
-    }
-  }
-
-  .navbar-dashboard {
-    // In order to force the content to its required position,
-    // we need to define the height of the element. This because
-    // the "fixed" position of the header
-    height: $size-xs * 10;
-    min-height: $size-xs * 10;
-
-    & ~ * {
-      overflow: hidden;
-    }
-  }
-
-  .navbar-condensed {
-    padding: 0;
-    max-width: none;
-    justify-content: flex-start;
-    height: ($size-xs * 2) + $size-base;
-    background-color: $brand-gray-lighter;
-
-    & ul {
-      margin: 0 auto;
-    }
-
-    .nav-tabs-condensed > li {
-      display: flex;
-      height: 100%;
-      padding: 0px $size-s;
-      & a {
-        padding: $size-xxs 0px;
-        align-self: center;
-        text-transform: none;
-
-        &:hover,
-        &:focus {
-          background-color: transparent;
-        }
-      }
-    }
-
-    .nav-tabs > li.active > a,
-    .nav-tabs > li.active > a:hover,
-    .nav-tabs > li.active > a:focus {
-      background-color: transparent;
-    }
-
-    .nav-tabs-condensed > li:not(.active) > a::before {
-      content: initial;
-    }
-
-    .nav-tabs-condensed > li.active > a::before {
-      height: $size-xxs;
+    &:first-child:nth-last-child(2) {
+      margin-bottom: $navbar-padding;
     }
   }
 }
 
+
+/* --- Navbar variations --- */
+/* ------------------------- */
+.navbar-condensed {
+  background-color: transparent;
+
+  &:not(.transparent) {
+    background-color: $navbar-item-background-color-focused;
+  }
+
+  .navbar-list {
+    & .navbar-list-item {
+      // For this items (since we are using the condensed variation) we wouldn't like
+      // high values for margin (we have padding already). We do *1.5 to add 0.5x each side
+      padding: $navbar-condensed-padding 0;
+      margin: 0 $navbar-condensed-padding * 1.5;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:not(.disabled-animation) {
+        &:hover,
+        &:focus,
+        &.active {
+          @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
+          background-color: transparent;
+        }
+      }
+
+      a,
+      button,
+      .navbar-button {
+        padding: 0 $navbar-padding;
+      }
+    }
+  }
+}
+
+.navbar-bordered {
+  border: 1px solid $navbar-border-color;
+}
+
+// Aiming the classname variations, doing this we can select all variations having this as
+// prefix or suffix without actually declaring.
+// For more information please refer to "CSS class prefix/suffix"
+&[class^="navbar-fixed-"],
+&[class*=" navbar-fixed-"] {
+  position: fixed;
+  border: none;
+  z-index: 1;
+}
+
+&.navbar-fixed-top,
+&.navbar-fixed-bottom {
+  right: 0;
+  left: 0;
+
+  & > .navbar-container {
+    height: $navbar-fixed-height;
+  }
+}
+
+&.navbar-fixed-top {
+  top: 0;
+  border-bottom: 1px solid $navbar-border-color;
+}
+
+&.navbar-fixed-bottom {
+  bottom: 0;
+  border-top: 1px solid $navbar-border-color;
+}
+
+// Responsiveness.
+// MediaQueries for the .navbar element
 @media (max-width: $screen-sm) {
   .navbar {
-    .navbar-brand {
-      height: inherit;
+    & > .navbar-container {
+      width: 100%;
+    }
+    
+    // Moving the logo and company's name to the center and forcing it to use
+    // the 100% of the available space
+    [class^="navbar-brand"],
+    [class*=" navbar-brand"] {
       justify-content: center;
       flex-basis: 100%;
     }
 
-    .navbar-collapsible,
-    .navbar-actions {
-      display: flex;
-      position: absolute;
-      align-self: center;
+    .navbar-collapsible {
+      display: inherit;
     }
 
-    .navbar-actions {
-      right: $size-xl;
-    }
-
-    .navbar-center {
-      display: none;
-      width: $navbar-base;
-
+    .navbar-side:not(.navbar-brand) {
       position: absolute;
-      height: 100vh;
-      z-index: 3;
-      left: 0;
+      padding-left: inherit;
+      padding-right: inherit;
 
-      .navbar-nav {
-        display: flex;
-        align-content: stretch;
-        flex-flow: column wrap;
-        width: inherit;
+      &:first-of-type {
+        left: 0;
+      }
+
+      &:last-of-type {
+        right: 0;
       }
     }
-  }
 
-  // This is to force override Bootstrap
-  // styles that are applied on smaller screen
-  // sizes.
-  .navbar-nav .open {
-    .dropdown-menu {
-      position: absolute;
-      background-color: $brand-white;
-      border: 1px solid $brand-gray-lighter;
-      box-shadow: 0 6px $size-xs rgba(0, 0, 0, 0.175);
+    // Moving the main menu for the "dashboard" model for this element
+    // Creating an "offcanvas" behavior
+    &[class^="navbar-fixed-"],
+    &[class*=" navbar-fixed-"] {
+      .navbar-center {
+        display: none;
+        position: absolute;
+        height: 100vh;
+        z-index: 3;
+        padding: 0;
+        left: 0;
+
+        .navbar-list {
+          display: flex;
+          align-content: stretch;
+          flex-flow: column wrap;
+          width: inherit;
+
+          & .navbar-list-item {
+            padding: $navbar-padding;
+          }
+        }
+      }
     }
   }
 }
