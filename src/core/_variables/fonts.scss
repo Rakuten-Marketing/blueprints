@@ -1,2 +1,11 @@
 $fonts-path: 'fonts/' !default;
 $icon-font-path: '#{$fonts-path}bootstrap/' !default;
+
+// Using a fixed-width or non-proportional font for narrow areas
+// These fonts occupying the same amount of horizontal space help us to avoid
+// unnecessary visual jumps when working with a fixed area.
+// By default using a webfont is disabled; this will fallback in the system's font
+// If you want to add the open source font you have two options:
+// - SASS option: @import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+// - HTML option: <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+$font-monospace-stack: 'Droid Sans Mono', monospace !default;
