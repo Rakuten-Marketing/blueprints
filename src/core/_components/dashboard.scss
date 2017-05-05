@@ -1,3 +1,6 @@
+// Moving this variable to here.
+// This file was deprecated. Since Out-of-Scope this will be handled in the next PR
+$navbar-base: 100px;
 .bp-dashboard {
   display: flex;
   flex-direction: column;
