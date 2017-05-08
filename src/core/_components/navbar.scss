@@ -205,7 +205,9 @@ $navbar-item-width: 100px !default;
       button,
       .navbar-button {
         @extend .btn-flat;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: $navbar-padding;
         width: 100%;
       }
