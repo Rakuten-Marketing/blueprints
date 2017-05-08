@@ -152,6 +152,11 @@ $navbar-item-width: 100px !default;
   .navbar-list {
     display: flex;
 
+    // Using|forcing the 100% available height
+    &-stretched {
+      height: inherit;
+    }
+
     // - Opportunity area -:
     // Bootstrap{source} not following the OCSS pattern
     // There is no reason for Bootstrap to play with the following properties of this element
