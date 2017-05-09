@@ -3,7 +3,10 @@
     <h2>What is Blueprints?</h2>
 
     <p>
-      An UI framework using <em>Bootstrap 3</em> as its foundation. Created in that way primarily focusing on look and feel, described as a long living styleguide that can evolve over time and empower developers to build application pages quickly whilst conforming with a consistent branding that is agreed and defined.
+      An UI framework using <em>Bootstrap 3</em> as its foundation. Created in that way primarily
+      focusing on look and feel, described as a long living styleguide that can evolve over time
+      and empower developers to build application pages quickly whilst conforming with a consistent
+      branding that is agreed and defined.
     </p>
   </div>
 </div>
@@ -12,39 +15,58 @@
   <div class="col-sm-12">
     <h2>Start using this styleguide</h2>
 
-    <p>You have several options to include the distribution files into your project but the result should be the same: get a copy of the stylesheet file and the javascript into your main HTML document.</p>
+    <p>
+      You have several options to include the distribution files into your project but the result 
+      should be the same: get a copy of the stylesheet file and the javascript into your main HTML
+      document.
+    </p>
     <p>There are two recommended options:</p>
 
     <h4>Option 1:</h4>
 
-    <p>Install Blueprints as a node module and compile a unified css from our scss files.
+    <p>
+      Install Blueprints as a node module and compile a unified css from our scss files. You can
+      specify a release version or a branch
+    </p>
 
     <div hljs hljs-language="javascript">
 // Add this dependency to package.json
 {
-  "dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#dev"
-}
-    </div>
+  "dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#v1.0.0-rc.5"
+}</div>
 
-    <p>Then include dist/blueprints.min.js in your build and in your app's scss file `@import 'node_modules/blueprints/src/blueprints.scss';` (or only include the components you want if you need to optimize). Then in each file where you want to (and you should want to) you can include our size and color variables and helpers/mixins. This will help your custom CSS keep to the same rules and measurement Blueprints applies.</p>
+    </br>
+    <p>
+      Then include dist/blueprints.min.js in your build and in your app's scss file
+      `@import 'node_modules/blueprints/src/blueprints.scss';` (or only include the components you
+      want if you need to optimize). Then in each file where you want to (and you should want to)
+      you can include our size and color variables and helpers/mixins. This will help your custom
+      CSS keep to the same rules and measurement Blueprints applies.
+    </p>
 
     <h4>Option 2:</h4>
 
-    <p>Include the precompiled CSS and JS files in your app's HTML. This allows you to update versions w</p>
+    <p>
+      Include the precompiled CSS and JS files from the node module (or bower component) in your
+      app's HTML. This allows you to update versions by just changing the pinned version in your
+      package.json
+    </p>
 
     <div hljs hljs-language="html">
 // Add these to your HTML
 <link rel="stylesheet" type="text/css" href="node_modules/blueprints/dist/blueprints.min.css">
-<script type="text/javascript" src="node_modules/blueprints/dist/blueprints.min.js"></script>
-    </div>
+<script type="text/javascript" src="node_modules/blueprints/dist/blueprints.min.js"></script></div>
 
     <h4>Option 3:</h4>
 
-    <p>Include compiled CSS and JS from our S3 bucket (https://blueprints-prod.s3.amazonaws.com). Each released version gets its dist folder uploaded to a directory sharing that name on that S3 bucket.</p>
+    <p>
+      Include compiled CSS and JS from our S3 bucket (https://blueprints-prod.s3.amazonaws.com).
+      Each released version gets its dist folder uploaded to a directory sharing that name on that
+      S3 bucket.
+    </p>
 
     <div hljs hljs-language="html">
 <link rel="stylesheet" type="text/css" href="https://blueprints-prod.s3.amazonaws.com/{insert version here}/blueprints.min.css">
-<script type="text/javascript" src="https://blueprints-prod.s3.amazonaws.com/{insert version here}/blueprints.min.js"></script>
-    </div>
+<script type="text/javascript" src="https://blueprints-prod.s3.amazonaws.com/{insert version here}/blueprints.min.js"></script></div>
   </div>
 </div>
