@@ -12,37 +12,39 @@
   <div class="col-sm-12">
     <h2>Start using this styleguide</h2>
 
-    <p>
-      You have several options to include the distribution files into your project but the result should be the same: get a copy of the stylesheet file and the javascript into your main HTML document.</br></br>
-      There are two recommended options:
-    </p>
+    <p>You have several options to include the distribution files into your project but the result should be the same: get a copy of the stylesheet file and the javascript into your main HTML document.</p>
+    <p>There are two recommended options:</p>
 
     <h4>Option 1:</h4>
 
-    <p>
-      Include compiled CSS located in `dist/`
-    </p>
+    <p>Install Blueprints as a node module and compile a unified css from our scss files.
 
-    <div hljs hljs-language="html">
-<link rel="stylesheet" type="text/css" href="dist/blueprints.css">
-    </div>
-
-    <h4>Option 2:</h4>
-
-    <p>
-      Adding Blueprints as a node module (can specify version)<br>
-      You will include the "compiled" files into your project, you may have a grunt/gulp task to handle those. Of course you use the HTML code above but with this approach you are aiming to have more control over those files, the following is an example of your <em>package.json</em> file
-    </p>
-
-    <div hljs hljs-language="html">
-// Add these to your HTML
-<link rel="stylesheet" type="text/css" href="node_modules/blueprints/dist/blueprints.css">
-<script type="text/javascript" src="node_modules/blueprints/dist/blueprints.js"></script>
-
+    <div hljs hljs-language="javascript">
 // Add this dependency to package.json
 {
   "dependencies": "git+ssh://git@github.private.linksynergy.com/SD/blueprints.git#dev"
 }
+    </div>
+
+    <p>Then include dist/blueprints.min.js in your build and in your app's scss file `@import 'node_modules/blueprints/src/blueprints.scss';` (or only include the components you want if you need to optimize). Then in each file where you want to (and you should want to) you can include our size and color variables and helpers/mixins. This will help your custom CSS keep to the same rules and measurement Blueprints applies.</p>
+
+    <h4>Option 2:</h4>
+
+    <p>Include the precompiled CSS and JS files in your app's HTML. This allows you to update versions w</p>
+
+    <div hljs hljs-language="html">
+// Add these to your HTML
+<link rel="stylesheet" type="text/css" href="node_modules/blueprints/dist/blueprints.min.css">
+<script type="text/javascript" src="node_modules/blueprints/dist/blueprints.min.js"></script>
+    </div>
+
+    <h4>Option 3:</h4>
+
+    <p>Include compiled CSS and JS from our S3 bucket (https://blueprints-prod.s3.amazonaws.com). Each released version gets its dist folder uploaded to a directory sharing that name on that S3 bucket.</p>
+
+    <div hljs hljs-language="html">
+<link rel="stylesheet" type="text/css" href="https://blueprints-prod.s3.amazonaws.com/{insert version here}/blueprints.min.css">
+<script type="text/javascript" src="https://blueprints-prod.s3.amazonaws.com/{insert version here}/blueprints.min.js"></script>
     </div>
   </div>
 </div>

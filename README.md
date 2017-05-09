@@ -5,6 +5,16 @@ Blueprints
 
 The purpose of this project is to define a branded styleguide for people to import and use in their projects.
 
+### How do I use Blueprints in my app?
+
+Blueprints is NPM installable, just put `"blueprints": "git://github.private.linksynergy.com/SD/blueprints.git#release_tag_here"` in your package.json and npm install.
+
+The recommended way to use Blueprints is to include the /dist/blueprints.min.js in your app, and include Blueprints's src/blueprints.scss file in your app scss so you have access to all the variables (like colors and sizes) to use in your custom css. You can also just include the relevant component/variable/mixin/helper files when you need them to get minimal-weight on-brand css rules for your app.
+
+You can also include the minimized /dist/blueprints.min.css instead of building from the .scss file if you want to just write HTML. Blueprints is based on Bootstrap, so Bootstrap-style HTML will give you a branded app that looks like you'd expect. This is a workable solution for simple UIs.
+
+If you don't want to use NPM to install Blueprints, you can use our remotely hosted prebuilt versions. Released versions of Blueprints live at `https://blueprints-prod.s3.amazonaws.com`. Each version gets a directory and the dist from the release is uploaded there. For instance, to use v1.0.0-rc.5, you can include `http://blueprints-prod.s3.amazonaws.com/v1.0.0-rc.5/blueprints.min.js` and `http://blueprints-prod.s3.amazonaws.com/v1.0.0-rc.5/blueprints.min.css` in your app head.
+
 ### How do I view Blueprints documentation?
 
 You have three options.
