@@ -151,11 +151,7 @@ $navbar-item-width: 100px !default;
 
   .navbar-list {
     display: flex;
-
-    // Using|forcing the 100% available height
-    &-stretched {
-      height: inherit;
-    }
+    height: inherit;
 
     // - Opportunity area -:
     // Bootstrap{source} not following the OCSS pattern
@@ -166,8 +162,9 @@ $navbar-item-width: 100px !default;
     margin: 0;
 
     & .navbar-list-item {
-      display: block;
-      position: relative;
+      display: flex;
+      height: inherit;
+      align-items: center;
       background-color: $navbar-item-background-color-default;
 
       &:not(.disabled-animation) {
@@ -215,6 +212,15 @@ $navbar-item-width: 100px !default;
         justify-content: center;
         padding: $navbar-padding;
         width: 100%;
+
+        // <button> element cannot be a flex container in some browsers
+        // The idea is to maintain a level of common sense when styling HTML elements.
+        // For instance, the rule prevents authors from turning a fieldset into a table.
+        &::before,
+        &::after {
+          content: '';
+          flex: 1 0 auto;
+        }
       }
     }
   }
