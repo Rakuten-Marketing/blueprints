@@ -1,15 +1,7 @@
-html,
-body {
-  height: 100%;
-  height: 100vh;
-}
-
-// Horizontal scrolling have no place in a responsive world
-// We want to avoid horizontal overflow; if required will be handled with
-// something similar to a carousel component
-body {
-  overflow: hidden;
-  overflow-y: auto;
+html, body { height: initial; }
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 // TODO: Adding animations to all HTMLElements interfere with custom made transitions

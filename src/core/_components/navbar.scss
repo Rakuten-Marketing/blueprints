@@ -117,7 +117,7 @@ $navbar-item-width: 100px !default;
     font-size: inherit;
     line-height: normal;
 
-    // This should be a value coming from $navbar-padding, using a sizes.scss value 
+    // This should be a value coming from $navbar-padding, using a sizes.scss value
     // won't have the eye-candy behavior we are looking for
     &:first-child:nth-last-child(2) {
       margin-right: $navbar-padding * 2;
@@ -151,6 +151,7 @@ $navbar-item-width: 100px !default;
 
   .navbar-list {
     display: flex;
+    height: inherit;
 
     // - Opportunity area -:
     // Bootstrap{source} not following the OCSS pattern
@@ -161,8 +162,9 @@ $navbar-item-width: 100px !default;
     margin: 0;
 
     & .navbar-list-item {
-      display: block;
-      position: relative;
+      display: flex;
+      height: inherit;
+      align-items: center;
       background-color: $navbar-item-background-color-default;
 
       &:not(.disabled-animation) {
@@ -205,9 +207,20 @@ $navbar-item-width: 100px !default;
       button,
       .navbar-button {
         @extend .btn-flat;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: $navbar-padding;
         width: 100%;
+
+        // <button> element cannot be a flex container in some browsers
+        // The idea is to maintain a level of common sense when styling HTML elements.
+        // For instance, the rule prevents authors from turning a fieldset into a table.
+        &::before,
+        &::after {
+          content: '';
+          flex: 1 0 auto;
+        }
       }
     }
   }
@@ -291,15 +304,15 @@ $navbar-item-width: 100px !default;
 // Aiming the classname variations, doing this we can select all variations having this as
 // prefix or suffix without actually declaring.
 // For more information please refer to "CSS class prefix/suffix"
-&[class^="navbar-fixed-"],
-&[class*=" navbar-fixed-"] {
+[class^="navbar-fixed-"],
+[class*=" navbar-fixed-"] {
   position: fixed;
   border: none;
   z-index: 1;
 }
 
-&.navbar-fixed-top,
-&.navbar-fixed-bottom {
+.navbar-fixed-top,
+.navbar-fixed-bottom {
   right: 0;
   left: 0;
 
@@ -308,12 +321,12 @@ $navbar-item-width: 100px !default;
   }
 }
 
-&.navbar-fixed-top {
+.navbar-fixed-top {
   top: 0;
   border-bottom: 1px solid $navbar-border-color;
 }
 
-&.navbar-fixed-bottom {
+.navbar-fixed-bottom {
   bottom: 0;
   border-top: 1px solid $navbar-border-color;
 }
@@ -325,7 +338,7 @@ $navbar-item-width: 100px !default;
     & > .navbar-container {
       width: 100%;
     }
-    
+
     // Moving the logo and company's name to the center and forcing it to use
     // the 100% of the available space
     [class^="navbar-brand"],

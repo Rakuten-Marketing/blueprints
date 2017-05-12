@@ -9,7 +9,7 @@ $nav-tabs-active-link-border-color: $brand-primary;
 $nav-tabs-condensed-link-hover-color: $brand-primary;
 $nav-tabs-condensed-link-bg: $brand-white;
 
-.nav {
+.nav:not(.navbar-list) {
   > li > a:hover,
   > li > a:focus {
     color: $brand-white;
