@@ -32,7 +32,6 @@
     this.list = this.children[0];
     this.list.classList.add('dropdown-menu');
     if (this.hasAttribute("button-class")) {
-      console.log(this.getAttribute("button-class"));
       this.buttonClass = this.getAttribute("button-class").split(' ');
     }
     if (this.hasAttribute("title")) {
