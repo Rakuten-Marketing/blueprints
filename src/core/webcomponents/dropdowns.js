@@ -17,7 +17,7 @@
     this.classList.add('dropdown');
     this.animating = false;
     this.open = false;
-    this.buttonClass = 'btn-default';
+    this.buttonClass = ['btn-default'];
     this.maxRetries = 10; //will check this many times to see if it can work if DOM rendering slowly
   };
 
@@ -32,12 +32,13 @@
     this.list = this.children[0];
     this.list.classList.add('dropdown-menu');
     if (this.hasAttribute("button-class")) {
-      this.buttonClass = this.getAttribute("button-class");
+      console.log(this.getAttribute("button-class"));
+      this.buttonClass = this.getAttribute("button-class").split(' ');
     }
     if (this.hasAttribute("title")) {
       temp.innerHTML = dropdownButtonTemplate;
       temp.children[0].innerHTML = this.getAttribute("title");
-      temp.children[0].classList.add(this.buttonClass);
+      temp.children[0].classList.add.apply(temp.children[0].classList, this.buttonClass);
     } else {
       temp.innerHTML = dropdownAnchorTemplate;
     }
@@ -98,9 +99,9 @@
         this.button.getElementsByTagName("span")[0].setAttribute("class", newVal);
         break;
       case "button-class":
-        this.button.classList.remove(this.buttonClass);
-        this.buttonClass = newVal;
-        this.button.classList.add(this.buttonClass);
+        this.button.classList.remove.apply(this.button.classList, this.buttonClass);
+        this.buttonClass = newVal.split(' ');
+        this.button.classList.add.apply(this.button.classList, this.buttonClass);
         break;
     }
   };
