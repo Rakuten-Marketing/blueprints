@@ -162,7 +162,7 @@ module.exports = function(grunt) {
     },
 
     vendor: {
-      // TODO: Lines #132 and #133 should go out soon.
+      // TODO: Lines #167 and #168 should go out soon.
       src: [
         './node_modules/jquery/dist/jquery.js',
         './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
@@ -195,7 +195,7 @@ module.exports = function(grunt) {
     var highlight = function(contents) {
       return contents
         .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
-        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>')
+        .replace(/\{\%\sendhighlight\s\%\}/g, '</div>');
     };
 
     files.forEach(function(path) {
@@ -253,16 +253,16 @@ module.exports = function(grunt) {
   ]);
 
   /* Prepare dist */
+  /* We add a couple of steps here (these ones are not required in development process) */
+  /* We move|copy the used fonts and we JS files */
   grunt.registerTask('dist', [
     'build',
-    'postcss:dist',
-    'concat:blueprints',
     'copy:fonts',
     'uglify'
   ]);
 
   /* Initializes the server and first-run compiles the application */
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['dist']);
   grunt.registerTask('server', function() {
     // Clone partials if they don't exist
     if (!grunt.file.isDir('./build/bootstrap-partials')) {
