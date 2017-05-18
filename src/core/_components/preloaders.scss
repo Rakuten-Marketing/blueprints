@@ -139,6 +139,18 @@
   }
 }
 
+// Moving one level down (presumably the lowest level) the blocking elements
+// when they are not needed (a state different to a "loading" state)
+.state-indicator-container:not(.loading) {
+  &::before {
+    z-index: -1;
+  }
+
+  & > .state-indicator {
+    z-index: -1;
+  }
+}
+
 .state-indicator-container.loading,
 .state-indicator-container[data-state="loading"] {
   &::before {
