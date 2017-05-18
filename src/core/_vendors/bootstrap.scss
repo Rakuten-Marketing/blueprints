@@ -1,226 +1,221 @@
 // Scaffolding
-$body-bg: $brand-white;
-$text-color: $brand-gray-darker;
+$body-bg: $brand-white !default;
+$text-color: $brand-gray-darker !default;
 
-$link-color: $brand-primary;
-$link-hover-color: $brand-primary;
-$link-hover-decoration: underline;
+$link-color: $brand-primary !default;
+$link-hover-color: $brand-primary !default;
+$link-hover-decoration: underline !default;
 
-$disabled-element-opacity: 0.85;
-$caption-default-font-size: $size-s;
+$disabled-element-opacity: 0.85 !default;
+$caption-default-font-size: $size-s !default;
 
 // Typography
-$font-family-base: $brand-font-family;
-$font-size-base: $brand-font-size;
+$font-family-base: $brand-font-family !default;
+$font-size-base: $brand-font-size !default;
 
-$font-size-h1: $brand-font-size-h1;
-$font-size-h2: $brand-font-size-h2;
-$font-size-h3: $brand-font-size-h3;
-$font-size-h4: $brand-font-size-h4;
-$font-size-h5: $brand-font-size-h5;
-$font-size-h6: $brand-font-size-h6;
+$font-size-h1: $brand-font-size-h1 !default;
+$font-size-h2: $brand-font-size-h2 !default;
+$font-size-h3: $brand-font-size-h3 !default;
+$font-size-h4: $brand-font-size-h4 !default;
+$font-size-h5: $brand-font-size-h5 !default;
+$font-size-h6: $brand-font-size-h6 !default;
 
 // Components
-$padding-base-vertical: $size-xs;
-$padding-base-horizontal: $size-xs;
+$padding-base-vertical: $size-xs !default;
+$padding-base-horizontal: $size-xs !default;
 
-$padding-large-vertical: $size-xs;
-$padding-large-horizontal: $size-xs;
+$padding-large-vertical: $size-xs !default;
+$padding-large-horizontal: $size-xs !default;
 
-$padding-small-vertical: $size-xs;
-$padding-small-horizontal: $size-xs;
+$padding-small-vertical: $size-xs !default;
+$padding-small-horizontal: $size-xs !default;
 
-$padding-xs-vertical: $size-xs;
-$padding-xs-horizontal: $size-xs;
+$padding-xs-vertical: $size-xs !default;
+$padding-xs-horizontal: $size-xs !default;
 
-$border-radius-base: 0;
-$border-radius-large: 0;
-$border-radius-small: 0;
+$border-radius-base: 0 !default;
+$border-radius-large: 0 !default;
+$border-radius-small: 0 !default;
 
 /* Preloaders (state-indicator) */
-$state-indicator-fullscreen-initial-animation-width: 100px;
+$state-indicator-fullscreen-initial-animation-width: 100px !default;
 
-$state-indicator-default-spinning-circle-size: $size-xl;
-$state-indicator-default-spinning-circle-color: $brand-primary-darker;
-$state-indicator-default-spinning-circle-background-color: $brand-primary-lighter;
+$state-indicator-default-spinning-circle-size: $size-xl !default;
+$state-indicator-default-spinning-circle-color: $brand-primary-darker !default;
+$state-indicator-default-spinning-circle-background-color: $brand-primary-lighter !default;
 
-$state-indicator-condensed-circle-size: $size-l;
+$state-indicator-condensed-circle-size: $size-l !default;
 
-$state-indicator-default-padding: $size-xs;
-$state-indicator-default-background-color: $brand-white;
-$state-indicator-default-background-opacity: $disabled-element-opacity;
+$state-indicator-default-padding: $size-xs !default;
+$state-indicator-default-background-color: $brand-white !default;
+$state-indicator-default-background-opacity: $disabled-element-opacity !default;
 
 // Tables
-$table-default-padding: $size-s;
-$table-condensed-padding: $size-xs;
-$table-default-border-color: $brand-passive-border-color;
-$table-deafult-background-color: $brand-white;
-$table-default-text-color: $brand-gray-dark;
-$table-header-text-color: $brand-gray-darker;
-$table-header-font-size: $size-s;
-$table-header-background-color: $brand-passive-gray-lighter;
-$table-accent-color: $brand-gray-lighter;
-$table-hover-color: $brand-passive-gray-light;
-$table-secondary-border-color: $brand-gray-lighter;
-$table-caption-color: $brand-gray;
+$table-default-padding: $size-s !default;
+$table-condensed-padding: $size-xs !default;
+$table-default-border-color: $brand-passive-border-color !default;
+$table-deafult-background-color: $brand-white !default;
+$table-default-text-color: $brand-gray-dark !default;
+$table-header-text-color: $brand-gray-darker !default;
+$table-header-font-size: $size-s !default;
+$table-header-background-color: $brand-passive-gray-lighter !default;
+$table-accent-color: $brand-gray-lighter !default;
+$table-hover-color: $brand-passive-gray-light !default;
+$table-secondary-border-color: $brand-gray-lighter !default;
+$table-caption-color: $brand-gray !default;
 
 // Buttons
-$btn-default-color: $brand-gray;
-$btn-default-bg: $brand-white;
-$btn-default-border: $brand-passive-border-color;
+$btn-default-color: $brand-gray !default;
+$btn-default-bg: $brand-white !default;
+$btn-default-border: $brand-passive-border-color !default;
 
-$btn-primary-color: $brand-white;
-$btn-primary-bg: $brand-primary;
-$btn-primary-border: $brand-primary;
+$btn-primary-color: $brand-white !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: $brand-primary !default;
 
-$btn-success-color: $brand-white;
-$btn-success-bg: $brand-success;
-$btn-success-border: $brand-success;
+$btn-success-color: $brand-white !default;
+$btn-success-bg: $brand-success !default;
+$btn-success-border: $brand-success !default;
 
-$btn-info-color: $brand-white;
-$btn-info-bg: $brand-info;
-$btn-info-border: $brand-info;
+$btn-info-color: $brand-white !default;
+$btn-info-bg: $brand-info !default;
+$btn-info-border: $brand-info !default;
 
-$btn-warning-color: $brand-white;
-$btn-warning-bg: $brand-warning;
-$btn-warning-border: $brand-warning;
+$btn-warning-color: $brand-white !default;
+$btn-warning-bg: $brand-warning !default;
+$btn-warning-border: $brand-warning !default;
 
-$btn-danger-color: $brand-white;
-$btn-danger-bg: $brand-danger;
-$btn-danger-border: $brand-danger;
+$btn-danger-color: $brand-white !default;
+$btn-danger-bg: $brand-danger !default;
+$btn-danger-border: $brand-danger !default;
 
-$btn-link-disabled-color: $brand-gray-lighter;
+$btn-link-disabled-color: $brand-gray-lighter !default;
 
 // Forms
-$input-bg: $brand-white;
-$input-bg-disabled: $brand-gray-lighter;
-$input-color: $brand-gray-darker;
-$input-border: $brand-passive-border-color;
-$input-border-focus: $brand-passive-border-focus-color;
-$input-color-placeholder: $brand-gray;
+$input-bg: $brand-white !default;
+$input-bg-disabled: $brand-gray-lighter !default;
+$input-color: $brand-gray-darker !default;
+$input-border: $brand-passive-border-color !default;
+$input-border-focus: $brand-passive-border-focus-color !default;
+$input-color-placeholder: $brand-gray !default;
 
-$legend-color: $brand-gray-lighter;
-$input-group-addon-bg: $brand-gray-lighter;
-$cursor-disabled: normal;
+$legend-color: $brand-gray-lighter !default;
+$input-group-addon-bg: $brand-gray-lighter !default;
+$cursor-disabled: normal !default;
 
-$state-success-text: $brand-success;
-$state-success-bg: $brand-success;
-$state-success-border: $brand-success;
+$state-success-text: $brand-success !default;
+$state-success-bg: $brand-success !default;
+$state-success-border: $brand-success !default;
 
-$state-info-text: $brand-info;
-$state-info-bg: $brand-info;
-$state-info-border: $brand-info;
+$state-info-text: $brand-info !default;
+$state-info-bg: $brand-info !default;
+$state-info-border: $brand-info !default;
 
-$state-warning-text: $brand-warning;
-$state-warning-bg: $brand-warning;
-$state-warning-border: $brand-warning;
+$state-warning-text: $brand-warning !default;
+$state-warning-bg: $brand-warning !default;
+$state-warning-border: $brand-warning !default;
 
-$state-danger-text: $brand-danger;
-$state-danger-bg: $brand-danger;
-$state-danger-border: $brand-danger;
+$state-danger-text: $brand-danger !default;
+$state-danger-bg: $brand-danger !default;
+$state-danger-border: $brand-danger !default;
 
 // Dropdowns
-$dropdown-bg: $brand-white;
-$dropdown-border: $brand-gray-lighter;
-$dropdown-fallback-border: $brand-gray;
-$dropdown-divider-bg: $brand-gray-lighter;
-$dropdown-link-color: $brand-gray;
-$dropdown-link-hover-color: $brand-gray-darker;
-$dropdown-link-hover-bg: $brand-white;
-$dropdown-link-active-color: $brand-white;
-$dropdown-link-active-bg: $brand-gray-darker;
-$dropdown-link-disabled-color: $brand-gray-lighter;
-$dropdown-header-color: $brand-gray-lighter;
-$dropdown-caret-color: $brand-gray-lighter;
+$dropdown-bg: $brand-white !default;
+$dropdown-border: $brand-gray-lighter !default;
+$dropdown-fallback-border: $brand-gray !default;
+$dropdown-divider-bg: $brand-gray-lighter !default;
+$dropdown-link-color: $brand-gray !default;
+$dropdown-link-hover-color: $brand-gray-darker !default;
+$dropdown-link-hover-bg: $brand-white !default;
+$dropdown-link-active-color: $brand-white !default;
+$dropdown-link-active-bg: $brand-gray-darker !default;
+$dropdown-link-disabled-color: $brand-gray-lighter !default;
+$dropdown-header-color: $brand-gray-lighter !default;
+$dropdown-caret-color: $brand-gray-lighter !default;
 
 // Navbar
-$navbar-height: 90px;
-$navbar-border-radius: 0;
-$navbar-default-color: $brand-gray-darker;
-$navbar-default-bg: $brand-white;
-$navbar-default-border: transparent;
+$navbar-height: 90px !default;
+$navbar-border-radius: 0 !default;
+$navbar-default-color: $brand-gray-darker !default;
+$navbar-default-bg: $brand-white !default;
+$navbar-default-border: transparent !default;
 
-$navbar-default-link-color: $brand-gray-darker;
-$navbar-default-link-hover-color: $brand-primary;
-$navbar-default-link-hover-bg: $brand-gray-lighter;
-$navbar-default-link-active-color: $brand-primary;
-$navbar-default-link-active-bg: $brand-gray-lighter;
-$navbar-default-link-disabled-color: $brand-gray;
-$navbar-default-link-disabled-bg: transparent;
+$navbar-default-link-color: $brand-gray-darker !default;
+$navbar-default-link-hover-color: $brand-primary !default;
+$navbar-default-link-hover-bg: $brand-gray-lighter !default;
+$navbar-default-link-active-color: $brand-primary !default;
+$navbar-default-link-active-bg: $brand-gray-lighter !default;
+$navbar-default-link-disabled-color: $brand-gray !default;
+$navbar-default-link-disabled-bg: transparent !default;
 
-$navbar-default-toggle-hover-bg: $brand-gray-lighter;
-$navbar-default-toggle-hover-bg: $brand-gray;
-$navbar-default-toggle-hover-bg: $brand-gray-lighter;
+$navbar-default-toggle-hover-bg: $brand-gray-lighter !default;
+$navbar-default-toggle-hover-bg: $brand-gray !default;
+$navbar-default-toggle-hover-bg: $brand-gray-lighter !default;
 
 // Navs
-$nav-link-hover-bg: $brand-primary-darker;
-
-$nav-disabled-link-color: $brand-gray-lighter;
-$nav-disabled-link-hover-color: $brand-gray-lighter;
+$nav-link-hover-bg: $brand-primary-darker !default;
+$nav-disabled-link-color: $brand-gray-lighter !default;
+$nav-disabled-link-hover-color: $brand-gray-lighter !default;
 
 // Tabs
-$nav-tabs-border-color: $brand-gray-lighter;
-$nav-tabs-link-hover-border-color: $brand-gray-lighter;
-$nav-tabs-active-link-hover-bg: $brand-gray-lighter;
-$nav-tabs-active-link-hover-color: $brand-primary;
-$nav-tabs-active-link-hover-border-color: $brand-gray-lighter;
-
-$nav-tabs-justified-link-border-color: $brand-gray-lighter;
+$nav-tabs-border-color: $brand-gray-lighter !default;
+$nav-tabs-link-hover-border-color: $brand-gray-lighter !default;
+$nav-tabs-active-link-hover-bg: $brand-gray-lighter !default;
+$nav-tabs-active-link-hover-color: $brand-primary !default;
+$nav-tabs-active-link-hover-border-color: $brand-gray-lighter !default;
+$nav-tabs-justified-link-border-color: $brand-gray-lighter !default;
 
 // Pills
-$nav-pills-active-link-hover-bg: $brand-primary-darker;
-$nav-pills-active-link-hover-color: $brand-white;
+$nav-pills-active-link-hover-bg: $brand-primary-darker !default;
+$nav-pills-active-link-hover-color: $brand-white !default;
 
 // Pagination
-$pagination-color: $brand-gray-darker;
-$pagination-bg: transparent;
-$pagination-border: transparent;
-
-$pagination-hover-color: $brand-primary;
-$pagination-hover-bg: transparent;
-$pagination-hover-border: transparent;
-
-$pagination-active-color: $brand-primary;
-$pagination-active-bg: transparent;
-$pagination-active-border: transparent;
-
-$pagination-disabled-color: $brand-gray;
-$pagination-disabled-bg: transparent;
-$pagination-disabled-border: transparent;
+$pagination-color: $brand-gray-darker !default;
+$pagination-bg: transparent !default;
+$pagination-border: transparent !default;
+$pagination-hover-color: $brand-primary !default;
+$pagination-hover-bg: transparent !default;
+$pagination-hover-border: transparent !default;
+$pagination-active-color: $brand-primary !default;
+$pagination-active-bg: transparent !default;
+$pagination-active-border: transparent !default;
+$pagination-disabled-color: $brand-gray !default;
+$pagination-disabled-bg: transparent !default;
+$pagination-disabled-border: transparent !default;
 
 // Labels
-$label-default-bg: $brand-gray-light;
-$label-color: $brand-gray-darker;
-$label-link-hover-color: $brand-gray-darker;
+$label-default-bg: $brand-gray-light !default;
+$label-color: $brand-gray-darker !default;
+$label-link-hover-color: $brand-gray-darker !default;
 
 // Alerts
-$alert-padding: $size-xl $size-xxl;
+$alert-padding: $size-xl $size-xxl !default;
 
 // List Group
-$list-group-bg: $brand-white;
-$list-group-border: $brand-white;
-$list-group-hover-bg: $brand-primary-lighter;
-$list-group-active-color: $brand-primary;
-$list-group-active-bg: $brand-primary-lighter;
-$list-group-active-text-color: $brand-primary;
-$list-group-link-color: $brand-gray-darker;
-$list-group-link-hover-color: $brand-primary;
-$list-group-link-heading-color: $brand-gray-darker;
+$list-group-bg: $brand-white !default;
+$list-group-border: $brand-white !default;
+$list-group-hover-bg: $brand-primary-lighter !default;
+$list-group-active-color: $brand-primary !default;
+$list-group-active-bg: $brand-primary-lighter !default;
+$list-group-active-text-color: $brand-primary !default;
+$list-group-link-color: $brand-gray-darker !default;
+$list-group-link-hover-color: $brand-primary !default;
+$list-group-link-heading-color: $brand-gray-darker !default;
 
 // Panels
-$panel-bg: $brand-white;
-$panel-body-padding: $size-m;
-$panel-heading-padding: $size-xs $size-m;
+$panel-bg: $brand-white !default;
+$panel-body-padding: $size-m !default;
+$panel-heading-padding: $size-xs $size-m !default;
 
-$panel-inner-border: $brand-gray-lighter;
-$panel-footer-bg: $brand-white;
+$panel-inner-border: $brand-gray-lighter !default;
+$panel-footer-bg: $brand-white !default;
 
-$panel-default-text: $brand-gray-darker;
-$panel-default-border: $brand-gray-lighter;
-$panel-default-heading-bg: $brand-white;
+$panel-default-text: $brand-gray-darker !default;
+$panel-default-border: $brand-gray-lighter !default;
+$panel-default-heading-bg: $brand-white !default;
 
-$panel-primary-text: $brand-white;
+$panel-primary-text: $brand-white !default;
 
 // Close
-$close-font-weight: normal;
-$close-color: $brand-white;
+$close-font-weight: normal !default;
+$close-color: $brand-white !default;
