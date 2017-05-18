@@ -167,34 +167,31 @@ $navbar-item-width: 100px !default;
       align-items: center;
       background-color: $navbar-item-background-color-default;
 
+      &:hover,
+      &:focus,
+      &.active {
+        color: $navbar-text-color-focused;
+      }
+
       &:not(.disabled-animation) {
         &:hover,
         &:focus,
         &.active {
-          color: $navbar-text-color-focused;
           background-color: $navbar-item-background-color-focused;
-
           @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
         }
       }
+      
+      &.submenu-indicator .navbar-icon::after {
+        content: '';
+        margin-top: $size-xxs;
+        margin-left: $size-xxs;
 
-      &.multilevel {
-        a,
-        button,
-        .navbar-button {
-          &::after {
-            content: '';
-            display: flex;
-            position: absolute;
-            right: $size-xs;
-
-            @extend .caret-down;
-            @extend .transform-centering;
-          }
-        }
+        @extend .caret-down;
+        @extend .transform-centering;
       }
 
-      &.active.multilevel {
+      &.active.submenu {
         @include interactions-bouncing-bottom-line($height: 0);
       }
 
@@ -208,14 +205,17 @@ $navbar-item-width: 100px !default;
       .navbar-button {
         @extend .btn-flat;
         display: flex;
+        align-items: center;
         flex-direction: column;
         justify-content: center;
         padding: $navbar-padding;
+        overflow: hidden;
         width: 100%;
+      }
 
-        // <button> element cannot be a flex container in some browsers
-        // The idea is to maintain a level of common sense when styling HTML elements.
-        // For instance, the rule prevents authors from turning a fieldset into a table.
+      button {
+        // This HTMLelement cannot be a flex container in some browsers
+        // Strict rule: the idea is to maintain a level of common sense when styling HTML elements.
         &::before,
         &::after {
           content: '';
@@ -226,6 +226,8 @@ $navbar-item-width: 100px !default;
   }
 
   .navbar-toolbar {
+    height: initial;
+
     // Aiming the classname variations, doing this we can select all variations having this as
     // prefix or suffix without actually declaring.
     // For more information please refer to "CSS class prefix/suffix"
@@ -245,7 +247,10 @@ $navbar-item-width: 100px !default;
   }
 
   .navbar-icon {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-size: 120%;
 
     &:first-child:nth-last-child(2) {
