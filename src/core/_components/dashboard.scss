@@ -1,4 +1,4 @@
-$offcanvas-color: $brand-passive-elements !default;
+$offcanvas-color: $brand-white !default;
 $header-default-height: 80px !default;
 $footer-default-size: 60px !default;
 $footer-background-color: $brand-gray-dark !default;
@@ -13,6 +13,7 @@ body.contains-dashboard {
 }
 
 .footer {
+  font-family: $brand-font-family-body;
   position: absolute;
   bottom: 0;
 
@@ -24,7 +25,6 @@ body.contains-dashboard {
   padding: $footer-padding;
   
   @include brand-transition(height, 0.35s);
-  -webkit-font-smoothing: antialiased;
 }
 
 .header {

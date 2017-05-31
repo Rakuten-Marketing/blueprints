@@ -1,70 +1,72 @@
 <div class="row">
-  <div class="col-sm-3">
-    <h4>Bootstrap components</h4>
-
+  <div class="col-md-3">
+    <div class="title">Blueprints components</div>
+    <div class="caption mb-2">Webcomponents: custom HTML elements you can use in your application</div>
     <ul class="nav nav-pills nav-stacked">
-      <li ng-class="{active: componentsView.$state.includes('application.components.alerts')}">
-        <a href ng-click="componentsView.switchState('alerts')">Alerts</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.dropdowns">Dropdown Menus</a>
       </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.badges')}">
-        <a href ng-click="componentsView.switchState('badges')">Badges</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.navbars">Navigation Bars</a>
       </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.breadcrumbs')}">
-        <a href ng-click="componentsView.switchState('breadcrumbs')">Breadcrumbs</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.buttons')}">
-        <a href ng-click="componentsView.switchState('buttons')">Buttons</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.dropdowns')}">
-        <a href ng-click="componentsView.switchState('dropdowns')">Dropdown</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.headers')}">
-        <a href ng-click="componentsView.switchState('headers')">Headers</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.icons')}">
-        <a href ng-click="componentsView.switchState('icons')">Icons</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.listgroup')}">
-        <a href ng-click="componentsView.switchState('listgroup')">List Group</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.navigation')}">
-        <a href ng-click="componentsView.switchState('navigation')">Navigation</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.pagination')}">
-        <a href ng-click="componentsView.switchState('pagination')">Pagination</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.panels')}">
-        <a href ng-click="componentsView.switchState('panels')">Panels</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.progressbars')}">
-        <a href ng-click="componentsView.switchState('progressbars')">Progress Bars</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.thumbnails')}">
-        <a href ng-click="componentsView.switchState('thumbnails')">Thumbnails</a>
-      </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.wells')}">
-        <a href ng-click="componentsView.switchState('wells')">Wells</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.indicators">State Indicators</a>
       </li>
     </ul>
 
-    <h4>Custom components</h4>
-
+    <h4>Bootstrap components</h4>
     <ul class="nav nav-pills nav-stacked">
-      <li ng-class="{active: componentsView.$state.includes('application.components.tabscondensed')}">
-        <a href ng-click="componentsView.switchState('tabscondensed')">Tabs (condensed)</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.alerts">Alerts</a>
       </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.formscustom')}">
-        <a href ng-click="componentsView.switchState('formscustom')">Forms (custom)</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.tabscondensed">Tabs</a>
       </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.dropdownsCustom')}">
-        <a href ng-click="componentsView.switchState('dropdownsCustom')">Dropdowns (custom)</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.forms">Forms</a>
       </li>
-      <li ng-class="{active: componentsView.$state.includes('application.components.preloaders')}">
-        <a href ng-click="componentsView.switchState('preloaders')">Loading animations</a>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.badges">Badges</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.breadcrumbs">Breadcrumbs</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.buttons">Buttons</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.dropdowns1">Dropdown</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.headers">Headers</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.icons">Icons</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.listgroup">List Group</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.navigation">Navigation</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.pagination">Pagination</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.panels">Panels</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.progressbars">Progress Bars</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.thumbnails">Thumbnails</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="application.components.wells">Wells</a>
       </li>
     </ul>
   </div>
-  <div class="col-sm-9">
+  <div class="col-md-9">
     <div ui-view="section"></div>
   </div>
 </div>
