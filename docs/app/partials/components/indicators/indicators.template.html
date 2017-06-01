@@ -35,10 +35,10 @@
   </div>
 </div>
 
-<div class="caption">
+<div class="caption p-2">
   You can change the position of the indicator, simply adding any of the following classnames to the
-  <kbd>state-indicator</kbd> element.</br><strong>NOTE:</strong> Be aware if you don't include any of these,
-  your element will inherit <code>.left-top</code> behavior.
+  <kbd>state-indicator</kbd> element, replacing the <code>{alignment}</code> word in the following code
+  (if you don't include any of these, your element will inherit <code>.left-top</code> behavior).
 </div>
 
 <div class="btn-group btn-group-xs" role="group">
@@ -79,21 +79,29 @@
 </div>
 
 <div hljs hljs-language="html">
-<element class="{...} state-indicator-container" data-state="loading">
-  {content here}
-  <div class="state-indicator {classname}">
+<element class="{...} state-indicator-container {loading|done|decision}">
+  // You can add all your content here
+  // Several elements or a single container¹ (wrapper element)
+  // There is an element as the "last element" below, you must respect that
+
+  <div class="state-indicator {alignment}">
     <div class="state-indicator-message">Loading, please wait.</div>
   </div>
 </element>
 </div>
 
-<div class="caption">
-  The <kbd>element</kbd> tag represents any container you want to use (you will get an overlay covering
+<div class="caption p-2">
+  The <kbd>element</kbd> tag represents any block element you want to use (you will get an overlay covering
   the content). That element may or may not have already attached classnames <code>{...}</code>,
-  yet you only need to add the <code>state-indicator-container</code> class to that list.</br></br>
-  <strong>Considerations:</strong> notice the <kbd>data-state=""</kbd> attribute is located at the
-  container level.</br>If you don't want a background, just add the <code>.transparent</code> classname.
-  </br>Please don't try to hide the element using classnames, use the "done" state instead, see below:
+  yet you only need to add the <code>state-indicator-container</code> class to that list.</br>
+  <b>¹</b>Please bear in mind: if you need to use z-index property in your elements, use the single
+  container approach, wrapping everything in a block element (div, etc). You should not be
+  using z-index: custom at this level, action-triggered elements (such tooltips) are fine since
+  are user interaction dependable</br></br>
+
+  <strong>Considerations:</strong> notice the <code>{loading|done|decision}</code> block, you should use
+  only one of those options; see table below for reference. Also <b>don't try to hide the element using classnames</b>,
+  use the <code>"done"</code> state instead, see below:
 </div>
 
 <table class="table table-simple">
@@ -125,13 +133,22 @@
         The interaction for all its children gets restored.
       </td>
     </tr>
+    <tr>
+      <td data-header="Classname"><code>transparent</code></td>
+      <td data-header="Description">
+        This class doesn't handle any state, but removes the background of the overlay</br>
+        Added for special cases you don't want a background covering your elements
+      </td>
+    </tr>
   </tbody>
 </table>
 
-<div class="caption">
+<div class="caption p-2">
   <strong>Classname vs data-attribute</strong></br>
-  If you don't like the idea of using <kbd>data-state=""</kbd> attrobibutes, you can remove it
-  and use classnames with the same values described above in the table.
+  There is a webcomponents friendly option you can use; so instead of using the classnames
+  <code>{loading|done|decision}</code> you can add the attribute <kbd>data-state=""</kbd> with one of those
+  classnames values (don't use both at the same time)<br>
+  Using the web inspector, you will see all the examples in this page are using the attribute way
 </div>
 
 <h3>—  Using the preloader as a standalone element</h3>
@@ -145,15 +162,16 @@
 </div>
 
 <div hljs hljs-language="html">
-<div class="state-indicator {classname}" data-state="loading">
+<div class="state-indicator {alignment} {loading|done|decision}">
   <div class="state-indicator-message">Loading, please wait.</div>
 </div>
 </div>
 
 <div class="caption mb-1">
-  <strong>Considerations:</strong> notice the <kbd>data-state=""</kbd> attribute is transferred to the
-  element itself (default). The values for that attribute are described above, those doesn't change.
-  Same fashion for the <code>{classname}</code> values to change the position of the preloader, however
+  <strong>Considerations:</strong> notice the <code>{loading|done|decision}</code> (think the same for the
+  <kbd>data-state=""</kbd> attribute) is transferred to the element itself (default). The values for that
+  attribute are described above, those doesn't change.
+  Same fashion for the <code>{alignment}</code> values to change the position of the preloader, however
   there are some considerations for the <code>.centered</code> classname, see below:</br></br>
 
   <code>left-top</code>, <code>right-top</code>, <code>right-center</code>, <code>right-bottom</code>,
@@ -214,17 +232,18 @@
 </button>
 
 <div hljs hljs-language="html">
-<element class="btn {...} state-indicator-container" data-state="loading">
-  {Button's text here}
-  <div class="state-indicator {classname}"></div>
+<element class="btn {...} state-indicator-container {loading|done|decision}">
+  {Text here}
+  <div class="state-indicator {alignment}"></div>
 </element>
 </div>
 
-<div class="caption">
+<div class="caption pt-2">
   The <kbd>element</kbd> tag represents any container you want to use (you will get an overlay covering
   the content). That element may or may not have already attached classnames <code>{...}</code>,
-  yet you only need to add the <code>state-indicator-container</code> class to that list.</br></br>
-  Press here to switch the state of the buttons above</br>
+  yet you only need to add the <code>state-indicator-container</code> class to that list.</br>
+  This model can be applies to a block element and not only to buttons
+  </br></br>Press here to switch the state of the buttons above</br>
 
   <div class="btn-group btn-group-xs mt-1" role="group">
     <button type="submit" ng-click="preloadersView.changeState('loading')"
@@ -247,11 +266,18 @@
 <h3>—  Special cases preloading animations</h3>
 <p>
   There is a last type of animation however due its nature, this can be only used for its special
-  purpose: full-screen preloading. For the example purposes the <code>.fullscreen</code> classname was
-  removed from the block below.
+  purpose: <code>full-screen</code> preloading. Press the following button to see it in action
+  (once appears click anywhere to dismiss it)</br>
+  <b>NOTE:</b> You will need to toggle this classname <code>.fullscreen-preloader</code> to <kbd>body</kbd>
 </p>
 
-<div class="state-indicator-fullscreen mt-2" data-state="loading">
+<button type="submit" ng-click="preloadersView.showFullScreen()" class="btn btn-default">
+  Fullscreen preloader
+</button>
+
+<div class="state-indicator-container fullscreen"
+  ng-class="{ 'loading': preloadersView.fullscreen }"
+  ng-click="preloadersView.showFullScreen()">
   <div class="state-indicator centered">
     <div class="state-indicator-animation"></div>
     <div class="state-indicator-message">Loading</div>
@@ -259,9 +285,9 @@
 </div>
 
 <div hljs hljs-language="html">
-<div class="state-indicator-fullscreen" data-state="loading">
-  {content here}
-  <div class="state-indicator {classname}">
+<div class="state-indicator-container fullscreen {loading|done|decision}">
+  <div class="state-indicator {alignment}">
+    <div class="state-indicator-animation"></div>
     <div class="state-indicator-message">Loading</div>
   </div>
 </div>
