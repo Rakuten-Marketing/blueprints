@@ -32,8 +32,7 @@
     font-size: $table-header-font-size;
     font-weight: normal;
     text-transform: uppercase;
-    font-family: $brand-font-semibold;
-    -webkit-font-smoothing: antialiased;
+    font-family: $brand-font-family-semibold;
 
     & th {
       border: none;
@@ -114,7 +113,7 @@
   }
 
   & tbody {
-    font-size: $caption-default-font-size;
+    font-size: $caption-font-size;
 
     & tr td {
       vertical-align: top;
@@ -185,12 +184,11 @@
         &::before,
         &::after {
           font-weight: normal;
-          font-family: $brand-font-semibold;
+          font-family: $brand-font-family-semibold;
           font-size: $table-header-font-size;
 
           text-transform: uppercase;
           text-align: initial;
-          -webkit-font-smoothing: antialiased;
 
           width: 35%;
         }

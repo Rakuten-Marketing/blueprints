@@ -213,8 +213,7 @@
       abstract: true,
       views: {
         content: {
-          templateUrl: 'app/partials/components/components.template.html',
-          controller: 'ComponentsController as componentsView'
+          templateUrl: 'app/partials/components/components.template.html'
         }
       }
     })
@@ -259,8 +258,8 @@
       }
     })
 
-    .state('application.components.dropdowns', {
-      url: 'dropdowns',
+    .state('application.components.dropdowns1', {
+      url: 'dropdowns1',
         views: {
         section: {
           templateUrl: '../build/bootstrap-partials/docs/_includes/components/dropdowns.html',
@@ -370,32 +369,44 @@
         }
       })
 
-      .state('application.components.formscustom', {
-        url: 'formscustom',
+      .state('application.components.forms', {
+        url: 'forms',
         views: {
           section: {
-            templateUrl: 'app/partials/components/formscustom.template.html',
+            templateUrl: 'app/partials/components/forms/forms.template.html',
             controller: angular.noop
           }
         }
       })
 
-      .state('application.components.dropdownsCustom', {
-        url: 'dropdownsCustom',
+      
+
+
+
+      .state('application.components.dropdowns', {
+        url: 'dropdowns',
         views: {
           section: {
-            templateUrl: 'app/partials/components/dropdownsCustom.template.html',
-            controller: angular.noop
+            templateUrl: 'app/partials/components/dropdowns/dropdowns.template.html',
           }
         }
       })
 
-      .state('application.components.preloaders', {
-        url: 'preloaders',
+      .state('application.components.indicators', {
+        url: 'indicators',
         views: {
           section: {
-            templateUrl: 'app/partials/components/preloaders/preloaders.template.html',
+            templateUrl: 'app/partials/components/indicators/indicators.template.html',
             controller: 'PreloadersController as preloadersView'
+          }
+        }
+      })
+
+      .state('application.components.navbars', {
+        url: 'navbars',
+        views: {
+          section: {
+            templateUrl: 'app/partials/components/navbars/navbars.template.html',
           }
         }
       })

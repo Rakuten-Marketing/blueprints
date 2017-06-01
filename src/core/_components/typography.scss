@@ -1,45 +1,31 @@
 b,
 strong,
 .bold {
-  font-family: $brand-font-semibold;
+  font-family: $brand-font-family-semibold;
   font-weight: normal;
 }
 
-.caption {
-  color: $brand-gray;
-  padding: $size-xxs 0px;
-
-  font-size: $caption-default-font-size;
-  -webkit-font-smoothing: antialiased;
-  text-align: left;
-  display: block;
-}
-
-// Bootstrap is applying the following "margin: 0 0 10px;"
-// there is not such value in our sizes.file
-p {
-  margin: 0;
-  margin-bottom: $size-s;
-}
-
-.section-header {
-  border-bottom: 1px solid $brand-separator-color;
-  margin-bottom: $size-m;
-  padding-bottom: $size-xs; 
-}
-
-.page-header {
-  font-weight: 400;
+.title {
+  font-family: $brand-font-family-base;
+  color: $brand-primary;
   font-size: $size-l;
-  margin: $size-xs 0px;
-  margin-bottom: 0px;
-  padding: 0;
-
-  border: none;
+  margin: 0;
+  padding: 0
 }
 
-.page-description {
-  font-size: $size-s;
-  text-transform: uppercase;
-  color: $brand-muted-text-color;
+.caption {
+  display: block;
+  color: $brand-gray;
+
+  font-family: $brand-font-family-body;
+  font-size: $caption-font-size;
+  text-align: left;
+}
+
+hr.shadow-horizontal {
+  height: 1px;
+  border: none;
+  margin: $size-xs 0;
+  background: $brand-separator-color;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, $brand-separator-color));
 }
