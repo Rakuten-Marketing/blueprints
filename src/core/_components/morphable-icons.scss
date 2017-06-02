@@ -1,6 +1,6 @@
-$morphable-icon-width: $size-l;
-$morphable-icon-height: $size-xxs;
-$morphable-icon-color: $brand-gray-darker;
+$morphable-icon-width: $size-l !default;
+$morphable-icon-height: $size-xxs / 2 !default;
+$morphable-icon-color: $brand-gray-darker !default;
 
 .morphable-icon {
   font-size: inherit;
@@ -27,12 +27,10 @@ $morphable-icon-color: $brand-gray-darker;
     background-color: $morphable-icon-color;
     transition: background-color 0.3s 0.5s ease;
 
-    &.rounded {
-      &,
-      &::before,
-      &::after {
-        border-radius: $morphable-icon-width;
-      }
+    &,
+    &::before,
+    &::after {
+      border-radius: $morphable-icon-width;
     }
 
     // Animation's purposes values, there is no value in our sizes.scss
@@ -48,7 +46,7 @@ $morphable-icon-color: $brand-gray-darker;
       width: inherit;
       height: inherit;
       background: $morphable-icon-color;
-      transition: 0.3s;
+      transition: all 0.3s;
     }
 
     &.dismiss::before,
@@ -57,10 +55,21 @@ $morphable-icon-color: $brand-gray-darker;
     }
 
     &.left-arrow::before,
+    &.left-arrow::after {
+      transform-origin: 0px center;
+    }
+
+    &.right-arrow::before,
+    &.right-arrow::after {
+      transform-origin: right center;
+    }
+
+    &.left-arrow::before,
     &.left-arrow::after,
     &.right-arrow::before,
     &.right-arrow::after {
-      transition: top 0.5s ease;
+      transform: rotate3d(0, 0, 1, 0deg) scale(1);;
+      transition: transform 0.25s ease, top 0.5s 0.25s ease;
     }
   }
 
@@ -73,18 +82,18 @@ $morphable-icon-color: $brand-gray-darker;
     // Animation showing an arrow pointing to the left and to the right
     & .left-arrow::before,
     & .right-arrow::before {
-      transform: rotate3d(0, 0, 1, 40deg);
+      transform: rotate3d(0, 0, 1, 40deg) scale(0.70);
     }
 
     & .left-arrow::after,
     & .right-arrow::after {
-      transform: rotate3d(0, 0, 1, -40deg);
+      transform: rotate3d(0, 0, 1, -40deg) scale(0.70);
     }
 
     & .left-arrow::before,
     & .left-arrow::after {
       transform-origin: 0px center;
-      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.3s 0.6s ease;
+      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.3s 0.3s ease;
       width: $morphable-icon-width - $morphable-icon-height;
       top: 0px;
     }
@@ -92,7 +101,7 @@ $morphable-icon-color: $brand-gray-darker;
     & .right-arrow::before,
     & .right-arrow::after {
       transform-origin: right center;
-      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.5s 0.6s ease;
+      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.5s 0.3s ease;
       width: $morphable-icon-width - $morphable-icon-height;
       top: 0px;
       right: 0px;
@@ -115,7 +124,7 @@ $morphable-icon-color: $brand-gray-darker;
 
     & .dismiss::before,
     & .dismiss::after {
-      transition: top 0.3s ease, transform 0.3s 0.6s ease;
+      transition: top 0.3s ease, transform 0.3s 0.3s ease;
       transform-origin: 50% 50%;
       top: 0px;
     }
