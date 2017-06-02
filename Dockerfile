@@ -1,5 +1,5 @@
 FROM node:6.9
-MAINTAINER patrick henry <patrick.henry@rakuten.com>
+MAINTAINER Jon Swanson <jon.swanson@rakuten.com>
 
 RUN mkdir -p /blueprints
 RUN mkdir -p /blueprints/build
