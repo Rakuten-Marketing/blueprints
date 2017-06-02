@@ -407,6 +407,7 @@
         views: {
           section: {
             templateUrl: 'app/partials/components/navbars/navbars.template.html',
+            controller: 'NavbarsController as navbarsView'
           }
         }
       })

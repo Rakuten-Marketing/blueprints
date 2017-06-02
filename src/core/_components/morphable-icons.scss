@@ -1,0 +1,123 @@
+$morphable-icon-width: $size-l;
+$morphable-icon-height: $size-xxs;
+$morphable-icon-color: $brand-gray-darker;
+
+.morphable-icon {
+  font-size: inherit;
+  background-color: transparent;
+  user-select: none;
+  height: auto;
+  width: auto;
+  border: none;
+  padding: 0;
+
+  @extend .btn-flat;
+  display: inline-flex;
+  align-items: baseline;
+  padding: $navbar-padding;
+
+  &.morphable-icon-standalone .hamburger {
+    @extend .transform-centering;
+  }
+
+  .hamburger {
+    position: relative;
+    width: $morphable-icon-width;
+    height: $morphable-icon-height;
+    background-color: $morphable-icon-color;
+    transition: background-color 0.3s 0.5s ease;
+
+    &.rounded {
+      &,
+      &::before,
+      &::after {
+        border-radius: $morphable-icon-width;
+      }
+    }
+
+    // Animation's purposes values, there is no value in our sizes.scss
+    // Should be pixel "perfect" for this kind of stuff
+    &::before { top: -6px; }
+    &::after  { top: 6px; }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      background: $morphable-icon-color;
+      transition: 0.3s;
+    }
+
+    &.dismiss::before,
+    &.dismiss::after {
+      transition: top 0.3s 0.6s ease, transform 0.6s ease;
+    }
+
+    &.left-arrow::before,
+    &.left-arrow::after,
+    &.right-arrow::before,
+    &.right-arrow::after {
+      transition: top 0.5s ease;
+    }
+  }
+
+  &.open {
+    .hamburger.dismiss {
+      transition: background 0.3s 0.1s ease;
+      background: transparent;
+    }
+
+    // Animation showing an arrow pointing to the left and to the right
+    & .left-arrow::before,
+    & .right-arrow::before {
+      transform: rotate3d(0, 0, 1, 40deg);
+    }
+
+    & .left-arrow::after,
+    & .right-arrow::after {
+      transform: rotate3d(0, 0, 1, -40deg);
+    }
+
+    & .left-arrow::before,
+    & .left-arrow::after {
+      transform-origin: 0px center;
+      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.3s 0.6s ease;
+      width: $morphable-icon-width - $morphable-icon-height;
+      top: 0px;
+    }
+
+    & .right-arrow::before,
+    & .right-arrow::after {
+      transform-origin: right center;
+      transition: top 0.3s ease, width 0.5s 0.3s, transform 0.5s 0.6s ease;
+      width: $morphable-icon-width - $morphable-icon-height;
+      top: 0px;
+      right: 0px;
+    }
+
+    // Simple animation for showing a "minus (-)" sign
+    & .minus::before,
+    & .minus::after {
+      transform: none;
+      top: 0px;
+    }
+
+    & .dismiss::before {
+      transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    & .dismiss::after {
+      transform: rotate3d(0, 0, 1, -45deg);
+    }
+
+    & .dismiss::before,
+    & .dismiss::after {
+      transition: top 0.3s ease, transform 0.3s 0.6s ease;
+      transform-origin: 50% 50%;
+      top: 0px;
+    }
+  }
+}
