@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:6.9
 MAINTAINER patrick henry <patrick.henry@rakuten.com>
 
 RUN mkdir -p /blueprints
