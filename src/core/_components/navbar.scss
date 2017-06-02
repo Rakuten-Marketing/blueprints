@@ -344,10 +344,6 @@ $navbar-item-width: 100px !default;
 // MediaQueries for the .navbar element
 @media (max-width: $screen-sm) {
   .navbar {
-    & .navbar-side {
-      z-index: -1;
-    }
-
     & > .navbar-container {
       width: 100%;
     }
@@ -430,6 +426,10 @@ $navbar-item-width: 100px !default;
           z-index: -1;
 
           @include full-overlay($position: fixed, $fullscreen: false);
+        }
+
+        & .navbar-side:not(.navbar-collapsible) {
+          z-index: -1;
         }
 
         .navbar-center {

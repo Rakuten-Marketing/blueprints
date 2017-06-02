@@ -99,8 +99,12 @@
   }
 
   navbar.createdCallback = function() {
-    this.options = getAttributes.call(this);
-    this.setAttributes(this.options);
+    // Making this webcomponent "highlighted code" friendly (such as hljs)
+    // Also stopping execution if the webcomponent is empty
+    if (!this.parentNode.attributes.hasOwnProperty('code-example') && this.hasChildNodes()) {
+      this.options = getAttributes.call(this);
+      this.setAttributes(this.options);
+    }
   };
 
   // Developers can override these attributes
