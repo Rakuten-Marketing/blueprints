@@ -1,9 +1,33 @@
-$alert-link-color: $brand-white;
+$alert-border-size: 2px !default;
+$alert-border-radius: 0px !default;
+$alert-base-padding: $size-s !default;
 
 .alert {
-  .alert-link {
-    color: $alert-link-color;
+  display: block;
+  color: inherit;
+  margin: 0;
+  padding: $alert-base-padding;
+  background-color: $brand-white;
+  border-width: $alert-border-size;
+  border-radius: $alert-border-radius;
+
+  &.alert-success {
+    color: $brand-success;
+    border-color: $brand-success;
   }
 
-  color: $brand-white;
+  &.alert-warning {
+    color: $brand-warning;
+    border-color: $brand-warning;
+  }
+
+  &.alert-danger {
+    color: $brand-danger;
+    border-color: $brand-danger;
+  }
+
+  & .alert-interactive {
+    font-family: $brand-font-family-body;
+    color: inherit;
+  }
 }

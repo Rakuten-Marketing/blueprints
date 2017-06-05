@@ -222,8 +222,8 @@
       url: 'alerts',
       views: {
         section: {
-          templateUrl: '../build/bootstrap-partials/docs/_includes/components/alerts.html',
-          controller: angular.noop //'AlertsController as alertsView'
+          templateUrl: 'app/partials/components/alerts/alerts.template.html',
+          controller: 'AlertsController as alertsView'
         }
       }
     })
