@@ -1,0 +1,89 @@
+$badge-padding: $size-xxs !default;
+$badge-default-font-size: $size-s !default;
+$badge-default-font-family: $font-monospace-stack !default;
+$badge-default-text-color: $brand-white !default;
+$badge-default-background-color: $text-color !default;
+$badge-default-radius: $size-xxs !default;
+
+.badge {
+  display: inline-flex;
+  font-weight: normal;
+  flex-direction: row;
+  align-items: center;
+
+  &,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &.badge-before {
+    flex-direction: row-reverse;
+
+    .badge-bubble {
+      margin: 0;
+      margin-right: $badge-padding;
+    }
+  }
+
+  &.badge-square {
+    .badge-bubble {
+      padding: $badge-padding * 0.5;
+      border-radius: $badge-default-radius;
+    }
+  }
+
+  &.badge-overlapped {
+    position: relative;
+    
+    .badge-bubble {
+      margin: 0;
+      position: absolute;
+      top: -#{$badge-padding};
+      right: -#{$badge-padding  * 0.5};
+    }
+  }
+
+  & > [class^="badge-"],
+  & > [class*=" badge-"] {
+    line-height: normal;
+  }
+
+  .badge-bubble {
+    font-family: $badge-default-font-family;
+    font-size: $badge-default-font-size;
+    padding: $badge-padding;
+    text-align: center;
+    white-space: nowrap;
+    color: $badge-default-text-color;
+    background-color: $badge-default-background-color;
+    border-radius: 50%;
+    min-width: ($badge-default-font-size * 2) - 2px;
+    margin-left: $badge-padding * 2;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &.badge-success {
+    .badge-bubble {
+      background-color: $brand-success;
+      color: $brand-white;
+    }
+  }
+
+  &.badge-warning {
+    .badge-bubble {
+      background-color: $brand-warning;
+      color: $brand-white;  
+    }
+  }
+
+  &.badge-danger {
+    .badge-bubble  {
+      background-color: $brand-danger;
+      color: $brand-white;	
+    }
+  }
+}

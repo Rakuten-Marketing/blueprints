@@ -1,15 +1,32 @@
-// Importing fonts
-
 @font-face {
-  font-family: 'lft-etica';
+  font-family: 'LFT Etica';
   src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.otf) format('truetype');
   src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.woff) format('woff');
 }
+
 @font-face {
-  font-family: 'lft-etica-semibold';
+  font-family: 'LFT Etica Book';
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Book.otf) format('truetype');
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Book.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'LFT Etica Semibold';
   src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.otf) format('truetype');
   src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.woff) format('woff');
 }
+
+@font-face {
+  font-family: 'LFT Etica Italic';
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Italic.otf) format('truetype');
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Italic.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'LFT Etica Bold';
+  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Bold.otf) format('truetype');
+}
+
 
 // Glyphicons Pro
 @import 'node_modules/glyphicons_pro/sass/glyphicons';

@@ -1,4 +1,7 @@
 /* Navbar.component variables */
+$navbar-overlay-background-color: $brand-gray-dark !default;
+$navbar-overlay-opacity: $disabled-element-opacity !default;
+
 $navbar-background-color: $brand-white !default;
 $navbar-fixed-height: 80px !default;
 $navbar-padding: $size-xxs !default;
@@ -147,6 +150,7 @@ $navbar-item-width: 100px !default;
   .navbar-center {
     flex-basis: 100%;
     justify-content: center;
+    transition: opacity 0.5s 0.25s linear;
   }
 
   .navbar-list {
@@ -167,16 +171,11 @@ $navbar-item-width: 100px !default;
       align-items: center;
       background-color: $navbar-item-background-color-default;
 
-      &:hover,
-      &:focus,
-      &.active {
-        color: $navbar-text-color-focused;
-      }
-
       &:not(.disabled-animation) {
         &:hover,
         &:focus,
         &.active {
+          color: $navbar-text-color-focused;
           background-color: $navbar-item-background-color-focused;
           @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
         }
@@ -354,6 +353,7 @@ $navbar-item-width: 100px !default;
 
     .navbar-collapsible {
       display: inherit;
+      z-index: 1;
     }
 
     .navbar-side:not(.navbar-brand) {
@@ -375,24 +375,65 @@ $navbar-item-width: 100px !default;
     &[class^="navbar-fixed-"],
     &[class*=" navbar-fixed-"] {
       .navbar-center {
-        display: none;
+        display: flex;
+        align-items: baseline;
         position: absolute;
+
+        width: $navbar-item-width;
         height: 100vh;
-        z-index: 3;
         padding: 0;
-        left: 0;
+        left: -#{$navbar-item-width};
+        border-right: 1px solid $navbar-border-color;
+        background-color: $navbar-background-color;
+        transition: left 0.21s linear;
 
         .navbar-list {
-          display: flex;
-          align-content: stretch;
+          margin-top: $navbar-fixed-height;
           flex-flow: column wrap;
-          width: inherit;
+          width: 100%;
+          height: initial;
 
           & .navbar-list-item {
+            font-size: 90%;
             padding: $navbar-padding;
+
+            &:not(.disabled-animation):hover::after,
+            &:not(.disabled-animation):focus::after,
+            &:not(.disabled-animation).active::after {
+              animation: increasing-width 0.5s;
+              width: $size-xxs;
+              height: 100%;
+              left: initial;
+              right: -1px;
+            }
           }
         }
       }
+
+      &::after {
+        display: block;
+        background-color: $navbar-overlay-background-color;
+        transition: opacity 0.5s 0.15s linear;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      &.open {
+        &::after {
+          content: '';
+          opacity: $navbar-overlay-opacity;
+          @include full-overlay($position: fixed, $fullscreen: false);
+        }
+
+        & .navbar-side:not(.navbar-collapsible) {
+          z-index: -1;
+        }
+
+        .navbar-center {
+          left: 0;
+          box-shadow: 4px 0 12px -4px $navbar-overlay-background-color;
+        }
+      }    
     }
   }
 }

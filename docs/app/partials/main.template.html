@@ -1,10 +1,11 @@
 <header class="header" role="banner">
-  <nav class="navbar navbar-fixed-top" role="navigation">
+  <bp-navbar class="navbar navbar-fixed-top" role="navigation">
     <div class="container navbar-container">
 
       <div class="navbar-section navbar-side navbar-collapsible">
-        <a class="navbar-button morphable-hamburger">
-          <span class="hamburger right-arrow"></span>
+        <a class="navbar-button morphable-icon">
+          <span class="hamburger dismiss"></span>
+          <span class="caption ml-2">Menu</span>
         </a>
       </div>
 
@@ -62,10 +63,10 @@
         </div>
       </div>
     </div>
-  </nav>
+  </bp-navbar>
 </header>
 
-<div class="container mt-2" ui-view="content">
+<div class="container mt-4" ui-view="content">
 </div>
 
 <footer class="footer" role="contentinfo">

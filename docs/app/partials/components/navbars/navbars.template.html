@@ -1,0 +1,167 @@
+<div class="section-header">
+  <div class="title">Navigation bars</div>
+  <div class="caption">Responsive element/layout markup with a webcomponent option</div>
+</div>
+<hr class="shadow-horizontal" />
+
+<p>
+  The navbar is a wrapper that positions branding, navigation, and other elements in a single container.
+  It’s easily extensible and can be get super powers if used as a webcomponent, having as the main feature its
+  integrated responsive behavior. 
+</p>
+
+<h3>—  Navbar as a header</h3>
+<p>
+  The header in this page is an example of this implementation; try resizing this window; you can skip the usage
+  of the <kbd>header</kbd> element but if you are using the <code>'fixed-top|fixed-bottom'</code> versions
+  you will need to add some margins (padding between your custom header, the content and the footer if present)
+</p>
+
+<div hljs hljs-language="html">
+<header class="header" role="banner">
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container navbar-container">
+
+      <div class="navbar-section navbar-side navbar-collapsible">
+        <!-- A clickable element here to launch the collapsed menu. 
+        See below, "Morphable icons as collapsed menu indicator" -->
+      </div>
+
+      <div class="navbar-section navbar-side navbar-brand">
+        <a class="navbar-button" ui-sref="application.home">
+          <img class="navbar-brand-logo" src="{img-src}" />
+          <span class="navbar-brand-text">{text}</span>
+        </a>
+      </div>
+
+      <div class="navbar-section navbar-center">
+        <ul class="nav navbar-list">
+
+          <li class="navbar-list-item {active}">
+            <a class="navbar-button">
+              <span class="navbar-icon {icon classnames}"></span>
+              <span class="navbar-icon-label">{label}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-section navbar-side">
+        <div class="nav navbar-list navbar-toolbar">
+          <!-- Whatever you want to add here -->
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+</div>
+
+<div class="caption p-2">
+	You can also inspect this page if you are interested in the <kbd>navbar-toolbar</kbd> user here
+</div>
+
+<h3>—  Morphable icons as collapsed menu indicator</h3>
+<p>
+  Identified with the <kbd>navbar-collapsible</kbd> classname.</br>
+  There are a couple of options you can take advantage of, use the label next to each icon as the
+  <code>{classname}</code></br> you only need to toggle the <code>open</code> classname<b>¹</b></br>
+  <b>Try by yourself,</b> the following are clickable elements
+</p>
+
+<a class="btn btn-default morphable-icon morphable-icon-standalone open" ng-click="navbarsView.toggleClass($event)">
+  <span class="hamburger left-arrow"></span>
+  <span class="caption ml-2">left-arrow</span>
+</a>
+
+<a class="btn btn-default morphable-icon morphable-icon-standalone open" ng-click="navbarsView.toggleClass($event)">
+  <span class="hamburger right-arrow"></span>
+  <span class="caption ml-2">right-arrow</span>
+</a>
+
+<a class="btn btn-default morphable-icon morphable-icon-standalone open" ng-click="navbarsView.toggleClass($event)">
+  <span class="hamburger minus"></span>
+  <span class="caption ml-2">minus</span>
+</a>
+
+<a class="btn btn-default morphable-icon morphable-icon-standalone open" ng-click="navbarsView.toggleClass($event)">
+  <span class="hamburger dismiss"></span>
+  <span class="caption ml-2">dismiss</span>
+</a>
+
+<div hljs hljs-language="html">
+<div class="navbar-section navbar-side navbar-collapsible">
+  <a class="navbar-button morphable-icon open¹">
+    <span class="hamburger {classname}"></span>
+    <span class="caption ml-2">Menu</span>
+  </a>
+</div>
+</div>
+
+<div class="caption p-2">
+	The <code>span.caption</code> is optional, just remove it if you don't want a label
+</div>
+
+<p>
+  So you want to use these morphable icons (yeah, that's their name) somewhere else <kbd>outside the
+  navbar?</kbd><br>Yes, just replace the <code>navbar-button</code> with <code>morphable-icon-standalone</code>.
+</p>
+
+<div hljs hljs-language="html">
+<a class="morphable-icon morphable-icon-standalone open¹">
+  <span class="hamburger {classname}"></span>
+  <span class="caption ml-2">minus</span>
+</a>
+</div>
+
+<div class="caption p-2">
+	All rules above applies for this block; also as a recommendation try using <code>btn btn-default</code> classnames
+	at the same level of <code>morphable-icon</code>. If you inspect this page you will see, icons above are doing this
+</div>
+
+<h3>—  Using the webcomponent</h3>
+<p>
+  To achieve this, you only need to replace the <kbd>nav</kbd> with the following:
+</p>
+
+<div hljs hljs-language="html" code-example>
+<bp-navbar class="navbar navbar-fixed-top" role="navigation"></bp-navbar>
+</div>
+
+<p class="mt-2">
+  All the following attributes are optional but you can take advantage of them to fit your requirements:
+</p>
+
+<table class="table table-simple">
+  <thead>
+    <tr>
+      <th class="text text-left">Attribute</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Classname"><code>responsive</code></td>
+      <td data-header="Description">
+        Boolean: <code>true|false</code>
+        <code>true</code> by default. If present and "true" will also react to the document changes; this
+        because sometimes the used mediaqueries are not enough to handle the responsive behavior in the modern web.
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>template</code></td>
+      <td data-header="Description">
+        String: <code>HTML Template reference</code><br>
+        <code>undefined</code> by default. Shadow DOM template; if present the menu option will be ignored and the
+        template content will be used instead, just add the name as reference to that template|object
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>menu</code></td>
+      <td data-header="Description">
+        String: <code>HTMLElement[classname|id|name]</code></br>
+        <code>navbar-center</code> by default. A refence using the clssname, id or name of an element.
+        This element will be used as the area to collapse when the space is not enough to display its content
+      </td>
+    </tr>
+  </tbody>
+</table>

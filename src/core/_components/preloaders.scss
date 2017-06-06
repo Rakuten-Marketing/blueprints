@@ -43,7 +43,7 @@
 /* Please notice we have special cases, like buttons */
 .state-indicator-container {
   position: relative;
-  overflow: hidden;
+  z-index: 0;
 
   &::before {
     content: '';
@@ -55,12 +55,78 @@
     @include brand-transition(opacity, 0.5s);
   }
 
+  &::before,
+  & > .state-indicator {
+    z-index: 1;
+  }
+
+  & > .state-indicator {
+    @include element-location(top-left);
+  }
+
   &.transparent::before {
     background-color: transparent;
   }
 
-  & .state-indicator {
-    @include element-location(top-left);
+  &.fullscreen {
+    justify-content: center;
+    text-align: -webkit-center;
+    position: relative;
+    overflow: hidden;
+
+    &.loading,
+    &[data-state="loading"] {
+      @include centered-content(flex);
+      @include full-overlay($fullscreen: true);
+      pointer-events: initial;
+    }
+
+    & > .state-indicator {
+      animation: increasing-size 1.0s 4.0s;
+      animation-fill-mode: forwards;
+      opacity: 1;
+
+      top: initial;
+      left: initial;
+
+      &::before {
+        display: none;
+      }
+
+      & .state-indicator-animation {
+        margin-bottom: $state-indicator-default-padding * 1.5;
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: relative;
+          background-color: $state-indicator-default-spinning-circle-color;
+        }
+
+        &::before {
+          height: $state-indicator-default-padding / 2;
+          animation: pulling-from-bottom 0.5s,
+                     bouncing-line-width 2.0s 0.5s ease-in-out,
+                     turn-line-into-circle 2.0s 2.0s,
+                     from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+
+          animation-fill-mode: forwards;
+        }
+
+        &::after {
+          opacity: 0;
+          height: $state-indicator-default-padding;
+          width: $state-indicator-default-spinning-circle-size;
+
+          border-radius: 50%;
+          margin-bottom: $state-indicator-default-padding;
+          bottom: -$state-indicator-default-padding;
+          animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
   }
 }
 
@@ -139,18 +205,6 @@
   }
 }
 
-// Moving one level down (presumably the lowest level) the blocking elements
-// when they are not needed (a state different to a "loading" state)
-.state-indicator-container:not(.loading) {
-  &::before {
-    z-index: -1;
-  }
-
-  & > .state-indicator {
-    z-index: -1;
-  }
-}
-
 .state-indicator-container.loading,
 .state-indicator-container[data-state="loading"] {
   &::before {
@@ -164,7 +218,7 @@
     animation-fill-mode: forwards;
   }
 
-  & .state-indicator {
+  & > .state-indicator {
     @extend %show-spinning-circle-animation;
   }
 }
@@ -182,14 +236,31 @@
     animation-fill-mode: forwards;
   }
 
-  & .state-indicator {
+  & > .state-indicator {
     @extend %hide-spinning-circle-animation;
   }
 }
 
+// Moving one level down (presumably the lowest level) the blocking elements
+// when they are not needed (a state different to a "loading" state)
+.state-indicator-container:not(.loading):not([data-state="loading"]) {
+  &::before,
+  & > .state-indicator {
+    z-index: -1;
+    transition: z-index 0.75s step-end;
+  }
+}
+
+// Helper classname when the fullscreen preloader is not located directed
+// as a children of <body>
+.fullscreen-preloader {
+  pointer-events: none;
+  overflow: hidden;
+}
+
 /* State indicator optimization for button elements */
 .btn.state-indicator-container {
-  & .state-indicator {
+  & > .state-indicator {
     top: 0;
     bottom: 0;
     padding: inherit;
@@ -201,62 +272,6 @@
         margin: 0;
         height: $state-indicator-condensed-circle-size;
         width: $state-indicator-condensed-circle-size;
-      }
-    }
-  }
-}
-
-.state-indicator-fullscreen {
-  text-align: -webkit-center;
-  position: relative;
-
-  &.full-screen {
-    @include centered-content(flex);
-    @include full-overlay($fullscreen: true);
-  }
-
-  & .state-indicator {
-    display: table-cell;
-    vertical-align: middle;
-    animation: increasing-size 1.0s 4.0s;
-    animation-fill-mode: forwards;
-    opacity: 1;
-
-    &::before {
-      display: none;
-    }
-
-    & .state-indicator-animation {
-      margin-bottom: $state-indicator-default-padding * 1.5;
-
-      &::before,
-      &::after {
-        content: '';
-        display: block;
-        position: relative;
-        background-color: $state-indicator-default-spinning-circle-color;
-      }
-
-      &::before {
-        height: $state-indicator-default-padding / 2;
-        animation: pulling-from-bottom 0.5s,
-                   bouncing-line-width 2.0s 0.5s ease-in-out,
-                   turn-line-into-circle 2.0s 2.0s,
-                   from-square-to-circle-loop 2.88s 2.75s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-
-        animation-fill-mode: forwards;
-      }
-
-      &::after {
-        opacity: 0;
-        height: $state-indicator-default-padding;
-        width: $state-indicator-default-spinning-circle-size;
-
-        border-radius: 50%;
-        margin-bottom: $state-indicator-default-padding;
-        bottom: -$state-indicator-default-padding;
-        animation: accelerated-fadein 1.0s 2.5s, scale-down 2.88s 2.8s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-        animation-fill-mode: forwards;
       }
     }
   }
