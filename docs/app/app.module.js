@@ -232,8 +232,8 @@
       url: 'badges',
       views: {
         section: {
-          templateUrl: '../build/bootstrap-partials/docs/_includes/components/badges.html',
-          controller: angular.noop //'BadgesController as badgesView'
+          templateUrl: 'app/partials/components/badges/badges.template.html',
+          controller: 'BadgesController as badgesView'
         }
       }
     })
