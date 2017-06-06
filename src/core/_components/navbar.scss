@@ -171,16 +171,11 @@ $navbar-item-width: 100px !default;
       align-items: center;
       background-color: $navbar-item-background-color-default;
 
-      &:hover,
-      &:focus,
-      &.active {
-        color: $navbar-text-color-focused;
-      }
-
       &:not(.disabled-animation) {
         &:hover,
         &:focus,
         &.active {
+          color: $navbar-text-color-focused;
           background-color: $navbar-item-background-color-focused;
           @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
         }
@@ -384,6 +379,7 @@ $navbar-item-width: 100px !default;
         align-items: baseline;
         position: absolute;
 
+        width: $navbar-item-width;
         height: 100vh;
         padding: 0;
         left: -#{$navbar-item-width};
@@ -415,16 +411,17 @@ $navbar-item-width: 100px !default;
       }
 
       &::after {
-        opacity: $navbar-overlay-opacity;
+        display: block;
+        background-color: $navbar-overlay-background-color;
+        transition: opacity 0.5s 0.15s linear;
+        z-index: -1;
+        opacity: 0;
       }
 
       &.open {
         &::after {
           content: '';
-          display: block;
-          background-color: $navbar-overlay-background-color;
-          z-index: -1;
-
+          opacity: $navbar-overlay-opacity;
           @include full-overlay($position: fixed, $fullscreen: false);
         }
 
