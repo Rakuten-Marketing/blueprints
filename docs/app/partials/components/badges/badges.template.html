@@ -1,0 +1,136 @@
+<div class="section-header">
+  <div class="title">Badges</div>
+  <div class="caption">Eye candy element. Regular HTML markup element</div>
+</div>
+<hr class="shadow-horizontal" />
+
+<p>
+  You can add this element to practically all block elements available; the main goal of this element is to
+  easily highlight with (or without) a number any new or unread items. Think about this as a variation of a
+  notification you can add to your elements.
+</p>
+
+<h3>—  How to use this element?</h3>
+<p>
+  There are two types of badges you can take advantage of: <kbd>block</kbd> and <kbd>overlapped</kbd> badges</br>
+  You can only use one of the following <code>badge-success</code>, <code>badge-warning</code> or
+  <code>badge-danger</code>
+</p>
+
+<div hljs hljs-language="html">
+<element class="{...} badge {classnames}¹" type="button">
+  <span class="badge-label">button.btn-default</span>
+  <span class="badge-bubble">4</span>
+</element>
+</div>
+
+<div class="caption p-2">
+  The <kbd>element</kbd> tag represents any block element you want to use. That element may or may not have
+  already attached classnames <code>{...}</code>, yet you only need to add <code>badge</code> classname to that list.
+  <code>¹{classnames}</code> is optional but besides including one of the classnames described above ↑; you can add extra
+  modifier: see the following table for a detailed explanation; if not modifier present the badge will use the default
+  text colors of the <code>body</code> itself
+
+  
+  </br></br><b>Considerations:</b> When the element used to show the badge element doesn't include any
+  <code>Textnode</code> value, the element will try to collapse itself, via CSS's <code>:empty</code> selector.
+  Bear in mind this functionality will not work for Internet Explorer 8 and below since its lack of support for
+  such selector.
+</div>
+
+<table class="table table-simple mb-2">
+  <thead>
+    <tr>
+      <th class="text text-left">Classname</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Classname"><code>badge-before</code></td>
+      <td data-header="Description">
+        If present; this will put the badge before the label; moving it to the left
+        instead of using the default right position.
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>badge-square</code></td>
+      <td data-header="Description">
+        By default the badge will be displayed in a circle; adding this classname will
+        modify it to be a rectangle
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Badges as a block</h4>
+
+<p>
+  This is the default behavior; everything described in this document so far applies for this variant,
+  use the following code block to try it by yourself
+</p>
+
+<a href="#" class="btn btn-link badge {{ badgesView.getClassName() }} mr-4"
+  ng-class="{ 'badge-before': badgesView.badgeBefore, 'badge-square': badgesView.badgeSquare  }">
+  <span class="badge-label">a.btn-link</span>
+  <span class="badge-bubble">1</span>
+</a>
+
+<button class="btn btn-default badge {{ badgesView.getClassName() }}" type="button"
+  ng-class="{ 'badge-before': badgesView.badgeBefore, 'badge-square': badgesView.badgeSquare  }">
+  <span class="badge-label">button.btn-default</span>
+  <span class="badge-bubble">27</span>
+</button>
+</br>
+
+<div class="btn-group btn-group-xs mt-2" role="group">
+  <button type="submit" ng-click="badgesView.classname = 'success'"
+    class="btn btn-default" ng-class="{active: badgesView.classname == 'success'}">
+    badge-success
+  </button>
+
+  <button type="submit" ng-click="badgesView.classname = 'warning'"
+    class="btn btn-default" ng-class="{active: badgesView.classname == 'warning'}">
+    badge-warning
+  </button>
+
+  <button type="submit" ng-click="badgesView.classname = 'danger'"
+    class="btn btn-default" ng-class="{active: badgesView.classname == 'danger'}">
+    badge-danger
+  </button>
+
+  <button type="submit" ng-click="badgesView.classname = false"
+    class="btn btn-danger ml-4">
+    Remove classnames
+  </button>
+</div>
+
+<div hljs hljs-language="html">
+<a href="#" class="btn btn-link badge {classnames}">
+  <span class="badge-label">a.btn-link</span>
+  <span class="badge-bubble">1</span>
+</a>
+
+<button class="btn btn-default badge {classnames}" type="button">
+  <span class="badge-label">button.btn-default</span>
+  <span class="badge-bubble">27</span>
+</button>
+</div>
+
+<h4>Overlapping Badges</h4>
+
+<p>
+  You would like to use this variant for displaying a bubble overlapping an icon; see the following example.
+</p>
+
+<a class="btn btn-link badge badge-overlapped badge-danger">
+  <span class="badge-label glyphicon glyphicon-inbox"></span>
+  <span class="badge-bubble">1</span>
+</a>
+
+<div hljs hljs-language="html">
+<a class="btn btn-link badge badge-overlapped badge-danger">
+  <span class="badge-label glyphicon glyphicon-inbox"></span>
+  <span class="badge-bubble">1</span>
+</a>
+</div>
