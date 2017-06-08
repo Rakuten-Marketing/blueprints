@@ -44,3 +44,9 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.fullscreen-layout {
+  @include full-overlay($fullscreen: true);
+  @include centered-content();
+  justify-content: center;
+}
