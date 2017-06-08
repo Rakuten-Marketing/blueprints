@@ -56,11 +56,11 @@
   }
 
   &::before,
-  & > .state-indicator {
+  & .state-indicator {
     z-index: 1;
   }
 
-  & > .state-indicator {
+  & .state-indicator {
     @include element-location(top-left);
   }
 
@@ -81,7 +81,7 @@
       pointer-events: initial;
     }
 
-    & > .state-indicator {
+    & .state-indicator {
       animation: increasing-size 1.0s 4.0s;
       animation-fill-mode: forwards;
       opacity: 1;
@@ -218,7 +218,7 @@
     animation-fill-mode: forwards;
   }
 
-  & > .state-indicator {
+  & .state-indicator {
     @extend %show-spinning-circle-animation;
   }
 }
@@ -236,7 +236,7 @@
     animation-fill-mode: forwards;
   }
 
-  & > .state-indicator {
+  & .state-indicator {
     @extend %hide-spinning-circle-animation;
   }
 }
@@ -245,7 +245,7 @@
 // when they are not needed (a state different to a "loading" state)
 .state-indicator-container:not(.loading):not([data-state="loading"]) {
   &::before,
-  & > .state-indicator {
+  & .state-indicator {
     z-index: -1;
     transition: z-index 0.75s step-end;
   }
@@ -260,7 +260,7 @@
 
 /* State indicator optimization for button elements */
 .btn.state-indicator-container {
-  & > .state-indicator {
+  & .state-indicator {
     top: 0;
     bottom: 0;
     padding: inherit;
@@ -315,7 +315,6 @@
    50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
   100% { transform: scale(1) rotate(720deg); }
 }
-
 
 
 /* Being this specific since bootstrap rules are doing this */
