@@ -3,10 +3,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     clean: {
-      src: [
-        'build/*',
-        '!build/bootstrap-partials'
-      ]
+      build: {
+        src: [
+          'build/*',
+          '!build/bootstrap-partials'
+        ]
+      },
+      dist: {
+        src: ['dist']
+      }
     },
 
     portPickIndie: {
@@ -65,66 +70,46 @@ module.exports = function(grunt) {
         options: {
           repository: 'https://github.com/twbs/bootstrap.git',
           branch: 'v3.3.6',
-          directory: './build/bootstrap-partials'
+          directory: './node_modules/bootstrap-partials'
         }
       }
     },
 
     copy: {
-      palette: {
-        files: [
-          {
-            src: './src/core/palette.definition.json',
-            dest: './build/docs/palettes.json'
-          }
-        ]
-      },
-
       build: {
         files: [
           {
-            cwd: './build/bootstrap-partials/bootstrap/docs/_includes',
+            cwd: './node_modules/bootstrap-partials/docs/_includes',
             expand: true,
             src: ['css/**.html', 'components/**.html'],
-            dest: './build/docs/partials/'
+            dest: './build/docs/bootstrap-partials'
           },
-
           {
-            cwd: './node_modules/bootstrap-sass/assets/fonts',
-            expand: true,
-            src: ['**/*'],
-            dest: './build/fonts'
+            src: './src/core/palette.definition.json',
+            dest: './build/docs/palettes.json'
           },
-
           {
             cwd: './node_modules/etica-font-pack',
             expand: true,
-            src: ['*.otf', '*.woff'],
-            dest: './build/fonts/etica-font-pack'
+            src: ['**/*'],
+            dest: './build/fonts/lft-etica'
           },
-
           {
             cwd: './node_modules/glyphicons_pro/fonts',
             expand: true,
             src: ['**/*'],
-            dest: './build/fonts'
+            dest: './build/fonts/glyphicons-pro'
           }
         ]
       },
 
-      fonts: {
+      dist: {
         files: [
           {
             cwd: './build/fonts',
             expand: true,
-            src: ['*.otf', '*.woff', '*.woff2', '*.eot', '*.ttf', '*.svg'],
+            src: ['**/*'],
             dest: './dist/fonts'
-          },
-          {
-            cwd: './build/fonts/etica-font-pack',
-            expand: true,
-            src: ['*.otf', '*.woff'],
-            dest: './dist/fonts/etica-font-pack'
           }
         ]
       }
@@ -134,11 +119,6 @@ module.exports = function(grunt) {
       sass: {
         files: ['src/**/*.scss', 'docs/assets/*.scss', '!src/core/_variables/**'],
         tasks: ['sass:build']
-      },
-
-      palette: {
-        files: ['src/core/palette.definition.json'],
-        tasks: ['copy:palette']
       }
     },
 
@@ -162,8 +142,9 @@ module.exports = function(grunt) {
     },
 
     vendor: {
-      // TODO: Lines #167 and #168 should go out soon.
       src: [
+        //Lines #143 and #144 should be gobe soon!
+        // We are using webcomponents; we should not beusing jquery
         './node_modules/jquery/dist/jquery.js',
         './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
         './node_modules/angular/angular.js',
@@ -188,10 +169,7 @@ module.exports = function(grunt) {
 
   // Bootstrap doc partial parsing
   grunt.registerTask('docs:parse', 'parses Bootstrap partials', function() {
-    grunt.log.ok('Parsing Bootstrap doc partials');
-
-    var files = grunt.file.expand('./build/bootstrap-partials/docs/_includes/**/*.html');
-
+    var files = grunt.file.expand('./build/docs/bootstrap-partials/**/*.html');
     var highlight = function(contents) {
       return contents
         .replace(/\{\%\shighlight\s(html|scss)\s\%\}/g, '<div hljs>')
@@ -225,16 +203,16 @@ module.exports = function(grunt) {
     grunt.log.ok('Output: ./build/docs/_variables.json'['green']);
   });
 
-  /* Initializes the server, hosting the application */
-  grunt.registerTask('server:restore', 'initializes the express server', function() {
-    var done = this.async(),
-        port = process.env.PORT || grunt.config.get('port-pick-1');
-
-    require('./server.js')
-      .listen(port)
-      .on('close', done);
-
-    grunt.log.writeln('Application running on http://localhost:%s'['green'], [port]);
+   /* Initializes the server, hosting the application */
+  grunt.registerTask('serverUp', 'initializes the express server', function() {
+    grunt.task.run('portPickIndie')
+    .then(function() {
+      var done = this.async();
+      var port = process.env.PORT || grunt.config.get('port-pick-1');
+      
+      require('./server.js').listen(port).on('close', done);
+      grunt.log.writeln('Application running on http://localhost:%s'['green'], [port]);
+    });
   });
 
   /* Build the current application */
@@ -242,11 +220,9 @@ module.exports = function(grunt) {
     'clean',
     'sass:build',
     'postcss:build',
-    'postcss:dist',
     'sass:json',
-    'docs:parse',
-    'copy:palette',
     'copy:build',
+    'docs:parse',
     'concat:vendor',
     'concat:blueprints',
     'concat:app'
@@ -257,21 +233,24 @@ module.exports = function(grunt) {
   /* We move|copy the used fonts and we JS files */
   grunt.registerTask('dist', [
     'build',
-    'copy:fonts',
+    'clean:dist',
+    'copy:dist',
+    'postcss:dist',
     'uglify'
   ]);
 
   /* Initializes the server and first-run compiles the application */
-  grunt.registerTask('default', ['dist']);
-  grunt.registerTask('server', function() {
-    // Clone partials if they don't exist
-    if (!grunt.file.isDir('./build/bootstrap-partials')) {
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('start', function() {
+    
+    // We are doing this here because the npm package doesn't include the folder we want
+    // In the following releases we won't need these files anymore
+    if (!grunt.file.isDir('./node_modules/bootstrap-partials')) {
       grunt.log.writeln('No bootstrap partials detected. They will need to be cloned.');
       grunt.task.run('gitclone:bootstrap');
     }
 
     grunt.task.run('build');
-    grunt.task.run('portPickIndie');
-    grunt.task.run('server:restore');
+    grunt.task.run('serverUp');
   });
 };
