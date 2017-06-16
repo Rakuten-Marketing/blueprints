@@ -1,0 +1,21 @@
+{
+  "name": "etica-font-pack",
+  "version": "0.0.0",
+  "authors": [
+    "Jon Swanson <jon.swanson@rakuten.com>"
+  ],
+  "description": "Etica font pack purchased for use in RAN products",
+  "main": "LFT_Etica_Reg.otf",
+  "keywords": [
+    "Fonts"
+  ],
+  "license": "MIT",
+  "homepage": "rakutenmarketing.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
