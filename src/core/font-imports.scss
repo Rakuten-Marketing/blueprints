@@ -1,51 +1,50 @@
+// Using a fixed-width or non-proportional font for narrow areas
+// These fonts occupying the same amount of horizontal space help us to avoid
+// unnecessary visual jumps when working with a fixed area.
+// By default using a webfont is disabled; this will fallback in the system's font
+// If you want to add the open source font you have two options:
+// - SASS option: @import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+// - HTML option: <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+$brand-font-path: 'fonts' !default;
+$brand-font-monospace-stack: 'Droid Sans Mono', monospace !default;
+
 @font-face {
   font-family: 'LFT Etica';
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.otf) format('truetype');
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Reg.woff) format('woff');
+  src: url(#{$brand-font-path}/lft-etica/LFT_Etica_Reg.otf) format('truetype'),
+       url(#{$brand-font-path}/lft-etica/LFT_Etica_Reg.woff) format('woff');
 }
 
 @font-face {
   font-family: 'LFT Etica Book';
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Book.otf) format('truetype');
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Book.woff) format('woff');
+  src: url(#{$brand-font-path}/lft-etica/LFT_Etica_Book.otf) format('truetype'),
+       url(#{$brand-font-path}/lft-etica/LFT_Etica_Book.woff) format('woff');
 }
 
 @font-face {
   font-family: 'LFT Etica Semibold';
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.otf) format('truetype');
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Semibold.woff) format('woff');
+  src: url(#{$brand-font-path}/lft-etica/LFT_Etica_Semibold.otf) format('truetype'),
+       url(#{$brand-font-path}/lft-etica/LFT_Etica_Semibold.woff) format('woff');
 }
 
 @font-face {
   font-family: 'LFT Etica Italic';
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Italic.otf) format('truetype');
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Italic.woff) format('woff');
+  src: url(#{$brand-font-path}/lft-etica/LFT_Etica_Italic.otf) format('truetype'),
+       url(#{$brand-font-path}/lft-etica/LFT_Etica_Italic.woff) format('woff');
 }
 
 @font-face {
   font-family: 'LFT Etica Bold';
-  src: url(#{$fonts-path}etica-font-pack/LFT_Etica_Bold.otf) format('truetype');
+  src: url(#{$brand-font-path}/lft-etica/LFT_Etica_Bold.otf) format('truetype');
 }
 
-
-// Glyphicons Pro
-@import 'node_modules/glyphicons_pro/sass/glyphicons';
 @font-face {
   font-family: 'Glyphicons Regular';
-  src: url(#{$fonts-path}glyphicons-regular.eot);
-  src: url(#{$fonts-path}glyphicons-regular.eot?#iefix) format('embedded-opentype'),
-       url(#{$fonts-path}glyphicons-regular.woff2) format('woff2'),
-       url(#{$fonts-path}glyphicons-regular.woff) format('woff'),
-       url(#{$fonts-path}glyphicons-regular.ttf) format('truetype'),
-       url(#{$fonts-path}glyphicons-regular.svg#glyphiconsregular) format('svg');
+  src: url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.eot);
+  src: url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.eot?#iefix) format('embedded-opentype'),
+       url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.woff2) format('woff2'),
+       url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.woff) format('woff'),
+       url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.ttf) format('truetype'),
+       url(#{$brand-font-path}/glyphicons-pro/glyphicons-regular.svg#glyphiconsregular) format('svg');
 }
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
-  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
-}
+@import 'node_modules/glyphicons_pro/sass/glyphicons';

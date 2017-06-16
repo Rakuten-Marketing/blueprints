@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/grunt server",
+    "start": "./node_modules/.bin/grunt start",
     "build": "./node_modules/.bin/grunt"
   },
   "devDependencies": {
@@ -30,6 +30,7 @@
     "grunt-git": "^1.0.0",
     "grunt-sass": "^2.0.0",
     "grunt-postcss": "^0.8.0",
+    "grunt-then": "~1.0.0",
     "grunt-port-pick": "~1.5.3",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
