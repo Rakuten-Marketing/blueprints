@@ -52,11 +52,31 @@
       <div class="navbar-section navbar-side">
         <div class="nav navbar-list navbar-toolbar">
           <div class="navbar-list-item disabled-animation variable-width">
-            <bp-dropdown icon="navbar-icon glyphicons glyphicons-user">
-              <ul class="dropdown-menu-right">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Billing & Payments</a></li>
+            <bp-dropdown class="dropdown dropdown-right">
+              <a class="btn btn-link"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                <span class="glyphicons glyphicons-list-alt"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a target="_blank" href="//github.private.linksynergy.com/SD/blueprints/releases">
+                    Get latest release
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="//github.private.linksynergy.com/SD/blueprints/issues">
+                    Bugs and known issues
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a target="_blank" href="//github.private.linksynergy.com/SD/blueprints">
+                    Become a contributor
+                  </a>
+                </li>
               </ul>
             </bp-dropdown>
           </div>

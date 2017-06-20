@@ -258,16 +258,6 @@
       }
     })
 
-    .state('application.components.dropdowns1', {
-      url: 'dropdowns1',
-        views: {
-        section: {
-          templateUrl: '../build/docs/bootstrap-partials/components/dropdowns.html',
-          controller: angular.noop //'DropdownsController as dropdownsView'
-        }
-      }
-    })
-
     // needs to combine /button-dropdowns.html here
     .state('application.components.buttons', {
       url: 'buttons',

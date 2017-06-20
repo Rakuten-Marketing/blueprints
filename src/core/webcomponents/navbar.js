@@ -70,9 +70,11 @@
   }
 
   function dismissHandler(event) {
+    event.stopPropagation();
+    if (!this.options.attachedEvents) return false;
+
     var target = this.options.menu;
     var button = this.options.button;
-
     if (button.contains(event.target)) return false;
     if (!target.contains(event.target) && hasClass(this, 'open')) {
       this.options.button.classList.remove('open');
@@ -81,11 +83,14 @@
   }
 
   function scrollingHandler(event) {
+    if (!this.options.attachedEvents) return false;
     this.options.button.classList.remove('open');
     this.classList.remove('open');
   }
 
   function resizeHandler(event) {
+    if (!this.options.attachedEvents) return false;
+
     var collission = collisionDetected(this.options.menu);
 
     this.options.button.classList.remove('open');
@@ -129,9 +134,9 @@
     this.options.button = trigger.firstElementChild || undefined;
     if (this.options.button) {
       this.options.attachedEvents = true;
-      this.options.button.addEventListener('click', clickHandler.bind(this));
-      window.addEventListener('scroll', scrollingHandler.bind(this));
-      document.addEventListener('click', dismissHandler.bind(this));
+      this.options.button.addEventListener('click', clickHandler.bind(this), false);
+      window.addEventListener('scroll', scrollingHandler.bind(this), false);
+      document.addEventListener('click', dismissHandler.bind(this), false);
 
       if (this.options.responsive) {
         window.addEventListener('resize', resizeHandler.bind(this));
@@ -147,10 +152,10 @@
   navbar.removedCallback = function() {
     if (!this.options.attachedEvents) return false;
 
-    window.removeEventListener('resize', resizeHandler.bind(this));
-    window.removeEventListener('scroll', scrollingHandler.bind(this));
-    document.removeEventListener('click', dismissHandler.bind(this));
-    this.options.button.removeEventListener('click', clickHandler);
+    window.removeEventListener('resize', resizeHandler.bind(this), false);
+    window.removeEventListener('scroll', scrollingHandler.bind(this), false);
+    document.removeEventListener('click', dismissHandler.bind(this), false);
+    this.options.button.removeEventListener('click', clickHandler, false);
   };
 
   var webcomponent = document.registerElement('bp-navbar', {

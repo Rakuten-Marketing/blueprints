@@ -1,100 +1,180 @@
-bp-dropdown {
-  display: inline-block;
+$dropdown-padding: $size-xxs $size-xs !default;
+$dropdown-min-width: 120px !default;
+$dropdown-default-color: $brand-gray !default;
+$dropdown-border-color: $brand-gray-light !default;
+$dropdown-background-color: $brand-white !default;
+$dropdown-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.15) !default;
+$dropdown-menu-padding: $size-xxs !default;
 
-  > a {
-    text-decoration: none;
-    background-color: transparent;
-    color: inherit;
-    cursor: pointer;
+$dropdown-selected-background-color: $brand-gray-lighter !default;
+$dropdown-header-color: $brand-gray-lighter !default;
+$dropdown-caret-padding: $size-xs !default;
+$dropdown-caret-width: $size-m !default;
+$dropdown-caret-color: $brand-gray !default;
 
-    &:hover,
+bp-dropdown { display: inline-block; }
+.dropdown {
+  position: relative;
+
+  & [data-toggle="dropdown"] {
+    display: flex;
+    user-select: none;
+    align-items: center;
+    align-content: center;
+    height: auto;
+    width: auto;
+
     &:focus {
-      color: $brand-primary;
-      text-decoration: none;
-    }
-  }
-
-  > button > span {
-    margin-left: $size-xxs;
-  }
-
-  .dropdown-menu {
-    padding: 0;
-    height: 0px;
-    @include brand-transition(height, 200ms);
-
-    & > *:first-child {
-      margin-top: $size-xs;
+      outline: 0;
     }
 
-    & > *:last-child {
-      margin-bottom: 0px;
-      padding-bottom: $size-xs;
-    }
+    & .dropdown-title {}
+    & .dropdown-caret {
+      position: relative;
+      align-self: center;
+      margin-left: $dropdown-caret-padding;
+      z-index: 0;
 
-    ul {
-      list-style-type: none;
-      padding-left: 0px;
-    }
-
-    li > a {
-      display: block;
-      padding: $size-xxs $size-m;
-      clear: both;
-      font-weight: normal;
-      line-height: 1.428571429;
-      color: $dropdown-link-color;
-      white-space: nowrap;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        color: $dropdown-link-hover-color;
-        background-color: $dropdown-link-hover-bg;
+      &.caret-default {
+        &::after {
+          content: '';
+          display: inherit;
+          @extend .caret-down;
+        }
       }
+
+      &:not(.caret-default) {
+        width: $dropdown-caret-width;
+        height: 1px;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          height: inherit;
+          width: $dropdown-caret-width - ($size-xxs + 2px);
+          background-color: $dropdown-caret-color;
+          transition: transform 0.1s $brand-easing-function;
+        }
+
+        &::before {
+          transform: translateY(-45%) rotate(47deg);
+        }
+
+        &::after {
+          right: 0;
+          transform: translateY(-45%) rotate(-47deg);
+        }
+      }
+    }
+  }
+
+  & .dropdown-menu {
+    text-align: left;
+    list-style-type: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+    color: $dropdown-default-color;
+    background-color: $dropdown-background-color;
+    background-clip: padding-box;
+
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    height: 0;
+    right: auto;
+    border: 1px solid transparent;
+    box-shadow: none;
+    margin-top: $dropdown-menu-padding;
+    transition: height 0.2s $brand-easing-function, border 0.25s $brand-easing-function, box-shadow 0.25s $brand-easing-function;
+
+    &:not(.variable-width) {
+      min-width: $dropdown-min-width
+    }
+
+    .dropdown-header {
+      @extend .caption;
+
+      display: block;
+      user-select: none;
+      opacity: $disabled-element-opacity;
+      padding: $dropdown-padding;
+      color: $dropdown-header-color;
+      white-space: nowrap;
     }
 
     .divider {
-      margin: $size-xs 0;
+      @extend .shadow-horizontal;
+      margin: $size-xxs 0px;
     }
 
-    // Active state
-    .active > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: inherit;
-        color: $dropdown-link-active-color;
-        text-decoration: none;
-        outline: 0;
-      }
+    & a,
+    & button {
+      align-items: baseline;
+    }
+  }
+
+  &.dropdown-right {
+    & .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  // The dropdown component is open (showing the floating menu)
+  &.open,
+  &[data-open="true"] {
+    & .dropdown-menu {
+      border-color: $dropdown-border-color;
+      @include box-shadow($dropdown-shadow);
     }
 
-    // Disabled state
-    //
-    // Gray out text and ensure the hover/focus state remains gray
-
-    .disabled > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $dropdown-link-disabled-color;
-      }
-
-      // Nuke hover/focus effects
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: transparent;
-        background-image: none; // Remove CSS gradient
-        @include reset-filter;
-        cursor: $cursor-disabled;
+    & .dropdown-caret {
+      &:not(.caret-default) {
+        &::before,
+        &::after {
+          transform: none;
+        }
       }
     }
   }
 
-  &.open .dropdown-menu {
-    display: block;
-    overflow: hidden;
-    height: auto;
+  // We switched the default animations
+  // Right now we are taking as 'default' the height animation (via JS)
+  &.has-fade-animation {
+    & .dropdown-menu {
+      transition: margin 0.15s $brand-easing-function;
+      margin-top: -#{$dropdown-menu-padding};
+    }
+
+    &.open .dropdown-menu,
+    &[data-open="true"] .dropdown-menu {
+      height: auto;
+      margin-top: $dropdown-menu-padding;
+      animation: fadein 0.25s $brand-easing-function;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+// Special classname arrangement for giving interactive (actionable) elements an
+// organized look and feel matching the 'dropdown' context
+.dropdown-interactive {
+  display: block;
+  color: inherit;
+  padding: $dropdown-padding;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: inherit;
+    text-decoration: none;
+    background-color: $dropdown-selected-background-color;
   }
 }

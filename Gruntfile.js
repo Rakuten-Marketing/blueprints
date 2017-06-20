@@ -143,10 +143,6 @@ module.exports = function(grunt) {
 
     vendor: {
       src: [
-        //Lines #143 and #144 should be gobe soon!
-        // We are using webcomponents; we should not beusing jquery
-        './node_modules/jquery/dist/jquery.js',
-        './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
         './node_modules/angular/angular.js',
         './node_modules/angular-ui-router/release/angular-ui-router.js'
       ],
@@ -217,7 +213,7 @@ module.exports = function(grunt) {
 
   /* Build the current application */
   grunt.registerTask('build', [
-    'clean',
+    'clean:build',
     'sass:build',
     'postcss:build',
     'sass:json',

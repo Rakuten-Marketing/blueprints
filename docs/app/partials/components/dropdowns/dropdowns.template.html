@@ -1,138 +1,110 @@
-<h1 class="page-header">Dropdowns (custom)</h1>
-
-<p>
-  Our custom dropdown uses the Web Component api to build out boilerplate
-  HTML and provide standalone javascript functionality for custom animations.
-</p>
-
-<bp-dropdown id="some-id" title="Basic Dropdown">
-  <ul>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</bp-dropdown>
-
-<div hljs>
-<bp-dropdown example=true id="some-id" title="Basic Dropdown">
-  <ul>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</bp-dropdown>
+<div class="section-header">
+  <div class="title">Dropdown Menus</div>
+  <div class="caption">Responsive element/layout markup with a webcomponent option</div>
 </div>
+<hr class="shadow-horizontal" />
 
 <p>
-  The text of the button is determined by the title attribute on the 
-  bp-dropdown element. The content is determined by the HTML content
-  inside of the bp-dropdown element. The content can be either a ul
-  as in the above example or whatever you like wrapped in a div. As in
-  default Bootstrap dropdowns, the "dropup" class also works.
+  A HTML markup block containing two elements:</br>
+  one interactive element (button, anchor or even a block element) that toggles the second element
+  or the popup window you want to display.
 </p>
 
-<bp-dropdown id="some-other-id"
-             class="dropup" 
-             title="Any title text will do" 
-             icon="glyphicon glyphicon-thumbs-up">
-  <div>
-    <h3>Arbitrary stuff</h3>
-    <img src="http://66.media.tumblr.com/avatar_506a1860569c_128.png">
-    <p>Anything you like can go here</p>
+<h3>— A trigger element that shows "something"</h3>
+
+<bp-dropdown class="dropdown">
+  <button class="btn btn-default" type="button" data-toggle="dropdown">
+    <span class="dropdown-title">Simple dropdown</span>
+    <span class="dropdown-caret"></span>
+  </button>
+
+  <div class="dropdown-menu">
+    <div class="p-2">You can include whatever you want here</div>
   </div>
 </bp-dropdown>
 
-<div hljs>
-<bp-dropdown example=true id="some-other-id"
-             class="dropup" 
-             title="Any title text will do" 
-             icon="glyphicon glyphicon-thumbs-up">
-  <div>
-    <h3>Arbitrary stuff</h3>
-    <img src="http://66.media.tumblr.com/avatar_506a1860569c_128.png">
-    <p>Anything you like can go here</p>
+<div hljs hljs-language="html" code-example>
+<bp-dropdown class="dropdown">
+  <button class="btn btn-default" type="button" data-toggle="dropdown">
+    <span class="dropdown-title">Simple dropdown</span>
+    <span class="dropdown-caret"></span>
+  </button>
+
+  <div class="dropdown-menu">
+    <div class="p-2">You can include whatever you want here</div>
   </div>
 </bp-dropdown>
 </div>
 
+<h3>— Using a classname modifier to show a list of items</h3>
 <p>
-  If the bp-element is assigned a title attribute, it will wrap that
-  text in a button. If not, it will provide a borderless icon. The icon
-  attribute accepts class names for the the icon, which is a caret by default.
-  Both the title and icon attributes can be changed post-render in any way and
-  the component will update itself approoriately
+  Having in mind you can add whatever you want to the <kbd>dropdown-menu</kbd> container. You can add a classname
+  to make the interactive elements to look consistent, across all the instances, that classname is <code>dropdown-interactive</code> 
 </p>
 
-<bp-dropdown id="icon-example" icon="glyphicon glyphicon-thumbs-up">
-  <ul>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
+<bp-dropdown class="dropdown">
+  <button class="btn btn-default" type="button" data-toggle="dropdown">
+    <span class="dropdown-title">User actions example</span>
+    <span class="dropdown-caret"></span>
+  </button>
+
+  <ul class="dropdown-menu dropdown-list">
+    <li><a class="dropdown-interactive" href="#">Action</a></li>
+    <li><a class="dropdown-interactive" href="#">Another action</a></li>
+    <li><a class="dropdown-interactive" href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+    <li><a class="dropdown-interactive" href="#">Separated link</a></li>
   </ul>
 </bp-dropdown>
 
-<div hljs>
-<bp-dropdown example=true id="icon-example" icon="glyphicon glyphicon-thumbs-up">
-  <ul>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</bp-dropdown>
-</div>
+<div hljs hljs-language="html" code-example>
+<bp-dropdown class="dropdown dropdown-select">
+  <button class="btn btn-default" type="button" data-toggle="dropdown">
+    <span class="dropdown-title">User actions example</span>
+    <span class="dropdown-caret"></span>
+  </button>
 
-<p>
-  Here is an example of a dropdown that contains an input element
-  which could be used to search or filter the list items
-</p>
-
-<bp-dropdown id="a-filtered-list" title="List with filter">
-  <ul>
-    <li><input type="text" placeholder="this could be a filter"/>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header">Header</li>
+    <li><a class="dropdown-interactive" href="#">Action</a></li>
+    <li><a class="dropdown-interactive" href="#">Another action</a></li>
+    <li><a class="dropdown-interactive" href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li><a href="#">This silly link</a></li>
-  </ul>
-</bp-dropdown>
-
-<div hljs>
-<bp-dropdown example=true id="a-filtered-list" title="List with filter">
-  <ul>
-    <li><input type="text" placeholder="this could be a filter"/>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li><a href="#">This silly link</a></li>
+    <li><a class="dropdown-interactive" href="#">Separated link</a></li>
   </ul>
 </bp-dropdown>
 </div>
 
-<p>
-  As a proper Web Component, we've given the bp-dropdown element native
-  javascript methods that can be called on instances of the element
-  to control the dropdown state of that element.
-</p>
+<h3>—  API: Available functions</h3>
 
-<div hljs>
-document.getElementsByTagName("bp-dropdown")[0].dropdown();      //toggles dropdown state
-document.getElementsByTagName("bp-dropdown")[0].openDropdown();  //opens dropdown if closed
-document.getElementsByTagName("bp-dropdown")[0].closeDropdown(); //closes dropdown if opened
-</div>
-
-<p>
-  These examples target the first bp-dropdown element on page, but you
-  can substitute 'document' with any instance of any element that
-  contains a bp-dropdown element. This is particularly useful for
-  components/controllers in single page app frameworks. 
-</p>
+<table class="table table-simple">
+  <thead>
+    <tr>
+      <th class="text text-left">Action</th>
+      <th class="text text-left">Description</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-header="Classname"><code>dropdown()</code></td>
+      <td data-header="Description">
+        If you add a value (boolean <code>true|false</code>) this function will behave as <code>closeDropdown()</code>
+        when false and as <code>openDropdown()</code> when true. Regular execution of this function is without any parameter;
+        so will toggle the dropdown state. Be aware adding a parameter to this function is not recommended, please use 
+        the funtions close and open instead to fullfill your needs. The parameter included mainly serves an internal usage
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>closeDropdown()</code></td>
+      <td data-header="Description">
+        Closes the dropdown and updates the state of the element; does nothing if not required
+      </td>
+    </tr>
+    <tr>
+      <td data-header="Classname"><code>openDropdown()</code></td>
+      <td data-header="Description">
+        Opens the dropdown and updates the state of the element; does nothing if not required
+      </td>
+    </tr>
+  </tbody>
+</table>
