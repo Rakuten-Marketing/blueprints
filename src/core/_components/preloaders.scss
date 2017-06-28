@@ -43,7 +43,7 @@
 /* Please notice we have special cases, like buttons */
 .state-indicator-container {
   position: relative;
-  z-index: 0;
+  z-index: $zindex-default;
 
   &::before {
     content: '';
@@ -57,7 +57,7 @@
 
   &::before,
   & .state-indicator {
-    z-index: 1;
+    z-index: $zindex-floating;
   }
 
   & .state-indicator {
@@ -246,7 +246,7 @@
 .state-indicator-container:not(.loading):not([data-state="loading"]) {
   &::before,
   & .state-indicator {
-    z-index: -1;
+    z-index: $zindex-disabled;
     transition: z-index 0.75s step-end;
   }
 }

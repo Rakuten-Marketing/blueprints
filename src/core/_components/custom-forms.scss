@@ -29,7 +29,7 @@ $custom-radio-radius: 50%;
 
 .custom-control-input {
   position: absolute;
-  z-index: -1;
+  z-index: $zindex-disabled;
   opacity: 0;
 
   &:checked ~ .custom-control-label:before,
@@ -85,12 +85,12 @@ $custom-radio-radius: 50%;
   }
 
   .custom-control-input:checked ~ .custom-control-label:before {
-    @include custom-control-icon('custom-checkbox-checked-icon', $brand-white);
+    @include custom-control-icon('checkbox-checked', $brand-white);
   }
 
   .custom-control-input:indeterminate ~ .custom-control-label:before {
     background-color: $brand-primary;
-    @include custom-control-icon('custom-checkbox-indeterminate-icon', $brand-white);
+    @include custom-control-icon('checkbox-indeterminate', $brand-white);
   }
 }
 
@@ -106,6 +106,6 @@ $custom-radio-radius: 50%;
 
     //We are talking about the icon size, not about a "size" of element. This need to be the half of whatever assigned
     background-size: $size-m / 2;
-    @include custom-control-icon('custom-radio-checked-icon', $brand-primary);
+    @include custom-control-icon('radiobutton-checked', $brand-primary);
   }
 }

@@ -1,0 +1,62 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "etica-font-pack@git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+        "scope": null,
+        "escapedName": "etica-font-pack",
+        "name": "etica-font-pack",
+        "rawSpec": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+        "spec": "ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+        "type": "git"
+      },
+      "/Users/angel.samano/development/repositories/blueprints"
+    ]
+  ],
+  "_from": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+  "_id": "etica-font-pack@1.0.0",
+  "_inCache": true,
+  "_location": "/etica-font-pack",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "etica-font-pack@git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+    "scope": null,
+    "escapedName": "etica-font-pack",
+    "name": "etica-font-pack",
+    "rawSpec": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+    "spec": "ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+    "type": "git"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#700858b3d2f4b9b8d4828d76a5bd1cb12fdad254",
+  "_shasum": "d29eae493c4ff74007b5b6edf823cbb2ecb4fa60",
+  "_shrinkwrap": null,
+  "_spec": "etica-font-pack@git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
+  "_where": "/Users/angel.samano/development/repositories/blueprints",
+  "author": {
+    "name": "TypeKit, Jon Swanson"
+  },
+  "dependencies": {},
+  "description": "All the etica fonts, bower and npm installable",
+  "devDependencies": {},
+  "gitHead": "700858b3d2f4b9b8d4828d76a5bd1cb12fdad254",
+  "keywords": [
+    "font",
+    "etica"
+  ],
+  "license": "ISC",
+  "name": "etica-font-pack",
+  "optionalDependencies": {},
+  "readme": "LFT Etica Font Pack\n===================\n\nBower-installable font pack. Just bower install the repo and have Etica fonts available.\n\nCurrently only installs the regular font by default.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "http://github.private.linksynergy.com/SD/etica-font-pack.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
