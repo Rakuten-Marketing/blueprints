@@ -8,10 +8,11 @@ html {
   min-height: 100%;
 }
 
-
 iframe,
 object {
   border: none;
+  width: 100%;
+  min-height: 100vh;
 }
 
 :focus {
@@ -31,6 +32,14 @@ object {
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.shadow-horizontal {
+  height: 1px;
+  border: none;
+  margin: $size-xs 0;
+  background: $brand-separator-color;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, $brand-separator-color));
 }
 
 

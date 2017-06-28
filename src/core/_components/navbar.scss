@@ -203,7 +203,6 @@ $navbar-item-width: 100px !default;
       button,
       .navbar-button {
         @extend .btn-flat;
-        align-items: center;
         flex-direction: column;
         justify-content: center;
         padding: $navbar-padding;
@@ -311,7 +310,7 @@ $navbar-item-width: 100px !default;
 [class*=" navbar-fixed-"] {
   position: fixed;
   border: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .navbar-fixed-top,
