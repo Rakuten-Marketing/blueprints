@@ -29,7 +29,7 @@ $custom-radio-radius: 50%;
 
 .custom-control-input {
   position: absolute;
-  z-index: -1;
+  z-index: $zindex-disabled;
   opacity: 0;
 
   &:checked ~ .custom-control-label:before,

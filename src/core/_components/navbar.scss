@@ -310,7 +310,7 @@ $navbar-item-width: 100px !default;
 [class*=" navbar-fixed-"] {
   position: fixed;
   border: none;
-  z-index: 2;
+  z-index: $zindex-fixed-positioned;
 }
 
 .navbar-fixed-top,
@@ -351,7 +351,7 @@ $navbar-item-width: 100px !default;
 
     .navbar-collapsible {
       display: inherit;
-      z-index: 1;
+      z-index: $zindex-floating;
     }
 
     .navbar-side:not(.navbar-brand) {
@@ -412,7 +412,7 @@ $navbar-item-width: 100px !default;
         display: block;
         background-color: $navbar-overlay-background-color;
         transition: opacity 0.5s 0.15s linear;
-        z-index: -1;
+        z-index: $zindex-disabled;
         opacity: 0;
       }
 
@@ -424,7 +424,7 @@ $navbar-item-width: 100px !default;
         }
 
         & .navbar-side:not(.navbar-collapsible) {
-          z-index: -1;
+          z-index: $zindex-disabled;
         }
 
         .navbar-center {
