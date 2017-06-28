@@ -1,1 +1,6 @@
 $brand-easing-function: cubic-bezier(0.5, 0, 0.5, 1) !default;
+
+$zindex-disabled: -1;
+$zindex-default: 0;
+$zindex-floating: 1;
+$zindex-fixed-positioned: 2;

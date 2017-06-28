@@ -33,7 +33,7 @@ bp-dropdown { display: inline-block; }
       position: relative;
       align-self: center;
       margin-left: $dropdown-caret-padding;
-      z-index: 0;
+      z-index: $zindex-default;
 
       &.caret-default {
         &::after {
@@ -83,7 +83,7 @@ bp-dropdown { display: inline-block; }
 
     overflow: hidden;
     position: absolute;
-    z-index: 1;
+    z-index: $zindex-floating;
     top: 100%;
     left: 0;
     height: 0;
