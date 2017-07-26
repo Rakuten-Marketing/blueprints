@@ -2,6 +2,11 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    versionControlHeader: '/*!\n' +
+                          ' * Blueprints v<%= pkg.version %>\n' +
+                          ' * Latest update: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                          ' */\n',
     clean: {
       build: {
         src: [
@@ -22,13 +27,27 @@ module.exports = function(grunt) {
     },
 
     sass: {
-      options: {
-        sourceMap: true
-      },
       build: {
+        options: {
+          sourceMap: true
+        },
+
         files: {
           './build/blueprints.css': './src/blueprints.scss',
           './build/app.css': './docs/assets/app.scss'
+        }
+      }
+    },
+
+    usebanner: {
+      versioning: {
+        options: {
+          position: 'top',
+          banner: '<%= versionControlHeader %>',
+          linebreak: true
+        },
+        files: {
+          src: ['./dist/blueprints.min.css', './dist/blueprints.min.js']
         }
       }
     },
@@ -45,7 +64,10 @@ module.exports = function(grunt) {
           require('autoprefixer')({ browsers: 'last 2 versions'})
         ],
 
-        src: './build/blueprints.css'
+        files: {
+          './build/blueprints.css': './build/blueprints.css',
+          './build/app.css': './build/app.css'
+        }
       },
 
       dist: {
@@ -60,6 +82,7 @@ module.exports = function(grunt) {
             require('cssnano')()
           ]
         },
+
         src: './build/blueprints.css',
         dest: './dist/blueprints.min.css'
       }
@@ -128,7 +151,8 @@ module.exports = function(grunt) {
         sourceMapIncludeSources : true,
         sourceMapIn : '<%= concat.blueprints.dest %>.map'
       },
-      blueprints: {
+
+      dist: {
         files : {
           './dist/blueprints.min.js': ['<%= concat.blueprints.dest %>']
         }
@@ -215,9 +239,9 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:build',
     'sass:build',
-    'postcss:build',
     'sass:json',
     'copy:build',
+    'postcss:build',
     'docs:parse',
     'concat:vendor',
     'concat:blueprints',
@@ -232,8 +256,10 @@ module.exports = function(grunt) {
     'clean:dist',
     'copy:dist',
     'postcss:dist',
-    'uglify'
+    'uglify',
+    'usebanner'
   ]);
+
 
   /* Initializes the server and first-run compiles the application */
   grunt.registerTask('default', ['build']);
