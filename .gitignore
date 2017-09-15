@@ -1,4 +1,5 @@
 /build
+/dist/fonts/lft-etica/package.json
 /node_modules
 /npm-debug.log
 .idea
