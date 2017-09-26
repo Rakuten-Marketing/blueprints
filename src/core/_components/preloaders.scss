@@ -315,28 +315,3 @@
    50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
   100% { transform: scale(1) rotate(720deg); }
 }
-
-
-/* Being this specific since bootstrap rules are doing this */
-/* This code is not related to preloaders, maybe not the best place to leave it (?) */
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-top-left-radius: $size-xxs;
-  border-bottom-left-radius: $size-xxs;
-}
-
-.btn-group > .btn:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child) {
-  border-top-right-radius: $size-xxs;
-  border-bottom-right-radius: $size-xxs;
-}
-
-.btn-group > .btn:hover,
-.btn-group > .btn:focus,
-.btn-group > .btn:active,
-.btn-group > .btn.active,
-.btn-group-vertical > .btn:hover,
-.btn-group-vertical > .btn:focus,
-.btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
-  z-index: initial;
-}
