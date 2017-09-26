@@ -66,10 +66,13 @@ bp-dropdown { display: inline-block; }
       }
     }
 
+    &:focus {
+      outline: 0;
+    }
+
     &:focus,
     &:hover,
     &.active {
-      outline: 0;
       & .dropdown-caret {
         &:not(.caret-default) {
           &::before,
@@ -81,7 +84,6 @@ bp-dropdown { display: inline-block; }
     }
 
     &.btn-primary {
-      outline: 0;
       & .dropdown-caret {
         &:not(.caret-default) {
           &::before,
