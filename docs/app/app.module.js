@@ -293,7 +293,7 @@
       url: 'pagination',
         views: {
           section: {
-            templateUrl: '../build/docs/bootstrap-partials/components/pagination.html',
+            templateUrl: 'app/partials/components/pagination.template.html',
             controller: angular.noop //'PaginationController as paginationView'
           }
         }
@@ -369,7 +369,7 @@
         }
       })
 
-      
+
 
 
 
