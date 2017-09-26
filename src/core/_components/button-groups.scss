@@ -5,3 +5,33 @@
     box-shadow: none;
   }
 }
+
+.btn-group-lg {
+  font-size: $size-l;
+  font-family: $brand-font-family-body;
+  > .btn {
+    padding: $size-xs $size-m;
+  }
+}
+
+.btn-group {
+  >.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  >.btn:last-child.btn-group:not(:first-child), > .dropdown-toggle:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.btn-group > .btn:focus,
+.btn-group > .btn:active,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn:hover,
+.btn-group-vertical > .btn:focus,
+.btn-group-vertical > .btn:active,
+.btn-group-vertical > .btn.active {
+  z-index: initial;
+}
