@@ -1,23 +1,12 @@
 .btn {
   font-size: $font-size-base;
+  font-family: $brand-font-family-base;
+  padding: $size-xs $size-m;
 
   &:active,
   &.active {
     box-shadow: none;
   }
-}
-
-.btn-default {
-  $states: (
-    'color': $btn-default-color,
-    'background': $btn-default-bg,
-    'border': $btn-default-border,
-    'color-active': $brand-gray,
-    'background-active': $brand-gray-lighter,
-    'border-active': $brand-passive-border-focus-color
-  );
-
-  @include bp-button-variant($states);
 }
 
 .btn-primary {
@@ -33,7 +22,7 @@
   @include bp-button-variant($states);
 }
 
-.btn-secondary {
+.btn-default, .btn-secondary {
   $states: (
     'color': $brand-primary,
     'background': $brand-white,
@@ -53,6 +42,11 @@
 }
 
 .btn-sm {
-  padding: $size-xxs;
+  padding: $size-xxs $size-xs;
   font-size: $size-s;
+}
+
+.btn-lg {
+  font-size: $size-l;
+  font-family: $brand-font-family-body
 }
