@@ -140,7 +140,7 @@
       url: 'buttons',
       views: {
         section: {
-          templateUrl: '../build/docs/bootstrap-partials/css/buttons.html',
+          templateUrl: 'app/partials/elements/buttons/buttons.html',
           controller: angular.noop //'ButtonsController as buttonsView'
         }
       }
@@ -263,7 +263,7 @@
       url: 'buttons',
       views: {
         section: {
-          templateUrl: '../build/docs/bootstrap-partials/components/button-groups.html',
+          templateUrl: 'app/partials/components/buttons/button-groups.template.html',
           controller: angular.noop //'ButtonsController as buttonsView'
         }
       }

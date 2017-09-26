@@ -67,7 +67,8 @@ bp-dropdown { display: inline-block; }
     }
 
     &:focus,
-    &:hover {
+    &:hover,
+    &.active {
       outline: 0;
       & .dropdown-caret {
         &:not(.caret-default) {
@@ -199,4 +200,8 @@ bp-dropdown { display: inline-block; }
     text-decoration: none;
     background-color: $dropdown-selected-background-color;
   }
+}
+
+.btn-group-justified > .btn-group bp-dropdown {
+  width: 100%;
 }
