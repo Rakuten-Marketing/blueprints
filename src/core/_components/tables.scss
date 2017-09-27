@@ -47,7 +47,7 @@
   & tbody {
     & tr {
       transition: background-color 0.25s ease-in;
-      
+
       &:last-child() td {
         border-bottom: none;
       }
@@ -83,7 +83,7 @@
 .table-striped {
   & tbody tr:nth-of-type(even) {
     background-color: $table-accent-color;
-  }  
+  }
 }
 
 /* NOTE: This classname should be after the '.table-striped' */
@@ -104,7 +104,7 @@
 
   & thead {
     th, td {
-      padding-bottom: 2px; 
+      padding-bottom: $size-xxxs;
     }
   }
 
@@ -140,7 +140,7 @@
           content: attr(data-header);
           color: $table-header-text-color;
           white-space: initial;
-          width: 100%;     
+          width: 100%;
         }
 
         &::after {
@@ -176,7 +176,7 @@
         flex-direction: row;
         text-align: initial;
         width: initial;
-        
+
         border: none;
         border-bottom: 1px solid $table-secondary-border-color;
         position: relative;
