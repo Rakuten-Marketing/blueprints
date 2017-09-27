@@ -12,7 +12,7 @@ $navbar-text-color-default: inherit !default;
 $navbar-text-color-focused: $brand-primary !default;
 
 $navbar-item-background-color-default: transparent !default;
-$navbar-item-background-color-focused: $brand-gray-lighter !default;
+$navbar-item-background-color-focused: $brand-passive-gray-light !default;
 $navbar-item-width: 100px !default;
 
 // - Opportunity area -:
@@ -180,7 +180,7 @@ $navbar-item-width: 100px !default;
           @include interactions-bouncing-bottom-line($height: $size-xxs, $color: $navbar-text-color-focused);
         }
       }
-      
+
       &.submenu-indicator .navbar-icon::after {
         content: '';
         margin-top: $size-xxs;
@@ -431,7 +431,7 @@ $navbar-item-width: 100px !default;
           left: 0;
           box-shadow: 4px 0 12px -4px $navbar-overlay-background-color;
         }
-      }    
+      }
     }
   }
 }
