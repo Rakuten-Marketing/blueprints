@@ -6,6 +6,7 @@
 
 .form-control {
   box-shadow: none;
+  @include brand-transition(all);
 
   &:focus {
     outline: none;

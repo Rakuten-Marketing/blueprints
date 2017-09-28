@@ -15,6 +15,10 @@ object {
   min-height: 100vh;
 }
 
+a {
+  @include brand-transition(all);
+}
+
 :focus {
   outline: none;
 }
