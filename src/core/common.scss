@@ -11,8 +11,10 @@ html {
 iframe,
 object {
   border: none;
-  width: 100%;
-  min-height: 100vh;
+  &.full {
+    width: 100%;
+    min-height: 100vh;
+  }
 }
 
 a {
