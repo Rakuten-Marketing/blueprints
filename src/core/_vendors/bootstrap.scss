@@ -53,21 +53,21 @@ $state-indicator-default-background-opacity: $disabled-element-opacity !default;
 // Tables
 $table-default-padding: $size-s !default;
 $table-condensed-padding: $size-xs !default;
-$table-default-border-color: $brand-passive-border-color !default;
+$table-default-border-color: $brand-gray-lighter !default;
 $table-deafult-background-color: $brand-white !default;
 $table-default-text-color: $brand-gray-dark !default;
 $table-header-text-color: $brand-gray-darker !default;
 $table-header-font-size: $size-s !default;
-$table-header-background-color: $brand-passive-gray-lighter !default;
-$table-accent-color: $brand-gray-lighter !default;
-$table-hover-color: $brand-passive-gray-light !default;
+$table-header-background-color: $brand-gray-lighter !default;
+$table-accent-color: $brand-gray-lightest !default;
+$table-hover-color: $brand-gray-lighter !default;
 $table-secondary-border-color: $brand-gray-lighter !default;
 $table-caption-color: $brand-gray !default;
 
 // Buttons
 $btn-default-color: $brand-gray !default;
 $btn-default-bg: $brand-white !default;
-$btn-default-border: $brand-passive-border-color !default;
+$btn-default-border: $brand-gray-lighter !default;
 
 $btn-primary-color: $brand-white !default;
 $btn-primary-bg: $brand-primary !default;
@@ -93,10 +93,10 @@ $btn-link-disabled-color: $brand-gray-lighter !default;
 
 // Forms
 $input-bg: $brand-white !default;
-$input-bg-disabled: $brand-gray-lighter !default;
+$input-bg-disabled: $brand-gray-lightest !default;
 $input-color: $brand-gray-darker !default;
-$input-border: $brand-passive-border-color !default;
-$input-border-focus: $brand-passive-border-focus-color !default;
+$input-border: $brand-gray-light !default;
+$input-border-focus: $brand-gray !default;
 $input-color-placeholder: $brand-gray !default;
 
 $legend-color: $brand-gray-lighter !default;
@@ -165,7 +165,7 @@ $pagination-hover-border: transparent !default;
 $pagination-active-color: $brand-primary !default;
 $pagination-active-bg: transparent !default;
 $pagination-active-border: transparent !default;
-$pagination-disabled-color: $brand-passive-gray-dark !default;
+$pagination-disabled-color: $brand-gray-lightest !default;
 $pagination-disabled-bg: transparent !default;
 $pagination-disabled-border: transparent !default;
 
