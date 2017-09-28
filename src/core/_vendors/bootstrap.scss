@@ -59,15 +59,15 @@ $table-default-text-color: $brand-gray-dark !default;
 $table-header-text-color: $brand-gray-darker !default;
 $table-header-font-size: $size-s !default;
 $table-header-background-color: $brand-gray-lighter !default;
-$table-accent-color: $brand-passive-gray-lighter !default;
-$table-hover-color: $brand-passive-gray-light !default;
+$table-accent-color: $brand-gray-lightest !default;
+$table-hover-color: $brand-gray-lighter !default;
 $table-secondary-border-color: $brand-gray-lighter !default;
 $table-caption-color: $brand-gray !default;
 
 // Buttons
 $btn-default-color: $brand-gray !default;
 $btn-default-bg: $brand-white !default;
-$btn-default-border: $brand-passive-gray-lighter !default;
+$btn-default-border: $brand-gray-lighter !default;
 
 $btn-primary-color: $brand-white !default;
 $btn-primary-bg: $brand-primary !default;
@@ -93,10 +93,10 @@ $btn-link-disabled-color: $brand-gray-lighter !default;
 
 // Forms
 $input-bg: $brand-white !default;
-$input-bg-disabled: $brand-passive-gray-lighter !default;
+$input-bg-disabled: $brand-gray-lightest !default;
 $input-color: $brand-gray-darker !default;
-$input-border: $brand-passive-gray-light !default;
-$input-border-focus: $brand-passive-gray !default;
+$input-border: $brand-gray-light !default;
+$input-border-focus: $brand-gray !default;
 $input-color-placeholder: $brand-gray !default;
 
 $legend-color: $brand-gray-lighter !default;
@@ -165,7 +165,7 @@ $pagination-hover-border: transparent !default;
 $pagination-active-color: $brand-primary !default;
 $pagination-active-bg: transparent !default;
 $pagination-active-border: transparent !default;
-$pagination-disabled-color: $brand-passive-gray-dark !default;
+$pagination-disabled-color: $brand-gray-lightest !default;
 $pagination-disabled-bg: transparent !default;
 $pagination-disabled-border: transparent !default;
 

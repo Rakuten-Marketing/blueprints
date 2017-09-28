@@ -67,7 +67,7 @@
       "variable": "$brand-gray-darker"
     },
     {
-      "rgb": "#343434",
+      "rgb": "#525252",
       "alias": "Brand gray dark",
       "variable": "$brand-gray-dark"
     },
@@ -77,34 +77,19 @@
       "variable": "$brand-gray"
     },
     {
-      "rgb": "#D4D6D9",
+      "rgb": "#AEAEAE",
       "alias": "Brand gray light",
       "variable": "$brand-gray-light"
     },
     {
-      "rgb": "#E6E6E6",
+      "rgb": "#E7E7E7",
       "alias": "Brand gray lighter",
       "variable": "$brand-gray-lighter"
     },
     {
-      "rgb": "#A1A1A1",
-      "alias": "Brand passive gray dark",
-      "variable": "$brand-passive-gray-dark"
-    },
-    {
-      "rgb": "#E2E6E8",
-      "alias": "Brand passive gray",
-      "variable": "$brand-passive-gray"
-    },
-    {
       "rgb": "#F7F7F7",
       "alias": "Brand passive gray light",
-      "variable": "$brand-passive-gray-light"
-    },
-    {
-      "rgb": "#F4F5F6",
-      "alias": "Brand passive gray lighter",
-      "variable": "$brand-passive-gray-lighter"
+      "variable": "$brand-gray-lightest"
     }
   ]
 }
