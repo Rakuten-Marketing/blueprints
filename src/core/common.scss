@@ -42,6 +42,5 @@ a {
   height: 1px;
   border: none;
   margin: $size-xs 0;
-  background: $brand-separator-color;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, $brand-separator-color));
+  background: $brand-gray-lighter;
 }
