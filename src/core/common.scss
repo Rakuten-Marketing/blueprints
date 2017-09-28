@@ -15,6 +15,10 @@ object {
   min-height: 100vh;
 }
 
+a {
+  @include brand-transition(all);
+}
+
 :focus {
   outline: none;
 }
@@ -39,13 +43,4 @@ object {
   border: none;
   margin: $size-xs 0;
   background: $brand-gray-lighter;
-}
-
-
-// The following needs attention!
-// Two big issues with the following implementation:
-// 1. We are using bespoke transitions; in this sense animating everything just don't play along
-// 2. If we want to apply a transition effect to all properties in an element: we will add the mixin there
-* {
-  @include brand-transition(all);
 }

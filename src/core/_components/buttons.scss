@@ -2,6 +2,7 @@
   font-size: $font-size-base;
   font-family: $brand-font-family-base;
   padding: $size-xs $size-m;
+  @include brand-transition(all);
 
   &:active,
   &.active {
