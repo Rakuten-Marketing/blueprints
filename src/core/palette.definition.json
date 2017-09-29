@@ -1,175 +1,95 @@
 {
   "primary": [
     {
-      "rgb": "#E6F1F1",
+      "rgb": "#9EDCDE",
       "alias": "Brand primary lighter",
-      "variable": "$brand-primary-lighter",
-      "type": "Primary lighter",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-primary-lighter"
     },
     {
       "rgb": "#3DB8BE",
       "alias": "Brand primary",
-      "variable": "$brand-primary",
-      "type": "Primary Color",
-      "usage": [
-        "Active Sections",
-        "Links",
-        "Buttons"
-      ]
+      "variable": "$brand-primary"
     },
     {
       "rgb": "#2B999F",
       "alias": "Brand primary darker",
-      "variable": "$brand-primary-darker",
-      "type": "Primary darker",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-primary-darker"
     }
   ],
   "secondary": [
     {
       "rgb": "#2B486D",
       "alias": "Brand secondary",
-      "variable": "$brand-secondary",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-secondary"
     },
     {
       "rgb": "#3D669A",
       "alias": "secondary lighter",
-      "variable": "$brand-secondary-lighter",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-secondary-lighter"
     }
   ],
   "notifications": [
     {
       "rgb": "#3D669A",
       "alias": "Brand info",
-      "variable": "$brand-info",
-      "type": "Color",
-      "usage": [
-        "Info marks"
-      ]
+      "variable": "$brand-info"
     },
     {
-      "rgb": "#166151",
+      "rgb": "#1D8C72",
       "alias": "Brand success",
-      "variable": "$brand-success",
-      "type": "Color",
-      "usage": [
-        "Confirmation",
-        "Successes"
-      ]
+      "variable": "$brand-success"
     },
     {
-      "rgb": "#E58A10",
+      "rgb": "#FCB43C",
       "alias": "Brand warning",
-      "variable": "$brand-warning",
-      "type": "Color",
-      "usage": [
-        "Warning"
-      ]
+      "variable": "$brand-warning"
     },
     {
       "rgb": "#E84848",
       "alias": "Brand danger",
-      "variable": "$brand-danger",
-      "type": "Color",
-      "usage": [
-        "Danger"
-      ]
+      "variable": "$brand-danger"
     }
   ],
   "grays": [
     {
-      "rgb": "#000000",
-      "alias": "Brand black",
-      "variable": "$brand-black",
-      "type": "Color",
-      "usage": [
-        "TODO.."
-      ]
-    },
-    {
       "rgb": "#FFFFFF",
       "alias": "Brand white",
-      "variable": "$brand-white",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-white"
+    },
+    {
+      "rgb": "#000000",
+      "alias": "Brand black",
+      "variable": "$brand-black"
     },
     {
       "rgb": "#434343",
       "alias": "Brand gray darker",
-      "variable": "$brand-gray-darker",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-gray-darker"
+    },
+    {
+      "rgb": "#525252",
+      "alias": "Brand gray dark",
+      "variable": "$brand-gray-dark"
     },
     {
       "rgb": "#757575",
       "alias": "Brand gray",
-      "variable": "$brand-gray",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-gray"
     },
     {
-      "rgb": "#D4D6D9",
+      "rgb": "#AEAEAE",
       "alias": "Brand gray light",
-      "variable": "$brand-gray-light",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-gray-light"
     },
     {
-      "rgb": "#E6E6E6",
+      "rgb": "#E7E7E7",
       "alias": "Brand gray lighter",
-      "variable": "$brand-gray-lighter",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-gray-lighter"
     },
     {
-      "rgb": "#E2E6E8",
-      "alias": "Brand passive border color",
-      "variable": "$brand-passive-border-color",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
-    },
-    {
-      "rgb": "#f7f7f7",
+      "rgb": "#F7F7F7",
       "alias": "Brand passive gray light",
-      "variable": "$brand-passive-gray-light",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
-    },
-    {
-      "rgb": "#f4f5f6",
-      "alias": "Brand passive gray lighter",
-      "variable": "$brand-passive-gray-lighter",
-      "type": "Color",
-      "usage": [
-        "TODO..."
-      ]
+      "variable": "$brand-gray-lightest"
     }
   ]
 }

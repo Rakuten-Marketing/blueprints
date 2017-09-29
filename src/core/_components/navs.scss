@@ -10,6 +10,10 @@ $nav-tabs-condensed-link-hover-color: $brand-primary;
 $nav-tabs-condensed-link-bg: $brand-white;
 
 .nav:not(.navbar-list) {
+  > li > a {
+    @include brand-transition(all);
+  }
+
   > li > a:hover,
   > li > a:focus {
     color: $brand-white;
@@ -32,6 +36,7 @@ $nav-tabs-condensed-link-bg: $brand-white;
       border-top: 1px $nav-tabs-border-color solid;
       border-right: 1px $nav-tabs-border-color solid;
       color: $nav-tabs-link-color;
+      @include brand-transition(all);
 
       &::before {
         position: absolute;

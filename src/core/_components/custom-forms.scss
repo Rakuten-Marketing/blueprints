@@ -6,7 +6,7 @@ $custom-radio-radius: 50%;
   display: inline;
   position: relative;
   font-weight: normal;
-  padding-left: $size-xl - 2px; //The -2px is not a random number, is taking care of border pixels
+  padding-left: $size-xl - $size-xxxs;
 
   // Adding a marging to the inputs if inline behavior
   + .custom-control {
