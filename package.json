@@ -1,6 +1,6 @@
 {
   "name": "blueprints",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.11",
   "description": "Styleguide for RAN organisation",
   "private": true,
   "author": "Blueprints Contributers (https://github.private.linksynergy.com/SD/blueprints/graphs/contributors)",
@@ -29,6 +29,7 @@
     "grunt-cli": "^1.2.0",
     "grunt-git": "^1.0.0",
     "grunt-sass": "^2.0.0",
+    "grunt-banner": "^0.6.0",
     "grunt-postcss": "^0.8.0",
     "grunt-then": "~1.0.0",
     "grunt-port-pick": "~1.5.3",
@@ -42,7 +43,6 @@
   },
   "dependencies": {
     "webcomponentsjs": "1.0.2",
-    "jquery": "^3.1.0",
     "bootstrap-sass": "^3.3.6",
     "etica-font-pack": "git+ssh://git@github.private.linksynergy.com:SD/etica-font-pack.git#v0.0.2",
     "glyphicons_pro": "git+ssh://git@github.private.linksynergy.com:SD/glyphicons_pro.git#large_icons"
