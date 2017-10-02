@@ -118,6 +118,12 @@ module.exports = function(grunt) {
             dest: './build/fonts/lft-etica'
           },
           {
+            cwd: './node_modules/bootstrap-sass/assets/fonts/bootstrap',
+            expand: true,
+            src: ['**/*'],
+            dest: './build/fonts/bootstrap'
+          },
+          {
             cwd: './node_modules/glyphicons_pro/fonts',
             expand: true,
             src: ['**/*'],

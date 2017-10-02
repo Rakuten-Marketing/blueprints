@@ -81,7 +81,8 @@
       pointer-events: initial;
     }
 
-    & .state-indicator {
+    & > .state-indicator,
+    & > *:not(.state-indicator-container) > .state-indicator {
       animation: increasing-size 1.0s 4.0s;
       animation-fill-mode: forwards;
       opacity: 1;
@@ -218,7 +219,8 @@
     animation-fill-mode: forwards;
   }
 
-  & .state-indicator {
+  & > .state-indicator,
+  & > *:not(.state-indicator-container) > .state-indicator {
     @extend %show-spinning-circle-animation;
   }
 }
@@ -236,7 +238,8 @@
     animation-fill-mode: forwards;
   }
 
-  & .state-indicator {
+  & > .state-indicator,
+  & > *:not(.state-indicator-container) > .state-indicator {
     @extend %hide-spinning-circle-animation;
   }
 }
@@ -245,7 +248,8 @@
 // when they are not needed (a state different to a "loading" state)
 .state-indicator-container:not(.loading):not([data-state="loading"]) {
   &::before,
-  & .state-indicator {
+  & > .state-indicator,
+  & > *:not(.state-indicator-container) > .state-indicator {
     z-index: $zindex-disabled;
     transition: z-index 0.75s step-end;
   }
@@ -260,7 +264,8 @@
 
 /* State indicator optimization for button elements */
 .btn.state-indicator-container {
-  & .state-indicator {
+  & > .state-indicator,
+  & > *:not(.state-indicator-container) > .state-indicator {
     top: 0;
     bottom: 0;
     padding: inherit;
