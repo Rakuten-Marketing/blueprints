@@ -3,4 +3,4 @@ blueprints:
   build: .
   dockerfile: ./Dockerfile-BOT
   ports:
-    - 3000:3000
+    - 3000:80
