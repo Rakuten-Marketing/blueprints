@@ -21,7 +21,7 @@ You have three options.
 
 #### Option 1
 
-http://10.133.192.166:3000/
+http://blueprints.local.rakutenmarketing.com:3000/
 
 #### Option 2
 
