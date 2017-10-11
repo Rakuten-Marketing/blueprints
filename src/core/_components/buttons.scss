@@ -10,6 +10,19 @@
   }
 }
 
+.btn-default {
+  $states: (
+    'color': $btn-default-color,
+    'background': $btn-default-bg,
+    'border': $btn-default-border,
+    'color-active': $brand-gray-darker,
+    'background-active': $brand-white,
+    'border-active': $brand-gray,
+  );
+
+  @include bp-button-variant($states);
+}
+
 .btn-primary {
   $states: (
     'color': $brand-white,
@@ -23,7 +36,7 @@
   @include bp-button-variant($states);
 }
 
-.btn-default, .btn-secondary {
+.btn-secondary {
   $states: (
     'color': $brand-primary,
     'background': $brand-white,
