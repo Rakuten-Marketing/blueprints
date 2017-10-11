@@ -9,12 +9,12 @@
   max-width: 100%;
   line-height: $line-height-base;
 
-  td, th {
-    padding: $table-default-padding;
-  }
-
   &:not(.transparent) {
     background-color: $table-deafult-background-color;
+  }
+
+  td, th {
+    padding: $table-default-padding;
   }
 
   & caption {
@@ -25,23 +25,9 @@
   }
 
   & thead {
-    color: $table-header-text-color;
+    font: normal $size-base $brand-font-family-semibold;
     background-color: $table-header-background-color;
-    border-bottom: 1px solid $table-default-border-color;
-
-    font-size: $table-header-font-size;
-    font-weight: normal;
-    text-transform: uppercase;
-    font-family: $brand-font-family-semibold;
-
-    & th {
-      border: none;
-      border-right: 1px solid $table-secondary-border-color;
-
-      &:last-child() {
-        border-right: none;
-      }
-    }
+    color: $brand-gray;
   }
 
   & tbody {
@@ -55,12 +41,6 @@
 
     & td {
       border: none;
-      border-right: 1px solid $table-secondary-border-color;
-      border-bottom: 1px solid $table-secondary-border-color;
-
-      &:last-child() {
-        border-right: none;
-      }
     }
   }
 }
@@ -82,7 +62,7 @@
 
 .table-striped {
   & tbody tr:nth-of-type(even) {
-    background-color: $table-accent-color;
+    background-color: $brand-gray-lightest;
   }
 }
 
@@ -100,6 +80,10 @@
 
   th, td {
     padding: $size-xs;
+
+    &:first-of-type {
+      border-right: 1px solid $brand-gray-lighter;
+    }
   }
 
   & thead {
@@ -138,7 +122,7 @@
         &::before {
           display: block;
           content: attr(data-header);
-          color: $table-header-text-color;
+          color: $brand-gray;
           white-space: initial;
           width: 100%;
         }
@@ -177,15 +161,13 @@
         text-align: initial;
         width: initial;
 
-        border: none;
-        border-bottom: 1px solid $table-secondary-border-color;
         position: relative;
 
         &::before,
         &::after {
           font-weight: normal;
           font-family: $brand-font-family-semibold;
-          font-size: $table-header-font-size;
+          font-size: $size-base;
 
           text-transform: uppercase;
           text-align: initial;
@@ -218,10 +200,6 @@
 
     &:not(.table-bordered) {
       & tbody {
-        & td {
-          border-bottom: 1px solid $table-secondary-border-color;
-        }
-
         & tr:last-child() td:last-child() {
           border-bottom: none;
         }
@@ -261,6 +239,8 @@ th, td {
   &.text {}
   &.actions {}
 }
+
+td.number { text-align: right; }
 
 @include table-row-variant('active', $table-bg-active);
 @include table-row-variant('success', $state-success-bg);

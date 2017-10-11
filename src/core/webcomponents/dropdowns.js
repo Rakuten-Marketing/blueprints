@@ -150,8 +150,7 @@
     this.dropdown(true);
   };
 
-  /* ---------- Element registration function (webcomponent) ---------- */
-  dropdown.createdCallback = function () {
+  dropdown.attachedCallback = function () {
     // Making this webcomponent "highlighted code" friendly (such as hljs)
     // Also stopping execution if the webcomponent is empty
     if (!this.parentNode.attributes.hasOwnProperty('code-example') && this.hasChildNodes()) {

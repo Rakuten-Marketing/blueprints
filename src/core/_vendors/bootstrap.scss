@@ -56,10 +56,7 @@ $table-condensed-padding: $size-xs !default;
 $table-default-border-color: $brand-gray-lighter !default;
 $table-deafult-background-color: $brand-white !default;
 $table-default-text-color: $brand-gray-dark !default;
-$table-header-text-color: $brand-gray-darker !default;
-$table-header-font-size: $size-s !default;
 $table-header-background-color: $brand-gray-lighter !default;
-$table-accent-color: $brand-gray-lightest !default;
 $table-hover-color: $brand-gray-lighter !default;
 $table-secondary-border-color: $brand-gray-lighter !default;
 $table-caption-color: $brand-gray !default;
@@ -67,7 +64,7 @@ $table-caption-color: $brand-gray !default;
 // Buttons
 $btn-default-color: $brand-gray !default;
 $btn-default-bg: $brand-white !default;
-$btn-default-border: $brand-gray-lighter !default;
+$btn-default-border: $brand-gray-light !default;
 
 $btn-primary-color: $brand-white !default;
 $btn-primary-bg: $brand-primary !default;
