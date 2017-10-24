@@ -22,7 +22,7 @@
     vm.showFullScreen = function() {
       var body = $document[0].body;
 
-      angular.element(body).toggleClass('fullscreen-preloader');
+      angular.element(body).toggleClass('disabled-with-overlay');
       vm.fullscreen = !vm.fullscreen;
     };
   }
