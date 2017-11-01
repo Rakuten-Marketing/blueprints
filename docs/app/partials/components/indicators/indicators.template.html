@@ -1,5 +1,5 @@
 <div class="section-header">
-  <div class="title">Loading animations</div>
+  <div class="title">State Indicator</div>
   <div class="caption">Responsive element/layout markup with a webcomponent option</div>
 </div>
 <hr class="shadow-horizontal" />
@@ -11,6 +11,40 @@
   but we can take advantage of a couple of things to reduce the frustration of our users.
 </p>
 
+<h3>— Available animations (loading state)</h3>
+<p>
+  By default (you don't need to add an special classname) you will get the animation showed in the first example.
+  You can use <code>.morphing-bubble-animation</code> as a subclass for your <kbd>.state-indicator-animation</kbd> element.
+</p>
+
+<div class="example-list">
+  <div class="example-list-item">
+    <div class="example">
+      <div class="state-indicator loading">
+        <div class="state-indicator-animation"></div>
+        <div class="state-indicator-message text-muted">Loading, please wait.</div>
+      </div>
+    </div>
+    <div class="caption">
+      <code>{N/A}</code></br>You can consider this variation as the default behavior for this element.
+      You don't need to include any subclasses.
+    </div>
+  </div>
+
+  <div class="example-list-item">
+    <div class="example">
+      <div class="state-indicator loading">
+        <div class="state-indicator-animation morphing-bubble-animation"></div>
+        <div class="state-indicator-message text-muted">Loading, please wait.</div>
+      </div>
+    </div>
+    <div class="caption">
+      <code>.morphing-bubble-animation</code>
+      </br>Option for all those scenarios where there is an API response that could take several seconds
+    </div>
+  </div>
+</div>
+
 <h3>—  Preloaders you can add to containers</h3>
 <p>
   Consider as a <kbd>container</kbd> all block elements: <code>div</code>, <code>span</code>,
@@ -20,7 +54,7 @@
 </p>
 
 <div class="card card-rounded mb-1">
-  <div class="card-content state-indicator-container" data-state="loading">
+  <div class="card-content state-indicator-container loading">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae sodales lectus.Donec nec malesuada
     massa, ac mattis nulla. Vivamus tempor tempor lectus, sed feugiat ipsum euismod tristique. Mauris nec
     maximus velit. Nulla auctor eros vel erat consequat dignissim. Sed ut sodales dolor. Maecenas mattis
@@ -30,7 +64,8 @@
     Nulla facilisi. Morbi id ante at nunc ultricies hendrerit nec vitae nibh.
 
     <div class="state-indicator" ng-class="preloadersView.position">
-      <div class="state-indicator-message">Loading, please wait.</div>
+      <div class="state-indicator-animation"></div>
+      <div class="state-indicator-message text-muted">Loading, please wait.</div>
     </div>
   </div>
 </div>
@@ -38,7 +73,6 @@
 <div class="caption p-2">
   You can change the position of the indicator, simply adding any of the following classnames to the
   <kbd>state-indicator</kbd> element, replacing the <code>{alignment}</code> word in the following code
-  (if you don't include any of these, your element will inherit <code>.left-top</code> behavior).
 </div>
 
 <div class="btn-group btn-group-xs" role="group">
@@ -85,7 +119,8 @@
   // There is an element as the "last element" below, you must respect that
 
   <div class="state-indicator {alignment}">
-    <div class="state-indicator-message">Loading, please wait.</div>
+    <div class="state-indicator-animation"></div>
+    <div class="state-indicator-message text-muted">Loading, please wait.</div>
   </div>
 </element>
 </div>
@@ -99,9 +134,9 @@
   using z-index: custom at this level, action-triggered elements (such tooltips) are fine since
   are user interaction dependable</br></br>
 
-  <strong>Considerations:</strong> notice the <code>{loading|done|decision}</code> block, you should use
-  only one of those options; see table below for reference. Also <b>don't try to hide the element using classnames</b>,
-  use the <code>"done"</code> state instead, see below:
+  <strong>Considerations:</strong> you should use only one of these <code>{loading|done|decision}</code>;
+  see table below for reference.</br>Also <b>don't try to hide the element using classnames</b>,
+  use the <code>"done"</code> state instead or nothing at all, see below:
 </div>
 
 <table class="table table-simple">
@@ -143,43 +178,28 @@
   </tbody>
 </table>
 
-<div class="caption p-2">
-  <strong>Classname vs data-attribute</strong></br>
-  There is a webcomponents friendly option you can use; so instead of using the classnames
-  <code>{loading|done|decision}</code> you can add the attribute <kbd>data-state=""</kbd> with one of those
-  classnames values (don't use both at the same time)<br>
-  Using the web inspector, you will see all the examples in this page are using the attribute way
-</div>
-
 <h3>—  Using the preloader as a standalone element</h3>
 <p>
   Using this approach means you don't need the overlay nor the "absolute" position of the element,
   making the <kbd>state-indicator-container</kbd> element unnecessary to achieve your goals.
 </p>
 
-<div class="state-indicator" data-state="loading">
-  <div class="state-indicator-message">Loading, please wait.</div>
+<div class="state-indicator loading">
+  <div class="state-indicator-animation"></div>
+  <div class="state-indicator-message text-muted">Loading, please wait.</div>
 </div>
 
 <div hljs hljs-language="html">
-<div class="state-indicator {alignment} {loading|done|decision}">
-  <div class="state-indicator-message">Loading, please wait.</div>
+<div class="state-indicator {loading|done|decision}">
+  <div class="state-indicator-animation"></div>
+  <div class="state-indicator-message text-muted">Loading, please wait.</div>
 </div>
 </div>
 
 <div class="caption mb-1">
-  <strong>Considerations:</strong> notice the <code>{loading|done|decision}</code> (think the same for the
-  <kbd>data-state=""</kbd> attribute) is transferred to the element itself (default). The values for that
-  attribute are described above, those doesn't change.
-  Same fashion for the <code>{alignment}</code> values to change the position of the preloader, however
-  there are some considerations for the <code>.centered</code> classname, see below:</br></br>
-
-  <code>left-top</code>, <code>right-top</code>, <code>right-center</code>, <code>right-bottom</code>,
-  <code>left-bottom</code>, <code>left-center</code> and <code>centered</code></br>
-  The centered classname is not recommended when not using a container, unless you specify a height|min-height
-  for your element. Also when the container is not present nor the height|min-height is defined, you will get
-  only two behavior actually: "left" and "right" alignation. You can scroll up ↑ and play with the container
-  version of this.
+  <strong>Considerations:</strong> notice the <code>{loading|done|decision}</code> is transferred to the element itself.
+  The values for that attribute are described above, those doesn't change.
+  Same fashion for the <code>{alignment}</code> values to change the position of the preloader.
 </div>
 
 <h3>—  Preloaders you can add to interactive elements</h3>
@@ -190,43 +210,43 @@
 </p>
 
 <button type="submit" class="btn btn-default state-indicator-container mr-5"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-primary state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-success state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-info state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-warning state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-danger state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
 
 <button type="submit" class="btn btn-link state-indicator-container"
-  ng-attr-data-state="{{ preloadersView.dataState }}">
+  ng-class="preloadersView.dataState">
   Loading
   <div class="state-indicator centered"></div>
 </button>
@@ -275,11 +295,11 @@
   Fullscreen preloader
 </button>
 
-<div class="state-indicator-container fullscreen"
-  ng-class="{ 'loading': preloadersView.fullscreen }"
+<div class="state-indicator-container standalone loading"
+  ng-class="{ 'fullscreen': preloadersView.fullscreen }"
   ng-click="preloadersView.showFullScreen()">
-  <div class="state-indicator centered">
-    <div class="state-indicator-animation"></div>
+  <div class="state-indicator">
+    <div class="state-indicator-animation morphing-bubble-animation"></div>
     <div class="state-indicator-message">Loading</div>
   </div>
 </div>

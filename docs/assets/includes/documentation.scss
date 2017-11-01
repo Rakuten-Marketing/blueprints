@@ -1,0 +1,34 @@
+$documentation-example-size-box: 100px;
+
+.example-list {
+  display: flex;
+  flex-direction: row;
+
+  &-item {
+    border: 1px dashed $brand-gray-lighter;
+    max-width: $documentation-example-size-box * 2;
+    padding: $size-xxs;
+
+    .example {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      background-color: $brand-gray-lightest;
+      height: $documentation-example-size-box;
+    }
+
+    .caption {
+      padding-top: $size-xs;
+    }
+  }
+
+  > :first-child:not(:only-child) {
+    margin-right: $size-xxs;
+  }
+
+  > :last-child:not(:only-child) {
+    margin-left: $size-xxs;
+  }
+}
