@@ -140,7 +140,8 @@ bp-dropdown { display: inline-block; }
 
     & a,
     & button {
-      align-items: baseline;
+      text-align: left;
+      align-items: flex-start;
     }
   }
 
