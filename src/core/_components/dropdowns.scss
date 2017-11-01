@@ -23,9 +23,9 @@ bp-dropdown { display: inline-block; }
     height: auto;
     width: auto;
 
-
-    & .dropdown-title {}
+    & .dropdown-title { text-align: left; }
     & .dropdown-caret {
+      display: flex;
       position: relative;
       align-self: center;
       margin-left: $dropdown-caret-padding;
@@ -206,4 +206,18 @@ bp-dropdown { display: inline-block; }
 
 .btn-group-justified > .btn-group bp-dropdown {
   width: 100%;
+}
+
+// Fix for IE11 and the custom caret (if present)
+// We may like to add a custom classname so we don't do this by default (to all select elements)
+select {
+  outline : none;
+  overflow : hidden;
+  text-indent : 0.01px;
+  text-overflow : '';
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
 }
