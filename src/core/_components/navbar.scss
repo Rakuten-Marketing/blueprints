@@ -30,8 +30,8 @@ $navbar-item-width: 100px !default;
   // Bootstrap{source} not following the OCSS pattern
   // The following 4 lines of code are because the _navbar.scss file modifies them,
   // this should not be the case. We will move away that file in next iterations.
-  height: auto;
-  min-height: auto;
+  height: initial;
+  min-height: initial;
   margin: 0;
   border: none;
 
@@ -125,11 +125,6 @@ $navbar-item-width: 100px !default;
     &:first-child:nth-last-child(2) {
       margin-right: $navbar-padding * 2;
     }
-  }
-
-  .navbar-brand-logo {
-    max-width: 100%;
-    flex-shrink: 0;
   }
 
   .navbar-brand-text {
