@@ -1,300 +1,51 @@
-// This classname will be used for disabling an element outside the scope of the state-indicator
-.disabled-with-overlay {
-  pointer-events: none;
-  user-select: none;
-  overflow: hidden;
-}
-
-// Disabling interaction for all the available instances of the state-indicator
-// i.e: Container usage, standalone usage and  button usage
-[class^="state-indicator"],
-[class*=" state-indicator"] {
-  &.loading,
-  &.decision,
-  &.exception {
-    pointer-events: none;
-    user-select: none;
-  }
-}
-
-.state-indicator {
-  opacity: 0;
-  transition: opacity 0.55s 0.15s linear;
-
-  .state-indicator-message { position: relative; }
-  .state-indicator-animation {
-    &::before {
-      content: '';
-      display: inline-block;
-    }
-
-    &:not(.morphing-bubble-animation)::before {
-      height: $state-indicator-default-spinning-circle-size;
-      width: $state-indicator-default-spinning-circle-size;
-
-      border-radius: 100%;
-      border: 2px solid $state-indicator-default-spinning-circle-background-color;
-      border-top-color: $state-indicator-default-spinning-circle-color;
-    }
-
-    &.morphing-bubble-animation {
-      &::before,
-      &::after {
-        content: '';
-        background-color: $state-indicator-default-spinning-circle-color;
-      }
-
-      &::before {
-        height: $state-indicator-default-padding / 2;
-        margin: $size-s 0;
-      }
-
-      &::after {
-        display: block;
-        height: $state-indicator-default-padding;
-        width: $state-indicator-default-spinning-circle-size;
-
-        border-radius: 50%;
-        margin: 0 auto $state-indicator-default-padding;
-      }
-    }
-  }
-
-  &.decision,
-  &.exception,
-  &.loading {
-    @extend %show-state-indicator;
-  }
-
-  &.loading {
-    @extend %show-state-indicator-animation;
-  }
-
-  &.decision,
-  &.exception {
-    @extend %hide-state-indicator-animation;
-  }
-
-  &.done,
-  :not(.state-indicator-container) > &:not(.decision):not(.exception):not(.loading) {
-    @extend %hide-state-indicator;
-    @extend %hide-state-indicator-animation;
-  }
-}
-
-.state-indicator-container {
-  z-index: $zindex-default;
-  position: relative;
-  word-break: break-word;
-
-  &::before {
-    content: '';
-    opacity: 0;
-    display: block;
-    transition: opacity 0.55s linear;
-    background-color: $state-indicator-default-background-color;
-
-    @include full-overlay($position: absolute, $fullscreen: false);
-  }
-
-  &::before,
-  & .state-indicator {
-    z-index: $zindex-floating;
-  }
-
-  &.transparent::before { background-color: transparent; }
-  &.standalone { min-height: $state-indicator-fullscreen-initial-animation-width; }
-
-  &.fullscreen {
-    @include full-overlay($position: absolute, $fullscreen: true);
-  }
-
-  @at-root :not(.state-indicator-container) ~ .state-indicator,
-  & > .state-indicator {
-    @include element-location(top-left);
-
-    display: inline-flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    height: 100%;
-
-    // Alignment options
-    &[class^="right-"],
-    &[class*=" right-"] {
-      justify-content: initial;
-      flex-direction: row-reverse;
-
-      .state-indicator-message {
-        margin-right: $state-indicator-default-padding;
-      }
-    }
-
-    &[class^="left-"],
-    &[class*=" left-"] {
-      justify-content: initial;
-      flex-direction: row;
-
-      .state-indicator-message {
-        margin-left: $state-indicator-default-padding;
-      }
-    }
-
-    &[class*="-top"],
-    &[class*="-bottom"] {
-      height: initial;
-    }
-  
-    &.left-center,
-    &.right-center {
-      align-items: center;
-      height: 100%;
-    }
-  
-    &.left-bottom,
-    &.right-bottom {
-      top: initial;
-      bottom: 0;
-    }
-  }
-
-  &.decision,
-  &.exception,
-  &.loading {
-    @extend %show-state-indicator-container-overlay;
-
-    > .state-indicator {
-      opacity: 0;
-      animation: fadein 0.5s 0.40s ease-in;
-      animation-fill-mode: both;
-    
-      .state-indicator-message {
-        animation: push-down 0.35s 0.40s cubic-bezier(0.75, 0, 0.5, 1);
-        animation-fill-mode: forwards;
-      }
-    }
-  }
-
-  &.loading > .state-indicator {
-    @extend %show-state-indicator-animation;
-  }
-
-  &.decision,
-  &.exception {
-    @extend %show-state-indicator-container-overlay;
-
-    > .state-indicator {
-      @extend %hide-state-indicator-animation;
-    }
-  }
-
-  &.done,
-  &:not(.decision):not(.exception):not(.loading) {
-    @extend %hide-state-indicator-container-overlay;
-
-    > .state-indicator {
-      opacity: 1;
-      animation: fadeout 0.5s 0.40s ease-in;
-      animation-fill-mode: both;
-    
-      .state-indicator-message {
-        animation: push-up 0.25s cubic-bezier(0.75, 0, 0.5, 1);
-        animation-fill-mode: forwards;
-      }
-
-      @extend %hide-state-indicator-animation;
-    }
-  }
-}
-
-:not(.state-indicator-container) ~ .state-indicator { position: initial; }
-.btn.state-indicator-container {
-  & > .state-indicator {
-    top: 0;
-    bottom: 0;
-    padding: inherit;
-    flex-direction: initial;
-
-    &::before {
-      content: '';
-      height: $state-indicator-condensed-circle-size;
-      width: $state-indicator-condensed-circle-size;
-      display: inline-block;
-      margin: 0;
-    }
-  }
-
-  &.loading {
-    .state-indicator::before {
-      border-radius: 100%;
-      border: 2px solid $state-indicator-default-spinning-circle-background-color;
-      border-top-color: $state-indicator-default-spinning-circle-color;
-      animation: rotate 0.5s 0.25s infinite linear;
-      animation-fill-mode: both;
-    }
-  }
-}
-
-// Moving one level down (presumably the lowest level) the blocking elements
-// when they are not needed (a state different to a "loading" state)
-.state-indicator-container:not(.decision):not(.exception):not(.loading) {
-  &::before,
-  & > .state-indicator,
-  & > *:not(.state-indicator-container) > .state-indicator {
-    z-index: $zindex-disabled;
-    transition: z-index 0.75s step-end;
-  }
-}
-
-%show-state-indicator-container-overlay {
-  &::before {
-    @include simple-property-animation(state-indicator-container-fadein,
-             opacity, 0, $state-indicator-default-background-opacity);
-
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-    animation-duration: 0.45s;
-    animation-delay: 0.10s;
-    animation-fill-mode: both;
-  }
-}
-
-%hide-state-indicator-container-overlay {
-  &::before {
-    opacity: $state-indicator-default-background-opacity;
-    @include simple-property-animation(state-indicator-container-fadeout,
-             opacity, $state-indicator-default-background-opacity, 0);
-
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-    animation-duration: 0.45s;
-    animation-delay: 0.10s;
-    animation-fill-mode: both;
-  }
-}
-
+/* --- Placeholders for easy maintenance and migration for replacing animations coming from BP2. --- */
 // Using placeholders to allow this component to get a better scalable and maintainable state
 // Technically we will perform only two actions for each element: "show" and "hide"
-%show-state-indicator {
-  opacity: 0;
-  animation: fadein 0.5s 0.11s ease-in;
-  animation-fill-mode: both;
 
-  .state-indicator-message {
-    animation: push-down 0.35s 0.10s cubic-bezier(0.75, 0, 0.5, 1);
-    animation-fill-mode: forwards;
+/* --- Scenario: The animation/spinner is inside a container --- */
+/* We can replace the animations/transitions when BP2.0 have them */
+%show-state-indicator-container-background {
+  &::before {
+    opacity: $state-indicator-default-background-opacity;
+    z-index: $zindex-floating;
+    transition: opacity 0.55s 0.25s linear;
   }
 }
 
-%hide-state-indicator {
-  opacity: 1;
-  animation: fadeout 0.5s 0.11s ease-in;
-  animation-fill-mode: both;
+%hide-state-indicator-container-background {
+  &::before {
+    opacity: 0;
+    z-index: $zindex-disabled;
+    transition: opacity 0.55s 0.25s linear, z-index 0.80s step-end;
+  }
+}
 
-  .state-indicator-message {
-    animation: push-up 0.25s cubic-bezier(0.75, 0, 0.5, 1);
-    animation-fill-mode: forwards;
+%show-state-indicator-container-element {
+  .state-indicator {
+    opacity: 0;
+    z-index: $zindex-floating;
+    animation: fadein 0.5s 0.20s ease-in;
+    animation-fill-mode: both;
+    transition: unset;
+    
+    .state-indicator-message {
+      animation: push-down 0.35s 0.20s cubic-bezier(0.75, 0, 0.5, 1);
+      animation-fill-mode: both;
+    }
+  }
+}
+
+%hide-state-indicator-container-element {
+  .state-indicator {
+    opacity: 1;
+    animation: fadeout 0.5s 0.20s ease-in;
+    animation-fill-mode: both;
+    z-index: $zindex-disabled;
+    
+    .state-indicator-message {
+      animation: push-up 0.35s 0.20s cubic-bezier(0.75, 0, 0.5, 1);
+      animation-fill-mode: both;
+    }
   }
 }
 
@@ -339,37 +90,296 @@
   }
 }
 
+.disable-interaction {
+  overflow: hidden;
+
+  &,
+  & input,
+  & button {
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+// Disabling the element for all the "busy" states
+[class*="state-indicator"] {
+  &.loading,
+  &.decision,
+  &.exception {
+    @extend .disable-interaction;
+  }
+}
+
+.state-indicator {
+  z-index: $zindex-disabled;
+  @include element-location(top-left);
+
+  opacity: 0;
+  transition: opacity 0.55s 0.15s linear, z-index 0.80s step-end;
+  display: inline-flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  // Alignment options
+  &[class^="right-"],
+  &[class*=" right-"] {
+    justify-content: initial;
+    flex-direction: row-reverse;
+
+    .state-indicator-message {
+      margin-right: $state-indicator-default-padding;
+    }
+  }
+
+  &[class^="left-"],
+  &[class*=" left-"] {
+    justify-content: initial;
+    flex-direction: row;
+
+    .state-indicator-message {
+      margin-left: $state-indicator-default-padding;
+    }
+  }
+
+  &[class*="-top"],
+  &[class*="-bottom"] {
+    height: initial;
+  }
+
+  &.left-center,
+  &.right-center {
+    align-items: center;
+    height: 100%;
+  }
+
+  &.left-bottom,
+  &.right-bottom {
+    top: initial;
+    bottom: 0;
+  }
+
+  .state-indicator-message { position: relative; }
+  .state-indicator-animation {
+    &::before {
+      content: '';
+      display: inline-block;
+    }
+
+    &:not(.morphing-bubble-animation)::before {
+      height: $state-indicator-default-spinning-circle-size;
+      width: $state-indicator-default-spinning-circle-size;
+
+      border-radius: 100%;
+      border: 2px solid $state-indicator-default-spinning-circle-background-color;
+      border-top-color: $state-indicator-default-spinning-circle-color;
+    }
+
+    &.morphing-bubble-animation {
+      &::before,
+      &::after {
+        content: '';
+        background-color: $state-indicator-default-spinning-circle-color;
+      }
+
+      &::before {
+        height: $state-indicator-default-padding / 2;
+        margin: $size-s 0;
+      }
+
+      &::after {
+        display: block;
+        height: $state-indicator-default-padding;
+        width: $state-indicator-default-spinning-circle-size;
+
+        border-radius: 50%;
+        margin: 0 auto $state-indicator-default-padding;
+      }
+    }
+  }
+}
+
+.state-indicator-container {
+  z-index: $zindex-default;
+  position: relative;
+  word-break: break-word;
+
+  &::before {
+    content: '';
+    display: block;
+    background-color: $state-indicator-default-background-color;
+    transition: opacity 0.55s linear, z-index 0.1s 1.81s step-end;
+    @include full-overlay($position: absolute, $fullscreen: false);
+
+    z-index: $zindex-disabled;
+    opacity: 0;
+  }
+
+  &.transparent::before { background-color: transparent; }
+  &.standalone { min-height: $state-indicator-fullscreen-initial-animation-width; }
+  &.fullscreen {
+    @include full-overlay($position: absolute, $fullscreen: true);
+  }
+
+  &.decision,
+  &.exception,
+  &.loading {
+    @extend %show-state-indicator-container-background;
+    @extend %show-state-indicator-container-element;
+  }
+
+  &.loading .state-indicator {
+    @extend %show-state-indicator-animation;
+  }
+
+  &.decision,
+  &.exception {
+    @extend %show-state-indicator-container-background;
+
+   .state-indicator {
+      @extend %hide-state-indicator-animation;
+    }
+  }
+
+  &.done,
+  &:not(.decision):not(.exception):not(.loading) {
+    @extend %hide-state-indicator-container-background;
+    @extend %hide-state-indicator-container-element;
+    @extend %hide-state-indicator-animation;
+  } 
+}
+
+// Instance for buttons
+// Due the nature (and size) of these elements, we handle them separately
+button.state-indicator-container {
+  position: relative;
+
+  :first-child:not(:only-child) {
+    transition: opacity 0.25s linear;
+  }
+
+  // Buttons have their own spinner's size
+  // They are smaller than a regular container; therefore the special scenario
+  &.decision,
+  &.exception,
+  &.loading {
+    & > .state-indicator {
+      animation: fadein 0.5s 0.20s ease-in;
+      animation-fill-mode: both;
+    }
+  }
+
+  & > .state-indicator::before {
+    content: '';
+    display: inline-block;
+    height: $state-indicator-condensed-circle-size;
+    width: $state-indicator-condensed-circle-size;
+    border: 2px solid $state-indicator-default-spinning-circle-background-color;
+    border-top-color: $state-indicator-default-spinning-circle-color;
+    border-radius: 100%;
+    margin: 0;
+  }
+
+  &.loading {
+    :first-child:not(:only-child) { opacity: 0.25; }
+    > .state-indicator::before {
+      animation: rotate 0.5s 0.25s infinite linear;
+      animation-fill-mode: both;
+    }
+  }
+
+  &.decision,
+  &.exception {
+    & > .state-indicator {
+      animation: fadeout 0.50s 0.20s ease-in;
+      animation-fill-mode: both;
+
+      &::before {
+        opacity: 1;
+        animation: fadeout 0.45s linear forwards, rotate 0.5s 0.75s infinite linear, stop-rotation 0.5s 2.0s infinite linear;
+        animation-play-state: running;
+      }
+    }
+  }
+
+  &.done,
+  &:not(.decision):not(.exception):not(.loading) {
+    & > .state-indicator::before {
+      opacity: 1;
+      animation: fadeout 0.45s linear forwards, rotate 0.5s 0.75s infinite linear, stop-rotation 0.5s 2.0s infinite linear;
+      animation-play-state: running;
+    }
+  }
+}
+
+// CSS Rules that will only happen for the state-indicator being used without a container
+.state-indicator-standalone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: initial;
+
+  &.decision,
+  &.exception,
+  &.loading {
+    @extend %show-state-indicator-container-background;
+
+    opacity: 0;
+    animation: fadein 0.5s 0.40s ease-in;
+    animation-fill-mode: both;
+    z-index: $zindex-floating;
+    
+    .state-indicator-message {
+      animation: push-down 0.35s 0.40s cubic-bezier(0.75, 0, 0.5, 1);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.loading {
+    @extend %show-state-indicator-animation;
+  }
+
+  &.decision,
+  &.exception {
+    @extend %show-state-indicator-container-background;
+    @extend %hide-state-indicator-animation;
+  }
+
+  &.done,
+  &:not(.decision):not(.exception):not(.loading) {
+    @extend %hide-state-indicator-container-background;
+  }
+}
+
+/*--- Used animations (classname.component scope) ---*/
 // The following animations are used by the preloader sequence
 // These animations are used specifically by this component
 @keyframes push-up {
-    0% { top: 0px; }
+  0% { top: 0px; }
   100% { top: -#{$state-indicator-default-spinning-circle-size * 0.15}; }
 };
 
 @keyframes push-down {
-    0% { top: -#{$state-indicator-default-spinning-circle-size * 0.15}; }
+  0% { top: -#{$state-indicator-default-spinning-circle-size * 0.15}; }
   100% { top: 0px; }
 }
 
 @keyframes pulling-from-bottom {
-  0% {
-    opacity: 0.15;
-    margin-bottom: -$state-indicator-default-padding * 1.5;
-  }
-
+  0% { opacity: 0.15; margin-bottom: -$state-indicator-default-padding * 1.5; }
   25% { opacity: 0.25; }
   55% { opacity: 0.50; }
   60% { opacity: 1.00; }
-  
-  
   0%, 100% { width: $state-indicator-fullscreen-initial-animation-width; }
 }
 
 @keyframes bouncing-line-width {
-         0% { width: $state-indicator-fullscreen-initial-animation-width; }
-         6% { width: $state-indicator-fullscreen-initial-animation-width * 0.40; }
-         8% { width: $state-indicator-fullscreen-initial-animation-width * 0.10; }
-        15% { width: $state-indicator-fullscreen-initial-animation-width * 0.15; }
+  0% { width: $state-indicator-fullscreen-initial-animation-width; }
+  6% { width: $state-indicator-fullscreen-initial-animation-width * 0.40; }
+  8% { width: $state-indicator-fullscreen-initial-animation-width * 0.10; }
+  15% { width: $state-indicator-fullscreen-initial-animation-width * 0.15; }
   20%, 100% { width: $state-indicator-fullscreen-initial-animation-width * 0.10; }
 }
 
@@ -379,6 +389,6 @@
 }
 
 @keyframes from-square-to-circle-loop {
-   50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
+  50% { border-radius: 50%; transform: scale(0.5) rotate(360deg); }
   100% { transform: scale(1) rotate(720deg); }
 }
