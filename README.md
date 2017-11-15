@@ -1,13 +1,13 @@
 Blueprints
 ---
 
-> NOTE: This is very much work in progress and is not ready for production use. But feel free to take a peak and explore 😎
+> NOTE: This is the production-ready Blueprints CSS framework built for RAN usage. For information on the Blueprints 2 React component library, contact the team in the #blueprints channel on Slack.
 
 The purpose of this project is to define a branded styleguide for people to import and use in their projects.
 
 ### How do I use Blueprints in my app?
 
-Blueprints is NPM installable, just put `"blueprints": "git://github.private.linksynergy.com/SD/blueprints.git#release_tag_here"` in your package.json and npm install.
+Blueprints is NPM installable, just put `"blueprints": "git://github.private.linksynergy.com/SD/blueprints.git#release_tag_here"` in your package.json and npm install. The recommended version for production use is `v1.0.0`.
 
 The recommended way to use Blueprints is to include the /dist/blueprints.min.js in your app, and include Blueprints's src/blueprints.scss file in your app scss so you have access to all the variables (like colors and sizes) to use in your custom css. You can also just include the relevant component/variable/mixin/helper files when you need them to get minimal-weight on-brand css rules for your app.
 
